@@ -8,6 +8,7 @@
       <th>Continent</th>
       <th>Country en</th>
       <th>Country pl</th>
+      <th>Flag</th>
       <th>Capital city</th>
       <th>Alfa 2</th>
       <th>Alfa 3</th>
@@ -23,6 +24,7 @@
         <td><%= country.continent %></td>
         <td><%= country.country_en %></td>
         <td><%= country.country_pl %></td>
+        <td><%= image_tag("flags/"+country.country_en+".png", :alt => "rss feed" , style:"width:100%;height:100%;") %></td>
         <td><%= country.capital_city %></td>
         <td><%= country.alfa_2 %></td>
         <td><%= country.alfa_3 %></td>
