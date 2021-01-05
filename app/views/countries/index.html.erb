@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Countries</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Continent</th>
+      <th>Country en</th>
+      <th>Country pl</th>
+      <th>Capital city</th>
+      <th>Alfa 2</th>
+      <th>Alfa 3</th>
+      <th>Numeric code</th>
+      <th>Iso code</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @countries.each do |country| %>
+      <tr>
+        <td><%= country.continent %></td>
+        <td><%= country.country_en %></td>
+        <td><%= country.country_pl %></td>
+        <td><%= country.capital_city %></td>
+        <td><%= country.alfa_2 %></td>
+        <td><%= country.alfa_3 %></td>
+        <td><%= country.numeric_code %></td>
+        <td><%= country.iso_code %></td>
+        <td><%= link_to 'Show', country %></td>
+        <td><%= link_to 'Edit', edit_country_path(country) %></td>
+        <td><%= link_to 'Destroy', country, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Country', new_country_path %>

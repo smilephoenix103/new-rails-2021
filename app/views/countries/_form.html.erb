@@ -1,0 +1,57 @@
+<%= form_with(model: country) do |form| %>
+  <% if country.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(country.errors.count, "error") %> prohibited this country from being saved:</h2>
+
+      <ul>
+        <% country.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :continent %>
+    <%= form.text_field :continent %>
+  </div>
+
+  <div class="field">
+    <%= form.label :country_en %>
+    <%= form.text_field :country_en %>
+  </div>
+
+  <div class="field">
+    <%= form.label :country_pl %>
+    <%= form.text_field :country_pl %>
+  </div>
+
+  <div class="field">
+    <%= form.label :capital_city %>
+    <%= form.text_field :capital_city %>
+  </div>
+
+  <div class="field">
+    <%= form.label :alfa_2 %>
+    <%= form.text_field :alfa_2 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :alfa_3 %>
+    <%= form.text_field :alfa_3 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :numeric_code %>
+    <%= form.text_field :numeric_code %>
+  </div>
+
+  <div class="field">
+    <%= form.label :iso_code %>
+    <%= form.text_field :iso_code %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
