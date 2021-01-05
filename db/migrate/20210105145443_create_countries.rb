@@ -1,6 +1,6 @@
 class CreateCountries < ActiveRecord::Migration[6.1]
   def change
-    create_table : do |t|
+    create_table :countries do |t|
       t.string :continent
       t.string :country_en
       t.string :country_pl
