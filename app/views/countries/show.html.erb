@@ -1,57 +1,39 @@
 <div class="jumbotron">
   <h1 class="display-4">
     <%= @country.continent %> : 
-    <%= @country.country_en %>  
-    <%= image_tag("flags/"+@country.country_en+".png", :alt => "rss feed" , style:"width:15%;height:15%;") %>
+    <%= @country.country_en %> 
+
+    <% @root_path = Rails.root.join('app', 'assets', 'images','flags') %> 
+
+    <% if (File.exist?(@root_path + (@country.country_en + '.png'))) %>
+      <%= image_tag("flags/" + @country.country_en + ".png", :alt => "rss feed" , style:"width:15%;height:15%;") %>
+    <% else %>
+      <%= image_tag("flags/test.png", :alt => "rss feed" , style:"width:10%;height:10%;") %>
+    <% end %>
+
   </h1>
-  <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+  <p class="lead">
+    <strong>Capital city:</strong>
+    <%= @country.capital_city %>
+  </p>
+  <p>
+    <strong>Alfa 2:</strong>
+    <%= @country.alfa_2 %>
+     |   
+    <strong>Alfa 3:</strong>
+    <%= @country.alfa_3 %>
+  </p>
+  <p>
+    <strong>Numeric code:</strong>
+    <%= @country.numeric_code %>
+     |   
+    <strong>Iso code:</strong>
+    <%= @country.iso_code %>
+  </p>
   <hr class="my-4">
   <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
   <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
 </div>
-
-
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Continent:</strong>
-  <%= @country.continent %>
-</p>
-
-<p>
-  <strong>Country en:</strong>
-  <%= @country.country_en %>
-</p>
-
-<p>
-  <strong>Country pl:</strong>
-  <%= @country.country_pl %>
-</p>
-
-<p>
-  <strong>Capital city:</strong>
-  <%= @country.capital_city %>
-</p>
-
-<p>
-  <strong>Alfa 2:</strong>
-  <%= @country.alfa_2 %>
-</p>
-
-<p>
-  <strong>Alfa 3:</strong>
-  <%= @country.alfa_3 %>
-</p>
-
-<p>
-  <strong>Numeric code:</strong>
-  <%= @country.numeric_code %>
-</p>
-
-<p>
-  <strong>Iso code:</strong>
-  <%= @country.iso_code %>
-</p>
 
 <%= link_to 'Edit', edit_country_path(@country), class:"btn btn-secondary" %>  
 <%= link_to 'Back', countries_path, class:"btn btn-dark" %>
