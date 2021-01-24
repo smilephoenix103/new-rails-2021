@@ -4,8 +4,6 @@ class CountriesController < ApplicationController
   # GET /countries
   # GET /countries.json
   def index
-    # @countries = Country.all
-
     @countries = Country.all.order(country_en: :asc)
 
   end

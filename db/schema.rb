@@ -10,41 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_05_145443) do
+ActiveRecord::Schema.define(version: 2021_01_24_193121) do
 
   # These are extensions that must be enabled in order to support this database
-  enable_extension "btree_gin"
-  enable_extension "btree_gist"
-  enable_extension "citext"
-  enable_extension "cube"
-  enable_extension "dblink"
-  enable_extension "dict_int"
-  enable_extension "dict_xsyn"
-  enable_extension "earthdistance"
-  enable_extension "fuzzystrmatch"
-  enable_extension "hstore"
-  enable_extension "intarray"
-  enable_extension "ltree"
-  enable_extension "pg_stat_statements"
-  enable_extension "pg_trgm"
-  enable_extension "pgcrypto"
-  enable_extension "pgrowlocks"
-  enable_extension "pgstattuple"
   enable_extension "plpgsql"
-  enable_extension "tablefunc"
-  enable_extension "unaccent"
-  enable_extension "uuid-ossp"
-  enable_extension "xml2"
 
-  create_table "countries", force: :cascade do |t|
-    t.string "continent"
-    t.string "country_en"
-    t.string "country_pl"
-    t.string "capital_city"
-    t.string "alfa_2"
-    t.string "alfa_3"
-    t.string "numeric_code"
-    t.string "iso_code"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+  create_table "countries", id: { type: :bigint, default: -> { "nextval('countries_sequence'::regclass)" }, comment: "Klucz główny" }, comment: "Państwa swiata", force: :cascade do |t|
+    t.string "continent", limit: 100, null: false, comment: "Kontynent na kórym lezy państwo"
+    t.string "country_en", limit: 100, null: false, comment: "Nazwa państwa po angielsku"
+    t.string "country_pl", limit: 100, null: false, comment: "Nazwa państwa po polsku"
+    t.string "capital_city", limit: 100, null: false, comment: "Stolica państwa"
+    t.string "alfa_2", limit: 5, comment: "część standardu ISO 3166-1, zawiera dwuliterowe kody państw oraz terytoriów"
+    t.string "alfa_3", limit: 5, comment: "część standardu ISO 3166-1, zawiera trzyliterowe kody państw, które są wizualnie łatwiejsze w rozpoznawaniu krajów"
+    t.string "numeric_code", limit: 5, comment: "trzycyfrowe kody państw"
+    t.string "iso_code", limit: 20, comment: " kodowanie nazw państw, terytoriów zależnych oraz jednostek ich podziałów administracyjnych"
+    t.datetime "created_at", null: false, comment: "Data dodania"
+    t.datetime "updated_at", null: false, comment: "Data modyfikacji"
   end
+
+  create_table "currencies", id: { type: :bigint, default: -> { "nextval('currencys_sequence'::regclass)" }, comment: "Klucz główny" }, comment: "Spis waluty dla danego państwa swiata", force: :cascade do |t|
+    t.bigint "country_id", null: false, comment: "Klucz obcy"
+    t.string "cod", limit: 10, null: false, comment: "Kod waluty"
+    t.string "currency", limit: 100, null: false, comment: "Nazwa waluty"
+    t.string "change", limit: 100, null: false, comment: "Nazwa drobnych"
+    t.integer "active", null: false, comment: "Kod okreslający czy dana waluta jest aktualna/wymienna/niewymienna"
+    t.string "data_exchange", limit: 100, null: false, comment: "Data wymiany/zmiany/denominacji waluty"
+    t.string "currency_from", limit: 100, comment: "Z jakiej waluty na jaka"
+    t.string "converter", limit: 100, comment: "przelicznik wymiany/zmiany/denominacji waluty"
+    t.string "description", limit: 1000, comment: "Dodatkowe informacje"
+    t.datetime "created_at", null: false, comment: "Data dodania"
+    t.datetime "updated_at", null: false, comment: "Data modyfikacji"
+    t.string "pattern", limit: 100, comment: "Rodzaj elementu"
+  end
+
+  add_foreign_key "currencies", "countries", name: "currencies_country_id_fkey"
+end

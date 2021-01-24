@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  country: one
+  cod: MyString
+  currency: MyString
+  change: MyString
+  active: 1
+  data_exchange: MyString
+  currency_from: MyString
+  converter: MyString
+  description: MyText
+
+two:
+  country: two
+  cod: MyString
+  currency: MyString
+  change: MyString
+  active: 1
+  data_exchange: MyString
+  currency_from: MyString
+  converter: MyString
+  description: MyText

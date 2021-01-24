@@ -1,0 +1,62 @@
+<%= form_with(model: currency) do |form| %>
+  <% if currency.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(currency.errors.count, "error") %> prohibited this currency from being saved:</h2>
+
+      <ul>
+        <% currency.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :country_id %>
+    <%= form.text_field :country_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cod %>
+    <%= form.text_field :cod %>
+  </div>
+
+  <div class="field">
+    <%= form.label :currency %>
+    <%= form.text_field :currency %>
+  </div>
+
+  <div class="field">
+    <%= form.label :change %>
+    <%= form.text_field :change %>
+  </div>
+
+  <div class="field">
+    <%= form.label :active %>
+    <%= form.number_field :active %>
+  </div>
+
+  <div class="field">
+    <%= form.label :data_exchange %>
+    <%= form.text_field :data_exchange %>
+  </div>
+
+  <div class="field">
+    <%= form.label :currency_from %>
+    <%= form.text_field :currency_from %>
+  </div>
+
+  <div class="field">
+    <%= form.label :converter %>
+    <%= form.text_field :converter %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
