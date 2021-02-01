@@ -1,0 +1,33 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  currency: one
+  denomination: 
+  name_currency: MyString
+  note_date: MyString
+  signature_code: 1
+  price_buy: 1.5
+  price_sell: 1.5
+  quantity: 1
+  quality: MyString
+  status: MyString
+  description: MyText
+  img_type: MyString
+  avers_path: MyText
+  reverse_path: MyText
+
+two:
+  currency: two
+  denomination: 
+  name_currency: MyString
+  note_date: MyString
+  signature_code: 1
+  price_buy: 1.5
+  price_sell: 1.5
+  quantity: 1
+  quality: MyString
+  status: MyString
+  description: MyText
+  img_type: MyString
+  avers_path: MyText
+  reverse_path: MyText

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_24_193121) do
+ActiveRecord::Schema.define(version: 2021_02_01_130504) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,5 +43,30 @@ ActiveRecord::Schema.define(version: 2021_01_24_193121) do
     t.string "pattern", limit: 100, comment: "Rodzaj elementu"
   end
 
+  create_table "notes", id: { type: :bigint, default: -> { "nextval('notes_sequence'::regclass)" }, comment: "Klucz główny" }, comment: "Tabela za banknotami", force: :cascade do |t|
+    t.bigint "currency_id", null: false, comment: "Klucz obcy tabela z walutami"
+    t.decimal "denomination", precision: 20, scale: 2, null: false, comment: "Nominał banknotu"
+    t.string "name_currency", limit: 50, null: false, comment: "Nazwa banknotu"
+    t.string "note_date", limit: 20, null: false, comment: "Data druku banknotu"
+    t.integer "signature_code", default: 0, null: false, comment: "Kod okreslajacy czy bankot jest Obiegowy/wymienny/nieobieggowy.."
+    t.decimal "price_buy", precision: 6, scale: 2, default: "0.0", null: false, comment: "Cena zakupy banknotu"
+    t.decimal "price_sell", precision: 6, scale: 2, default: "0.0", null: false, comment: "Cena sprzedaży (możliwość negocjacji)"
+    t.integer "quantity", default: 0, null: false, comment: "Ilość sztuk"
+    t.string "quality", limit: 200, null: false, comment: "Stan banknotu"
+    t.string "status", limit: 100, null: false, comment: "\"K\" - kolekcja, \"S\" - na sprzedaż"
+    t.string "description", limit: 1000, null: false, comment: "Opis"
+    t.string "img_type", limit: 50, null: false, comment: "Rodzaj obrazka -skan/zdjęcie..."
+    t.string "avers_path", limit: 512, null: false, comment: "Ścieżka do zdjęcia banknotu - avers"
+    t.string "reverse_path", limit: 512, null: false, comment: "Ścieżka da zdjęcia banknotu - revers"
+    t.datetime "created_at", null: false, comment: "Data dodania"
+    t.datetime "updated_at", null: false, comment: "Data modyfikacji"
+    t.string "series", limit: 100, comment: "Seria banknotu"
+    t.string "making", limit: 100, comment: "Materiał z jakiego został zrobiony banknot"
+    t.date "date_buy_note", comment: "Data zakupu banknotu"
+    t.string "bought", limit: 100, comment: "Gdzie banknot został kupiony"
+    t.string "status_sell", limit: 100, comment: "Czy banknot został wystawiony na sprzedaż"
+  end
+
   add_foreign_key "currencies", "countries", name: "currencies_country_id_fkey"
+  add_foreign_key "notes", "currencies", name: "notes_currency_id_fkey"
 end

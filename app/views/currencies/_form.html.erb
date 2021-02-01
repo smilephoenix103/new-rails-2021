@@ -11,9 +11,10 @@
     </div>
   <% end %>
 
+  <h3><%= @currency.country %></h3>
   <div class="field">
-    <%= form.label :country_id %>
-    <%= form.text_field :country_id %>
+    <% form.label :country_id %>
+    <%= form.text_field :country_id, type: :hidden %>
   </div>
 
   <div class="field">

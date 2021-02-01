@@ -1,0 +1,74 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Currency:</strong>
+  <%= @note.currency_id %>
+</p>
+
+<p>
+  <strong>Denomination:</strong>
+  <%= @note.denomination %>
+</p>
+
+<p>
+  <strong>Name currency:</strong>
+  <%= @note.name_currency %>
+</p>
+
+<p>
+  <strong>Note date:</strong>
+  <%= @note.note_date %>
+</p>
+
+<p>
+  <strong>Signature code:</strong>
+  <%= @note.signature_code %>
+</p>
+
+<p>
+  <strong>Price buy:</strong>
+  <%= @note.price_buy %>
+</p>
+
+<p>
+  <strong>Price sell:</strong>
+  <%= @note.price_sell %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @note.quantity %>
+</p>
+
+<p>
+  <strong>Quality:</strong>
+  <%= @note.quality %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @note.status %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @note.description %>
+</p>
+
+<p>
+  <strong>Img type:</strong>
+  <%= @note.img_type %>
+</p>
+
+<p>
+  <strong>Avers path:</strong>
+  <%= @note.avers_path %>
+</p>
+
+<p>
+  <strong>Reverse path:</strong>
+  <%= @note.reverse_path %>
+</p>
+
+<%= link_to 'Edit', edit_note_path(@note) %> |
+<%= link_to 'Back', notes_path %>

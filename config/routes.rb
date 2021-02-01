@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  
   # get 'home/index'
   root 'home#index'
   get 'home/about'
@@ -7,7 +8,13 @@ Rails.application.routes.draw do
    resources :countries do
     resources :currencies
   end
+  
+  resources :currencies do
+    resources :notes
+  end
 
-  resources :currencies
   resources :countries
+  resources :currencies
+  resources :notes
+  
 end
