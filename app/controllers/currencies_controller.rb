@@ -10,17 +10,27 @@ class CurrenciesController < ApplicationController
   # GET /currencies/1
   # GET /currencies/1.json
   def show
-    @currency = Currency.find(params[:country_id])
-    puts "SHOW TEST"
-    puts params[:country_id]
-    puts "SHOW TEST"
+   
+    if (params[:id] != nil)
+        puts "++++++++++++++++++++++++++++++++++++++++++++++++"
+        puts params[:id]      
+        @currency = Currency.find(params[:id])      
+        puts "+++++++++++++++++++++++++++++++++++++++++++++++++"      
+    else       
+        @currency = Currency.find(params[:country_id])
+        puts "SHOW TEST"
+        puts params[:country_id]
+        puts "SHOW TEST"      
+    end
   end
 
   # GET /currencies/new
   def new
     @currency = Currency.new
     puts "@@@@@@@@@@@@@TEST@@@@@@@@@@@@@@@@@"
-    puts @country
+    puts params[:country_id]
+    @currency.country_id = params[:country_id]
+    # puts @currency.inspect
     puts "@@@@@@@@@@@@@TEST@@@@@@@@@@@@@@@@@"
 
   end
@@ -38,7 +48,8 @@ class CurrenciesController < ApplicationController
 
     respond_to do |format|
       if @currency.save
-        format.html { redirect_to @currency, notice: 'Currency was successfully created.' }
+        @country = @currency.country
+        format.html { redirect_to @country, notice: 'Currency was successfully created.' }
         format.json { render :show, status: :created, location: @currency }
       else
         format.html { render :new }
@@ -52,7 +63,8 @@ class CurrenciesController < ApplicationController
   def update
     respond_to do |format|
       if @currency.update(currency_params)
-        format.html { redirect_to @currency, notice: 'Currency was successfully updated.' }
+         @country = @currency.country
+        format.html { redirect_to @country, notice: 'Currency was successfully updated.' }
         format.json { render :show, status: :ok, location: @currency }
       else
         format.html { render :edit }
