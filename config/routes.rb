@@ -5,16 +5,21 @@ Rails.application.routes.draw do
   root 'home#index'
   get 'home/about'
 
-   resources :countries do
-    resources :currencies
-  end
-  
-  resources :currencies do
-    resources :notes
-  end
+  get 'currencies/new/country/currency'
 
   resources :countries
   resources :currencies
   resources :notes
+
+   resources :countries do
+    resources :currencies
+      resources :notes
+  end
+  
+  # resources :currencies do
+  #   resources :notes
+  # end
+
+  
   
 end

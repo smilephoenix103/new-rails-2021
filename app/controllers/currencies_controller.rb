@@ -19,6 +19,10 @@ class CurrenciesController < ApplicationController
   # GET /currencies/new
   def new
     @currency = Currency.new
+    puts "@@@@@@@@@@@@@TEST@@@@@@@@@@@@@@@@@"
+    puts @country
+    puts "@@@@@@@@@@@@@TEST@@@@@@@@@@@@@@@@@"
+
   end
 
   # GET /currencies/1/edit
@@ -28,6 +32,8 @@ class CurrenciesController < ApplicationController
   # POST /currencies
   # POST /currencies.json
   def create
+    # @country = Country.find(params[:country_id])
+    # @currency = @country.currencies.create(curency_params)
     @currency = Currency.new(currency_params)
 
     respond_to do |format|

@@ -11,11 +11,23 @@ class CountriesController < ApplicationController
   # GET /countries/1
   # GET /countries/1.json
   def show
+     # @currency = Currency.find(params[:country_id])
+    
+    @country = Country.find(@country.id)
+    puts "$$$$$$$$$$$$$$$$TEST$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
+      puts @country.id
+      puts @country.inspect
+    puts "$$$$$$$$$$$$$$$$TEST$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
   end
 
   # GET /countries/new
   def new
     @country = Country.new
+
+     puts "@@@@@@@@@@@@@TEST@@@@@@@@@@@@@@@@@"
+    puts @country
+    puts "@@@@@@@@@@@@@TEST@@@@@@@@@@@@@@@@@"
+
   end
 
   # GET /countries/1/edit
