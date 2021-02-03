@@ -11,16 +11,17 @@ class CurrenciesController < ApplicationController
   # GET /currencies/1.json
   def show
    
-    if (params[:id] != nil)
-        puts "++++++++++++++++++++++++++++++++++++++++++++++++"
-        puts params[:id]      
-        @currency = Currency.find(params[:id])      
-        puts "+++++++++++++++++++++++++++++++++++++++++++++++++"      
-    else       
+    if (params[:country_id] != nil)
+        
         @currency = Currency.find(params[:country_id])
         puts "SHOW TEST"
         puts params[:country_id]
-        puts "SHOW TEST"      
+        puts "SHOW TEST"        
+    else       
+        puts "++++++++++++++++++++++++++++++++++++++++++++++++"
+        puts params[:id]      
+        @currency = Currency.find(params[:id])      
+        puts "+++++++++++++++++++++++++++++++++++++++++++++++++"  
     end
   end
 
@@ -76,9 +77,10 @@ class CurrenciesController < ApplicationController
   # DELETE /currencies/1
   # DELETE /currencies/1.json
   def destroy
+    @country = @currency.country
     @currency.destroy
     respond_to do |format|
-      format.html { redirect_to currencies_url, notice: 'Currency was successfully destroyed.' }
+      format.html { redirect_to @country, notice: 'Currency was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
