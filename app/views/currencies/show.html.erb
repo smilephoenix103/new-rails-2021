@@ -1,53 +1,35 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Country:</strong>
-  <%= @currency.country %>
-</p>
+<div class="jumbotron">
+  <h3 class="display-4">
+      <strong>PAństwo:</strong>
+      <%= @currency.country %>
+  </h3>
+  <p>
+    <strong>Cod:</strong><%= @currency.cod %>  |  
+    <strong>Waluta:</strong><%= @currency.currency %>  |  
+    <strong>Drobne:</strong><%= @currency.change %>
+  </p>
+  <p>
+    <strong>Active:</strong><%= @currency.active %>  |  
+    <strong>Data wymiany (Okres) : </strong><%= @currency.data_exchange %>
+  </p>
+  <p>
+    <strong>Poprzedna waluta:</strong><%= @currency.currency_from %>  |  
+    <strong>Przelicznik:</strong><%= @currency.converter %>
+  </p>
+  <p>
+    <strong>Description:</strong><%= @currency.description %>
+  </p>
+  <!-- <hr class="my-4"> -->
+ <!--  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+  <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a> -->
+  <%= link_to 'Edit', edit_currency_path(@currency), class:"btn btn-secondary" %> 
+  <!-- <%= link_to 'Back', currencies_path(@currency) %> -->
+  <%= link_to 'Back', country_path(@currency.country_id), class:"btn btn-dark" %>
 
-<p>
-  <strong>Cod:</strong>
-  <%= @currency.cod %>
-</p>
+</div>
 
-<p>
-  <strong>Currency:</strong>
-  <%= @currency.currency %>
-</p>
-
-<p>
-  <strong>Change:</strong>
-  <%= @currency.change %>
-</p>
-
-<p>
-  <strong>Active:</strong>
-  <%= @currency.active %>
-</p>
-
-<p>
-  <strong>Data exchange:</strong>
-  <%= @currency.data_exchange %>
-</p>
-
-<p>
-  <strong>Currency from:</strong>
-  <%= @currency.currency_from %>
-</p>
-
-<p>
-  <strong>Converter:</strong>
-  <%= @currency.converter %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @currency.description %>
-</p>
-
-<%= link_to 'Edit', edit_currency_path(@currency) %> |
-<!-- <%= link_to 'Back', currencies_path(@currency) %> -->
- <td><%= link_to 'Back', country_path(@currency.country_id) %></td>
 
 <h2>Banknoty</h2>
  <table class="table table-striped table-bordered table-hover">

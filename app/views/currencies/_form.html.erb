@@ -1,4 +1,5 @@
-<%= form_with(model: currency) do |form| %>
+<div class="jumbotron">
+ <%= form_with(model: currency) do |form| %>
   <% if currency.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(currency.errors.count, "error") %> prohibited this currency from being saved:</h2>
@@ -12,52 +13,79 @@
   <% end %>
 
   <h3><%= @currency.country %></h3>
-  <div class="field">
-    <%= form.label :country_id %>
+  <div class="field form-group">
+    <% form.label :country_id %>
     <%= form.number_field :country_id, value:@currency.country_id %>
   </div>
 
-  <div class="field">
-    <%= form.label :cod %>
-    <%= form.text_field :cod %>
-  </div>
+  <table class="table table-striped table-bordered table-hover">
+    <tr>
+      <td>
+        <div class="field form-group">
+          <% form.label :cod %>
+          <%= form.text_field :cod, class:"form-control", placeholder:"Kod" %>
+        </div>
+      </td>
+      <td>
+        <div class="field form-group">
+          <% form.label :pattern %>
+          <%= form.text_field :pattern, class:"form-control", placeholder:"Rodzaj" %>
+        </div>
+      </td>
+      <td>
+        <div class="field form-group">
+          <% form.label :currency %>
+         <%= form.text_field :currency, class:"form-control", placeholder:"Waluta" %>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="field form-group">
+          <% form.label :change %>
+          <%= form.text_field :change, class:"form-control", placeholder:"Drobne" %>
+        </div>
+      </td>
+      <td>
+        <div class="field form-group">
+          <% form.label :active %>
+          <%= form.number_field :active, class:"form-control", placeholder:"Active" %>
+        </div>
+      </td>
+      <td>
+        <div class="field form-group">
+          <% form.label :data_exchange %>
+          <%= form.text_field :data_exchange, class:"form-control", placeholder:"Data wymiany(Okres obiegu)" %>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="field form-group">
+          <% form.label :currency_from %>
+          <%= form.text_field :currency_from, class:"form-control", placeholder:"Poprzedni awaluta" %>
+        </div>
+      </td>
+      <td>
+        <div class="field form-group">
+          <% form.label :converter %>
+          <%= form.text_field :converter, class:"form-control", placeholder:"Przelicznik" %>
+        </div>
+      </td>
+    </tr>
+  </table>  
 
-  <div class="field">
-    <%= form.label :currency %>
-    <%= form.text_field :currency %>
-  </div>
-
-  <div class="field">
-    <%= form.label :change %>
-    <%= form.text_field :change %>
-  </div>
-
-  <div class="field">
-    <%= form.label :active %>
-    <%= form.number_field :active %>
-  </div>
-
-  <div class="field">
-    <%= form.label :data_exchange %>
-    <%= form.text_field :data_exchange %>
-  </div>
-
-  <div class="field">
-    <%= form.label :currency_from %>
-    <%= form.text_field :currency_from %>
-  </div>
-
-  <div class="field">
-    <%= form.label :converter %>
-    <%= form.text_field :converter %>
-  </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
+  <div class="field form-group">
+    <% form.label :description %>
+    <%= form.text_area :description, class:"form-control", placeholder:"Opis" %>
   </div>
 
   <div class="actions">
     <%= form.submit %>
   </div>
+</br>
 <% end %>
+
+</div>
+
+
