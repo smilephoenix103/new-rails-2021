@@ -11,10 +11,13 @@ Rails.application.routes.draw do
   resources :currencies
   resources :notes
 
-   resources :countries do
+  resources :countries do
     resources :currencies
-      resources :notes
   end
+
+  resources :currencies do
+    resources :notes
+  end  
   
   # resources :currencies do
   #   resources :notes

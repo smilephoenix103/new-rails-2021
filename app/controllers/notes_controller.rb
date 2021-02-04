@@ -14,11 +14,27 @@ class NotesController < ApplicationController
     # puts "!!!!!!!!!!!!!!!!!TEST!!!!!!!!!!!!!!!!!!"
     # puts @notes
     # puts "!!!!!!!!!!!!!!!!!!TEST!!!!!!!!!!!!!!!!!!!!"
+     if (params[:currency_id] != nil)
+        
+        @note = Note.find(params[:currency_id])
+        puts "SHOW TEST"
+        puts params[:currency_id]
+        puts "SHOW TEST"        
+    else       
+        puts "++++++++++++++++++++++++++++++++++++++++++++++++"
+        puts params[:id]      
+        @note = Note.find(params[:id])      
+        puts "+++++++++++++++++++++++++++++++++++++++++++++++++"  
+    end
   end
 
   # GET /notes/new
   def new
     @note = Note.new
+    puts "@@@@@@@@@@@@@TEST@@@@@@@@@@@@@@@@@"
+    puts params[:currency_id]
+    @note.currency_id = params[:currency_id]
+    puts "@@@@@@@@@@@@@TEST@@@@@@@@@@@@@@@@@"
   end
 
   # GET /notes/1/edit
@@ -29,10 +45,12 @@ class NotesController < ApplicationController
   # POST /notes.json
   def create
     @note = Note.new(note_params)
+    puts @note.inspect
 
     respond_to do |format|
       if @note.save
-        format.html { redirect_to @note, notice: 'Note was successfully created.' }
+        @currency = Currency.find(@note.currency_id)
+        format.html { redirect_to @currency, notice: 'Note was successfully created.' }
         format.json { render :show, status: :created, location: @note }
       else
         format.html { render :new }
