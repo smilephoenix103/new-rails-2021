@@ -2,5 +2,7 @@
 
 <%= render 'form', note: @note %>
 
-<%= link_to 'Show', @note %> |
-<%= link_to 'Back', notes_path %>
+</br>
+<%= link_to 'Show', @note, class:"btn btn-secondary" %> 
+<!-- <%= link_to 'Back', notes_path %> -->
+<%= link_to 'Back', currency_path(@note.currency_id), class:"btn btn-dark" %>

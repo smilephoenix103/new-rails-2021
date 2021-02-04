@@ -64,7 +64,8 @@ class NotesController < ApplicationController
   def update
     respond_to do |format|
       if @note.update(note_params)
-        format.html { redirect_to @note, notice: 'Note was successfully updated.' }
+        @currency = Currency.find(@note.currency_id)
+        format.html { redirect_to @currency, notice: 'Note was successfully updated.' }
         format.json { render :show, status: :ok, location: @note }
       else
         format.html { render :edit }
@@ -76,9 +77,11 @@ class NotesController < ApplicationController
   # DELETE /notes/1
   # DELETE /notes/1.json
   def destroy
+    @currency = Currency.find(@note.currency_id)
     @note.destroy
+
     respond_to do |format|
-      format.html { redirect_to notes_url, notice: 'Note was successfully destroyed.' }
+      format.html { redirect_to @currency, notice: 'Note was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
