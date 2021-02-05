@@ -1,0 +1,6 @@
+measure: note
+dimensions:
+  - making
+  - status
+  # - key: updated_at
+    # granularity: day
