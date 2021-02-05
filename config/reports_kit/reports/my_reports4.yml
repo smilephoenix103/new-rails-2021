@@ -1,6 +1,7 @@
-measure: country  
+measure: currency 
 dimensions:
-  - continent
+  - active
+  - country
   # - signature_code
   # - key: updated_at
     # granularity: day
