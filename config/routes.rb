@@ -23,6 +23,6 @@ Rails.application.routes.draw do
   #   resources :notes
   # end
 
-  
+  mount ReportsKit::Engine, at: '/'
   
 end

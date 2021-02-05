@@ -1,0 +1,5 @@
+measure: country
+dimensions:
+  - continent
+  # - key: updated_at
+    # granularity: day
