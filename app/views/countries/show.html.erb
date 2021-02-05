@@ -31,14 +31,10 @@
     <strong>Iso code:</strong>
     <%= @country.iso_code %>
   </p>
-  <hr class="my-4">
-  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-  <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+  <%= link_to 'Edit', edit_country_path(@country), class:"btn btn-secondary" %>  
+  <%= link_to 'Back', countries_path, class:"btn btn-dark" %>
+  <%= link_to 'Add Currency', new_country_currency_path(@country), class:"btn btn-secondary" %>
 </div>
-
-<%= link_to 'Edit', edit_country_path(@country), class:"btn btn-secondary" %>  
-<%= link_to 'Back', countries_path, class:"btn btn-dark" %>
-<%= link_to 'Add Currency', new_country_currency_path(@country), class:"btn btn-secondary" %>
 
 <h2>Waluty</h2>
  <table class="table table-striped table-bordered table-hover">

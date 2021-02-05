@@ -70,6 +70,31 @@
   <%= @note.reverse_path %>
 </p>
 
+<p>
+  <strong>SERIA:</strong>
+  <%= @note.series %>
+</p>
+
+<p>
+  <strong>Making:</strong>
+  <%= @note.making %>
+</p>
+
+<p>
+  <strong>Data zakupu:</strong>
+  <%= @note.date_buy_note %>
+</p>
+
+<p>
+  <strong>Miejsce zakupu:</strong>
+  <%= @note.bought %>
+</p>
+
+<p>
+  <strong>Status Sell:</strong>
+  <%= @note.status_sell %>
+</p>
+
 <%= link_to 'Edit', edit_note_path(@note), class:"btn btn-secondary" %> 
 <!-- <%= link_to 'Back', notes_path %> -->
 <%= link_to 'Back', currency_path(@note.currency_id), class:"btn btn-dark" %>
