@@ -4,3 +4,4 @@ dimensions:
   # - signature_code
   # - key: updated_at
     # granularity: day
+order: dimension1.label asc
