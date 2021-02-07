@@ -1,3 +1,13 @@
+<!-- <div >
+	<%= select_tag 'chart_id', options_for_select(@chart.collect{ |c| [c.name, c.id] }),id:"typeChart" %>
 
+ </div> -->
 
-<%= 'opcje' %>
+ <%= form_with url: "/", method: :get do |form| %>
+ <div class="field" id="typeChart" data-chart="<%= @dataChart %>">
+    <%= form.label :chart_id %>
+    <%= form.select :chart_id, Chart.all.map { |p| [p, p.name]  }%>
+  </div>
+ 
+  <%= form.submit "Selct" %>
+<% end %>

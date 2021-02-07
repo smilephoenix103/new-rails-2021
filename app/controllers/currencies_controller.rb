@@ -23,6 +23,8 @@ class CurrenciesController < ApplicationController
         @currency = Currency.find(params[:id])      
         puts "+++++++++++++++++++++++++++++++++++++++++++++++++"  
     end
+    @notes = Note.where("status = 'KOLEKCJA'")
+    puts @notes.inspect
   end
 
   # GET /currencies/new

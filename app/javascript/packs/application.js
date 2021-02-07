@@ -27,6 +27,8 @@ document.addEventListener('turbolinks:load', () => {
 
 
     const myReport = document.querySelector("#myChart").dataset.chart;
+    const typeChart = document.querySelector("#typeChart").dataset.chart;
+    console.log(typeChart);
     // const chartUrl =  "http://localhost:3000/reports_kit/reports.json?report_params[key]=my_reports&properties={}";
     const chartUrl = "http://localhost:3000/reports_kit/reports.json?report_params[key]=" + myReport + "&properties={}";
 
@@ -41,7 +43,8 @@ document.addEventListener('turbolinks:load', () => {
 
                 var ctx = document.getElementById('myChart').getContext('2d');
                 var chart = new Chart(ctx, {
-                    type: 'bar',
+                    // type: 'bar',
+                    type: typeChart,
                     data: chartData,
                     //options: options
                 });

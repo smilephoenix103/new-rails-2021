@@ -42,24 +42,28 @@
       <th>Rok</th>
       <th>Materiał</th>
       <th>SIG</th>
+      <th>Status</th>
       <th>Kupno</th>
       <th>Sprzedaż</th>
       <th colspan="3"></th>
     </tr>
   </thead>
   <% @currency.notes.each do |note| %>
-    <tr>
-      <td><%= note.id %></td>
-      <td><%= note.denomination %></td>
-      <td><%= note.name_currency %></td>
-      <td><%= note.note_date %></td>
-      <td><%= note.making %></td>
-      <td><%= note.signature_code %></td>
-      <td><%= note.price_buy %></td>
-      <td><%= note.price_sell %></td>
-      <td><%= link_to 'Show', currency_note_path(note) %></td>
-      <td><%= link_to 'Edit', edit_note_path(note) %></td>
-      <td><%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
+    <% if note.status = "KOLEKCJA" %>
+      <tr>
+        <td><%= note.id %></td>
+        <td><%= note.denomination %></td>
+        <td><%= note.name_currency %></td>
+        <td><%= note.note_date %></td>
+        <td><%= note.making %></td>
+        <td><%= note.signature_code %></td>
+        <td><%= note.status %></td>
+        <td><%= note.price_buy %></td>
+        <td><%= note.price_sell %></td>
+        <td><%= link_to 'Show', currency_note_path(note) %></td>
+        <td><%= link_to 'Edit', edit_note_path(note) %></td>
+        <td><%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
     <% end %>
+  <% end %>
 </table>
