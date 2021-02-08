@@ -3,6 +3,6 @@ class Currency < ApplicationRecord
   has_many :notes
 
   def to_s
-  	
+  	cod.to_s
   end
 end

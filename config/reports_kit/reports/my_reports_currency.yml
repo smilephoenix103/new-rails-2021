@@ -1,0 +1,12 @@
+measure:
+  key: currency
+  name: Posts With More Than 5 Views
+filters:
+- key: country_id
+  criteria:
+    operator: "="
+    value: 172
+dimensions:
+- country
+- data_exchange
+# - country_id

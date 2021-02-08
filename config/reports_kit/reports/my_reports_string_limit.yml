@@ -1,0 +1,11 @@
+measure: currency
+dimensions:
+- country
+limit: 5
+# chart:
+#   options:
+#     scales:
+#       xAxes:
+#       - scaleLabel:
+#           display: true
+#           labelString: Status

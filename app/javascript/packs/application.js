@@ -28,7 +28,9 @@ document.addEventListener('turbolinks:load', () => {
 
     const myReport = document.querySelector("#myChart").dataset.chart;
     const typeChart = document.querySelector("#typeChart").dataset.chart;
+    // const typeReport = document.querySelector("#typeReport").dataset.chart;
     console.log(typeChart);
+    console.log(myReport)
     // const chartUrl =  "http://localhost:3000/reports_kit/reports.json?report_params[key]=my_reports&properties={}";
     const chartUrl = "http://localhost:3000/reports_kit/reports.json?report_params[key]=" + myReport + "&properties={}";
 

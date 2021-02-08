@@ -5,8 +5,12 @@
 
  <%= form_with url: "/", method: :get do |form| %>
  <div class="field" id="typeChart" data-chart="<%= @dataChart %>">
-    <%= form.label :chart_id %>
-    <%= form.select :chart_id, Chart.all.map { |p| [p, p.name]  }%>
+    <%= form.label :chart_name %>
+    <%= form.select :chart_name, Chart.all.map { |p| [p, p.name]}, {:include_blank => "Select"}, class:"form-control" %>
+  </div>
+  <div class="field" id="typeReport" data-chart="<%= @dataReport %>">
+    <%= form.label :report_name %>
+    <%= form.select :report_name, Report.all.map { |p| [p.name, p.report]}, {:include_blank => "Select"}, class:"form-control" %>
   </div>
  
   <%= form.submit "Selct" %>

@@ -1,7 +1,8 @@
-measure: currency 
+measure: note
 dimensions:
-  - active
-  - country
-  # - signature_code
-  # - key: updated_at
+  - quality
+  # - img_type
+  - status
+  # - making
+  # - key: created_at
     # granularity: day

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_07_162757) do
+ActiveRecord::Schema.define(version: 2021_02_08_154157) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,6 +71,15 @@ ActiveRecord::Schema.define(version: 2021_02_07_162757) do
     t.date "date_buy_note", comment: "Data zakupu banknotu"
     t.string "bought", limit: 100, comment: "Gdzie banknot został kupiony"
     t.string "status_sell", limit: 100, comment: "Czy banknot został wystawiony na sprzedaż"
+  end
+
+  create_table "reports", force: :cascade do |t|
+    t.string "report"
+    t.string "string"
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   add_foreign_key "currencies", "countries", name: "currencies_country_id_fkey"

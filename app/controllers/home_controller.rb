@@ -6,13 +6,15 @@ class HomeController < ApplicationController
   	# @dataChart = "bar"
 
   	@chart = Chart.all
+    @report = Report.all
   	select_char
+    select_report
 
-  	# @chart.each do |c|
-  	# 	puts c.inspect
-  	# end
+  
+
   	puts "!!!!!!!!!!TEST!!!!!!!!!!!!"
-  	puts params[:chart_id]
+    puts params[:report_name]
+  	puts params[:chart_name]
   	puts "!!!!!!!!!!TEST!!!!!!!!!!!!"
 
   	
@@ -23,10 +25,25 @@ class HomeController < ApplicationController
 
   private
 	  def select_char
-	  	if (params[:chart_id] != nil)
-  		@dataChart = params[:chart_id]
+	  	if (params[:chart_name] != nil)
+  		@dataChart = params[:chart_name]
   	else
   		@dataChart = "bar"
   	end
 	  end
+
+    private
+    def select_report
+      if (params[:report_name] != nil)
+      @data = params[:report_name]
+      puts "!!!!!!!!!!TEST!!!!!!!!!!!!"
+      puts @data
+      puts "!!!!!!!!!!TEST!!!!!!!!!!!!"
+    else
+      @data = "my_reports3"
+      puts "*******************************TEST************************"
+      puts @data
+      puts "*******************************TEST************************"
+    end
+    end
 end
