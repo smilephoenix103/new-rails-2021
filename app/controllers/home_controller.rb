@@ -25,25 +25,27 @@ class HomeController < ApplicationController
 
   private
 	  def select_char
-	  	if (params[:chart_name] != nil)
-  		@dataChart = params[:chart_name]
-  	else
+	  	if (params[:chart_name] == nil || params[:chart_name] == "")
   		@dataChart = "bar"
+  	else
+  		@dataChart = params[:chart_name]
+  		
   	end
 	  end
 
     private
     def select_report
-      if (params[:report_name] != nil)
-      @data = params[:report_name]
-      puts "!!!!!!!!!!TEST!!!!!!!!!!!!"
+      if (params[:report_name] == nil || params[:report_name] == "")
+       @data = "my_reports3"
+      puts "*******************************TEST************************"
       puts @data
-      puts "!!!!!!!!!!TEST!!!!!!!!!!!!"
+      puts "*******************************TEST************************"
+    
     else
-      @data = "my_reports3"
-      puts "*******************************TEST************************"
+       @data = params[:report_name]
+      puts "!!!!!!!!!!TEST!!!!!!!!!!!!"
       puts @data
-      puts "*******************************TEST************************"
+      puts "!!!!!!!!!!TEST!!!!!!!!!!!!"
     end
     end
 end
