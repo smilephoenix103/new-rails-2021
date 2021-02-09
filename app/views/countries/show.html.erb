@@ -30,6 +30,9 @@
      |   
     <strong>Iso code:</strong>
     <%= @country.iso_code %>
+     | 
+    <strong>Exists:</strong>
+    <%= @country.exists %>
   </p>
   <%= link_to 'Edit', edit_country_path(@country), class:"btn btn-secondary" %>  
   <%= link_to 'Back', countries_path, class:"btn btn-dark" %>

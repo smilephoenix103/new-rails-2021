@@ -1,0 +1,25 @@
+# measure:
+#   key: country_en
+#   name: Nazwa kraju Polska Poland
+# filters:
+# - key: country_en
+#   criteria:
+#     operator: contains
+#     value: Pol  
+# dimensions:
+# - key: country_en
+#   label: cur
+
+measure:
+  key: currency
+  name: Country id 172
+filters:
+- key: country_id
+  criteria:
+    # operator: contains
+    operator: "="
+    value: "172"
+dimensions:
+- country
+- data_exchange
+# - currency

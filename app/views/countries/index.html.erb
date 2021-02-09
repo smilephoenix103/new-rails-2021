@@ -17,6 +17,7 @@
       <th>Alfa 3</th>
       <th>Numeric code</th>
       <th>Iso code</th>
+      <th>Exists</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -39,6 +40,7 @@
         <td ><%= country.alfa_3 %></td>
         <td><%= country.numeric_code %></td>
         <td><%= country.iso_code %></td>
+        <td><%= country.exists %></td>
         <td><%= link_to 'Show', country %></td>
         <td><%= link_to 'Edit', edit_country_path(country) %></td>
         <td><%= link_to 'Destroy', country, method: :delete, data: { confirm: 'Are you sure?' } %></td>

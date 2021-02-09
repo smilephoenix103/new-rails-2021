@@ -42,13 +42,23 @@ document.addEventListener('turbolinks:load', () => {
                 //var datasets = chartData.datasets;
                 // var labels = chartData.labels;
                 // var options = chartData.options;
+                var options = {
+                    // All of my other bar chart option here
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero:true
+                            }
+                        }]
+                    }
+                }
 
                 var ctx = document.getElementById('myChart').getContext('2d');
                 var chart = new Chart(ctx, {
                     // type: 'bar',
                     type: typeChart,
                     data: chartData,
-                    //options: options
+                    options: options
                 });
             });
         })

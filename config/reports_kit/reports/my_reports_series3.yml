@@ -1,0 +1,14 @@
+measure:
+  key: note
+  name: Status KOLEKCJA
+filters:
+- key: status
+  criteria:
+    operator: contains
+    # operator: "="
+    value: KOL
+dimensions:
+- status
+- making
+# - currency
+# - status

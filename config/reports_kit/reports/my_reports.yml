@@ -1,7 +1,8 @@
 measure: country  
 dimensions:
   - continent
+  # - exists
   # - signature_code
   # - key: updated_at
     # granularity: day
-order: dimension1.label asc
+# order: dimension1.label asc
