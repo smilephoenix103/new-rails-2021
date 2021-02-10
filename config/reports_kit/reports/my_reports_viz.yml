@@ -1,0 +1,23 @@
+# measure: note
+# dimensions:
+# - key: currency
+#   limit: 6
+# - key: making
+#   limit: 1
+
+measure: country
+filters:
+- continent
+- country_en
+# - is_featured
+# - created_at
+dimensions:
+- continent
+# - country_en
+chart:
+  options:
+    scales:
+      xAxes:
+      - stacked: true
+      yAxes:
+      - stacked: true

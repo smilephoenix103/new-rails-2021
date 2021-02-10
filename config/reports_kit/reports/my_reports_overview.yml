@@ -1,0 +1,14 @@
+data_method: MyDataMethods.country_by_continent
+chart:
+  options:
+    legend:
+      display: false
+    scales:
+      xAxes:
+      - scaleLabel:
+          display: true
+          labelString: Note making
+      yAxes:
+      - scaleLabel:
+          display: true
+          labelString: NOte

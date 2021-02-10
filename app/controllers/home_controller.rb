@@ -12,10 +12,10 @@ class HomeController < ApplicationController
 
   
 
-  	puts "!!!!!!!!!!TEST!!!!!!!!!!!!"
-    puts params[:report_name]
-  	puts params[:chart_name]
-  	puts "!!!!!!!!!!TEST!!!!!!!!!!!!"
+  	# puts "!!!!!!!!!!TEST!!!!!!!!!!!!"
+   #  puts params[:report_name]
+  	# puts params[:chart_name]
+  	# puts "!!!!!!!!!!TEST!!!!!!!!!!!!"
 
   	
   end
@@ -37,15 +37,19 @@ class HomeController < ApplicationController
     def select_report
       if (params[:report_name] == nil || params[:report_name] == "")
        @data = "my_reports3"
-      puts "*******************************TEST************************"
-      puts @data
-      puts "*******************************TEST************************"
+      # puts "*******************************TEST************************"
+      # puts @data
+      # puts "*******************************TEST************************"
     
     else
        @data = params[:report_name]
-      puts "!!!!!!!!!!TEST!!!!!!!!!!!!"
-      puts @data
-      puts "!!!!!!!!!!TEST!!!!!!!!!!!!"
+      puts "$$$$$$$$$$$$!!!!!!!!!!TEST!!!!!!!!!!!!"
+      # puts @data
+      @report = Report.where(report: (params[:report_name]))
+      puts @report
+      @data_name = @report
+      # puts @data_name
+      puts "$$$$$$$$$$$!!!!!!!!!!TEST!!!!!!!!!!!!"
     end
     end
 end

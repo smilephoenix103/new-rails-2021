@@ -6,7 +6,7 @@ filters:
   criteria:
     operator: contains
     # operator: "="
-    value: KOL
+    value: s
 dimensions:
 - status
 - making
