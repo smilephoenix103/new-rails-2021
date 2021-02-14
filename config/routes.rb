@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   
+  get 'note_for_sell/index'
   resources :reports
   # get 'home/index'
   root 'home#index'
