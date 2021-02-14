@@ -14,6 +14,8 @@ class CurrenciesController < ApplicationController
     if (params[:country_id] != nil)
         
         @currency = Currency.find(params[:country_id])
+        @collection = @currency.notes.select { |note| note.status == 'KOLEKCJA' }
+        @sale =  @currency.notes.select { |note| note.status == 'FOR SELL' }
         puts "SHOW TEST"
         puts params[:country_id]
         puts "SHOW TEST"        
