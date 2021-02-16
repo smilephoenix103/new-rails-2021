@@ -30,7 +30,7 @@ document.addEventListener('turbolinks:load', () => {
     const typeChart = document.querySelector("#typeChart").dataset.chart;
     // const typeReport = document.querySelector("#typeReport").dataset.chart;
     console.log(typeChart);
-    console.log(myReport)
+    console.log(myReport);
     // const chartUrl =  "http://localhost:3000/reports_kit/reports.json?report_params[key]=my_reports&properties={}";
     const chartUrl = "http://localhost:3000/reports_kit/reports.json?report_params[key]=" + myReport + "&properties={}";
 
@@ -58,6 +58,7 @@ document.addEventListener('turbolinks:load', () => {
                     // type: 'bar',
                     type: typeChart,
                     data: chartData,
+                    // labels: labels,
                     options: options
                 });
             });
