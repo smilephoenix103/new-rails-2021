@@ -4,7 +4,8 @@
   <div class="row">
   	<% @countries.each do |country| %>
   	<div class="col-md-2" style="text-align: center; height: 90px">
-  		<%= country.id %></br><%= country %> </br>
+  		<%= country.id %></br>
+      <%= link_to country, note_for_sell_path(country) %> </br>
   		<% if (File.exist?(@root_path + (country.country_en + '.png'))) %>
         	<%= image_tag("flags/" + country.country_en + ".png", :alt => "rss feed" , style:"width:15%;height:15%;") %>
         <% else %>

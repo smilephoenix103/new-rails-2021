@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
   
-  get 'note_for_sell/index'
+  # get 'note_for_sell/index'
+  # get 'note_for_sell/show'
+  
   resources :reports
   # get 'home/index'
   root 'home#index'
@@ -12,6 +14,7 @@ Rails.application.routes.draw do
   resources :countries
   resources :currencies
   resources :notes
+  resources :note_for_sell
 
   resources :countries do
     resources :currencies
