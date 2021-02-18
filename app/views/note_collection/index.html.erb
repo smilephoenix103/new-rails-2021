@@ -1,0 +1,6 @@
+<h1>KONTYNENTY</h1>
+
+<% @continents_list.each do |continent| %>
+	<p><%= link_to continent, note_collection_path(continent.continent) %></p>
+<% end %>
+

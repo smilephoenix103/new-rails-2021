@@ -3,4 +3,7 @@ class Country < ApplicationRecord
 	def to_s
 		country_en
 	end
+	def to_s
+		continent
+	end
 end
