@@ -1,5 +1,6 @@
 class NoteCollectionController < ApplicationController
 include CountriesHelper
+include NoteCollectionHelper
   def index
   	# @continent_countris = Country.includes(:currencies => :notes).where({ :currencies => { :notes => { status: "FOR SELL"}}, :continent => 'Azja'}).order(country_en: :asc)
 	# @continent_countris.each do |con|
@@ -27,12 +28,13 @@ include CountriesHelper
   end
 
   def show_currency
-  	puts "&&&&&&&&&&&&&&& SHOW CURRENCY &&&&&&&&&&&&&&&&&&&&&"
   	puts params[:id]
   	@currencies = Currency.where(country_id: params[:id], pattern: 'NOTE')
-    @currencies.each do |c|
-    	puts c.inspect
-    	puts "___________________________________________________________"
-    end
+  end
+
+  def show_note
+  	puts params[:id]
+  	# @notes = Note.where(currency_id: (params[:id]), status: 'KOLEKCJA').order(denomination: :asc)
+  	@notes = notes_collections(params[:id], "KOLEKCJA")
   end
 end

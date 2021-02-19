@@ -1,6 +1,21 @@
 <h1>KONTYNENTY</h1>
 
-<% @continents.each do |continent| %>
-	<p><%= link_to continent, note_collection_path(continent) %></p>
-<% end %>
+
+
+<% @root_path = Rails.root.join('app', 'assets', 'images','continents') %> 
+<div class="container ">
+  <div class="row">
+  	<% @continents.each do |continent| %>
+  	<div class="col-md-4" style="text-align: center">  	
+  		<%= link_to continent, note_collection_path(continent) %></br>
+  		<% if (File.exist?(@root_path + (continent.file_name))) %>
+        	<%= image_tag("continents/" + continent.file_name, :alt => "Kontynent", 
+        	style:"width:50%;height:50%;") %>
+        <% else %>
+      	<%= image_tag("flags/test.png", :alt => "rss feed" ) %>
+    	<% end %>
+  	</div> 
+  	<% end %>
+  </div>
+</div>
 

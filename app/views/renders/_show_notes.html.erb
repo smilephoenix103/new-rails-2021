@@ -1,0 +1,50 @@
+<table class="table table-striped table-bordered table-hover">
+  <thead class="thead-dark">
+  <tr>
+      <th>Id</th>
+      <th>Nominał</th>
+      <th>Waluta</th>
+      <th>Rok</th>
+      <th>Materiał</th>
+      <th>SIG</th>
+      <th>Status</th>
+      <th>Stan</th>
+      <th>Kupno</th>
+      <th>Sprzedaż</th>
+      <th>Averse</th>
+      <th>Reverse</th>
+
+    </tr>
+  </thead>
+  <% @notes.each do |note| %>
+
+      <tr>
+        <td><%= note.id %></td>
+        <td><%= note.denomination %></td>
+        <td><%= note.name_currency %></td>
+        <td><%= note.note_date %></td>
+        <td><%= note.making %></td>
+        <td><%= note.signature_code %></td>
+        <td><%= note.status %></td>
+        <td><%= note.quality %></td>
+        <td><%= note.price_buy %></td>
+        <td><%= note.price_sell %></td>
+        <td>        
+        	<% if (note.avers_path.length > 200) %>
+            	<%= image_tag(note.avers_path, :alt => "AVERSE" , style:"width:100%;height:100%;") %>
+            <% else %>
+            	<%= note.avers_path %>
+            <% end %> 
+        </td>
+        <td>        
+            <% if (note.reverse_path.length > 200) %>
+            	<%= image_tag(note.reverse_path, :alt => "AVERSE" , style:"width:100%;height:100%;") %>
+            <% else %>
+            	<%= note.reverse_path %>
+            <% end %> 
+        </td>
+        
+      </tr>
+     <!-- <%= (note.avers_path.length) %> -->
+  <% end %>
+</table>
