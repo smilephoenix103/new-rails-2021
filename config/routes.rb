@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   # get 'note_for_sell/index'
   # get 'note_for_sell/show'
   # get 'note_collection/show'
+  get 'note_collection/show_currency/:id', to: 'note_collection#show_currency', as: 'show_currency'
+  # get '/patients/:id', to: 'patients#show'
+
   
   resources :reports
   # get 'home/index'

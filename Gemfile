@@ -11,6 +11,7 @@ gem 'webpacker', '~> 5.0'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.4', require: false
+gem 'faker', '~> 2.16'
 
 gem 'reports_kit', '~> 0.7.1'
 # gem 'jquery-rails'

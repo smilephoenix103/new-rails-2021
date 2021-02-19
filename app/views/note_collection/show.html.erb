@@ -1,4 +1,16 @@
 <h2>PAŃSTWA</h2>
-<% @countries.each do |country| %>
-	<p><%= country.id %>  |  <%= country.country_en %></p>
-<% end %>
+<% @root_path = Rails.root.join('app', 'assets', 'images','flags') %> 
+<div class="container ">
+  <div class="row">
+  	<% @countries.each do |country| %>
+  	<div class="col-md-2" style="text-align: center; height: 90px">  	
+        <%= link_to country.country_en, show_currency_path(country) %> </br>
+  		<% if (File.exist?(@root_path + (country.country_en + '.png'))) %>
+        	<%= image_tag("flags/" + country.country_en + ".png", :alt => "rss feed" , style:"width:15%;height:15%;") %>
+        <% else %>
+      	<%= image_tag("flags/test.png", :alt => "rss feed" , style:"width:10%;height:10%;") %>
+    	<% end %>
+  	</div> 
+  	<% end %>
+  </div>
+</div>
