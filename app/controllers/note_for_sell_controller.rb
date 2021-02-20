@@ -10,30 +10,18 @@ class NoteForSellController < ApplicationController
 
 
 	@countries = country_notes_status("FOR SELL")
-    puts "+++++++++++++++++++++++++++TEST++++++++++++++++++++++++++"
-    @countries.each do |c|
-  		puts c.country_en
-    end
-  	puts "+++++++++++++++++++++++++++END+TEST++++++++++++++++++++++++++"
-
-  	puts "***************************TEST2*************************"
     	# Note.includes(:currency => :country).where(:currency => { :country_id => 72}).and(Note.where(status: 'SOLD')).each do |note|
     	
     	# Note.includes(:currency => :country).where(:currency => { :country_id => 72}, :status => 'SOLD').each do |note|
     	# 	puts note.status + note.making
     	# end
-  	puts "***************************END*TEST2*********************"
   end
 
   def show
-    puts "(((((((((((((((HELLO)))))))))))))))))))"
-    puts params[:id]
     # @notes = Note.includes(:currency => :country).where(:currency => { :country_id => (params[:id])}, :status => 'FOR SELL')
     # @notes.each do |n|
     #   puts n.inspect
 
     @notes = colection_notes_status(params[:id], "FOR SELL")
-     
-    puts"(((((((((((((((((END)))))))))))))))))"
   end
 end

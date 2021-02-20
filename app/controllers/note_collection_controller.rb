@@ -13,7 +13,6 @@ include NoteCollectionHelper
   end
 
   def show
-  	puts "TESTTESTTESTETSTETSTETSTET"
   	puts params[:id]
   	@continent = Continent.find(params[:id])
   	puts @continent.file_name
@@ -34,7 +33,6 @@ include NoteCollectionHelper
 
   def show_note
   	puts params[:id]
-  	# @notes = Note.where(currency_id: (params[:id]), status: 'KOLEKCJA').order(denomination: :asc)
   	@notes = notes_collections(params[:id], "KOLEKCJA")
   end
 end
