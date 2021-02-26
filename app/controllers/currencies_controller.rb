@@ -14,15 +14,18 @@ class CurrenciesController < ApplicationController
     if (params[:country_id] != nil)
         
         @currency = Currency.find(params[:country_id])
-        @collection = @currency.notes.select { |note| note.status == 'KOLEKCJA' }
-        @sale =  @currency.notes.select { |note| note.status == 'FOR SELL' }
+        # @collection = @currency.notes.select { |note| note.status == 'KOLEKCJA' }
+        # @sale =  @currency.notes.select { |note| note.status == 'FOR SELL' }
+        @collection = Note.where(currency_id: params[:country_id])
         puts "SHOW TEST"
         puts params[:country_id]
+        puts params[:id]
         puts "SHOW TEST"        
     else       
         puts "++++++++++++++++++++++++++++++++++++++++++++++++"
         puts params[:id]      
-        @currency = Currency.find(params[:id])      
+        @currency = Currency.find(params[:id])   
+        @collection = Note.where(currency_id: params[:id])   
         puts "+++++++++++++++++++++++++++++++++++++++++++++++++"  
     end
     @notes = Note.where("status = 'KOLEKCJA'")
