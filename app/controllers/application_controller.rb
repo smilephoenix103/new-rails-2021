@@ -19,16 +19,11 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def require_user_logged_in!
-    puts "*********************TEST TEST *****************************"
-    puts user_signed_in?
-    # puts current_user.role
-    puts current_user.inspect
-    puts !user_signed_in?
-    puts "METODA"
-    puts require_user_logged_in_admin!
-    puts "*********************TEST TEST *****************************"
-    
+  def require_user_logged_in_user!
+    redirect_to new_user_session_path, alert: "Musisz być zalogowany" if !user_signed_in?
+  end
+
+  def require_user_logged_in!    
       redirect_to new_user_session_path, alert: "Musisz być zalogowany" if (!require_user_logged_in_admin!)
   end  
 

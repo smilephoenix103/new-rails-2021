@@ -16,9 +16,12 @@
     		<%= link_to 'Countries', countries_path, class:"nav-link" %>
     	</li>
      <% end %> 
-      <li class="nav-item">
-        <%= link_to 'Note For Sell', note_for_sell_index_path, class:"nav-link" %>
-      </li>
+
+      <% if user_signed_in? %>
+        <li class="nav-item">
+          <%= link_to 'Note For Sell', note_for_sell_index_path, class:"nav-link" %>
+        </li>
+      <% end %>
       <li class="nav-item">
         <%= link_to 'Collection', note_collection_index_path, class:"nav-link" %>
       </li>
