@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   
+  devise_for :users
   # get 'note_collection/index'
   # get 'note_for_sell/index'
   # get 'note_for_sell/show'

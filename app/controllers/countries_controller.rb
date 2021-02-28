@@ -1,5 +1,6 @@
 class CountriesController < ApplicationController
   before_action :set_country, only: [:show, :edit, :update, :destroy]
+  before_action :require_user_logged_in!
 
   # GET /countries
   # GET /countries.json

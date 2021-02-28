@@ -14,6 +14,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'faker', '~> 2.16'
 
 gem 'reports_kit', '~> 0.7.1'
+gem 'devise', '~> 4.7', '>= 4.7.3'
 # gem 'jquery-rails'
 gem 'jquery-rails', '~> 4.4'
 
