@@ -1,7 +1,11 @@
-<!-- <div >
+<%
+=begin%>
+ <!-- <div >
 	<%= select_tag 'chart_id', options_for_select(@chart.collect{ |c| [c.name, c.id] }),id:"typeChart" %>
 
- </div> -->
+ </div> --> 
+<%
+=end%>
 
  <%= form_with url: "/", method: :get do |form| %>
  <div class="field" id="typeChart" data-chart="<%= @dataChart %>">
