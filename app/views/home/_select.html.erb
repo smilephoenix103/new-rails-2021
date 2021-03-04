@@ -7,7 +7,9 @@
 <%
 =end%>
 
-  <%= form_with url: "/", method: :get do |form| %>
+  <%
+=begin%>
+ <%= form_with url: "/", method: :get do |form| %>
     <div class="field" id="typeChart" data-chart="<%= @dataChart %>">
       <%= form.label :chart_name %>
       <%= form.select :chart_name, Chart.all.map { |p| [p, p.name]}, {:include => "Select"}, class:"form-control" %>
@@ -18,4 +20,6 @@
     </div>
   
     <%= form.submit "Selct" %>
-  <% end %>
+  <% end %> 
+<%
+=end%>
