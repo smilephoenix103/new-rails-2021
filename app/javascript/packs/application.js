@@ -21,49 +21,49 @@ ActiveStorage.start()
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
-const Chart = require('chart.js')
+// const Chart = require('chart.js')
 
-document.addEventListener('turbolinks:load', () => {
+// document.addEventListener('turbolinks:load', () => {
 
 
-    const myReport = document.querySelector("#myChart").dataset.chart;
-    const typeChart = document.querySelector("#typeChart").dataset.chart;
-    // const typeReport = document.querySelector("#typeReport").dataset.chart;
-    console.log(typeChart);
-    console.log(myReport);
-    // const chartUrl =  "http://localhost:3000/reports_kit/reports.json?report_params[key]=my_reports&properties={}";
-    const chartUrl = "http://localhost:3000/reports_kit/reports.json?report_params[key]=" + myReport + "&properties={}";
+//     const myReport = document.querySelector("#myChart").dataset.chart;
+//     const typeChart = document.querySelector("#typeChart").dataset.chart;
+//     // const typeReport = document.querySelector("#typeReport").dataset.chart;
+//     console.log(typeChart);
+//     console.log(myReport);
+//     // const chartUrl =  "http://localhost:3000/reports_kit/reports.json?report_params[key]=my_reports&properties={}";
+//     const chartUrl = "http://localhost:3000/reports_kit/reports.json?report_params[key]=" + myReport + "&properties={}";
 
-    fetch(chartUrl)
-        .then(function(response) {
-             response.json().then(data => {
-                // do something with your data
-                var chartData = data.data.chart_data;
-                //var datasets = chartData.datasets;
-                // var labels = chartData.labels;
-                // var options = chartData.options;
-                var options = {
-                    // All of my other bar chart option here
-                    scales: {
-                        yAxes: [{
-                            ticks: {
-                                beginAtZero:true
-                            }
-                        }]
-                    }
-                }
+//     fetch(chartUrl)
+//         .then(function(response) {
+//              response.json().then(data => {
+//                 // do something with your data
+//                 var chartData = data.data.chart_data;
+//                 //var datasets = chartData.datasets;
+//                 // var labels = chartData.labels;
+//                 // var options = chartData.options;
+//                 var options = {
+//                     // All of my other bar chart option here
+//                     scales: {
+//                         yAxes: [{
+//                             ticks: {
+//                                 beginAtZero:true
+//                             }
+//                         }]
+//                     }
+//                 }
 
-                var ctx = document.getElementById('myChart').getContext('2d');
-                var chart = new Chart(ctx, {
-                    // type: 'bar',
-                    type: typeChart,
-                    data: chartData,
-                    // labels: labels,
-                    options: options
-                });
-            });
-        })
-        .catch(function() {
-            // This is where you run code if the server returns any errors
-            });
-})
+//                 var ctx = document.getElementById('myChart').getContext('2d');
+//                 var chart = new Chart(ctx, {
+//                     // type: 'bar',
+//                     type: typeChart,
+//                     data: chartData,
+//                     // labels: labels,
+//                     options: options
+//                 });
+//             });
+//         })
+//         .catch(function() {
+//             // This is where you run code if the server returns any errors
+//             });
+// })
