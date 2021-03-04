@@ -1,4 +1,6 @@
 class NoteCollectionController < ApplicationController
+before_action :require_user_logged_in_user!
+
 include CountriesHelper
 include NoteCollectionHelper
   def index
