@@ -9,8 +9,10 @@
       <th>SIG</th>
       <th>Status</th>
       <th>Stan</th>
-      <th>Kupno</th>
-      <th>Sprzedaż</th>
+      <% if user_signed_in? && current_user.role == 'admin' %>
+        <th>Kupno</th>
+      <% end %>
+      <th>Cena</th>
       <th>Averse</th>
       <th>Reverse</th>
 
@@ -27,8 +29,10 @@
         <td><%= note.signature_code %></td>
         <td><%= note.status %></td>
         <td><%= note.quality %></td>
-        <td><%= note.price_buy %></td>
-        <td><%= note.price_sell %></td>
+        <% if user_signed_in? && current_user.role == 'admin' %>
+          <td><%= note.price_buy %></td>
+        <% end %>
+        <td><%= note.price_sell.to_s + "zł" %></td>
         <td>        
         	<% if (note.avers_path.length > 200) %>
             	<%= image_tag(note.avers_path, :alt => "AVERSE" , style:"width:100%;height:100%;") %>
