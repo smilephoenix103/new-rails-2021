@@ -31,9 +31,13 @@ document.addEventListener('turbolinks:load', () => {
     // const typeReport = document.querySelector("#typeReport").dataset.chart;
     console.log(typeChart);
     console.log(myReport);
+
+    const root = location.protocol + '//' + location.host;
+    console.log(root);
+
     // const chartUrl =  "http://localhost:3000/reports_kit/reports.json?report_params[key]=my_reports&properties={}";
-    // const chartUrl = "http://localhost:3000/reports_kit/reports.json?report_params[key]=" + myReport + "&properties={}";
-    const chartUrl = "https://pecunia-rails.herokuapp.com/reports_kit/reports.json?report_params[key]=" + myReport + "&properties={}"
+    const chartUrl = root + "/reports_kit/reports.json?report_params[key]=" + myReport + "&properties={}";
+    // const chartUrl = "https://pecunia-rails.herokuapp.com/reports_kit/reports.json?report_params[key]=" + myReport + "&properties={}"
 
     fetch(chartUrl)
         .then(function(response) {
