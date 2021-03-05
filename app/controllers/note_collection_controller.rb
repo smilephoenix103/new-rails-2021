@@ -30,7 +30,8 @@ include NoteCollectionHelper
 
   def show_currency
   	puts params[:id]
-  	@currencies = Currency.where(country_id: params[:id], pattern: 'NOTE')
+  	# @currencies = Currency.where(country_id: params[:id], pattern: 'NOTE')
+	  @currencies  = Currency.joins(:notes).where(country_id: params[:id], pattern: 'NOTE' ). group(:id)
   end
 
   def show_note
