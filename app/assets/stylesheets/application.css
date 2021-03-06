@@ -15,12 +15,14 @@
  *= require_self
 
  */
-/*body {
+body {
 	margin-right: 3%;
 	margin-left:3%;
+	/* background-color: lightslategray; */
+	background-image: url('/assets/mochaGrunge.png')
 }
 
 div {
-	text-align: center;
+	/* text-align: center; */
 	padding: 5px;
-}*/
+}
