@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get 'currencies/new/country/currency'
 
   resources :countries
+
   resources :currencies
   resources :notes
   resources :note_for_sell
@@ -36,5 +37,11 @@ Rails.application.routes.draw do
   # end
 
   mount ReportsKit::Engine, at: '/'
+
+  # APi controller
   
+  namespace :api do 
+    resources :country
+    
+ end
 end
