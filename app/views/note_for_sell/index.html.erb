@@ -1,13 +1,14 @@
 <h1>NOTES FOR SELL</h1>
 <% @root_path = Rails.root.join('app', 'assets', 'images','flags') %> 
-<div class="container ">
+<div class="container background-flags">
   <div class="row">
   	<% @countries.each do |country| %>
-  	<div class="col-md-2" style="text-align: center; height: 90px">
-  		<%= country.id %></br>
+  	<div class="col-md-2 country-flag">
       <%= link_to country.country_en, note_for_sell_path(country) %> </br>
   		<% if (File.exist?(@root_path + (country.country_en + '.png'))) %>
-        	<%= image_tag("flags/" + country.country_en + ".png", :alt => "rss feed" , style:"width:15%;height:15%;") %>
+		  <div class="country-flag">
+        	<%= image_tag("flags/" + country.country_en + ".png", :alt => "rss feed" , style:"width:20%;height:20%;") %>
+		  </div>
         <% else %>
       	<%= image_tag("flags/test.png", :alt => "rss feed" , style:"width:10%;height:10%;") %>
     	<% end %>

@@ -41,7 +41,7 @@ Rails.application.routes.draw do
   # APi controller
   
   namespace :api do 
-    resources :country
+    resources :country, only: [:index, :show]
     
  end
 end

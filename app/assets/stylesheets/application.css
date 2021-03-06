@@ -16,8 +16,8 @@
 
  */
 body {
-	margin-right: 3%;
-	margin-left:3%;
+	/* margin-right: 3%;
+	margin-left:3%; */
 	/* background-color: lightslategray; */
 	background-image: url('/assets/mochaGrunge.png')
 }
@@ -25,4 +25,34 @@ body {
 div {
 	/* text-align: center; */
 	padding: 5px;
+}
+
+.logo-center {
+	text-align: -moz-center;
+	background-color: lightgrey;
+}
+
+.background-flags {
+	background-color: lightgrey;
+}
+.country-flag {
+	text-align: center; 
+	height: 100px;
+}
+.margin-footer
+{
+    margin-block-end: 50px
+}
+
+.stopka
+{
+    background-color: #bfbfbf;
+    position:fixed;
+    bottom:0;
+    min-width:96%;
+	height: 8%;
+    /* margin-left: 2%;
+    margin-right: 2%; */
+    text-align: center;
+    /* font-size: 20px; */
 }
