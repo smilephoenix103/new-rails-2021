@@ -39,6 +39,14 @@ div {
 	text-align: center; 
 	height: 100px;
 }
+ .size-flag {
+	width:30%;
+	height:30%;
+ }
+ .position-flag {
+	text-align: center; 
+	height: 90px"
+ }
 .margin-footer
 {
     margin-block-end: 50px
