@@ -1,0 +1,75 @@
+<h1> WYBIERZ PAŃSTWO</h1>
+<%= render 'renders/countries' %>
+<%
+=begin%>
+ <p id="notice"><%= notice %></p>
+
+<h1>Coins</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Currency</th>
+      <th>Date buy</th>
+      <th>Bought</th>
+      <th>Denomination</th>
+      <th>Name currency</th>
+      <th>Coin date</th>
+      <th>Series</th>
+      <th>Diameter</th>
+      <th>Thickness</th>
+      <th>Weight</th>
+      <th>Signature code</th>
+      <th>Price buy</th>
+      <th>Price sell</th>
+      <th>Quantity</th>
+      <th>Quality</th>
+      <th>Status</th>
+      <th>Status sell</th>
+      <th>Img type</th>
+      <th>Composition</th>
+      <th>Description</th>
+      <th>Avers path</th>
+      <th>Reverse path</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @coins.each do |coin| %>
+      <tr>
+        <td><%= coin.currency_id %></td>
+        <td><%= coin.date_buy %></td>
+        <td><%= coin.bought %></td>
+        <td><%= coin.denomination %></td>
+        <td><%= coin.name_currency %></td>
+        <td><%= coin.coin_date %></td>
+        <td><%= coin.series %></td>
+        <td><%= coin.diameter %></td>
+        <td><%= coin.thickness %></td>
+        <td><%= coin.weight %></td>
+        <td><%= coin.signature_code %></td>
+        <td><%= coin.price_buy %></td>
+        <td><%= coin.price_sell %></td>
+        <td><%= coin.quantity %></td>
+        <td><%= coin.quality %></td>
+        <td><%= coin.status %></td>
+        <td><%= coin.status_sell %></td>
+        <td><%= coin.img_type %></td>
+        <td><%= coin.composition %></td>
+        <td><%= coin.description %></td>
+        <td><%= coin.avers_path %></td>
+        <td><%= coin.reverse_path %></td>
+        <td><%= link_to 'Show', coin %></td>
+        <td><%= link_to 'Edit', edit_coin_path(coin) %></td>
+        <td><%= link_to 'Destroy', coin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Coin', new_coin_path %> 
+<%
+=end%>

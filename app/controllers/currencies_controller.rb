@@ -17,12 +17,12 @@ class CurrenciesController < ApplicationController
         # @collection = @currency.notes.select { |note| note.status == 'KOLEKCJA' }
         # @sale =  @currency.notes.select { |note| note.status == 'FOR SELL' }
         @collection = Note.where(currency_id: params[:country_id])
-        puts "SHOW TEST"
+        puts "SHOW TEST WALUTY"
         puts params[:country_id]
         puts params[:id]
         puts "SHOW TEST"        
     else       
-        puts "++++++++++++++++++++++++++++++++++++++++++++++++"
+        puts "+++++++++++++++++++++++ WALUTY +++++++++++++++++++++++++"
         puts params[:id]      
         @currency = Currency.find(params[:id])   
         @collection = Note.where(currency_id: params[:id])   
@@ -57,6 +57,10 @@ class CurrenciesController < ApplicationController
     respond_to do |format|
       if @currency.save
         @country = @currency.country
+        if (@currency.pattern == "COIN")
+          puts "TO JES MONETA"
+          format.html { redirect_to coin_currencies_path(@country), notice: 'Currency was successfully created.' }
+        end
         format.html { redirect_to @country, notice: 'Currency was successfully created.' }
         format.json { render :show, status: :created, location: @currency }
       else
@@ -72,6 +76,10 @@ class CurrenciesController < ApplicationController
     respond_to do |format|
       if @currency.update(currency_params)
          @country = @currency.country
+        if (@currency.pattern == "COIN")
+          puts "TO JES MONETA"
+          format.html { redirect_to coin_currencies_path(@country), notice: 'Currency was successfully update.' }
+        end
         format.html { redirect_to @country, notice: 'Currency was successfully updated.' }
         format.json { render :show, status: :ok, location: @currency }
       else

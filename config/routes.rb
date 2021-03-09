@@ -24,6 +24,9 @@ Rails.application.routes.draw do
   resources :note_for_sell
   resources :note_collection
 
+  resources :coins
+  get 'coins/coin_currencies/:id', to: 'coins#coin_currencies', as: 'coin_currencies'
+
   resources :countries do
     resources :currencies
   end

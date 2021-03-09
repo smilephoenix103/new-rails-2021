@@ -2,11 +2,14 @@ class CountriesController < ApplicationController
   before_action :set_country, only: [:show, :edit, :update, :destroy]
   before_action :require_user_logged_in!
 
+  include CurrenciesHelper
+
+  
   # GET /countries
   # GET /countries.json
   def index
-    @countries = Country.all.order(country_en: :asc)
-
+    # @countries = Country.all.order(country_en: :asc)
+    @countries = countries_list
   end
 
   # GET /countries/1
@@ -15,6 +18,10 @@ class CountriesController < ApplicationController
      # @currency = Currency.find(params[:country_id])
     
     @country = Country.find(@country.id)
+    # @currencies = Currency.where(country_id: @country.id, pattern: 'NOTE')
+    @currencies = get_currencies_with_pattern(@country.id, "NOTE")
+
+    # @country = Country.includes(:currencies).where({:currencies => { pattern: 'NOTE'},:id => 172})
     puts "$$$$$$$$$$$$$$$$TEST$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
       puts @country.id
       puts @country.inspect

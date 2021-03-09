@@ -3,5 +3,9 @@
 <%= render 'form', currency: @currency %>
 
 <%= link_to 'Show', @currency, class:"btn btn-secondary" %>
-<%= link_to 'Back', country_path(@currency.country_id), class:"btn btn-dark" %>
-</br>
+<%
+=begin%>
+ <%= link_to 'Back', country_path(@currency.country_id), class:"btn btn-dark" %> 
+<%
+=end%>
+<br/>
