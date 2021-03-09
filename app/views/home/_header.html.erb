@@ -60,13 +60,11 @@
               <%= current_user.role %>
             </li>
             
-            <% if current_user.role == 'admin' %>
+        
               <li class="nav-item">
                 <%= link_to current_user.email, edit_user_registration_path, class:"nav-link" %>
               </li>
-              <% else %>
-                <span class="nav-link" ><%= current_user.email %></span>
-            <% end %>
+           
             
             <li class="nav-item">
               <%= button_to "Logout", destroy_user_session_path, method: :delete, class:"btn btn-sm btn-outline-secondary"  %>
