@@ -19,7 +19,12 @@
   <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
     <div class="col field">
       <%= form.label :Data_zakupu %>
-      <%= form.text_field :date_buy_note, class:"form-control", placeholder:"2020-01-01" %>
+       <%= form.date_select :date_buy_note, class:"form-control" %>
+      <%
+=begin%>
+ <%= form.text_field :date_buy_note, class:"form-control", placeholder:"2020-01-01" %> 
+<%
+=end%>
     </div>
     <div class="col field">
       <%= form.label :Miejsce_zakupu %>
