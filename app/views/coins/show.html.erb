@@ -111,4 +111,9 @@
 </p>
 
 <%= link_to 'Edit', edit_coin_path(@coin) %> |
-<%= link_to 'Back', coins_path %>
+<%= link_to 'Back', coin_show_currency_path(@coin.currency_id) %>
+<%
+=begin%>
+ <%= link_to 'Back', coins_path %> 
+<%
+=end%>

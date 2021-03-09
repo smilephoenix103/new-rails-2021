@@ -18,6 +18,26 @@ class CoinsController < ApplicationController
     @currencies = get_currencies_with_pattern(@country.id, "COIN")
   end
 
+  def coin_show_currency
+    puts "############# COIN_SHOW_CURRENCY#####################################"
+    if (params[:country_id] != nil)        
+      @currency = Currency.find(params[:country_id])
+      # @collection = @currency.notes.select { |note| note.status == 'KOLEKCJA' }
+      # @sale =  @currency.notes.select { |note| note.status == 'FOR SELL' }
+      @collection = Coin.where(currency_id: params[:country_id])
+      puts "SHOW TEST WALUTY"
+      puts params[:country_id]
+      puts params[:id]
+      puts "SHOW TEST"        
+  else       
+      puts "+++++++++++++++++++++++ WALUTY +++++++++++++++++++++++++"
+      puts params[:id]      
+      @currency = Currency.find(params[:id])   
+      @collection = Coin.where(currency_id: params[:id])   
+      puts "+++++++++++++++++++++++++++++++++++++++++++++++++"  
+  end
+  end
+
   # GET /coins/1 or /coins/1.json
   def show
   end
@@ -25,6 +45,10 @@ class CoinsController < ApplicationController
   # GET /coins/new
   def new
     @coin = Coin.new
+
+    puts "****************** test dodawania monety ********************************"
+    puts params[:currency_id]
+    @coin.currency_id = params[:currency_id]
   end
 
   # GET /coins/1/edit

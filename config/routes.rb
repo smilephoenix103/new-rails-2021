@@ -26,6 +26,8 @@ Rails.application.routes.draw do
 
   resources :coins
   get 'coins/coin_currencies/:id', to: 'coins#coin_currencies', as: 'coin_currencies'
+  get 'coins/coin_show_currency/:id', to: 'coins#coin_show_currency', as: 'coin_show_currency'
+  get 'coins/new/:id', to: 'coins#new', as: 'new'
 
   resources :countries do
     resources :currencies
@@ -33,6 +35,10 @@ Rails.application.routes.draw do
 
   resources :currencies do
     resources :notes
+  end  
+
+  resources :currencies do
+    resources :coins
   end  
   
   # resources :currencies do

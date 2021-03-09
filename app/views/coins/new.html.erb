@@ -2,4 +2,13 @@
 
 <%= render 'form', coin: @coin %>
 
-<%= link_to 'Back', coins_path %>
+<%
+=begin%>
+ <%= link_to 'Back', coins_path %> 
+<%
+=end%>
+<%
+=begin%>
+ <%= link_to 'Back', currency_path(@coin.currency_id), class:"btn btn-dark" %> 
+<%
+=end%>

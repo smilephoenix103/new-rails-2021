@@ -6,4 +6,5 @@ module CurrenciesHelper
     def countries_list
         Country.all.order(country_en: :asc)
     end
+
 end

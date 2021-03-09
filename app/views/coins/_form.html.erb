@@ -13,7 +13,12 @@
 
   <div class="field">
     <%= form.label :currency_id %>
-    <%= form.text_field :currency_id %>
+    <%
+=begin%>
+ <%= form.text_field :currency_id %> 
+<%
+=end%>
+    <%= form.text_field :currency_id, value:@coin.currency_id %>
   </div>
 
   <div class="field">
