@@ -15,7 +15,7 @@
   <h3><%= @currency.country %></h3>
   <div class="field form-group">
     <% form.label :country_id %>
-    <%= form.number_field :country_id, value:@currency.country_id %>
+    <%= form.text_field :country_id, value:@currency.country_id %>
   </div>
 
   <table class="table table-striped table-bordered table-hover">
