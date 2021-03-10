@@ -6,8 +6,16 @@
       <th>Waluta</th>
       <th>Rok</th>
       <th>Materiał</th>
-      <th>SIG</th>
-      <th>Status</th>
+      <%
+=begin%>
+ <th>SIG</th> 
+<%
+=end%>
+      <%
+=begin%>
+ <th>Status</th> 
+<%
+=end%>
       <th>Stan</th>
       <% if user_signed_in? && current_user.role == 'admin' %>
         <th>Kupno</th>
@@ -26,8 +34,16 @@
         <td><%= note.name_currency %></td>
         <td><%= note.note_date %></td>
         <td><%= note.making %></td>
-        <td><%= note.signature_code %></td>
-        <td><%= note.status %></td>
+        <%
+=begin%>
+ <td><%= note.signature_code %></td> 
+<%
+=end%>
+        <%
+=begin%>
+ <td><%= note.status %></td> 
+<%
+=end%>
         <td><%= note.quality %></td>
         <% if user_signed_in? && current_user.role == 'admin' %>
           <td><%= note.price_buy %></td>

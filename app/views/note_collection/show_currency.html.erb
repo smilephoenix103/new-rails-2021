@@ -1,4 +1,7 @@
 <h3>WALUTY</h3>
 <% @currencies.each do |currency| %>
-	<p><%= link_to (currency.id.to_s + " - " + currency.data_exchange), show_note_path(currency) %></p>
+	<div class="btn btn-secondary btn-sm" style="margin:10px;">
+		<%= link_to (currency.id.to_s + " - " + currency.data_exchange), show_note_path(currency), style:"color:black; margin:10px; padding:10px" %>
+		
+	</div>
 <% end %>

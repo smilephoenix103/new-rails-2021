@@ -36,7 +36,7 @@ class HomeController < ApplicationController
     private
     def select_report
       if (params[:report_name] == nil || params[:report_name] == "")
-       @data = "my_reports3"
+       @data = "my_reports"
       # puts "*******************************TEST************************"
       # puts @data
       # puts "*******************************TEST************************"
