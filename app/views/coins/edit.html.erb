@@ -2,10 +2,10 @@
 
 <%= render 'form', coin: @coin %>
 
-<%= link_to 'Show', @coin %> |
+<%= link_to 'Show', @coin, class:"btn btn-secondary" %>
 <%
 =begin%>
  <%= link_to 'Back', coins_path %> 
 <%
 =end%>
-<%= link_to 'Back', coin_show_currency_path(@coin.currency_id) %>
+<%= link_to 'Back', coin_show_currency_path(@coin.currency_id), class:"btn btn-dark" %>

@@ -21,112 +21,130 @@
     <%= form.text_field :currency_id, value:@coin.currency_id %>
   </div>
 
-  <div class="field">
-    <%= form.label :date_buy %>
-    <%= form.date_select :date_buy %>
+  <div class="container">
+    <div class="row row-cols-1 row-cols-sm-3">
+      <div class="col field">
+        <%= form.label :Data_zakupu %><br/>
+        <%= form.date_select :date_buy_note, class:"form-control" %>
+      </div>
+      <div class="col field">
+        <%= form.label :Miejsce_zakupu %>
+        <%= form.text_field :bought, class:"form-control" %>
+      </div>
+    </div>
   </div>
+<div class="container">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+    <div class="col field">
+      <%= form.label :denomination %>
+      <%= form.text_field :denomination, class:"form-control" %>
+    </div>
 
-  <div class="field">
-    <%= form.label :bought %>
-    <%= form.text_field :bought %>
-  </div>
+    <div class="col field">
+      <%= form.label :name_currency %>
+      <%= form.text_field :name_currency, class:"form-control" %>
+    </div>
 
-  <div class="field">
-    <%= form.label :denomination %>
-    <%= form.text_field :denomination %>
-  </div>
+    <div class="col field">
+      <%= form.label :coin_date %>
+      <%= form.text_field :coin_date, class:"form-control" %>
+    </div>
 
-  <div class="field">
-    <%= form.label :name_currency %>
-    <%= form.text_field :name_currency %>
+    <div class="col field">
+      <%= form.label :series %>
+      <%= form.text_field :series, class:"form-control" %>
+    </div>
   </div>
+</div>
+<div class="container">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+    <div class="col field">
+      <%= form.label :diameter %>
+      <%= form.text_field :diameter, class:"form-control" %>
+    </div>
 
-  <div class="field">
-    <%= form.label :coin_date %>
-    <%= form.text_field :coin_date %>
-  </div>
+    <div class="col field">
+      <%= form.label :thickness %>
+      <%= form.text_field :thickness, class:"form-control" %>
+    </div>
 
-  <div class="field">
-    <%= form.label :series %>
-    <%= form.text_field :series %>
-  </div>
+    <div class="col field">
+      <%= form.label :weight %>
+      <%= form.text_field :weight, class:"form-control" %>
+    </div>
 
-  <div class="field">
-    <%= form.label :diameter %>
-    <%= form.text_field :diameter %>
+    <div class="col field">
+      <%= form.label :signature_code %>
+      <%= form.number_field :signature_code, class:"form-control" %>
+    </div>
   </div>
+</div>
+<div class="container">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+    <div class="col field">
+      <%= form.label :price_buy %>
+      <%= form.text_field :price_buy, class:"form-control" %>
+    </div>
 
-  <div class="field">
-    <%= form.label :thickness %>
-    <%= form.text_field :thickness %>
-  </div>
+    <div class="field">
+      <%= form.label :price_sell %>
+      <%= form.text_field :price_sell, class:"form-control" %>
+    </div>
 
-  <div class="field">
-    <%= form.label :weight %>
-    <%= form.text_field :weight %>
-  </div>
+    <div class="col field">
+      <%= form.label :quantity %>
+      <%= form.number_field :quantity, class:"form-control" %>
+    </div>
 
-  <div class="field">
-    <%= form.label :signature_code %>
-    <%= form.number_field :signature_code %>
+    <div class="col field">
+      <%= form.label :quality %>
+      <%= form.text_field :quality, class:"form-control" %>
+    </div>
   </div>
+</div>
+<div class="container">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+    <div class="col field">
+      <%= form.label :status %>
+      <%= form.text_field :status, class:"form-control" %>
+    </div>
 
-  <div class="field">
-    <%= form.label :price_buy %>
-    <%= form.text_field :price_buy %>
-  </div>
+    <div class="field">
+      <%= form.label :status_sell %>
+      <%= form.text_field :status_sell, class:"form-control" %>
+    </div>
 
-  <div class="field">
-    <%= form.label :price_sell %>
-    <%= form.text_field :price_sell %>
+    <div class="field">
+      <%= form.label :img_type %>
+      <%= form.text_field :img_type, class:"form-control" %>
+    </div>
   </div>
+</div>
+<div class="container">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+    <div class="col field">
+      <%= form.label :composition %><br/>
+      <%= form.text_area :composition %>
+    </div>
 
-  <div class="field">
-    <%= form.label :quantity %>
-    <%= form.number_field :quantity %>
+    <div class=" col field">
+      <%= form.label :description %><br/>
+      <%= form.text_area :description %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :quality %>
-    <%= form.text_field :quality %>
-  </div>
-
-  <div class="field">
-    <%= form.label :status %>
-    <%= form.text_field :status %>
-  </div>
-
-  <div class="field">
-    <%= form.label :status_sell %>
-    <%= form.text_field :status_sell %>
-  </div>
-
-  <div class="field">
-    <%= form.label :img_type %>
-    <%= form.text_field :img_type %>
-  </div>
-
-  <div class="field">
-    <%= form.label :composition %>
-    <%= form.text_area :composition %>
-  </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
+</div>
 
   <div class="field">
     <%= form.label :avers_path %>
-    <%= form.text_field :avers_path %>
+    <%= form.text_field :avers_path, class:"form-control" %>
   </div>
 
   <div class="field">
     <%= form.label :reverse_path %>
-    <%= form.text_field :reverse_path %>
+    <%= form.text_field :reverse_path, class:"form-control" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class:"btn btn-primary" %>
   </div>
 <% end %>
