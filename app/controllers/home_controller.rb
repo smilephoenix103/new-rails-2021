@@ -17,6 +17,10 @@ class HomeController < ApplicationController
   	# puts params[:chart_name]
   	# puts "!!!!!!!!!!TEST!!!!!!!!!!!!"
 
+    @exchange_rate = ExchangeRate.new
+    @exchange = @exchange_rate.rate
+    puts @exchange.no
+
   	
   end
 
@@ -52,4 +56,6 @@ class HomeController < ApplicationController
       puts "$$$$$$$$$$$!!!!!!!!!!TEST!!!!!!!!!!!!"
     end
     end
+
+    
 end

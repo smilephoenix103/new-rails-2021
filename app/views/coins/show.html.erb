@@ -1,119 +1,128 @@
-<p id="notice"><%= notice %></p>
+<div class="jumbotron">
+  <p> 
+    <strong>Id:</strong>
+    <%= @coin.currency_id %>
+  </p>
+  <h1 class="display-4" id="notice"></h1>
+  <div class="container">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+    <% if user_signed_in? && current_user.role == 'admin' %>
+      <div class="col">
+        <strong>Data zakupu:</strong>
+        <%= @coin.date_buy %>
+      </div>  
+      <div class="col">
+        <strong>Miejsce zakupu:</strong>
+        <%= @coin.bought %>
+      </div>
+      <div class="col">
+        <strong>cena zakupu:</strong>
+        <%= @coin.price_buy.to_s + "zł" %>
+      </div>
+      
+      <div class="col">
+        <strong>Cena:</strong>
+        <%= @coin.price_sell.to_s + "zł" %>
+      </div>         
+    <% end %>
+      <div class="col">
+        <strong>Nominał:</strong>
+        <%= @coin.denomination %>
+      </div>
+      <div class="col">
+        <strong>Nazwa waluty:</strong>
+        <%= @coin.name_currency %>
+      </div>
+      <div class="col">
+        <strong>Data:</strong>
+        <%= @coin.coin_date %>
+      </div>
+      <div class="col">
+        <strong>SERIA:</strong>
+        <%= @coin.series %>
+      </div>
+      <div class="col">
+        <strong>Signature code:</strong>
+        <%= @coin.signature_code %>
+      </div>
+    
+      
+      <div class="col">
+        <strong>Ilość:</strong>
+        <%= @coin.quantity %>
+      </div>
+      <div class="col">
+        <strong>Stan monety:</strong>
+        <%= @coin.quality %>
+      </div>
+      <div class="col">
+        <strong>Skład:</strong>
+        <%= @coin.composition %>
+      </div>
+      
+      <div class="col">
+        <strong>Diameter:</strong>
+        <%= @coin.diameter %>
+      </div>
 
-<p>
-  <strong>Currency:</strong>
-  <%= @coin.currency_id %>
-</p>
+      <div class="col">
+        <strong>Thickness:</strong>
+        <%= @coin.thickness %>
+      </div>
 
-<p>
-  <strong>Date buy:</strong>
-  <%= @coin.date_buy %>
-</p>
+      <div class="col">
+        <strong>Weight:</strong>
+        <%= @coin.weight %>
+      </div>
 
-<p>
-  <strong>Bought:</strong>
-  <%= @coin.bought %>
-</p>
+      <div class="col">
+        <strong>typ obrazka:</strong>
+        <%= @coin.img_type %> 
+      </div>
+      <div class="col">
+        <strong>Status:</strong>
+        <%= @coin.status %>
+      </div>
+      <div class="col">
+        <strong>Status sprzedaży:</strong>
+        <%= @coin.status_sell %>
+      </div>
+    </div>
+  </div>
+  <p>
+    <strong>Description:</strong>
+    <%= @coin.description %>
+  </p>
+  <hr class="my-4">
+ 
 
-<p>
-  <strong>Denomination:</strong>
-  <%= @coin.denomination %>
-</p>
-
-<p>
-  <strong>Name currency:</strong>
-  <%= @coin.name_currency %>
-</p>
-
-<p>
-  <strong>Coin date:</strong>
-  <%= @coin.coin_date %>
-</p>
-
-<p>
-  <strong>Series:</strong>
-  <%= @coin.series %>
-</p>
-
-<p>
-  <strong>Diameter:</strong>
-  <%= @coin.diameter %>
-</p>
-
-<p>
-  <strong>Thickness:</strong>
-  <%= @coin.thickness %>
-</p>
-
-<p>
-  <strong>Weight:</strong>
-  <%= @coin.weight %>
-</p>
-
-<p>
-  <strong>Signature code:</strong>
-  <%= @coin.signature_code %>
-</p>
-
-<p>
-  <strong>Price buy:</strong>
-  <%= @coin.price_buy %>
-</p>
-
-<p>
-  <strong>Price sell:</strong>
-  <%= @coin.price_sell %>
-</p>
-
-<p>
-  <strong>Quantity:</strong>
-  <%= @coin.quantity %>
-</p>
-
-<p>
-  <strong>Quality:</strong>
-  <%= @coin.quality %>
-</p>
-
-<p>
-  <strong>Status:</strong>
-  <%= @coin.status %>
-</p>
-
-<p>
-  <strong>Status sell:</strong>
-  <%= @coin.status_sell %>
-</p>
-
-<p>
-  <strong>Img type:</strong>
-  <%= @coin.img_type %>
-</p>
-
-<p>
-  <strong>Composition:</strong>
-  <%= @coin.composition %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @coin.description %>
-</p>
-
-<p>
-  <strong>Avers path:</strong>
-  <%= @coin.avers_path %>
-</p>
-
-<p>
-  <strong>Reverse path:</strong>
-  <%= @coin.reverse_path %>
-</p>
-
-<%= link_to 'Edit', edit_coin_path(@coin) %> |
-<%= link_to 'Back', coin_show_currency_path(@coin.currency_id) %>
-<%
+  <div class="container">
+    <div class="row justify-content-md-center">
+      <div class="col col-lg-6">
+        <% if (@coin.avers_path.length > 200) %>
+          <%= image_tag(@coin.avers_path, :alt => "AVERSE" , style:"width:100%;height:100%;") %>
+        <% else %>
+          <%= @coin.avers_path %>          
+        <% end %>
+      </div>
+      <%
 =begin%>
- <%= link_to 'Back', coins_path %> 
+ <div class="col-md-auto">
+        Variable width content
+      </div> 
 <%
 =end%>
+      <div class="col col-lg-6">
+        <% if (@coin.reverse_path.length > 200) %>
+          <%= image_tag(@coin.reverse_path, :alt => "REVERSE" , style:"width:100%;height:100%;") %>
+        <% else %>
+          <%= @coin.reverse_path %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+ 
+  <%= link_to 'Edit', edit_coin_path(@coin), class:"btn btn-secondary" %>
+  <%= link_to 'Back', coin_show_currency_path(@coin.currency_id), class:"btn btn-dark" %>
+  
+</div>

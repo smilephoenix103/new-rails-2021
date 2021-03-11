@@ -19,10 +19,44 @@
   <%= render 'home/chart_card' %>
 </div> 
 
-<div style=" margin:10px;">
-  <a href="https://www.leftovercurrency.com/" style="color:black">
-    <%= image_tag("header/leftover-currency-logo.png", :alt => "Leftover currency" ,
-    style:"width:30%;height:30%; background-color: lightgrey; padding:10px")%>
-  </a>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col"> 
+      <div style=" margin:10px;">
+        <a href="https://www.leftovercurrency.com/" style="color:black">
+          <%= image_tag("header/leftover-currency-logo.png", :alt => "Leftover currency" ,
+          style:"width:70%;height:70%; background-color: lightgrey; padding:10px")%>
+        </a>
+      </div>    
+    </div>
+    
+    <div class="col-4">
+    <%= "Tabela - " + @exchange.table.to_s %> <br/> 
+    <%= "Numer - " + @exchange.no.to_s %> <br/>
+    <%= "Data - " + @exchange.effectiveDate %>
+      <table class="table table-striped table-bordered table-hover table-sm">
+        <thead class="thead-dark">
+            <tr>
+                <th>Waluta</th>
+                <th>Kod</th>
+                <th>Sredni</th>
+            </tr>
+        </thead>
+        <% @exchange.rates.each do |rate| %>
+            <tr>
+                <td><%= rate.currency %></td>
+                <td><%= rate.code %></td>
+                <td><%= rate.mid %></td>
+            </tr>
+        <% end %>
+
+      </table>
+    </div>
+    <div class="col">
+    </div>
+  </div>
 </div>
+
 

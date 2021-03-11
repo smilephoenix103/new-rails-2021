@@ -15,6 +15,7 @@ gem 'faker', '~> 2.16'
 
 gem 'reports_kit', '~> 0.7.1'
 gem 'devise', '~> 4.7', '>= 4.7.3'
+gem 'json', '~> 2.5', '>= 2.5.1'
 # gem 'jquery-rails'
 gem 'jquery-rails', '~> 4.4'
 
