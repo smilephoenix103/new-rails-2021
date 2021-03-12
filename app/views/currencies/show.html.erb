@@ -32,7 +32,7 @@
 </div>
 
 
-<h2>Banknoty</h2>
+<h2>Banknoty tu jestem</h2>
  <table class="table table-striped table-bordered table-hover">
   <thead class="thead-dark">
   <tr>
@@ -50,7 +50,8 @@
   </thead>
   <% @collection.each do |note| %>
 
-      <tr>
+    <% if note.avers_path.length < 200 %>
+      <tr style="background-color:lightskyblue">
         <td><%= note.id %></td>
         <td><%= note.denomination %></td>
         <td><%= note.name_currency %></td>
@@ -64,7 +65,22 @@
         <td><%= link_to 'Edit', edit_note_path(note) %></td>
         <td><%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-
+    <% else %>
+     <tr >
+        <td><%= note.id %></td>
+        <td><%= note.denomination %></td>
+        <td><%= note.name_currency %></td>
+        <td><%= note.note_date %></td>
+        <td><%= note.making %></td>
+        <td><%= note.signature_code %></td>
+        <td><%= note.status %></td>
+        <td><%= note.price_buy %></td>
+        <td><%= note.price_sell %></td>
+        <td><%= link_to 'Show', currency_note_path(note) %></td>
+        <td><%= link_to 'Edit', edit_note_path(note) %></td>
+        <td><%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+      <% end %>
   <% end %>
   
 </table>

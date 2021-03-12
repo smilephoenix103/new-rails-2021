@@ -40,9 +40,19 @@
       <li class="nav-item">
       	<%= link_to 'About PECUNIA', home_about_path, class:"nav-link" %>
       </li>
-      <li >
-        
-  
+      <li class="nav-item"  >
+       <% if user_signed_in? && current_user.role == 'admin' %>
+        <div class="dropdown nav-link" >
+          <button onclick="myFunction()" class="dropbtn" >TEST DROP</button>
+          <div id="myDropdown" class="dropdown-content">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            
+              <a href="#contact">Contact</a>
+              
+          </div>
+        </div>
+        <% end %>
       </li>
     </ul>
     <%
@@ -80,3 +90,25 @@
       </ul> 
   </div>
 </nav>
+
+<script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>

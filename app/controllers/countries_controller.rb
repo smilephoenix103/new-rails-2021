@@ -32,6 +32,7 @@ class CountriesController < ApplicationController
   def new
     @country = Country.new
 
+    @continents = Continent.all.order(name_pl: :desc)
      puts "@@@@@@@@@@@@@TEST@@@@@@@@@@@@@@@@@"
     puts @country
     puts "@@@@@@@@@@@@@TEST@@@@@@@@@@@@@@@@@"
