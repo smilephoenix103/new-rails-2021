@@ -12,19 +12,58 @@
     		<%= link_to 'Add Country', new_country_path, class:"nav-link" %>
     	</li>
    
+      <!--
     	<li>
     		<%= link_to 'Add Note', countries_path, class:"nav-link" %>
     	</li>
-
+      
       <li>
     		<%= link_to 'Add Coin', coins_path, class:"nav-link" %>
     	</li>
-
+      -->
+      
       <li class="nav-item">
         <%= link_to 'Reports', reports_path, class:"nav-link" %>
       </li>
      <% end %> 
+ 
+      <li class="nav-item " > 
+        <% if user_signed_in? %>
+          <div class="dropdown nav-link ">
+            <button class="dropbtn bg-dark dropdown-toggle">Notes</button>
+            <div class="dropdown-content ">
+              <% if user_signed_in? && current_user.role == 'admin' %>
+                <%= link_to 'Add Note', countries_path, class:"nav-link" %>
+              <% end %>
+              <% if user_signed_in? %>
+                  <%= link_to 'Note For Sell', note_for_sell_index_path, class:"nav-link" %>
+                  <%= link_to 'Collection', note_collection_index_path, class:"nav-link" %>
+              <% end %>
+                
+            </div>
+          </div>
+        <% end %>
+      </li>
 
+      <li class="nav-item"> 
+        <% if user_signed_in? && current_user.role == 'admin' %>
+          <div class="dropdown nav-link ">
+            <button class="dropbtn bg-dark dropdown-toggle">Coins</button>
+              <div class="dropdown-content">
+              <% if user_signed_in? && current_user.role == 'admin' %>
+                <%= link_to 'Add Coin', coins_path, class:"nav-link" %>             
+              <% end %>
+              <% if user_signed_in? %>
+               
+              <% end %>
+                
+            </div>
+          </div>
+        <% end %>
+      </li>
+
+      
+      <!--
       <% if user_signed_in? %>
         <li class="nav-item">
           <%= link_to 'Note For Sell', note_for_sell_index_path, class:"nav-link" %>
@@ -34,26 +73,13 @@
           <%= link_to 'Collection', note_collection_index_path, class:"nav-link" %>
         </li>
       <% end %>   
-
+      -->
       
       
       <li class="nav-item">
       	<%= link_to 'About PECUNIA', home_about_path, class:"nav-link" %>
       </li>
-      <li class="nav-item"  >
-       <% if user_signed_in? && current_user.role == 'admin' %>
-        <div class="dropdown nav-link" >
-          <button onclick="myFunction()" class="dropbtn" >TEST DROP</button>
-          <div id="myDropdown" class="dropdown-content">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            
-              <a href="#contact">Contact</a>
-              
-          </div>
-        </div>
-        <% end %>
-      </li>
+      
     </ul>
     <%
 =begin%>
@@ -91,13 +117,16 @@
   </div>
 </nav>
 
+<!--
 <script>
 /* When the user clicks on the button, 
 toggle between hiding and showing the dropdown content */
 function myFunction() {
   document.getElementById("myDropdown").classList.toggle("show");
 }
-
+function myFunctionCoin() {
+  document.getElementById("myDropdownCoin").classList.toggle("show");
+}
 // Close the dropdown if the user clicks outside of it
 window.onclick = function(event) {
   if (!event.target.matches('.dropbtn')) {
@@ -112,3 +141,4 @@ window.onclick = function(event) {
   }
 }
 </script>
+-->
