@@ -40,14 +40,26 @@
         
         <td>        
         	<% if (note.avers_path.length > 200) %>
-            	<%= image_tag(note.avers_path, :alt => "AVERSE" , style:"width:100%;height:100%;") %>
+            <img src=<%= note.avers_path %> alt = <%= note.avers_path %> style="width:100%;height:100%;" >
+
+            	<%
+=begin%>
+ <%= image_tag(note.avers_path, :alt => "AVERSE" , style:"width:100%;height:100%;") %> 
+<%
+=end%>
             <% else %>
             	<%= note.avers_path %>
             <% end %> 
         </td>
         <td>        
             <% if (note.reverse_path.length > 200) %>
-            	<%= image_tag(note.reverse_path, :alt => "AVERSE" , style:"width:100%;height:100%;") %>
+              <img src=<%= note.reverse_path %> alt = <%= note.reverse_path %> style="width:100%;height:100%;" >
+
+            	<%
+=begin%>
+ <%= image_tag(note.reverse_path, :alt => "AVERSE" , style:"width:100%;height:100%;") %> 
+<%
+=end%>
             <% else %>
             	<%= note.reverse_path %>
             <% end %> 
