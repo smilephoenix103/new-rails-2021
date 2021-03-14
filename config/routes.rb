@@ -23,6 +23,9 @@ Rails.application.routes.draw do
   resources :notes
   resources :note_for_sell
   resources :note_collection, only: [:index, :show]
+  resources :coin_collection, only: [:index, :show]
+  get 'coin_collection/show_coins/:id', to: 'coin_collection#show_coins', as: 'show_coins'
+  get 'coin_collection/show_details_coin/:id', to:'coin_collection#show_details_coin', as: 'show_details_coin'
 
   resources :coins
   get 'coins/coin_currencies/:id', to: 'coins#coin_currencies', as: 'coin_currencies'

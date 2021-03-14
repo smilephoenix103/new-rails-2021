@@ -46,7 +46,7 @@
       </li>
 
       <li class="nav-item"> 
-        <% if user_signed_in? && current_user.role == 'admin' %>
+        <% if user_signed_in? %>
           <div class="dropdown nav-link ">
             <button class="dropbtn bg-dark dropdown-toggle">Coins</button>
               <div class="dropdown-content">
@@ -54,7 +54,7 @@
                 <%= link_to 'Add Coin', coins_path, class:"nav-link" %>             
               <% end %>
               <% if user_signed_in? %>
-               
+                 <%= link_to 'Collection', coin_collection_index_path, class:"nav-link" %>
               <% end %>
                 
             </div>

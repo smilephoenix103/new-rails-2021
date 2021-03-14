@@ -7,5 +7,8 @@ module CountriesHelper
 		Country.includes(:currencies => :notes).where({ :currencies => { :notes => { status: status}}, :continent => continent}).order(country_en: :asc)
 	end
 
-	
+	def get_countries_coin_colection(status)
+		Country.includes(:currencies => :coins).where({ :currencies => { :coins => { status: status}}}).order(country_en: :asc)
+	end
+
 end
