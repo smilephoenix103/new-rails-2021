@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   resources :currencies
   resources :notes
   resources :note_for_sell
-  resources :note_collection
+  resources :note_collection, only: [:index, :show]
 
   resources :coins
   get 'coins/coin_currencies/:id', to: 'coins#coin_currencies', as: 'coin_currencies'
