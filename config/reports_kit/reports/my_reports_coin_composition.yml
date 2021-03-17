@@ -1,0 +1,8 @@
+measure: coin
+dimensions:
+  # - quality
+  # - status
+  # - series
+  - composition
+  # - key: created_at
+  #   granularity: day
