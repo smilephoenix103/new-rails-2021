@@ -1,0 +1,30 @@
+measure:
+  key: coin
+  name: Skład monet
+  aggregation: 
+filters:
+- key: status
+  criteria:
+    # value: true
+    operator: contains
+    value: KOLEKCJA
+dimensions:
+- status
+- composition
+
+# - key: created_at
+#   granularity: day
+
+
+
+# measure: coin
+# dimensions:
+# - status
+# - composition
+# chart:
+#   options:
+#     scales:
+#       xAxes:
+#       - scaleLabel:
+#           display: true
+#           labelString: Views

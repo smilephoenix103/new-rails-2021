@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   
+  resources :bonds
   devise_for :users
   # get 'note_collection/index'
   # get 'note_for_sell/index'
@@ -33,6 +34,10 @@ Rails.application.routes.draw do
   get 'coins/coin_show_currency/:id', to: 'coins#coin_show_currency', as: 'coin_show_currency'
   get 'coins/new/:id', to: 'coins#new', as: 'new'
 
+  # BONDS
+  get 'bonds/bond_currencies/:id', to: 'bonds#bond_currencies', as: 'bond_currencies'
+
+
   resources :countries do
     resources :currencies
   end
@@ -45,6 +50,9 @@ Rails.application.routes.draw do
     resources :coins
   end  
   
+  resources :currencies do
+    resources :bonds
+  end  
   # resources :currencies do
   #   resources :notes
   # end

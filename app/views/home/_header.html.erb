@@ -63,6 +63,28 @@
         <% end %>
       </li>
 
+       <li class="nav-item"> 
+        <% if user_signed_in? && current_user.role == 'admin' %>
+          <div class="dropdown nav-link ">
+            <button class="dropbtn bg-dark dropdown-toggle">Bonds</button>
+              <div class="dropdown-content">
+              <% if user_signed_in? && current_user.role == 'admin' %>
+                <%= link_to 'Add Bond', bonds_path, class:"nav-link" %>             
+              <% end %>
+              <% if user_signed_in? %>
+                 <%
+=begin%>
+ <%= link_to "Coin For Sell", coin_for_sell_index_path, class:"nav-link" %>
+                 <%= link_to 'Collection', coin_collection_index_path, class:"nav-link" %> 
+<%
+=end%>
+              <% end %>
+                
+            </div>
+          </div>
+        <% end %>
+      </li>
+
       
       <!--
       <% if user_signed_in? %>

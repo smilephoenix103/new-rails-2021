@@ -1,0 +1,43 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  currency: one
+  date_buy: 2021-03-19
+  series: MyString
+  bought: MyString
+  denomination: 
+  name_currency: MyString
+  bond_date: MyString
+  signature_code: 1
+  price_buy: 1.5
+  price_sell: 1.5
+  quantity: 1
+  quality: MyString
+  making: MyString
+  status: MyString
+  status_sell: MyString
+  description: MyText
+  image_type: MyString
+  avers_path: MyText
+  reverse_path: MyText
+
+two:
+  currency: two
+  date_buy: 2021-03-19
+  series: MyString
+  bought: MyString
+  denomination: 
+  name_currency: MyString
+  bond_date: MyString
+  signature_code: 1
+  price_buy: 1.5
+  price_sell: 1.5
+  quantity: 1
+  quality: MyString
+  making: MyString
+  status: MyString
+  status_sell: MyString
+  description: MyText
+  image_type: MyString
+  avers_path: MyText
+  reverse_path: MyText

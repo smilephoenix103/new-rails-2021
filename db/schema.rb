@@ -10,10 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_08_234553) do
+ActiveRecord::Schema.define(version: 2021_03_19_151809) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bonds", force: :cascade do |t|
+    t.bigint "currency_id", null: false
+    t.date "date_buy"
+    t.string "series"
+    t.string "bought"
+    t.bigint "denomination"
+    t.string "name_currency"
+    t.string "bond_date"
+    t.integer "signature_code"
+    t.float "price_buy"
+    t.float "price_sell"
+    t.integer "quantity"
+    t.string "quality"
+    t.string "making"
+    t.string "status"
+    t.string "status_sell"
+    t.text "description"
+    t.string "image_type"
+    t.text "avers_path"
+    t.text "reverse_path"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["currency_id"], name: "index_bonds_on_currency_id"
+  end
 
   create_table "charts", force: :cascade do |t|
     t.string "name"
@@ -134,6 +159,7 @@ ActiveRecord::Schema.define(version: 2021_03_08_234553) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bonds", "currencies"
   add_foreign_key "coins", "currencies"
   add_foreign_key "currencies", "countries", name: "currencies_country_id_fkey"
   add_foreign_key "notes", "currencies", name: "notes_currency_id_fkey"

@@ -62,6 +62,10 @@ class CurrenciesController < ApplicationController
           puts "TO JES MONETA"
           format.html { redirect_to coin_currencies_path(@country), notice: 'Currency was successfully created.' }
         end
+        if (@currency.pattern == "BOND")
+          puts "TO JES OBLIGACJA"
+          format.html { redirect_to bond_currencies_path(@country), notice: 'Currency was successfully created.' }
+        end
         format.html { redirect_to @country, notice: 'Currency was successfully created.' }
         format.json { render :show, status: :created, location: @currency }
       else
@@ -80,6 +84,10 @@ class CurrenciesController < ApplicationController
         if (@currency.pattern == "COIN")
           puts "TO JES MONETA"
           format.html { redirect_to coin_currencies_path(@country), notice: 'Currency was successfully update.' }
+        end
+        if (@currency.pattern == "BOND")
+          puts "TO JES OBLIGACJA"
+          format.html { redirect_to bond_currencies_path(@country), notice: 'Currency was successfully created.' }
         end
         format.html { redirect_to @country, notice: 'Currency was successfully updated.' }
         format.json { render :show, status: :ok, location: @currency }

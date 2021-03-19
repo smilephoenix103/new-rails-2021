@@ -1,0 +1,70 @@
+<h1> WYBIERZ PAŃSTWO</h1>
+<%= render 'renders/countries_bond' %>
+
+<%
+=begin%>
+ <p id="notice"><%= notice %></p>
+
+<h1>Bonds</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Currency</th>
+      <th>Date buy</th>
+      <th>Series</th>
+      <th>Bought</th>
+      <th>Denomination</th>
+      <th>Name currency</th>
+      <th>Bond date</th>
+      <th>Signature code</th>
+      <th>Price buy</th>
+      <th>Price sell</th>
+      <th>Quantity</th>
+      <th>Quality</th>
+      <th>Making</th>
+      <th>Status</th>
+      <th>Status sell</th>
+      <th>Description</th>
+      <th>Image type</th>
+      <th>Avers path</th>
+      <th>Reverse path</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bonds.each do |bond| %>
+      <tr>
+        <td><%= bond.currency_id %></td>
+        <td><%= bond.date_buy %></td>
+        <td><%= bond.series %></td>
+        <td><%= bond.bought %></td>
+        <td><%= bond.denomination %></td>
+        <td><%= bond.name_currency %></td>
+        <td><%= bond.bond_date %></td>
+        <td><%= bond.signature_code %></td>
+        <td><%= bond.price_buy %></td>
+        <td><%= bond.price_sell %></td>
+        <td><%= bond.quantity %></td>
+        <td><%= bond.quality %></td>
+        <td><%= bond.making %></td>
+        <td><%= bond.status %></td>
+        <td><%= bond.status_sell %></td>
+        <td><%= bond.description %></td>
+        <td><%= bond.image_type %></td>
+        <td><%= bond.avers_path %></td>
+        <td><%= bond.reverse_path %></td>
+        <td><%= link_to 'Show', bond %></td>
+        <td><%= link_to 'Edit', edit_bond_path(bond) %></td>
+        <td><%= link_to 'Destroy', bond, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Bond', new_bond_path %> 
+<%
+=end%>
