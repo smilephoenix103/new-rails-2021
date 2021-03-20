@@ -1,6 +1,6 @@
 class BondsController < ApplicationController
   before_action :set_bond, only: %i[ show edit update destroy ]
-  before_action :require_user_logged_in!
+  before_action :require_admin_logged_in!
 
   include CurrenciesHelper
 
@@ -18,6 +18,26 @@ class BondsController < ApplicationController
     @currencies = get_currencies_with_pattern(@country.id, "BOND")
   end
 
+  def bond_show_currency
+    puts "############# COIN_SHOW_CURRENCY#####################################"
+    if (params[:country_id] != nil)        
+      @currency = Currency.find(params[:country_id])
+      # @collection = @currency.notes.select { |note| note.status == 'KOLEKCJA' }
+      # @sale =  @currency.notes.select { |note| note.status == 'FOR SELL' }
+      @collection = Bond.where(currency_id: params[:country_id])
+      puts "SHOW TEST WALUTY dla Obligacji"
+      puts params[:country_id]
+      puts params[:id]
+      puts "SHOW TEST"        
+  else       
+      puts "+++++++++++++++++++++++  +++++++++++++++++++++++++"
+      puts params[:id]      
+      @currency = Currency.find(params[:id])   
+      @collection = Bond.where(currency_id: params[:id])   
+      puts "+++++++++++++++++++++++++++++++++++++++++++++++++"  
+  end
+  end
+
   # GET /bonds/1 or /bonds/1.json
   def show
   end
@@ -25,6 +45,9 @@ class BondsController < ApplicationController
   # GET /bonds/new
   def new
     @bond = Bond.new
+    @bond.currency_id = params[:currency_id]
+    puts "****************** test dodawania obligacji ********************************"
+    puts params[:currency_id]
   end
 
   # GET /bonds/1/edit

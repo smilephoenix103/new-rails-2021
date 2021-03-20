@@ -1,5 +1,5 @@
 class CoinForSellController < ApplicationController
-    before_action :require_user_logged_in_user!
+    before_action :require_user_logged_in!
     include CoinForSellHelper
 
     def index

@@ -20,10 +20,12 @@
         <%= @coin.price_buy.to_s + "zł" %>
       </div>
       
-      <div class="col">
-        <strong>Cena:</strong>
-        <%= @coin.price_sell.to_s + "zł" %>
-      </div>         
+      <% if @coin.price_sell.to_s != "" %>
+        <div class="col">
+          <strong>Cena:</strong>
+          <%= @coin.price_sell.to_s + "zł" %>
+        </div>         
+      <% end %>
     <% end %>
       <div class="col">
         <strong>Nominał:</strong>
@@ -83,10 +85,12 @@
         <strong>Status:</strong>
         <%= @coin.status %>
       </div>
-      <div class="col">
-        <strong>Status sprzedaży:</strong>
-        <%= @coin.status_sell %>
-      </div>
+      <% if @coin.status_sell != "" %>
+        <div class="col">
+          <strong>Status sprzedaży:</strong>
+          <%= @coin.status_sell %>
+        </div>
+      <% end %>
     </div>
   </div>
   <p>

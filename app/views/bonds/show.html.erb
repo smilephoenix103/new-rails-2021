@@ -1,99 +1,124 @@
-<p id="notice"><%= notice %></p>
+<div class="jumbotron">
+  <p> 
+    <strong>Id:</strong>
+    <%= @bond.currency_id %>
+  </p>
+  <h1 class="display-4" id="notice"></h1>
+  <div class="container">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+    <% if user_signed_in? && current_user.role == 'admin' %>
+      <div class="col">
+        <strong>Data zakupu:</strong>
+        <%= @bond.date_buy %>
+      </div>  
+      <div class="col">
+        <strong>Miejsce zakupu:</strong>
+        <%= @bond.bought %>
+      </div>
+      <div class="col">
+        <strong>cena zakupu:</strong>
+        <%= @bond.price_buy.to_s + "zł" %>
+      </div>
+      
+      <% if @bond.price_sell.to_s != "" %>
+        <div class="col">
+          <strong>Cena:</strong>
+          <%= @bond.price_sell.to_s + "zł" %>
+        </div> 
+      <% end %>        
+    <% end %>
+      <div class="col">
+        <strong>Nominał:</strong>
+        <%= @bond.denomination %>
+      </div>
+      <div class="col">
+        <strong>Nazwa waluty:</strong>
+        <%= @bond.name_currency %>
+      </div>
+      <div class="col">
+        <strong>Data:</strong>
+        <%= @bond.bond_date %>
+      </div>
+      <div class="col">
+        <strong>SERIA:</strong>
+        <%= @bond.series %>
+      </div>
+      <div class="col">
+        <strong>Signature code:</strong>
+        <%= @bond.signature_code %>
+      </div>
+    
+      
+      <div class="col">
+        <strong>Ilość:</strong>
+        <%= @bond.quantity %>
+      </div>
+      <div class="col">
+        <strong>Stan monety:</strong>
+        <%= @bond.quality %>
+      </div>
+  
+      <div class="col">
+        <strong>typ obrazka:</strong>
+        <%= @bond.img_type %> 
+      </div>
+      <div class="col">
+        <strong>Status:</strong>
+        <%= @bond.status %>
+      </div>
+      <% if @bond.status_sell != "" %>
+        <div class="col">
+          <strong>Status sprzedaży:</strong>
+          <%= @bond.status_sell %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <p>
+    <strong>Description:</strong>
+    <%= @bond.description %>
+  </p>
+  <hr class="my-4">
+ 
 
-<p>
-  <strong>Currency:</strong>
-  <%= @bond.currency_id %>
-</p>
+  <div class="container">
+    <div class="row justify-content-md-center">
+      <div class="col col-lg-6">
+        <% if (@bond.avers_path.length > 200) %>
+          <img src=<%= @bond.avers_path %> alt = <%= @bond.avers_path %> style="width:100%;height:100%;" >
+           <%
+=begin%>
+ <%= image_tag(@bond.avers_path, :alt => "AVERSE" , style:"width:100%;height:100%;") %> 
+<%
+=end%>
+        <% else %>
+          <%= @bond.avers_path %>          
+        <% end %>
+      </div>
+      <%
+=begin%>
+ <div class="col-md-auto">
+        Variable width content
+      </div> 
+<%
+=end%>
+      <div class="col col-lg-6">
+        <% if (@bond.reverse_path.length > 200) %>
+          <img src=<%= @bond.reverse_path %> alt = <%= @bond.reverse_path %> style="width:100%;height:100%;" >
 
-<p>
-  <strong>Date buy:</strong>
-  <%= @bond.date_buy %>
-</p>
-
-<p>
-  <strong>Series:</strong>
-  <%= @bond.series %>
-</p>
-
-<p>
-  <strong>Bought:</strong>
-  <%= @bond.bought %>
-</p>
-
-<p>
-  <strong>Denomination:</strong>
-  <%= @bond.denomination %>
-</p>
-
-<p>
-  <strong>Name currency:</strong>
-  <%= @bond.name_currency %>
-</p>
-
-<p>
-  <strong>Bond date:</strong>
-  <%= @bond.bond_date %>
-</p>
-
-<p>
-  <strong>Signature code:</strong>
-  <%= @bond.signature_code %>
-</p>
-
-<p>
-  <strong>Price buy:</strong>
-  <%= @bond.price_buy %>
-</p>
-
-<p>
-  <strong>Price sell:</strong>
-  <%= @bond.price_sell %>
-</p>
-
-<p>
-  <strong>Quantity:</strong>
-  <%= @bond.quantity %>
-</p>
-
-<p>
-  <strong>Quality:</strong>
-  <%= @bond.quality %>
-</p>
-
-<p>
-  <strong>Making:</strong>
-  <%= @bond.making %>
-</p>
-
-<p>
-  <strong>Status:</strong>
-  <%= @bond.status %>
-</p>
-
-<p>
-  <strong>Status sell:</strong>
-  <%= @bond.status_sell %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @bond.description %>
-</p>
-
-<p>
-  <strong>Image type:</strong>
-  <%= @bond.image_type %>
-</p>
-
-<p>
-  <strong>Avers path:</strong>
-  <%= @bond.avers_path %>
-</p>
-
-<p>
-  <strong>Reverse path:</strong>
-  <%= @bond.reverse_path %>
-</p>
-
-<%= link_to 'Edit', edit_bond_path(@bond) %> |
-<%= link_to 'Back', bonds_path %>
+          <%
+=begin%>
+ <%= image_tag(@bond.reverse_path, :alt => "REVERSE" , style:"width:100%;height:100%;") %> 
+<%
+=end%>
+        <% else %>
+          <%= @bond.reverse_path %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+ 
+  <%= link_to 'Edit', edit_bond_path(@bond), class:"btn btn-secondary" %>
+  <%= link_to 'Back', bond_show_currency_path(@bond.currency_id), class:"btn btn-dark" %>
+  
+</div>

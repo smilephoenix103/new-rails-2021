@@ -1,0 +1,62 @@
+<h3>BOND</h3>
+<p id="notice"><%= notice %></p>
+
+<div class="jumbotron">
+  <h3 class="display-4">
+      <strong>Państwo:</strong>
+      <%= @currency.country.country_en %>
+  </h3>
+  <p>
+    <strong>Cod:</strong> <%= @currency.cod %>  |  
+    <strong>Waluta:</strong> <%= @currency.currency %>
+  </p>
+  <p>
+    <strong>Active:</strong> <%= @currency.active %>  |  
+    <strong>Data wymiany (Okres): </strong><%= @currency.data_exchange %>
+  </p>
+  <p>
+    <strong>Description:</strong><%= @currency.description %>
+  </p>
+  
+
+  <%= link_to 'Edit', edit_currency_path(@currency), class:"btn btn-secondary" %> 
+  <%= link_to 'Back', bond_currencies_path(@currency.country_id), class:"btn btn-dark" %> 
+  <%= link_to 'Add Bond', new_currency_bond_path(@currency), class:"btn btn-secondary" %>  
+
+</div>
+
+<table class="table table-striped table-bordered table-hover">
+  <thead class="thead-dark">
+  <tr>
+      <th>Id</th>
+      <th>Nominał</th>
+      <th>Waluta</th>
+      <th>Rok</th>
+      <th>SIG</th>
+      <th>Status</th>
+      <th>Kupno</th>
+      <th>Sprzedaż</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <% @collection.each do |bond| %>
+
+      <tr>
+        <td><%= bond.id %></td>
+        <td><%= bond.denomination %></td>
+        <td><%= bond.name_currency %></td>
+        <td><%= bond.bond_date %></td>
+        <td><%= bond.signature_code %></td>
+        <td><%= bond.status %></td>
+        <td><%= bond.price_buy %></td>
+        <td><%= bond.price_sell %></td>
+
+        <td><%= link_to 'Show', bond_path(bond) %></td>
+        <td><%= link_to 'Edit', edit_bond_path(bond) %></td> 
+
+        <td><%= link_to 'Destroy', bond, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+
+  <% end %>
+  
+</table>

@@ -1,6 +1,6 @@
 class CurrenciesController < ApplicationController
   before_action :set_currency, only: [:show, :edit, :update, :destroy]
-  before_action :require_user_logged_in!
+  before_action :require_admin_logged_in!
 
   # GET /currencies
   # GET /currencies.json
@@ -87,7 +87,7 @@ class CurrenciesController < ApplicationController
         end
         if (@currency.pattern == "BOND")
           puts "TO JES OBLIGACJA"
-          format.html { redirect_to bond_currencies_path(@country), notice: 'Currency was successfully created.' }
+          format.html { redirect_to bond_currencies_path(@country), notice: 'Currency was successfully update.' }
         end
         format.html { redirect_to @country, notice: 'Currency was successfully updated.' }
         format.json { render :show, status: :ok, location: @currency }
@@ -102,11 +102,18 @@ class CurrenciesController < ApplicationController
   # DELETE /currencies/1.json
   def destroy
     @country = @currency.country
-    @currency.destroy
+    @currency.destroy 
     respond_to do |format|
-      format.html { redirect_to @country, notice: 'Currency was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+      if (@currency.pattern == "COIN")
+        format.html { redirect_to coin_currencies_path(@country), notice: 'Currency was successfully destroyed.' }
+      end
+      if (@currency.pattern == "BOND")
+        format.html { redirect_to bond_currencies_path(@country), notice: 'Currency was successfully destroyed.' }
+      end
+     
+        format.html { redirect_to @country, notice: 'Currency was successfully destroyed.' }
+        format.json { head :no_content }
+      end    
   end
 
   private

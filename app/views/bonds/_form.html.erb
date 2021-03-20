@@ -11,7 +11,111 @@
     </div>
   <% end %>
 
+<div class="col field">
+  <%= form.label :currency_id %>
+  <%= form.text_field :currency_id, value:@bond.currency_id %>
+</div>
+
+<div class="container">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+    <div class="col field">
+      <%= form.label :Data_zakupu %><br/>
+       <%= form.date_select :date_buy, class:"form-control" %>
+    </div>
+    <div class="col field">
+      <%= form.label :Miejsce_zakupu %>
+      <%= form.text_field :bought, class:"form-control" %>
+    </div>
+  </div>
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+    <div class="col field">
+      <%= form.label :Nominał %>
+      <%= form.text_field :denomination, class:"form-control" %>
+    </div>
+    <div class="col field">
+      <%= form.label :Waluta %>
+      <%= form.text_field :name_currency, class:"form-control" %>
+    </div>
+    <div class="col field">
+      <%= form.label :Seria %>
+      <%= form.text_field :series, class:"form-control" %>
+    </div>
+    <div class="col field">
+      <%= form.label :Data %>
+      <%= form.text_field :bond_date, class:"form-control" %>
+    </div>
+    <div class="col field">
+      <%= form.label :Materiał %>
+      <%= form.text_field :making, class:"form-control" %>
+    </div>
+    <div class="col field">
+      <%= form.label :Sygnatura %>
+      <%= form.number_field :signature_code, class:"form-control" %>
+    </div>
+    <div class="col field">
+      <%= form.label :Kupno %>
+      <%= form.text_field :price_buy, class:"form-control" %>
+    </div>
+    <div class="col field">
+      <%= form.label :Sprzedaż %>
+      <%= form.text_field :price_sell, class:"form-control" %>
+    </div>
+    <div class="col field">
+      <%= form.label :Ilość %>
+      <%= form.number_field :quantity, class:"form-control" %>
+    </div>
+    <div class="col field">
+      <%= form.label :Stan %>
+      <%= form.text_field :quality, class:"form-control" %>
+    </div>
+    <div class="col field">
+      <%= form.label :Status %>
+      <%= form.text_field :status, class:"form-control" %>
+    </div>
+    <div class="col field">
+      <%= form.label :Status_sprzedaży %>
+      <%= form.text_field :status_sell, class:"form-control" %>
+    </div>
+    <div class="col field">
+      <%= form.label :Typ_obrazka %>
+      <%= form.text_field :img_type, class:"form-control" %>
+    </div>
+    <div class="field">
+      <%= form.label :description %>
+      <%= form.text_area :description, class:"form-control" %>
+    </div>
+
+  </div>
   <div class="field">
+    <%= form.label :avers_path %>
+    <%= form.text_field :avers_path, class:"form-control" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :reverse_path %>
+    <%= form.text_field :reverse_path, class:"form-control" %>
+  </div>
+</div>
+  
+  <br/>
+  <div class="actions">
+    <%= form.submit class:"btn btn-primary" %>
+  </div>
+<% end %>
+
+
+
+
+
+  <%
+=begin%>
+ "------------------------------------------------------" 
+<%
+=end%>
+
+  <%
+=begin%>
+ <div class="field">
     <%= form.label :currency_id %>
     <%= form.text_field :currency_id %>
   </div>
@@ -98,15 +202,17 @@
 
   <div class="field">
     <%= form.label :avers_path %>
-    <%= form.text_area :avers_path %>
+    <%= form.text_field :avers_path %>
   </div>
 
   <div class="field">
     <%= form.label :reverse_path %>
-    <%= form.text_area :reverse_path %>
+    <%= form.text_field :reverse_path %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class:"btn btn-primary" %>
   </div>
-<% end %>
+<% end %> 
+<%
+=end%>

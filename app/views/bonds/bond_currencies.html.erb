@@ -71,13 +71,11 @@
       <td><%= currency.pattern %></td>
       <td><%= currency.description %></td>
       
-      <%
-=begin%>
- <td><%= link_to 'Show', coin_show_currency_path(currency) %></td>
+
+      <td><%= link_to 'Show', bond_show_currency_path(currency) %></td>
       <td><%= link_to 'Edit', edit_currency_path(currency) %></td>
       <td><%= link_to 'Destroy', currency, method: :delete, data: { confirm: 'Are you sure?' } %></td> 
-<%
-=end%>
+
 
     </tr>
     <% end %>

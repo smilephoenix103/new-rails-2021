@@ -36,6 +36,7 @@ Rails.application.routes.draw do
 
   # BONDS
   get 'bonds/bond_currencies/:id', to: 'bonds#bond_currencies', as: 'bond_currencies'
+  get 'bonds/bond_show_currency/:id', to: 'bonds#bond_show_currency', as: 'bond_show_currency'
 
 
   resources :countries do

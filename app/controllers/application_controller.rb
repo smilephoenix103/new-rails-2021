@@ -19,11 +19,11 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def require_user_logged_in_user!
+  def require_user_logged_in!
     redirect_to new_user_session_path, alert: "Musisz być zalogowany" if !user_signed_in?
   end
 
-  def require_user_logged_in!    
+  def require_admin_logged_in!    
       redirect_to new_user_session_path, alert: "Musisz być zalogowany" if (!require_user_logged_in_admin!)
   end  
 
