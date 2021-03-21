@@ -99,6 +99,6 @@ class BondsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def bond_params
-      params.require(:bond).permit(:currency_id, :date_buy, :series, :bought, :denomination, :name_currency, :bond_date, :signature_code, :price_buy, :price_sell, :quantity, :quality, :making, :status, :status_sell, :description, :image_type, :avers_path, :reverse_path)
+      params.require(:bond).permit(:currency_id, :date_buy, :series, :bought, :denomination, :name_currency, :bond_date, :signature_code, :price_buy, :price_sell, :quantity, :quality, :making, :status, :status_sell, :description, :img_type, :avers_path, :reverse_path)
     end
 end
