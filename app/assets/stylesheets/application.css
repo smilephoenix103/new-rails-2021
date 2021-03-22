@@ -102,3 +102,56 @@ div {
   .dropdown:hover .dropdown-content {display: block;}
   
   .dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+  /* SHOW COLLECTION */
+.image-collection-bond
+{
+    width:50%;
+    height:50%; 
+    padding:10px;
+}
+.item
+{
+    /* margin: 15px; */
+    width: 50%;
+	height: 50%;
+}
+
+.btn-image-collection
+{
+	text-align: left; 
+	margin-left: 10px; 
+	margin-right: 10px;
+}
+.image-container
+{
+	text-align: center; 
+	width: 90%; 
+	height: 60%; 
+	margin-right: 5%; 
+	margin-left: 5%;
+}
+.image-out-container
+{
+	border: black solid 1px; 
+	background-color: lightgray; 
+	width: 100%; 
+	height: 100%;
+}
+
+.primary-container
+{
+	width: 255px; 
+	height: 250px; 
+	margin-bottom: 30px;
+}
+.image-collection_size
+{
+	width:100%
+}
+.item-collection-info
+{
+	/* margin-top: -20px;  */
+	font-size: smaller;
+	text-align: left;
+}

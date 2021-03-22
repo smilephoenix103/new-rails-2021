@@ -1,32 +1,36 @@
 <h1>KOLEKCJA OBLIGACJI</H1>
 <div class="container row" style="text-align: center ">
-            <% @bonds.each do |bond| %> 
-                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" style="width: 255px; height: 250px; margin-bottom: 30px">
-                    <div style=" border: black solid 1px; background-color: lightgray; width: 100%; height: 100%" >
-                        <div class="row item" style="text-align: center; width: 90%; height: 60%; margin-right: 5%; margin-left: 5%">
-                            <div class="item"  >
-                                <% if (bond.avers_path.length > 200) %>
-                                    <img class="img-responsive" style="width:100%" src=<%= bond.avers_path %> alt = <%= bond.avers_path %>>
-                                <% else %>
-                                    <%= bond.avers_path %>          
-                                <% end %>
-                            </div >
-                            <div class="item">
-                                <% if (bond.reverse_path.length > 200) %>
-                                    <img class="img-responsive" style="width:100%" src=<%= bond.reverse_path %> alt = <%= bond.reverse_path %>>
-                                <% else %>
-                                    <%= bond.reverse_path %>
-                                <% end %>
-                            </div>
-                        </div>
-                        <div style="text-align: left; margin-left: 10px; margin-right: 10px">
-                            
-                            <%= link_to 'Show', bond_path(bond), class:"btn btn-secondary" %> 
-                        </div>
+    <% @bonds.each do |bond| %> 
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 primary-container">
+            <div  class="image-out-container">
+                <div class="row image-container">
+                    <div class="item"  >
+                        <% if (bond.avers_path.length > 200) %>
+                            <img class="img-responsive image-collection_size"  src=<%= bond.avers_path %> alt = <%= bond.avers_path %>>
+                        <% else %>
+                            <%= bond.avers_path %>          
+                        <% end %>
+                    </div >
+                    <div class="item">
+                        <% if (bond.reverse_path.length > 200) %>
+                            <img class="img-responsive image-collection_size" src=<%= bond.reverse_path %> alt = <%= bond.reverse_path %>>
+                        <% else %>
+                            <%= bond.reverse_path %>
+                        <% end %>
+                    </div>
+                    <div class="item-collection-info">
+                      <%= "Rok: " + bond.bond_date.to_s %><br/>
+                      <%= "Nominał: " + bond.denomination.to_s %><br/>
+                      <%= "Waluta: " + bond.name_currency.to_s %>
                     </div>
                 </div>
-            <% end %>
+                <div class="btn-image-collection">
+                    <%= link_to 'Show', bond_path(bond), class:"btn btn-secondary" %> 
+                </div>
+            </div>
         </div>
+    <% end %>
+</div>
 
 
 

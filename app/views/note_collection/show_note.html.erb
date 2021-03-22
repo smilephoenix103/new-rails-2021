@@ -1,5 +1,45 @@
 <h3>BANKNOTY</h3> 
-<table class="table table-striped table-bordered table-hover">
+
+<div class="container row" style="text-align: center ">
+    <% @notes.each do |note| %> 
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 primary-container" >
+            <div class="image-out-container" >
+                <div class="row image-container" >
+                    <div class="item"  >
+                        <% if (note.avers_path.length > 200) %>
+                            <img class="img-responsive image-collection_size" src=<%= note.avers_path %> alt = <%= note.avers_path %>>
+                        <% else %>
+                            <%= note.avers_path %>          
+                        <% end %>
+                    </div >
+                    <div class="item">
+                        <% if (note.reverse_path.length > 200) %>
+                            <img class="img-responsive image-collection_size" src=<%= note.reverse_path %> alt = <%= note.reverse_path %>>
+                        <% else %>
+                            <%= note.reverse_path %>
+                        <% end %>
+                    </div>
+                    <div class="item-collection-info">
+                      <%= "Rok: " + note.note_date.to_s %><br/>
+                      <%= "Nominał: " + note.denomination.to_s %><br/>
+                      <%= "Waluta: " + note.name_currency.to_s %>
+                    </div>
+                </div>
+                <% if user_signed_in? && current_user.role == 'admin' %>
+                  <div class="btn-image-collection">
+                      <%= link_to 'Show', note_path(note), class:"btn btn-secondary" %> 
+                  </div>
+                <% end %>
+            </div>
+        </div>
+    <% end %>
+</div>
+
+
+
+<%
+=begin%>
+ <table class="table table-striped table-bordered table-hover">
   <thead class="thead-dark">
   <tr>
       <th>Id</th>
@@ -40,13 +80,7 @@
         
         <td>        
         	<% if (note.avers_path.length > 200) %>
-            <img src=<%= note.avers_path %> alt = <%= note.avers_path %> style="width:100%;height:100%;" >
-
-            	<%
-=begin%>
- <%= image_tag(note.avers_path, :alt => "AVERSE" , style:"width:100%;height:100%;") %> 
-<%
-=end%>
+              <img src=<%= note.avers_path %> alt = <%= note.avers_path %> style="width:100%;height:100%;" >
             <% else %>
             	<%= note.avers_path %>
             <% end %> 
@@ -54,12 +88,6 @@
         <td>        
             <% if (note.reverse_path.length > 200) %>
               <img src=<%= note.reverse_path %> alt = <%= note.reverse_path %> style="width:100%;height:100%;" >
-
-            	<%
-=begin%>
- <%= image_tag(note.reverse_path, :alt => "AVERSE" , style:"width:100%;height:100%;") %> 
-<%
-=end%>
             <% else %>
             	<%= note.reverse_path %>
             <% end %> 
@@ -68,4 +96,6 @@
       </tr>
      <!-- <%= (note.avers_path.length) %> -->
   <% end %>
-</table>
+</table> 
+<%
+=end%>
