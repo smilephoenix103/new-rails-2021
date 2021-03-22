@@ -1,0 +1,7 @@
+<h3>OBLIGACJE CZAS</h3>
+<% @currencies.each do |currency| %>
+	<div class="btn btn-secondary btn-sm" style="margin:10px;">
+		<%= link_to (currency.id.to_s + " - " + currency.data_exchange), show_bonds_path(currency), style:"color:black; margin:10px; padding:10px" %>
+		
+	</div>
+<% end %>

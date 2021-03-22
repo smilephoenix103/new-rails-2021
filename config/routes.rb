@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   resources :note_collection, only: [:index, :show]
   resources :coin_for_sell, only: [:index, :show]
   resources :coin_collection, only: [:index, :show]
+  resources :bond_collection, only: [:index, :show]
   get 'coin_collection/show_coins/:id', to: 'coin_collection#show_coins', as: 'show_coins'
   get 'coin_collection/show_details_coin/:id', to:'coin_collection#show_details_coin', as: 'show_details_coin'
 
@@ -35,8 +36,13 @@ Rails.application.routes.draw do
   get 'coins/new/:id', to: 'coins#new', as: 'new'
 
   # BONDS
+ 
   get 'bonds/bond_currencies/:id', to: 'bonds#bond_currencies', as: 'bond_currencies'
   get 'bonds/bond_show_currency/:id', to: 'bonds#bond_show_currency', as: 'bond_show_currency'
+
+  get 'bond_collection/show_bonds/:id', to: 'bond_collection#show_bonds', as: 'show_bonds'
+  # get 'bond_collection/show_details_bond/:id', to:'bond_collection#show_details_bond', as: 'show_details_bond'
+
 
 
   resources :countries do

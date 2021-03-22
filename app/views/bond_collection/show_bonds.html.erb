@@ -1,0 +1,30 @@
+<h1>KOLEKCJA OBLIGACJI</H1>
+<div class="container">
+    <div class="row row-cols-2 ">
+        <% @bonds.each do |bond| %>  
+        <div class="col" >
+                <div class="row">
+                    <div class="col-md-8" style="width:30%;height:30%;" >
+                        <% if (bond.avers_path.length > 200) %>
+                            <img class="float-left"src=<%= bond.avers_path %> alt = <%= bond.avers_path %> style="width:50%;height:50%;" >
+                        <% else %>
+                            <%= bond.avers_path %>          
+                        <% end %>
+                    
+                        <% if (bond.reverse_path.length > 200) %>
+                            <img class="float-right" src=<%= bond.reverse_path %> alt = <%= bond.reverse_path %> style="width:50%;height:50%;" >
+                        <% else %>
+                            <%= bond.reverse_path %>
+                        <% end %>
+                    </div>
+                  
+                    
+                </div>
+                <div>
+                    <%= link_to 'Show', bond_path(bond), class:"btn btn-secondary" %> 
+                </div>
+        </div>
+
+        <% end%>
+    </div> 
+</div>
