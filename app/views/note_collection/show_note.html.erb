@@ -25,11 +25,9 @@
                       <%= "Waluta: " + note.name_currency.to_s %>
                     </div>
                 </div>
-                <% if user_signed_in? && current_user.role == 'admin' %>
-                  <div class="btn-image-collection">
-                      <%= link_to 'Show', note_path(note), class:"btn btn-secondary" %> 
-                  </div>
-                <% end %>
+                <div class="btn-image-collection">
+                    <%= link_to 'Show', note_path(note), class:"btn btn-secondary" %> 
+                </div>
             </div>
         </div>
     <% end %>
