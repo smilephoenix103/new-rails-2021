@@ -84,38 +84,74 @@
 
   <div class="container">
     <div class="row justify-content-md-center">
-      <div class="col col-lg-6">
-        <% if (@note.avers_path.length > 200) %>
-           <img src=<%= @note.avers_path %> alt = <%= @note.avers_path %> style="width:100%;height:100%;" >
+      <div class="">
 
-          <%
+      <div class="row">
+          <div class="col col-lg-6">
+            <img src=<%= @note.avers_path %> style="width:100%" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+          </div>
+          <div class="col col-lg-6">
+            <img src=<%= @note.reverse_path %> style="width:100%" onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+          </div>
+          
+        </div>
+
+        <div id="myModal" class="modal">
+          <span class="close cursor" onclick="closeModal()">&times;</span>
+          <div class="modal-content">
+
+            <div class="mySlides">
+              <div class="numbertext">1 / 2</div>
+              <img src=<%= @note.avers_path %> style="width:100%">
+            </div>
+
+            <div class="mySlides">
+              <div class="numbertext">2 / 2</div>
+              <img src=<%= @note.reverse_path %> style="width:100%">
+            </div>
+            
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+            <%
 =begin%>
- <%= image_tag(@note.avers_path, :alt => "AVERSE" , style:"width:100%;height:100%;") %> 
+ <div class="caption-container">
+              <p id="caption"></p>
+            </div> 
 <%
 =end%>
+
+
+          <div class="" style="background-color: black;">
+            <div class="column col col-lg-6">
+              <img class="demo cursor" src=<%= @note.avers_path %> style="width:50%" onclick="currentSlide(1)" alt= "TEST">
+            </div>
+            <div class="column col col-lg-6">
+              <img class="demo cursor" src=<%= @note.reverse_path %> style="width:50%" onclick="currentSlide(2)" alt= "TEST">
+            </div>
+          </div>
+          </div>
+        </div>
+
+
+
+
+        <%
+=begin%>
+ <% if (@note.avers_path.length > 200) %>
+           <img src=<%= @note.avers_path %> alt = <%= @note.avers_path %> style="width:100%;height:100%;" >
         <% else %>
           <%= @note.avers_path %>
         <% end %>
       </div>
-      <%
-=begin%>
- <div class="col-md-auto">
-        Variable width content
-      </div> 
-<%
-=end%>
       <div class="col col-lg-6">
         <% if (@note.reverse_path.length > 200) %>
           <img src=<%= @note.reverse_path %> alt = <%= @note.reverse_path %> style="width:100%;height:100%;" >
-
-          <%
-=begin%>
- <%= image_tag(@note.reverse_path, :alt => "REVERSE" , style:"width:100%;height:100%;") %> 
-<%
-=end%>
         <% else %>
           <%= @note.reverse_path %>
-        <% end %>
+        <% end %> 
+<%
+=end%>
       </div>
     </div>
   </div>
@@ -129,7 +165,44 @@
 
 
 
+<script>
+function openModal() {
+  document.getElementById("myModal").style.display = "block";
+}
 
+function closeModal() {
+  document.getElementById("myModal").style.display = "none";
+}
+
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  var captionText = document.getElementById("caption");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  captionText.innerHTML = dots[slideIndex-1].alt;
+}
+</script>
 
 
 
