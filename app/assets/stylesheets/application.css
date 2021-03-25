@@ -181,7 +181,7 @@ div {
 	display: none;
 	position: fixed;
 	z-index: 1;
-	padding-top: 100px;
+	padding-top: 30px;
 	left: 0;
 	top: 0;
 	width: 100%;
@@ -294,4 +294,10 @@ div {
   
   .hover-shadow:hover {
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  .image-size-show
+  {
+	height: 100%;
+	width: 100%;
   }

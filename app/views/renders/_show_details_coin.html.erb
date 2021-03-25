@@ -95,43 +95,33 @@
   </p>
   <hr class="my-4">
  
+  <% @avers = @coin.avers_path %>
+  <% @reverse = @coin.reverse_path %>
+ 
+  <%= render 'renders/show_image_lightbox' %>
 
-  <div class="container">
+  <%
+=begin%>
+ <div class="container">
     <div class="row justify-content-md-center">
       <div class="col col-lg-6">
         <% if (@coin.avers_path.length > 200) %>
           <img src=<%= @coin.avers_path %> alt = <%= @coin.avers_path %> style="width:100%;height:100%;" >
-           <%
-=begin%>
- <%= image_tag(@coin.avers_path, :alt => "AVERSE" , style:"width:100%;height:100%;") %> 
-<%
-=end%>
         <% else %>
           <%= @coin.avers_path %>          
         <% end %>
       </div>
-      <%
-=begin%>
- <div class="col-md-auto">
-        Variable width content
-      </div> 
-<%
-=end%>
       <div class="col col-lg-6">
         <% if (@coin.reverse_path.length > 200) %>
           <img src=<%= @coin.reverse_path %> alt = <%= @coin.reverse_path %> style="width:100%;height:100%;" >
-
-          <%
-=begin%>
- <%= image_tag(@coin.reverse_path, :alt => "REVERSE" , style:"width:100%;height:100%;") %> 
-<%
-=end%>
         <% else %>
           <%= @coin.reverse_path %>
         <% end %>
       </div>
     </div>
-  </div>
+  </div> 
+<%
+=end%>
   <% if user_signed_in? && current_user.role == 'admin' %>
     <%= link_to 'Edit', edit_coin_path(@coin), class:"btn btn-secondary" %>
   <% end %>
