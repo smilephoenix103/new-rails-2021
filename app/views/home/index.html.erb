@@ -11,9 +11,13 @@
 <span ></span>
 
 
+<%
+=begin%>
  <div class="background-flags container">
   <%= render 'home/chart_card' %>
-</div> 
+</div>  
+<%
+=end%>
 
 
 
@@ -29,8 +33,12 @@
     </div>
     
     <div class="col-4">
-    <%= "Tabela - " + @exchange.table.to_s %> <br/> 
-    <%= "Numer - " + @exchange.no.to_s %> <br/>
+    <%
+=begin%>
+ <%= "Tabela - " + @exchange.table.to_s %> <br/> 
+    <%= "Numer - " + @exchange.no.to_s %> <br/> 
+<%
+=end%>
     <%= "Data - " + @exchange.effectiveDate %>
       <table class="table table-striped table-bordered table-hover table-sm">
         <thead class="thead-dark">
@@ -51,7 +59,12 @@
       </table>
     </div>
     <div class="col">
+      
     </div>
+  </div>
+  <div>
+    <img style="width:30%; transform: rotate(90deg); float: left; margin-top:70px" src="https://pehkkw.am.files.1drv.com/y4mcBSepldgihbxA357EiC_o325gJuhgQLd6DAc-nT-Yve19ok8UBI1EpTNLhGDBzTg-KL_Ksj4brQQn4J5zDwrjDCkLnev6ixbm4Dhn8ULgNxl5mGi9IJSLQDYcVKSPb6VXYPuugEZaJLW59K0nsMGQtf3aWngWpzmZV4SCQPyOqXd-8OCt2k_1CErtKA3nVc6pab827IHNf540P_9aSCsbg/Poland_20_Zlotych_201a_2020.jpg?psid=1">
+    <img style="width:30%; transform: rotate(90deg); float: left; margin-top:70px" src="https://pehkkw.am.files.1drv.com/y4mrii21PL5Gca-_qjjyxs3f_WJAnOuw8nt35dav1b_TrvDUv4wuVQ4QdclBo7rNESqjgkVuxxDherSuAnNtV2oRfo9tpltzxYVQz_4N7U99kQDR_SGlkIxCQThgUGmtmSCUI-PEV1eZNUV2zUPEAHlzlbUlRmCQDY6Vuv89fUVGCRPiQhoMn-CpNNdKPQ6vmGuEa5XdveNm4CTcLDgzuNq7g/Poland_20_Zlotych_201b_2020.jpg?psid=1">
   </div>
 </div>
 

@@ -11,15 +11,16 @@ Rails.application.routes.draw do
   get 'note_collection/show_note/:id', to: 'note_collection#show_note', as: 'show_note'
 
   
-  resources :reports
+  
   # get 'home/index'
   root 'home#index'
   get 'home/about'
+  get 'reports/chart'
 
   get 'currencies/new/country/currency'
 
+  resources :reports
   resources :countries
-
   resources :currencies
   resources :notes
   resources :note_for_sell, only: [:index, :show]
@@ -41,8 +42,7 @@ Rails.application.routes.draw do
   get 'bonds/bond_show_currency/:id', to: 'bonds#bond_show_currency', as: 'bond_show_currency'
 
   get 'bond_collection/show_bonds/:id', to: 'bond_collection#show_bonds', as: 'show_bonds'
-  # get 'bond_collection/show_details_bond/:id', to:'bond_collection#show_details_bond', as: 'show_details_bond'
-
+  # get 'bond_collection/show_details_bond/:id', to:'bond_collection#show_details_bond', as: 'show_details_bond'  
 
 
   resources :countries do
@@ -69,7 +69,8 @@ Rails.application.routes.draw do
   # APi controller
   
   namespace :api do 
-    resources :country, only: [:index, :show]
-    
+    resources :country, only: [:index, :show]    
  end
+
+
 end
