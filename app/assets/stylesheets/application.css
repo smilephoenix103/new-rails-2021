@@ -156,6 +156,14 @@ div {
 	text-align: left;
 }
 
+.image-ratation
+{
+	width:30%; 
+	transform: rotate(90deg); 
+	float: left; 
+	margin-top:70px
+}
+
 /* LIGTH BOX */
 * {
 	box-sizing: border-box;

@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   resources :currencies
   resources :notes
   resources :note_for_sell, only: [:index, :show]
+  resources :note_sold, only: [:index, :show]
   resources :note_collection, only: [:index, :show]
   resources :coin_for_sell, only: [:index, :show]
   resources :coin_collection, only: [:index, :show]
