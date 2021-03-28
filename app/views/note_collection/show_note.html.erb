@@ -6,18 +6,10 @@
             <div class="image-out-container" >
                 <div class="row image-container" >
                     <div class="item"  >
-                        <% if (note.avers_path.length > 200) %>
-                            <img class="img-responsive image-collection_size" src=<%= note.avers_path %> alt = <%= note.avers_path %>>
-                        <% else %>
-                            <%= note.avers_path %>          
-                        <% end %>
+                      <img class="img-responsive image-collection_size" src=<%= note.avers_path %> alt = <%= note.avers_path %>>                      
                     </div >
-                    <div class="item">
-                        <% if (note.reverse_path.length > 200) %>
-                            <img class="img-responsive image-collection_size" src=<%= note.reverse_path %> alt = <%= note.reverse_path %>>
-                        <% else %>
-                            <%= note.reverse_path %>
-                        <% end %>
+                    <div class="item">                      
+                        <img class="img-responsive image-collection_size" src=<%= note.reverse_path %> alt = <%= note.reverse_path %>>                     
                     </div>
                     <div class="item-collection-info">
                       <%= "Rok: " + note.note_date.to_s %><br/>
@@ -25,11 +17,17 @@
                       <%= "Waluta: " + note.name_currency.to_s %>
                     </div>
                 </div>
-                <% if user_signed_in? && current_user.role == 'admin' %>
-                  <div class="btn-image-collection">
-                      <%= link_to 'Show', note_path(note), class:"btn btn-secondary" %> 
+                
+                  <% if user_signed_in? && current_user.role == 'admin' %>
+                    <div class="btn-image-collection" style="float:left">
+                        <%= link_to 'Show', note_path(note), class:"btn btn-secondary btn-sm" %> 
+                    </div>
+                  <% end %>
+                  <div class="btn-image-collection" style="float:right">
+                        <%= link_to 'Back', back_show_currency_path(note.currency_id), class:"btn btn-secondary btn-sm" %>
+                        <%= link_to 'Info', show_note_user_path(note), class:"btn btn-outline-info btn-sm" %> 
                   </div>
-                <% end %>
+                
             </div>
         </div>
     <% end %>

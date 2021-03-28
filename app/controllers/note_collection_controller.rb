@@ -38,4 +38,22 @@ include NoteCollectionHelper
   	puts params[:id]
   	@notes = notes_collections(params[:id], "KOLEKCJA")
   end
+
+  def back_show_currency
+	puts "(((((((((((((((((TEST POWROTU USER IMAGE))))))))))))))))))))))"
+	puts params[:id]
+	@currency = Currency.find(params[:id])
+	puts @currency.inspect
+	puts"((((((((((((((((((((((((((( END )))))))))))))))))))))))))))"
+	redirect_to show_currency_path(@currency.country_id)
+  end
+
+
+
+  def show_note_user
+	puts "&&&&&&&&&&&&&& SHOW NOTE USER &&&&&&&&&&&&&&&&&&&"
+	puts params[:id]
+	@note = Note.find(params[:id])  
+	puts "&&&&&&&&&&&&&& END &&&&&&&&&&&&&&&&&&&&&&&&&&"
+  end
 end

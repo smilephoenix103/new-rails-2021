@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   # get 'note_collection/show'
   get 'note_collection/show_currency/:id', to: 'note_collection#show_currency', as: 'show_currency'
   get 'note_collection/show_note/:id', to: 'note_collection#show_note', as: 'show_note'
+  get 'note_collection/show_note_user/:id', to: 'note_collection#show_note_user', as: 'show_note_user'
+  get 'note_collection/back_show_currency/:id', to: 'note_collection#back_show_currency', as: 'back_show_currency'
 
   
   

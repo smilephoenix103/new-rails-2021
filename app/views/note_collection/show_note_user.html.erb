@@ -1,0 +1,109 @@
+<p id="notice"><%= notice %></p>
+
+<div class="jumbotron">
+  <p> 
+    <strong>Id:</strong>
+    <%= @note.currency_id %>
+  </p>
+  <h1 class="display-4" id="notice"></h1>
+  <div class="container">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+    <% if user_signed_in? && current_user.role == 'admin' %>
+      <div class="col">
+        <strong>Data zakupu:</strong>
+        <%= @note.date_buy_note %>
+      </div>  
+      <div class="col">
+        <strong>Miejsce zakupu:</strong>
+        <%= @note.bought %>
+      </div>
+      <div class="col">
+        <strong>cena zakupu:</strong>
+        <%= @note.price_buy.to_s + "zł" %>
+      </div>
+      
+      <div class="col">
+        <strong>Cena:</strong>
+        <%= @note.price_sell.to_s + "zł" %>
+      </div>         
+    <% end %>
+      <div class="col">
+        <strong>Nominał:</strong>
+        <%= @note.denomination %>
+      </div>
+      <div class="col">
+        <strong>Nazwa waluty:</strong>
+        <%= @note.name_currency %>
+      </div>
+      <div class="col">
+        <strong>Data:</strong>
+        <%= @note.note_date %>
+      </div>
+      <div class="col">
+        <strong>SERIA:</strong>
+        <%= @note.series %>
+      </div>
+      <div class="col">
+        <strong>Signature code:</strong>
+        <%= @note.signature_code %>
+      </div>
+    
+      
+      <div class="col">
+        <strong>Ilość:</strong>
+        <%= @note.quantity %>
+      </div>
+      <div class="col">
+        <strong>Stan banknotu:</strong>
+        <%= @note.quality %>
+      </div>
+      <div class="col">
+        <strong>Materiał:</strong>
+        <%= @note.making %>
+      </div>
+      <div class="col">
+        <strong>typ obrazka:</strong>
+        <%= @note.img_type %> 
+      </div>
+      <div class="col">
+        <strong>Status:</strong>
+        <%= @note.status %>
+      </div>
+      <% if user_signed_in? && current_user.role == 'admin' %>
+        <div class="col">
+            <strong>Status sprzedaży:</strong>
+            <%= @note.status_sell %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <p>
+    <strong>Description:</strong>
+    <%= @note.description %>
+  </p>
+  <hr class="my-4">
+
+  <% @avers = @note.avers_path %>
+  <% @reverse = @note.reverse_path %>
+ 
+  <%= render 'renders/show_image_lightbox' %>
+  
+  <br/><br/>
+  <% if user_signed_in? && current_user.role == 'admin' %>
+    <div style="float: left">
+        <%= link_to 'Edit', edit_note_path(@note), class:"btn btn-secondary" %> 
+        <!-- <%= link_to 'Back', notes_path %> -->
+        <%= link_to 'Back', currency_path(@note.currency_id), class:"btn btn-dark" %>
+    </div>
+  <% end %>
+   <div style="float:right">
+        <%= link_to 'Back', show_note_path(@note.currency_id), class:"btn btn-outline-info" %> 
+   </div>
+</div>
+
+
+
+
+
+
+
