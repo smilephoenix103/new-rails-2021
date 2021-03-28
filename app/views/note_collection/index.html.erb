@@ -6,8 +6,8 @@
 <div class="container ">
   <div class="row">
   	<% @continents.each do |continent| %>
-  	<div class="col-md-4" style="text-align: center">  	
-  		<%= link_to continent, note_collection_path(continent) %></br>
+  	<div class="col-md-3" style="text-align: center">  	
+  		<%= link_to continent, note_collection_path(continent) %><br/>
   		<% if (File.exist?(@root_path + (continent.file_name))) %>
         	<%= image_tag("continents/" + continent.file_name, :alt => "Kontynent", 
         	style:"width:50%;height:50%;") %>
