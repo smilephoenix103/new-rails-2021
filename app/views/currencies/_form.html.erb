@@ -55,7 +55,15 @@
       <td>
         <div class="field form-group">
           <% form.label :data_exchange %>
-          <%= form.text_field :data_exchange, class:"form-control", placeholder:"Data wymiany(Okres obiegu)" %>
+          <%= form.text_field :data_exchange, class:"form-control", placeholder:"Data wymiany" %>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="field form-group">
+          <% form.label :currency_series %>
+          <%= form.text_field :currency_series, class:"form-control", placeholder:"Okres wystepowania" %>
         </div>
       </td>
     </tr>

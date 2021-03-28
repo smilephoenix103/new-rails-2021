@@ -6,13 +6,15 @@
       <%= @currency.country.country_en %>
   </h3>
   <p>
+    <strong>Id:</strong><%= @currency.id %> | 
     <strong>Cod:</strong><%= @currency.cod %>  |  
     <strong>Waluta:</strong><%= @currency.currency %>  |  
     <strong>Drobne:</strong><%= @currency.change %>
   </p>
   <p>
     <strong>Active:</strong><%= @currency.active %>  |  
-    <strong>Data wymiany (Okres) : </strong><%= @currency.data_exchange %>
+    <strong>Data wymiany: </strong><%= @currency.data_exchange %> | 
+    <strong style="color:red">Okres występowania: </strong><%= @currency.currency_series %>
   </p>
   <p>
     <strong>Poprzedna waluta:</strong><%= @currency.currency_from %>  |  
@@ -32,7 +34,7 @@
 </div>
 
 
-<h2>Banknoty tu jestem</h2>
+<h2>Banknoty</h2>
  <table class="table table-striped table-bordered table-hover">
   <thead class="thead-dark">
   <tr>

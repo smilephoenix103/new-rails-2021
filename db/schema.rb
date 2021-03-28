@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_20_181911) do
+ActiveRecord::Schema.define(version: 2021_03_28_104222) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -82,17 +82,17 @@ ActiveRecord::Schema.define(version: 2021_03_20_181911) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "countries", force: :cascade do |t|
-    t.string "continent"
-    t.string "country_en"
-    t.string "country_pl"
-    t.string "capital_city"
-    t.string "alfa_2"
-    t.string "alfa_3"
-    t.string "numeric_code"
-    t.string "iso_code"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+  create_table "countries", id: { type: :bigint, default: -> { "nextval('countries_sequence'::regclass)" }, comment: "Klucz główny" }, comment: "Państwa swiata", force: :cascade do |t|
+    t.string "continent", limit: 100, null: false, comment: "Kontynent na kórym lezy państwo"
+    t.string "country_en", limit: 100, null: false, comment: "Nazwa państwa po angielsku"
+    t.string "country_pl", limit: 100, null: false, comment: "Nazwa państwa po polsku"
+    t.string "capital_city", limit: 100, null: false, comment: "Stolica państwa"
+    t.string "alfa_2", limit: 5, comment: "część standardu ISO 3166-1, zawiera dwuliterowe kody państw oraz terytoriów"
+    t.string "alfa_3", limit: 5, comment: "część standardu ISO 3166-1, zawiera trzyliterowe kody państw, które są wizualnie łatwiejsze w rozpoznawaniu krajów"
+    t.string "numeric_code", limit: 5, comment: "trzycyfrowe kody państw"
+    t.string "iso_code", limit: 20, comment: " kodowanie nazw państw, terytoriów zależnych oraz jednostek ich podziałów administracyjnych"
+    t.datetime "created_at", null: false, comment: "Data dodania"
+    t.datetime "updated_at", null: false, comment: "Data modyfikacji"
     t.boolean "exists"
   end
 
@@ -109,6 +109,7 @@ ActiveRecord::Schema.define(version: 2021_03_20_181911) do
     t.datetime "created_at", null: false, comment: "Data dodania"
     t.datetime "updated_at", null: false, comment: "Data modyfikacji"
     t.string "pattern", limit: 100, comment: "Rodzaj elementu"
+    t.string "currency_series"
   end
 
   create_table "notes", id: { type: :bigint, default: -> { "nextval('notes_sequence'::regclass)" }, comment: "Klucz główny" }, comment: "Tabela za banknotami", force: :cascade do |t|

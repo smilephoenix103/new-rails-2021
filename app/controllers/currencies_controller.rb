@@ -124,6 +124,6 @@ class CurrenciesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def currency_params
-      params.require(:currency).permit(:country_id, :cod, :currency, :change, :active, :data_exchange, :currency_from, :converter, :description, :pattern)
+      params.require(:currency).permit(:country_id, :cod, :currency, :change, :active, :data_exchange, :currency_from, :converter, :description, :pattern, :currency_series)
     end
 end
