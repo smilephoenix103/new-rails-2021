@@ -1,0 +1,17 @@
+<p>
+  <strong>Name pl:</strong>
+  <%= @pattern.name_pl %>
+</p>
+
+<p>
+  <strong>Name en:</strong>
+  <%= @pattern.name_en %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @pattern.description %>
+</p>
+
+<%= link_to 'Edit', edit_pattern_path(@pattern), class:"btn btn-primary" %> 
+<%= link_to 'Back', patterns_path, class:"btn btn-dark" %>

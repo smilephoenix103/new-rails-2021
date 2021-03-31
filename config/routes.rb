@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   
+  resources :patterns
   resources :bonds
   devise_for :users
   # get 'note_collection/index'

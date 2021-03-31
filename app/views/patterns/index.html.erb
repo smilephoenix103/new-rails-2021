@@ -1,0 +1,32 @@
+<div>
+  <h1>Patterns</h1>
+  <%= link_to 'New Pattern', new_pattern_path, class:"btn btn-primary" %>
+</div>
+<div>
+  <table class="table table-striped table-bordered table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th>Name en</th>
+        <th>Name pl</th>      
+        <th>Description</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @patterns.each do |pattern| %>
+        <tr>
+          <td><%= pattern.name_en %></td>
+          <td><%= pattern.name_pl %></td>        
+          <td><%= pattern.description %></td>
+          <td><%= link_to 'Show', pattern %></td>
+          <td><%= link_to 'Edit', edit_pattern_path(pattern) %></td>
+          <td><%= link_to 'Destroy', pattern, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+</div>
+
+
