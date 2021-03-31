@@ -13,11 +13,17 @@
       <th>Drobne</th>
       <th>Active</th>
       <th>Data wymiany</th>
-      <th>wymiana na</th>
+      <%
+=begin%>
+ <th>wymiana na</th> 
+<%
+=end%>
+      <th>Okres występowania</th>
       <th>przelicznik</th>
       <th>Rodzaj</th>
       <th>Opis</th>
-      <th colspan="3"></th>
+      <th></th>
+      <th></th>
     </tr>
   </thead>
   <% @currencies.each do |currency| %>
@@ -27,14 +33,22 @@
       <td><%= currency.change %></td>
       <td><%= currency.active %></td>
       <td><%= currency.data_exchange %></td>
-      <td><%= currency.currency_from %></td>
+      <%
+=begin%>
+ <td><%= currency.currency_from %></td> 
+<%
+=end%>
+      <td><%= currency.currency_series %></td>
       <td><%= currency.converter %></td>
       <td><%= currency.pattern %></td>
       <td><%= currency.description %></td>
       
-      <td><%= link_to 'Show', coin_show_currency_path(currency) %></td>
-      <td><%= link_to 'Edit', edit_currency_path(currency) %></td>
-      <td><%= link_to 'Destroy', currency, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td>
+        <%= link_to 'Show', note_show_currency_path(currency), class:"btn btn-info btn-sm", style:"margin-bottom:10px" %>
+        <%= link_to 'Edit', edit_currency_path(currency), class:"btn btn-primary btn-sm" %></td>
+      <td>
+        <%= link_to 'Destroy', currency, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger btn-sm", style:"float: right"  %>
+      </td>
 
     </tr>
     <% end %>

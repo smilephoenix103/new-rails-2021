@@ -1,53 +1,21 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Notes</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Currency</th>
-      <th>Denomination</th>
-      <th>Name currency</th>
-      <th>Note date</th>
-      <th>Signature code</th>
-      <th>Price buy</th>
-      <th>Price sell</th>
-      <th>Quantity</th>
-      <th>Quality</th>
-      <th>Status</th>
-      <th>Description</th>
-      <th>Img type</th>
-      <th>Avers path</th>
-      <th>Reverse path</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @notes.each do |note| %>
-      <tr>
-        <td><%= note.currency_id %></td>
-        <td><%= note.denomination %></td>
-        <td><%= note.name_currency %></td>
-        <td><%= note.note_date %></td>
-        <td><%= note.signature_code %></td>
-        <td><%= note.price_buy %></td>
-        <td><%= note.price_sell %></td>
-        <td><%= note.quantity %></td>
-        <td><%= note.quality %></td>
-        <td><%= note.status %></td>
-        <td><%= note.description %></td>
-        <td><%= note.img_type %></td>
-        <td><%= note.avers_path %></td>
-        <td><%= note.reverse_path %></td>
-        <td><%= link_to 'Show', note %></td>
-        <td><%= link_to 'Edit', edit_note_path(note) %></td>
-        <td><%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Note', new_note_path %>
+<% @root_path = Rails.root.join('app', 'assets', 'images','flags') %> 
+<div class="container background-flags ">
+  <div class="row">
+  	<% @countries.each do |country| %>
+  	<div class="col-md-2 position-flag" >  	
+    	<%= link_to country.country_en, note_currencies_path(country) %>
+  		<% if (File.exist?(@root_path + (country.country_en + '.png'))) %>
+		  <div class="country-flag">
+        	<%= image_tag("flags/" + country.country_en + ".png", :alt => country.country_en , class:"size-flag") %>
+		  </div>
+        <% else %>
+			<div class="country-flag">
+				<%= image_tag("flags/test.png", :alt => "rss feed" , class:"size-flag") %>
+			</div>
+    	<% end %>
+  	</div> 
+  	<% end %>
+  </div>
+</div>

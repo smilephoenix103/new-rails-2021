@@ -1,46 +1,7 @@
 <div class="jumbotron">
-  <h1 class="display-4">
-    <%= @country.continent %> : 
-    <%= @country.country_en %> 
+  
+<%= render 'renders/jumbotron_currency' %>
 
-    <% @root_path = Rails.root.join('app', 'assets', 'images','flags') %> 
-
-    <% if (File.exist?(@root_path + (@country.country_en + '.png'))) %>
-      <%= image_tag("flags/" + @country.country_en + ".png", :alt => "rss feed" , style:"width:15%;height:15%;") %>
-    <% else %>
-      <%= image_tag("flags/test.png", :alt => "rss feed" , style:"width:10%;height:10%;") %>
-    <% end %>
-
-  </h1>
-  <p class="lead">
-    <%= @country.id %>
-    <strong>Capital city:</strong>
-    <%= @country.capital_city %>
-  </p>
-  <p>
-    <strong>Alfa 2:</strong>
-    <%= @country.alfa_2 %>
-     |   
-    <strong>Alfa 3:</strong>
-    <%= @country.alfa_3 %>
-  </p>
-  <p>
-    <strong>Numeric code:</strong>
-    <%= @country.numeric_code %>
-     |   
-    <strong>Iso code:</strong>
-    <%= @country.iso_code %>
-     | 
-    <strong>Exists:</strong>
-    <%= @country.exists %>
-  </p>
-  <%
-=begin%>
- <%= link_to 'Edit', edit_country_path(@country), class:"btn btn-secondary" %>  
-  <%= link_to 'Back', countries_path, class:"btn btn-dark" %> 
-<%
-=end%>
-  <%= link_to 'Add Currency to Bonds', new_country_currency_path(@country), class:"btn btn-secondary" %>
 </div>
 
 <h2>Waluty</h2>

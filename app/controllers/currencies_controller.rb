@@ -58,6 +58,10 @@ class CurrenciesController < ApplicationController
     respond_to do |format|
       if @currency.save
         @country = @currency.country
+        if (@currency.pattern == "NOTE")
+          puts "TO JEST BANKNOT"
+          format.html { redirect_to note_currencies_path(@country), notice: 'Currency was successfully create.' }
+        end
         if (@currency.pattern == "COIN")
           puts "TO JES MONETA"
           format.html { redirect_to coin_currencies_path(@country), notice: 'Currency was successfully created.' }
@@ -66,8 +70,8 @@ class CurrenciesController < ApplicationController
           puts "TO JES OBLIGACJA"
           format.html { redirect_to bond_currencies_path(@country), notice: 'Currency was successfully created.' }
         end
-        format.html { redirect_to @country, notice: 'Currency was successfully created.' }
-        format.json { render :show, status: :created, location: @currency }
+        # format.html { redirect_to @country, notice: 'Currency was successfully created.' }
+        # format.json { render :show, status: :created, location: @currency }
       else
         format.html { render :new }
         format.json { render json: @currency.errors, status: :unprocessable_entity }
@@ -81,6 +85,10 @@ class CurrenciesController < ApplicationController
     respond_to do |format|
       if @currency.update(currency_params)
          @country = @currency.country
+        if (@currency.pattern == "NOTE")
+          puts "TO JES BANKNOT"
+          format.html { redirect_to note_currencies_path(@country), notice: 'Currency was successfully update.' }
+        end
         if (@currency.pattern == "COIN")
           puts "TO JES MONETA"
           format.html { redirect_to coin_currencies_path(@country), notice: 'Currency was successfully update.' }
@@ -89,8 +97,8 @@ class CurrenciesController < ApplicationController
           puts "TO JES OBLIGACJA"
           format.html { redirect_to bond_currencies_path(@country), notice: 'Currency was successfully update.' }
         end
-        format.html { redirect_to @country, notice: 'Currency was successfully updated.' }
-        format.json { render :show, status: :ok, location: @currency }
+        # format.html { redirect_to @country, notice: 'Currency was successfully updated.' }
+        # format.json { render :show, status: :ok, location: @currency }
       else
         format.html { render :edit }
         format.json { render json: @currency.errors, status: :unprocessable_entity }

@@ -2,10 +2,48 @@ class NotesController < ApplicationController
   before_action :set_note, only: [:show, :edit, :update, :destroy]
   before_action :require_admin_logged_in!
 
+  include CurrenciesHelper
+
   # GET /notes
   # GET /notes.json
   def index
-    @notes = Note.all
+    # @notes = Note.all
+    @countries = countries_list
+  end
+
+  def note_currencies
+    puts "$$$$$$$$$$$$$$$$$$$$$$$$$$ TEST NOTE $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
+    puts params[:id]
+    puts "$$$$$$$$$$$$$$$$$$$$$$$$$$ END TEST $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
+    @country = Country.find(params[:id])
+    @currencies = get_currencies_with_pattern(@country.id, "NOTE")
+  end
+
+  def note_show_currency
+
+    puts "(((((((((((((((((((((TEST NOTE TEST ))))))))))))))))))))))))))))"
+    puts params[:id]
+    puts params[:country_id]
+    puts "(((((((((((((((((((((((((END TEST END)))))))))))))))))))))))"
+
+
+    puts "############# Note_SHOW_CURRENCY#####################################"
+    if (params[:country_id] != nil)        
+      @currency = Currency.find(params[:country_id])
+      # @collection = @currency.notes.select { |note| note.status == 'KOLEKCJA' }
+      # @sale =  @currency.notes.select { |note| note.status == 'FOR SELL' }
+      @collection = Note.where(currency_id: params[:country_id])
+      puts "SHOW TEST WALUTY"
+      puts params[:country_id]
+      puts params[:id]
+      puts "SHOW TEST"        
+  else       
+      puts "+++++++++++++++++++++++ WALUTY +++++++++++++++++++++++++"
+      puts params[:id]      
+      @currency = Currency.find(params[:id])   
+      @collection = Note.where(currency_id: params[:id])   
+      puts "+++++++++++++++++++++++++++++++++++++++++++++++++"  
+  end
   end
 
   # GET /notes/1

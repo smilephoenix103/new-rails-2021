@@ -34,6 +34,10 @@ Rails.application.routes.draw do
   get 'coin_collection/show_coins/:id', to: 'coin_collection#show_coins', as: 'show_coins'
   get 'coin_collection/show_details_coin/:id', to:'coin_collection#show_details_coin', as: 'show_details_coin'
 
+  resources :notes
+  get 'notes/note_currencies/:id', to: 'notes#note_currencies', as: 'note_currencies'
+  get 'notes/note_show_currency/:id', to: 'notes#note_show_currency', as: 'note_show_currency'
+
   resources :coins
   get 'coins/coin_currencies/:id', to: 'coins#coin_currencies', as: 'coin_currencies'
   get 'coins/coin_show_currency/:id', to: 'coins#coin_show_currency', as: 'coin_show_currency'
@@ -63,9 +67,6 @@ Rails.application.routes.draw do
   resources :currencies do
     resources :bonds
   end  
-  # resources :currencies do
-  #   resources :notes
-  # end
 
   mount ReportsKit::Engine, at: '/'
 

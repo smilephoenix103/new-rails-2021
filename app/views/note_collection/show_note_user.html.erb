@@ -8,7 +8,7 @@
   <% if user_signed_in? && current_user.role == 'admin' %>
     <div style="float: left">
         <%= link_to 'Edit', edit_note_path(@note), class:"btn btn-secondary" %> 
-        <%= link_to 'Back', currency_path(@note.currency_id), class:"btn btn-dark" %>
+        <%= link_to 'Back', note_show_currency_path(@note.currency_id), class:"btn btn-dark" %>
     </div>
   <% end %>
    <div style="float:right">

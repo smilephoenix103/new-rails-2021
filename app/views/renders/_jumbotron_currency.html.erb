@@ -1,5 +1,4 @@
-<div class="jumbotron">
-  <h1 class="display-4">
+<h1 class="display-4">
     <%= @country.continent %> : 
     <%= @country.country_en %> 
 
@@ -34,11 +33,10 @@
     <strong>Exists:</strong>
     <%= @country.exists %>
   </p>
-  <%= link_to 'Edit', edit_country_path(@country), class:"btn btn-secondary" %>  
-  <%= link_to 'Back', countries_path, class:"btn btn-dark" %>
   <%
 =begin%>
- <%= link_to 'Add Currency', new_country_currency_path(@country), class:"btn btn-secondary" %> 
+ <%= link_to 'Edit', edit_country_path(@country), class:"btn btn-secondary" %>  
+  <%= link_to 'Back', countries_path, class:"btn btn-dark" %> 
 <%
 =end%>
-</div>
+  <%= link_to 'Add Currency', new_country_currency_path(@country), class:"btn btn-secondary" %>

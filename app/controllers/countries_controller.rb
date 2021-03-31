@@ -14,18 +14,10 @@ class CountriesController < ApplicationController
 
   # GET /countries/1
   # GET /countries/1.json
-  def show
-     # @currency = Currency.find(params[:country_id])
-    
+  def show    
     @country = Country.find(@country.id)
-    # @currencies = Currency.where(country_id: @country.id, pattern: 'NOTE')
-    @currencies = get_currencies_with_pattern(@country.id, "NOTE")
 
-    # @country = Country.includes(:currencies).where({:currencies => { pattern: 'NOTE'},:id => 172})
-    puts "$$$$$$$$$$$$$$$$TEST$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
-      puts @country.id
-      puts @country.inspect
-    puts "$$$$$$$$$$$$$$$$TEST$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
+    @currencies = get_currencies_with_pattern(@country.id, "NOTE")
   end
 
   # GET /countries/new
