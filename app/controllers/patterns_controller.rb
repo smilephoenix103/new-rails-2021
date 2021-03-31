@@ -1,5 +1,6 @@
 class PatternsController < ApplicationController
   before_action :set_pattern, only: %i[ show edit update destroy ]
+  before_action :require_admin_logged_in!
 
   # GET /patterns or /patterns.json
   def index
