@@ -29,8 +29,12 @@
       <td>
         <div class="field form-group">
           <% form.label :pattern %>
-          <%= form.text_field :pattern, class:"form-control", placeholder:"Rodzaj" %>
+          <%= form.select :pattern, Pattern.all.map { |p| [p.name_en, p.name_en]}, {:include_blank => "Select"}, class:"form-control" %>
+          <% currency.errors.full_messages_for(:pattern).each do |message| %>
+            <div style="olor:red" ><%= message %></div>
+          <% end %>
         </div>
+
       </td>
       <td>
         <div class="field form-group">

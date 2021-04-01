@@ -41,6 +41,7 @@ class CurrenciesController < ApplicationController
     @currency.country_id = params[:country_id]
     # puts @currency.inspect
     puts "@@@@@@@@@@@@@TEST@@@@@@@@@@@@@@@@@"
+    @patterns = Pattern.all
 
   end
 

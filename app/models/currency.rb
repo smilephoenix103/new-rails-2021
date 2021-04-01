@@ -4,6 +4,8 @@ class Currency < ApplicationRecord
   has_many :coins
   has_many :bonds
 
+  validates :pattern, presence: true
+
   def to_s
   	cod.to_s
   end

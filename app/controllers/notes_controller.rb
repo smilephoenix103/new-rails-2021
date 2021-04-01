@@ -89,7 +89,7 @@ class NotesController < ApplicationController
     respond_to do |format|
       if @note.save
         @currency = Currency.find(@note.currency_id)
-        format.html { redirect_to @currency, notice: 'Note was successfully created.' }
+        format.html { redirect_to note_show_currency_path(@currency), notice: 'Note was successfully created.' }
         format.json { render :show, status: :created, location: @note }
       else
         format.html { render :new }
@@ -104,7 +104,7 @@ class NotesController < ApplicationController
     respond_to do |format|
       if @note.update(note_params)
         @currency = Currency.find(@note.currency_id)
-        format.html { redirect_to @currency, notice: 'Note was successfully updated.' }
+        format.html { redirect_to note_show_currency_path(@currency), notice: 'Note was successfully updated.' }
         format.json { render :show, status: :ok, location: @note }
       else
         format.html { render :edit }
