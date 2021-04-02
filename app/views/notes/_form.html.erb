@@ -44,8 +44,11 @@
       <%= form.text_field :note_date, class:"form-control" %>
     </div>
     <div class="col field">
-      <%= form.label :Materiał %>
-      <%= form.text_field :making, class:"form-control" %>
+      <%= form.label :Materiał %>    
+      <%= form.select :making, (@makings.collect { |m| [m[0], m[0]] }),  {:include_blank => "Select"}, class:"form-control"  %>  
+      <% note.errors.full_messages_for(:making).each do |message| %>
+        <div style="color:red" ><%= message %></div>
+      <% end %>      
     </div>
     <div class="col field">
       <%= form.label :Sygnatura %>
@@ -69,7 +72,11 @@
     </div>
     <div class="col field">
       <%= form.label :Status %>
-      <%= form.text_field :status, class:"form-control" %>
+      <% form.text_field :status, class:"form-control" %>
+      <%= form.select :status, (@statuses.collect { |s| [s[0], s[0]] }),  {:include_blank => "Select"}, class:"form-control"  %>  
+      <% note.errors.full_messages_for(:status).each do |message| %>
+        <div style="color:red" ><%= message %></div>
+      <% end %> 
     </div>
     <div class="col field">
       <%= form.label :Status_sprzedaży %>
@@ -77,7 +84,11 @@
     </div>
     <div class="col field">
       <%= form.label :Typ_obrazka %>
-      <%= form.text_field :img_type, class:"form-control" %>
+      <% form.text_field :img_type, class:"form-control" %>
+      <%= form.select :img_type, (@img_types.collect { |img| [img[0], img[0]] }),  {:include_blank => "Select"}, class:"form-control"  %>  
+      <% note.errors.full_messages_for(:img_type).each do |message| %>
+        <div  class="alert alert-danger" role="alert"><%= message %></div>
+      <% end %> 
     </div>
     <div class="field">
       <%= form.label :description %>
