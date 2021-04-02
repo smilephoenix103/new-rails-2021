@@ -3,7 +3,7 @@ class Note < ApplicationRecord
 
   validates :making, presence: true
   validates :status, presence: true
-  validates_presence_of :img_type, presence: true, :message => 'Pole nie może byćpuste'
+  validates_presence_of :img_type, presence: true
 
   def to_s
   	note
