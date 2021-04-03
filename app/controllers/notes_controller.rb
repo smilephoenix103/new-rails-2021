@@ -2,7 +2,7 @@ class NotesController < ApplicationController
   before_action :set_note, only: [:show, :edit, :update, :destroy]
   before_action :require_admin_logged_in!
 
-  require 'List_element'
+  # require 'List_element'
 
   include CurrenciesHelper
 
