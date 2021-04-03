@@ -1,0 +1,3 @@
+class SelectEnum < ApplicationRecord
+   
+end
