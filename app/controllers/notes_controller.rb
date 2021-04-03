@@ -11,13 +11,6 @@ class NotesController < ApplicationController
   def index
     # @notes = Note.all
     @countries = countries_list
-
-    # element = ListElement.new
-    # puts "(((((((((((((((((((((((((((((TEST)))))))))))))))))))))))))))))"
-    # puts element.getStatus
-    # puts element.getMakings
-    # puts element.getImg_type
-    # puts "((((((((((((((((((END TEST))))))))))))))))))"
   end
 
   def note_currencies
@@ -41,7 +34,7 @@ class NotesController < ApplicationController
       @currency = Currency.find(params[:country_id])
       # @collection = @currency.notes.select { |note| note.status == 'KOLEKCJA' }
       # @sale =  @currency.notes.select { |note| note.status == 'FOR SELL' }
-      @collection = Note.where(currency_id: params[:country_id])
+      @collection = Note.where(currency_id: params[:country_id]).order(denomination: :asc)
       puts "SHOW TEST WALUTY"
       puts params[:country_id]
       puts params[:id]
@@ -50,7 +43,7 @@ class NotesController < ApplicationController
       puts "+++++++++++++++++++++++ WALUTY +++++++++++++++++++++++++"
       puts params[:id]      
       @currency = Currency.find(params[:id])   
-      @collection = Note.where(currency_id: params[:id])   
+      @collection = Note.where(currency_id: params[:id]).order(denomination: :asc)   
       puts "+++++++++++++++++++++++++++++++++++++++++++++++++"  
   end
   end
