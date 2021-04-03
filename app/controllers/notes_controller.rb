@@ -2,7 +2,7 @@ class NotesController < ApplicationController
   before_action :set_note, only: [:show, :edit, :update, :destroy]
   before_action :require_admin_logged_in!
 
-  require 'enums/Select_Enum'
+  # require 'enums/Select_Enum'
 
   include CurrenciesHelper
 
@@ -77,17 +77,17 @@ class NotesController < ApplicationController
     @note.currency_id = params[:currency_id]
     puts "@@@@@@@@@@@@@TEST@@@@@@@@@@@@@@@@@"
 
-    @makings = SelectEnum.makings
-    @statuses = SelectEnum.statuses
-    @img_types = SelectEnum.img_types
+    # @makings = SelectEnum.makings
+    # @statuses = SelectEnum.statuses
+    # @img_types = SelectEnum.img_types
  
   end
 
   # GET /notes/1/edit
   def edit
-    @makings = SelectEnum.makings
-    @statuses = SelectEnum.statuses
-    @img_types = SelectEnum.img_types
+    # @makings = SelectEnum.makings
+    # @statuses = SelectEnum.statuses
+    # @img_types = SelectEnum.img_types
   end
 
   # POST /notes
@@ -102,9 +102,9 @@ class NotesController < ApplicationController
         format.html { redirect_to note_show_currency_path(@currency), notice: 'Note was successfully created.' }
         format.json { render :show, status: :created, location: @note }
       else
-        @statuses = SelectEnum.statuses
-        @makings = SelectEnum.makings
-        @img_types = SelectEnum.img_types
+        # @statuses = SelectEnum.statuses
+        # @makings = SelectEnum.makings
+        # @img_types = SelectEnum.img_types
         format.html { render :new }
         format.json { render json: @note.errors, status: :unprocessable_entity }
       end
@@ -120,9 +120,9 @@ class NotesController < ApplicationController
         format.html { redirect_to note_show_currency_path(@currency), notice: 'Note was successfully updated.' }
         format.json { render :show, status: :ok, location: @note }
       else
-        @statuses = SelectEnum.statuses
-        @makings = SelectEnum.makings
-        @img_types = SelectEnum.img_types
+        # @statuses = SelectEnum.statuses
+        # @makings = SelectEnum.makings
+        # @img_types = SelectEnum.img_types
         format.html { render :edit }
         format.json { render json: @note.errors, status: :unprocessable_entity }
       end
