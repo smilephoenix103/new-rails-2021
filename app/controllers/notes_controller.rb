@@ -2,7 +2,7 @@ class NotesController < ApplicationController
   before_action :set_note, only: [:show, :edit, :update, :destroy]
   before_action :require_admin_logged_in!
 
-  # require 'Select_Enum'
+  require 'List_element'
 
   include CurrenciesHelper
 
@@ -11,6 +11,13 @@ class NotesController < ApplicationController
   def index
     # @notes = Note.all
     @countries = countries_list
+
+    element = ListElement.new
+    puts "(((((((((((((((((((((((((((((TEST)))))))))))))))))))))))))))))"
+    puts element.getStatus
+    puts element.getMakings
+    puts element.getImg_type
+    puts "((((((((((((((((((END TEST))))))))))))))))))"
   end
 
   def note_currencies
