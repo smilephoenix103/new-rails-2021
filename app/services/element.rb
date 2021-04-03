@@ -1,6 +1,5 @@
 class Element
-    # Enumerator
-    enum status: ["KOLEKCJA", "FOR SELL", "SOLD", "RESERVATION"]
-    enum making: ["Papier", "Polimer", "Hybryda", "Pozłacany", "Inny"]
-    enum img_type: ["SKAN", "FOTO", "LOC", "WWW"]
+    @status = ["KOLEKCJA", "FOR SELL", "SOLD", "RESERVATION"]
+   
+    attr_reader :status
 end
