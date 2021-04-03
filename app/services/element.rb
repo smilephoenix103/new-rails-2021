@@ -1,13 +1,6 @@
 class Element
-    String @name
-    String @lastname
-    Float @age = 0
-    def initialize()
-    end
-    attr_reader :name, :lastname, :age
-    attr_writer :name, :lastname, :age
-
-    def to_s
-        printf " %-35s %-10s %-10s",@name, @lastname, @age
-    end
+    # Enumerator
+    enum status: ["KOLEKCJA", "FOR SELL", "SOLD", "RESERVATION"]
+    enum making: ["Papier", "Polimer", "Hybryda", "Pozłacany", "Inny"]
+    enum img_type: ["SKAN", "FOTO", "LOC", "WWW"]
 end
