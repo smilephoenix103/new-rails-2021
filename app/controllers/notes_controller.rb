@@ -12,12 +12,12 @@ class NotesController < ApplicationController
     # @notes = Note.all
     @countries = countries_list
 
-    element = ListElement.new
-    puts "(((((((((((((((((((((((((((((TEST)))))))))))))))))))))))))))))"
-    puts element.getStatus
-    puts element.getMakings
-    puts element.getImg_type
-    puts "((((((((((((((((((END TEST))))))))))))))))))"
+    # element = ListElement.new
+    # puts "(((((((((((((((((((((((((((((TEST)))))))))))))))))))))))))))))"
+    # puts element.getStatus
+    # puts element.getMakings
+    # puts element.getImg_type
+    # puts "((((((((((((((((((END TEST))))))))))))))))))"
   end
 
   def note_currencies
