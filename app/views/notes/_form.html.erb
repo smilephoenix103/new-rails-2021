@@ -45,15 +45,13 @@
     </div>
     <div class="col field">
       <%= form.label :Materiał %>  
-      <%= form.text_field :making, class:"form-control" %>  
-      <%
-=begin%>
- <%= form.select :making, (@makings.collect { |m| [m[0], m[0]] }),  {:include_blank => "Select"}, class:"form-control"  %>  
+      <% form.text_field :making, class:"form-control" %>  
+
+      <%= form.select :making, (@makings.collect { |m| [m[0], m[0]] }),  {:include_blank => "Select"}, class:"form-control"  %>  
       <% note.errors.full_messages_for(:making).each do |message| %>
         <div  class="alert alert-danger" role="alert"><%= message %></div>
-      <% end %>       
-<%
-=end%>
+      <% end %>   
+          
     </div>
     <div class="col field">
       <%= form.label :Sygnatura %>
