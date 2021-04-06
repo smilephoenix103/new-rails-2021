@@ -1,31 +1,38 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Boughts</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Full name</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @boughts.each do |bought| %>
+<div class="container">
+  <h1>Boughts</h1>
+  <%= link_to 'New Bought', new_bought_path, class:"btn btn-primary"  %>
+</div>
+<div class="container">
+  <table class="table table-sm table-striped table-bordered table-hover">
+    <thead class="thead-dark">
       <tr>
-        <td><%= bought.name %></td>
-        <td><%= bought.full_name %></td>
-        <td><%= bought.description %></td>
-        <td><%= link_to 'Show', bought %></td>
-        <td><%= link_to 'Edit', edit_bought_path(bought) %></td>
-        <td><%= link_to 'Destroy', bought, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Name</th>
+        <th>Full name</th>
+        <th>Description</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @boughts.each do |bought| %>
+        <tr>
+          <td><%= bought.name %></td>
+          <td><%= bought.full_name %></td>
+          <td><%= bought.description %></td>
+          <td>
+            <%= link_to 'Show', bought, class:"btn btn-info btn-sm" %>
+            <%= link_to 'Edit', edit_bought_path(bought), class:"btn btn-primary btn-sm" %>
+          </td>
+          <td>
+            <%= link_to 'Destroy', bought, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger btn-sm", style:"float: right" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
-<%= link_to 'New Bought', new_bought_path %>
+
+
