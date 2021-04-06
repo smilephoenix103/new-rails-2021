@@ -67,6 +67,9 @@
     <div class="col field">
       <%= form.label :Sprzedaż %>
       <%= form.text_field :price_sell, class:"form-control" %>
+      <% note.errors.messages_for(:price_sell).each do |message| %>
+        <div  class="alert alert-danger" role="alert"><%= message %></div>
+      <% end %>
     </div>
     <div class="col field">
       <%= form.label :Ilość %>
