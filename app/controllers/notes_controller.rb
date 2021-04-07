@@ -77,6 +77,8 @@ class NotesController < ApplicationController
     @note.currency_id = params[:currency_id]
     puts "@@@@@@@@@@@@@TEST@@@@@@@@@@@@@@@@@"
 
+    @boughts = Bought.all
+
     @statuses = ElementSelect.statuses
     @makings = ElementSelect.makings
     @img_types = ElementSelect.img_types

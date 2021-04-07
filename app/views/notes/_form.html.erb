@@ -21,10 +21,17 @@
       <%= form.label :Data_zakupu %><br/>
        <%= form.date_select :date_buy_note, class:"form-control" %>
     </div>
-    <div class="col field">
-      <%= form.label :Miejsce_zakupu %>
-      <%= form.text_field :bought, class:"form-control" %>
+    <div class="col col-lg-5 field">
+    <div style="float:left">
+      <% form.label :Miejsce_zakupu %>
+      <% form.text_field :bought, class:"form-control" %>
+      <%= form.select :bought, Bought.all.map { |b| [b.name, b.name]}, {:include_blank => "Select (Miejsce zakupu)"}, class:"form-control" %>
     </div>
+    <div style="float:right">
+       <%= link_to 'Nowe miejsce zakupu', new_bought_path, class:"btn btn-primary", style:"float:left" %>
+    </div>
+    </div>
+    
   </div>
   <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
     <div class="col field">
@@ -103,7 +110,7 @@
       <% end %>  
 
     </div>
-    <div class="field">
+    <div class="col col-lg-6 field">
       <%= form.label :description %>
       <%= form.text_area :description, class:"form-control" %>
     </div>
