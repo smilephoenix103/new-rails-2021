@@ -1,0 +1,7 @@
+measure: currency  
+dimensions:
+  - pattern
+  # - country
+  # - key: updated_at
+  #   granularity: day
+# order: dimension1.label asc
