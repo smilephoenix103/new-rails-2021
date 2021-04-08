@@ -8,6 +8,7 @@
  <table class="table table-sm table-striped table-bordered table-hover">
   <thead class="thead-dark">
   <tr>
+      <th>Id</th>
       <th>COD</th>
       <th>Waluta</th>
       <th>Drobne</th>
@@ -28,6 +29,7 @@
   </thead>
   <% @currencies.each do |currency| %>
     <tr>
+      <td><%= currency.id %></td>
       <td><%= currency.cod %></td>
       <td><%= currency.currency %></td>
       <td><%= currency.change %></td>

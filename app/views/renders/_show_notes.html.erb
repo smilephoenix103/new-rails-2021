@@ -67,7 +67,7 @@
             <% end %> 
         </td>
         <% if user_signed_in? && current_user.role == 'admin' %>
-          <td><%= link_to 'Edit', edit_note_path(note) %></td>
+          <td><%= link_to 'Edit', edit_note_path(note), class:"btn btn-primary" %></td>
         <% end %>
       </tr>
      <!-- <%= (note.avers_path.length) %> -->
