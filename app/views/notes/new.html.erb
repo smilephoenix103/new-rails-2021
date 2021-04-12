@@ -1,6 +1,11 @@
-<h1>New Note</h1>
-
+<div  class="card text-center text-white bg-primary">
+  <div class="header">
+    <h3>New Note</h3>
+  </div>
+</div>
 <%= render 'form', note: @note %>
 
 <!-- <%= link_to 'Back', notes_path %> -->
-<%= link_to 'Back', note_show_currency_path(@note.currency_id), class:"btn btn-dark" %>
+<div class="container">
+    <%= link_to 'Back', note_show_currency_path(@note.currency_id), class:"btn btn-sm btn-dark" %>
+</div>

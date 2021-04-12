@@ -1,6 +1,6 @@
 class ElementSelect < ActiveRecord::Base
     # Enumerator
-    enum status: ["KOLEKCJA", "FOR SELL", "SOLD", "RESERVATION"]
+    enum status: ["KOLEKCJA", "FOR SELL", "SOLD", "RESERVATION", "NEW"]
 
     enum making: ["Papier", "Polimer", "Hybryda"]
 
