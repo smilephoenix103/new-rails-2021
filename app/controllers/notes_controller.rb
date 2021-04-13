@@ -62,10 +62,11 @@ class NotesController < ApplicationController
         puts params[:currency_id]
         puts "SHOW TEST"        
     else       
-        puts "++++++++++++++++++++++++++++++++++++++++++++++++"
+        puts "++++++++++++++++++++++++++++++++++++++++++++++++!!!!!!!!!!!!!"
         puts params[:id]      
-        @note = Note.find(params[:id])      
-        puts "+++++++++++++++++++++++++++++++++++++++++++++++++"  
+        @note = Note.find(params[:id])  
+        puts @note.currency.country.country_en
+        puts "+++++++++++++++++++++++++++++++++++++++++++++++++!!!!!!!!!!!!!!"  
     end
   end
 

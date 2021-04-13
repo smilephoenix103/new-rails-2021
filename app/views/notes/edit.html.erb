@@ -1,7 +1,10 @@
-<div  class="card text-center text-white bg-info">
+<div  class="card  text-white bg-info">
   <div class="header">
     <h3>Editing Note</h3>
   </div>
+  <div class="container">
+    <%= render 'notes/show_flag_country' %>
+  </div>  
 </div>
 
 <%= render 'form', note: @note %>
