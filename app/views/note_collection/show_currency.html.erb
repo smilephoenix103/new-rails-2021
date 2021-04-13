@@ -1,7 +1,20 @@
-<h3>WALUTY</h3>
+<h3>WALUTY</h3><br/>
+<% @root_path = Rails.root.join('app', 'assets', 'images','flags') %> 
+<div class="container flag-show" >
+  <%= @currencies[0].country.country_en %>
+  <% if (File.exist?(@root_path + (@currencies[0].country.country_en + '.png'))) %>
+		  <div class="">
+        	<%= image_tag("flags/" + @currencies[0].country.country_en + ".png", :alt => @currencies[0].country.country_en , class:"size-flag") %>
+		  </div>
+  <% else %>
+			<div class="country-flag">			
+				<%= image_tag("flags/test.png", :alt => "rss feed" , class:"size-flag") %>
+			</div>
+  <% end %>  	
+</div>
 <% @currencies.each do |currency| %>
 	<div class="btn btn-secondary btn-sm" style="margin:10px;">
-		<%= link_to (currency.id.to_s + " - " + currency.data_exchange + ' | ' + currency.currency_series.to_s), show_note_path(currency), style:"color:black; margin:10px; padding:10px" %>
+		<%= link_to (currency.id.to_s + " - " + currency.currency_series.to_s), show_note_path(currency), style:"color:black; margin:10px; padding:10px" %>
 		
 	</div>
 <% end %>
