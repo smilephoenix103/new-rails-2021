@@ -1,17 +1,5 @@
 <h3>BANKNOTY</h3><br/>
-<% @root_path = Rails.root.join('app', 'assets', 'images','flags') %> 
-<div class="container flag-show" >
-  <%= @notes[0].currency.country.country_en  %>
-  <% if (File.exist?(@root_path + (@notes[0].currency.country.country_en + '.png'))) %>
-		  <div class="">
-        	<%= image_tag("flags/" + @notes[0].currency.country.country_en  + ".png", :alt => @notes[0].currency.country.country_en  , class:"size-flag") %>
-		  </div>
-  <% else %>
-			<div class="country-flag">			
-				<%= image_tag("flags/test.png", :alt => "rss feed" , class:"size-flag") %>
-			</div>
-  <% end %>  	
-</div>
+ <%= render 'notes/show_flag_country' %>
 
 <div class="container row" style="text-align: center ">
     <% @notes.each do |note| %> 

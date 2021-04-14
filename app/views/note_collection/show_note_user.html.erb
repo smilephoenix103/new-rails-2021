@@ -3,16 +3,16 @@
 <div class="jumbotron">
   <%= render 'notes/show_flag_country' %>
   <%= render 'note_collection/show_note' %>
-  
-  <br/><br/>
-  <% if user_signed_in? && current_user.role == 'admin' %>
-    <div style="float: left">
-        <%= link_to 'Edit', edit_note_path(@note), class:"btn btn-secondary" %> 
-        <%= link_to 'Back', note_show_currency_path(@note.currency_id), class:"btn btn-dark" %>
+  <div>
+    <% if user_signed_in? && current_user.role == 'admin' %>
+      <div style="float: left">
+          <%= link_to 'Edit', edit_note_path(@note), class:"btn btn-secondary" %> 
+          <%= link_to 'Back', note_show_currency_path(@note.currency_id), class:"btn btn-dark" %>
+      </div>
+    <% end %>
+    <div style="float:right">
+          <%= link_to 'Back', show_note_path(@note.currency_id), class:"btn btn-outline-info" %> 
     </div>
-  <% end %>
-   <div style="float:right">
-        <%= link_to 'Back', show_note_path(@note.currency_id), class:"btn btn-outline-info" %> 
    </div>
 </div>
 

@@ -66,6 +66,7 @@ class NotesController < ApplicationController
         puts params[:id]      
         @note = Note.find(params[:id])  
         puts @note.currency.country.country_en
+        @country = @note.currency.country
         puts "+++++++++++++++++++++++++++++++++++++++++++++++++!!!!!!!!!!!!!!"  
     end
   end
@@ -83,7 +84,8 @@ class NotesController < ApplicationController
     @statuses = ElementSelect.statuses
     @makings = ElementSelect.makings
     @img_types = ElementSelect.img_types
- 
+
+    @country = @note.currency.country
   end
 
   # GET /notes/1/edit
@@ -91,6 +93,8 @@ class NotesController < ApplicationController
     @statuses = ElementSelect.statuses
     @makings = ElementSelect.makings
     @img_types = ElementSelect.img_types
+
+    @country = @note.currency.country
   end
 
   # POST /notes
@@ -108,6 +112,7 @@ class NotesController < ApplicationController
         @statuses = ElementSelect.statuses
         @makings = ElementSelect.makings
         @img_types = ElementSelect.img_types
+        @country = @note.currency.country
         format.html { render :new }
         format.json { render json: @note.errors, status: :unprocessable_entity }
       end
@@ -126,6 +131,7 @@ class NotesController < ApplicationController
         @statuses = ElementSelect.statuses
         @makings = ElementSelect.makings
         @img_types = ElementSelect.img_types
+        @country = @note.currency.country
         format.html { render :edit }
         format.json { render json: @note.errors, status: :unprocessable_entity }
       end
