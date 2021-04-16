@@ -20,6 +20,7 @@ include NoteCollectionHelper
   	puts @continent.file_name
   	# @continent_countris = Country.includes(:currencies => :notes).where({ :currencies => { :notes => { status: "KOLEKCJA"}}, :continent => params[:id]}).order(country_en: :asc)
   	@countries = get_countries_with_continent(@continent.name_pl, "KOLEKCJA")
+	puts "TEST"
 	# get_countries_with_continent(params[:id], "KOLEKCJA").each do |con|
 	# 	puts con.country_en
 	# end
