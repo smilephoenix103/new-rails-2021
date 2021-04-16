@@ -1,0 +1,86 @@
+  <span> 
+    <strong>Currency Id:</strong>
+    <%= @coin.currency_id %>
+  </span>
+  <h1 class="display-4" id="notice"></h1>
+  <div class="container">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4", style="font-size: small;">
+    <% if user_signed_in? && current_user.role == 'admin' %>
+      <div class="col">
+        <strong>Data zakupu:</strong>
+        <%= @coin.date_buy %>
+      </div>  
+      <div class="col">
+        <strong>Miejsce zakupu:</strong>
+        <%= @coin.bought %>
+      </div>
+      <div class="col">
+        <strong>cena zakupu:</strong>
+        <%= @coin.price_buy.to_s + "zł" %>
+      </div>
+      
+      <div class="col">
+        <strong>Cena:</strong>
+        <%= @coin.price_sell.to_s + "zł" %>
+      </div>         
+    <% end %>
+      <div class="col">
+        <strong>Nominał:</strong>
+        <%= @coin.denomination %>
+      </div>
+      <div class="col">
+        <strong>Nazwa waluty:</strong>
+        <%= @coin.name_currency %>
+      </div>
+      <div class="col">
+        <strong>Data:</strong>
+        <%= @coin.coin_date %>
+      </div>
+      <div class="col">
+        <strong>SERIA:</strong>
+        <%= @coin.series %>
+      </div>
+      <div class="col">
+        <strong>Signature code:</strong>
+        <%= @coin.signature_code %>
+      </div>
+    
+      
+      <div class="col">
+        <strong>Ilość:</strong>
+        <%= @coin.quantity %>
+      </div>
+      <div class="col">
+        <strong>Stan banknotu:</strong>
+        <%= @coin.quality %>
+      </div>
+      <div class="col">
+        <strong>Materiał:</strong>
+        <%= @coin.composition %>
+      </div>
+      <div class="col">
+        <strong>typ obrazka:</strong>
+        <%= @coin.img_type %> 
+      </div>
+      <div class="col">
+        <strong>Status:</strong>
+        <%= @coin.status %>
+      </div>
+      <% if user_signed_in? && current_user.role == 'admin' %>
+        <div class="col">
+            <strong>Status sprzedaży:</strong>
+            <%= @coin.status_sell %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <p>
+    <strong>Description:</strong>
+    <%= @coin.description %>
+  </p>
+  <hr class="my-4">
+
+  <% @avers = @coin.avers_path %>
+  <% @reverse = @coin.reverse_path %>
+ 
+  <%= render 'renders/show_image_lightbox' %>

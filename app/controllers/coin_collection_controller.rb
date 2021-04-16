@@ -18,12 +18,28 @@ class CoinCollectionController < ApplicationController
         puts "&&&&&&&&&&&&&&&&&&&&&&&&& SHOW COINS &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&"
         puts params[:id]
         @coins = Coin.where(currency_id: params[:id], status: 'KOLEKCJA').order(denomination: :asc).order(coin_date: :asc)
+        @country = @coins[0].currency.country
     end
+
+    def back_show_currency_coin
+        puts params[:id]        
+        @currency = Currency.find(params[:id])
+        puts @currency.inspect
+        redirect_to coin_collection_path(@currency.country_id)
+      end
 
     def show_details_coin
         puts "(((((((((((((((((((((((((((((((( SHOW DETAILS COINS ))))))))))))))))))))))))))))"
         puts params[:id]
         @coin = Coin.find(params[:id])
     end
+
+    def show_coin_user
+        puts "&&&&&&&&&&&&&& SHOW COIN USER &&&&&&&&&&&&&&&&&&&"
+        puts params[:id]
+        @coin = Coin.find(params[:id])  
+        @country = @coin.currency.country
+        puts "&&&&&&&&&&&&&& END &&&&&&&&&&&&&&&&&&&&&&&&&&"
+      end
 
 end

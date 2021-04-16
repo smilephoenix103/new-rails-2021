@@ -1,5 +1,4 @@
 <h2>BANKNOTY</h2>
-zmaina testowa
 <%= render 'notes/show_flag_country' %>
 
 <div class="container row" style="text-align: center ">
@@ -20,15 +19,7 @@ zmaina testowa
                     </div>
                 </div>
                 
-                  <%
-=begin%>
- <% if user_signed_in? && current_user.role == 'admin' %>
-                    <div class="btn-image-collection" style="float:left">
-                        <%= link_to 'Show', note_path(note), class:"btn btn-secondary btn-sm" %> 
-                    </div>
-                  <% end %> 
-<%
-=end%>
+            
                   <div class="btn-image-collection" >
                     <%= link_to 'Show', show_note_user_path(note), class:"btn btn-outline-info btn-sm", style:"float:left" %> 
                     <%= link_to 'Back', back_show_currency_path(note.currency_id), class:"btn btn-secondary btn-sm", style:"float:right" %>                        
