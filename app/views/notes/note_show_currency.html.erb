@@ -23,8 +23,6 @@
     <strong>Description:</strong><%= @currency.description %>
   </p>
   
-  
-  <!-- <%= link_to 'Back', currencies_path(@currency) %> -->
   <%= link_to 'Back', note_currencies_path(@currency.country_id), class:"btn btn-dark" %> 
   <%= link_to 'Add Note', new_currency_note_path(@currency), class:"btn btn-secondary" %> 
   <%= link_to 'Edit currency', edit_currency_path(@currency), class:"btn btn-primary", style:"float: right"  %> 
@@ -45,7 +43,7 @@
         <th style="width:30%">Avers/Reverse</th>
         <th></th>
         <th></th>
-        </tr>
+      </tr>
     </thead>
     <% @collection.each do |note| %>
 

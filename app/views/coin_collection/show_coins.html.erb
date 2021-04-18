@@ -1,4 +1,9 @@
-<%= link_to 'Back', back_show_currency_coin_path(@coins[0].currency_id), class:"btn btn-secondary", style:"float:left" %><h2>Monety</h2>
+<%= link_to '<Back', back_show_currency_coin_path(@coins[0].currency_id), class:"btn btn-secondary", style:"float:left" %><br/>
+<%
+=begin%>
+ <h2>Monety</h2> 
+<%
+=end%>
 <%= render 'notes/show_flag_country' %>
 
 <div class="container row" style="text-align: center ">
@@ -32,7 +37,7 @@
 
                   <div class="btn-image-collection" >
 
-                  <%= link_to 'Show11', show_coin_user_path(coin), class:"btn btn-outline-info btn-sm", style:"float:left" %>  
+                  <%= link_to 'Show', show_coin_user_path(coin), class:"btn btn-outline-info btn-sm", style:"float:left" %>  
 
                                             
                   </div>

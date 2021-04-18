@@ -22,15 +22,15 @@
        <%= form.date_select :date_buy_note, class:"form-control form-control-sm" %>
     </div>
     <div class="col col-lg-5 field">
-    <div style="float:left">
-      <%= form.label :Miejsce_zakupu %>
-      <% form.text_field :bought, class:"form-control form-control-sm" %>
-      <%= form.select :bought, Bought.all.map { |b| [b.name, b.name]}, {:include_blank => "Select (Miejsce zakupu)"}, class:"form-control  form-control-sm" %>
+      <div style="float:left">
+        <%= form.label :Miejsce_zakupu %>
+        <% form.text_field :bought, class:"form-control form-control-sm" %>
+        <%= form.select :bought, Bought.all.map { |b| [b.name, b.name]}, {:include_blank => "Select (Miejsce zakupu)"}, class:"form-control  form-control-sm" %>
+      </div>
+      <div style="float:right; margin-top:7%">
+        <%= link_to 'Nowe miejsce zakupu', new_bought_path, class:"btn btn-sm btn-primary", style:"float:left" %>
+      </div>
     </div>
-    <div style="float:right; margin-top:7%">
-       <%= link_to 'Nowe miejsce zakupu', new_bought_path, class:"btn btn-sm btn-primary", style:"float:left" %>
-    </div>
-  </div>
     
   </div>
   <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
@@ -80,7 +80,6 @@
       <% note.errors.full_messages_for(:making).each do |message| %>
         <div  class="alert alert-danger" role="alert"><%= message %></div>
       <% end %>   
-
     </div>
     
     <div class="col field">
@@ -94,8 +93,7 @@
       <%= form.select :status, (@statuses.collect { |s| [s[0], s[0]] }),  {:include_blank => "Select(Status)"}, class:"form-control form-control-sm"  %>  
       <% note.errors.full_messages_for(:status).each do |message| %>
         <div  class="alert alert-danger" role="alert"><%= message %></div>
-      <% end %>  
-
+      <% end %>
     </div>
     <div class="col field">
       <% form.label :Status_sprzedaży %>

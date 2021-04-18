@@ -11,7 +11,11 @@ class CoinCollectionController < ApplicationController
 
     def show
         puts "&&&&&&&&&&&&&&&&&&&&&&&&& TEST &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&"
-        @currencies  = Currency.joins(:coins).where(country_id: params[:id], pattern: 'COIN' ). group(:id)
+        puts params[:id]
+        @currencies  = Currency.joins(:coins).where(coins: {status: "KOLEKCJA"},country_id: params[:id], pattern: 'COIN' ). group(:id)
+        @currencies.each do |c|
+            puts c.inspect
+        end
     end
 
     def show_coins
