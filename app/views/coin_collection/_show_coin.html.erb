@@ -1,11 +1,10 @@
-<div class="jumbotron">
- <%= render 'notes/show_flag_country' %>
-    <strong>Id:</strong>
+  <span> 
+    <strong>Currency Id:</strong>
     <%= @coin.currency_id %>
-  </p>
+  </span>
   <h1 class="display-4" id="notice"></h1>
   <div class="container">
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4", style="font-size: small;">
     <% if user_signed_in? && current_user.role == 'admin' %>
       <div class="col">
         <strong>Data zakupu:</strong>
@@ -20,12 +19,10 @@
         <%= @coin.price_buy.to_s + "zł" %>
       </div>
       
-      <% if @coin.price_sell.to_s != "" %>
-        <div class="col">
-          <strong>Cena:</strong>
-          <%= @coin.price_sell.to_s + "zł" %>
-        </div>         
-      <% end %>
+      <div class="col">
+        <strong>Cena:</strong>
+        <%= @coin.price_sell.to_s + "zł" %>
+      </div>         
     <% end %>
       <div class="col">
         <strong>Nominał:</strong>
@@ -54,29 +51,13 @@
         <%= @coin.quantity %>
       </div>
       <div class="col">
-        <strong>Stan monety:</strong>
+        <strong>Stan banknotu:</strong>
         <%= @coin.quality %>
       </div>
       <div class="col">
-        <strong>Skład:</strong>
+        <strong>Materiał:</strong>
         <%= @coin.composition %>
       </div>
-      
-      <div class="col">
-        <strong>Diameter:</strong>
-        <%= @coin.diameter %>
-      </div>
-
-      <div class="col">
-        <strong>Thickness:</strong>
-        <%= @coin.thickness %>
-      </div>
-
-      <div class="col">
-        <strong>Weight:</strong>
-        <%= @coin.weight %>
-      </div>
-
       <div class="col">
         <strong>typ obrazka:</strong>
         <%= @coin.img_type %> 
@@ -85,10 +66,10 @@
         <strong>Status:</strong>
         <%= @coin.status %>
       </div>
-      <% if @coin.status_sell != "" %>
+      <% if user_signed_in? && current_user.role == 'admin' %>
         <div class="col">
-          <strong>Status sprzedaży:</strong>
-          <%= @coin.status_sell %>
+            <strong>Status sprzedaży:</strong>
+            <%= @coin.status_sell %>
         </div>
       <% end %>
     </div>
@@ -98,22 +79,8 @@
     <%= @coin.description %>
   </p>
   <hr class="my-4">
- 
+
   <% @avers = @coin.avers_path %>
   <% @reverse = @coin.reverse_path %>
  
   <%= render 'renders/show_image_lightbox' %>
-
-  <div>
-    <% if user_signed_in? && current_user.role == 'admin' %>
-      <div style="float: left">
-        <%= link_to 'Edit', edit_coin_path(@coin), class:"btn btn-secondary" %>
-        <%= link_to 'Back', coin_show_currency_path(@coin.currency_id), class:"btn btn-dark" %>
-      </div>
-    <% end %>
-    <div style="float:right">
-      <%= link_to 'Back', show_coins_path(@coin.currency_id), class:"btn btn-outline-info" %> 
-    </div>
-  </div>
-  
-</div>

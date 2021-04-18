@@ -40,6 +40,7 @@ class CoinsController < ApplicationController
 
   # GET /coins/1 or /coins/1.json
   def show
+    @country = @coin.currency.country
   end
 
   # GET /coins/new
@@ -49,16 +50,29 @@ class CoinsController < ApplicationController
     puts "****************** test dodawania monety ********************************"
     puts params[:currency_id]
     @coin.currency_id = params[:currency_id]
+
+    @boughts = Bought.all
+
+    @statuses = ElementSelect.statuses
+    @img_types = ElementSelect.img_types
+
+    @country = @coin.currency.country
   end
 
   # GET /coins/1/edit
   def edit
+    @statuses = ElementSelect.statuses
+    @img_types = ElementSelect.img_types
+    @country = @coin.currency.country
   end
 
   # POST /coins or /coins.json
   def create
     @coin = Coin.new(coin_params)
 
+    @statuses = ElementSelect.statuses
+    @img_types = ElementSelect.img_types
+    @country = @coin.currency.country
     respond_to do |format|
       if @coin.save
         format.html { redirect_to @coin, notice: "Coin was successfully created." }
@@ -72,6 +86,9 @@ class CoinsController < ApplicationController
 
   # PATCH/PUT /coins/1 or /coins/1.json
   def update
+    @statuses = ElementSelect.statuses
+    @img_types = ElementSelect.img_types
+    @country = @coin.currency.country
     respond_to do |format|
       if @coin.update(coin_params)
         format.html { redirect_to @coin, notice: "Coin was successfully updated." }
