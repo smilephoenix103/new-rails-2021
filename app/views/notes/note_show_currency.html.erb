@@ -49,7 +49,12 @@
 
         <tr>
             <td><%= note.id %></td>
-            <td><%= note.denomination %></td>
+            <td >
+              <div style="float: right">
+                <% note.denomination %>
+                <%= number_with_delimiter(note.denomination , delimiter: " ") %>
+              </div>
+            </td>
             <td><%= note.name_currency %></td>
             <td><%= note.note_date %></td>
             <td><%= note.signature_code %></td>

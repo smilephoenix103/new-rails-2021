@@ -49,7 +49,12 @@
 
       <tr>
         <td><%= coin.id %></td>
-        <td><%= coin.denomination %></td>
+        <td>          
+          <div style="float: right">
+            <% coin.denomination %>
+            <%= number_with_delimiter(coin.denomination, delimiter: " ") %>
+          </div>
+        </td>
         <td><%= coin.name_currency %></td>
         <td><%= coin.coin_date %></td>
         <td><%= coin.signature_code %></td>
