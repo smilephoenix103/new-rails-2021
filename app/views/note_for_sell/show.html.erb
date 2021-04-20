@@ -1,2 +1,46 @@
 <h3>BANKNOTY NA SPRZEDAŻ</h3>
-<%= render 'renders/show_notes' %>
+<%
+=begin%>
+ <%= render 'renders/collection_for_sell' %> 
+<%
+=end%>
+<h4><%= "Ilość banknotów: " + @notes.size.to_s %></h4>
+<table class="table table-striped  table-hover" style="border-collapse: separate; border-spacing:0 20px;">
+  <% @notes.each do |note| %>
+      <tr>
+        <td><%= "Id. " + note.id.to_s %></td>
+        <td style="width:20%">        
+        	<% if (note.avers_path.length > 200) %>
+            	<%= image_tag(note.avers_path, :alt => "AVERSE" , style:"width:100%;height:100%;") %>
+            <% else %>
+            	<%= note.avers_path %>
+            <% end %> 
+        </td>
+        <td>
+          <div>
+            <strong>
+              <%= note.currency.country.country_en + ": " %>
+              <%= number_with_delimiter(note.denomination, delimiter: " ") + " " + note.name_currency + " Data: " + note.note_date  %>
+            </strong><br/>
+            <% if user_signed_in? && current_user.role == 'admin' %>
+              <%= "Cena zakupu: " + note.price_buy.to_s + "zł/szt" %><br/>
+            <% end %>
+              <%= "Cena Sprzedaży: " + note.price_sell.to_s + "zł/szt" %><br/>
+              <span>Koszty wysyłki 10zł<span><br/>
+              <span>Mozliwy odbiór osobisty</span>
+          </div>
+        </td>
+     
+        <%
+=begin%>
+        <td><%= note.making %></td>
+        <td><%= note.quality %></td> 
+<%
+=end%>       
+    
+        <% if user_signed_in? && current_user.role == 'admin' %>
+          <td><%= link_to 'Edit', edit_note_path(note), class:"btn btn-primary" %></td>
+        <% end %>
+      </tr>
+  <% end %>
+</table>

@@ -14,7 +14,7 @@
                     </div>
                     <div class="item-collection-info">
                       <%= "Rok: " + note.note_date.to_s %><br/>
-                      <%= "Nominał: " + note.denomination.to_s %><br/>
+                      <%= "Nominał: " + number_with_delimiter(note.denomination, delimiter: " ") %><br/>
                       <%= "Waluta: " + note.name_currency.to_s %>
                     </div>
                 </div>

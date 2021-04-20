@@ -8,6 +8,6 @@ class CoinForSellController < ApplicationController
     end
 
     def show
-        @coins = colection_coins_status(params[:id], "FOR SELL")
+        @collection_for_sell = colection_coins_status(params[:id], "FOR SELL")
     end
 end

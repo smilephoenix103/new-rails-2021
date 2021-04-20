@@ -19,7 +19,7 @@
                     </div><br/>
                     <div class="item-collection-info" style="margin-top: 10%;">
                       <%= "Rok: " + coin.coin_date.to_s %><br/>
-                      <%= "Nominał: " + coin.denomination.to_s %><br/>
+                      <%= "Nominał: " + number_with_delimiter(coin.denomination, delimiter: " ") %><br/>
                       <%= "Waluta: " + coin.name_currency.to_s %>
                     </div>
                 </div>
