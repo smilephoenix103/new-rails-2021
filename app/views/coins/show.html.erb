@@ -29,7 +29,7 @@
     <% end %>
       <div class="col">
         <strong>Nominał:</strong>
-        <%= @coin.denomination %>
+        <%= number_with_delimiter(@coin.denomination, delimiter: " ") %>
       </div>
       <div class="col">
         <strong>Nazwa waluty:</strong>
