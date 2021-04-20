@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_06_150114) do
+ActiveRecord::Schema.define(version: 2021_04_20_084443) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -122,7 +122,7 @@ ActiveRecord::Schema.define(version: 2021_04_06_150114) do
 
   create_table "notes", id: { type: :bigint, default: -> { "nextval('notes_sequence'::regclass)" }, comment: "Klucz główny" }, comment: "Tabela za banknotami", force: :cascade do |t|
     t.bigint "currency_id", null: false, comment: "Klucz obcy tabela z walutami"
-    t.decimal "denomination", precision: 20, scale: 2, null: false, comment: "Nominał banknotu"
+    t.float "denomination", null: false, comment: "Nominał banknotu"
     t.string "name_currency", limit: 50, null: false, comment: "Nazwa banknotu"
     t.string "note_date", limit: 20, null: false, comment: "Data druku banknotu"
     t.integer "signature_code", default: 0, null: false, comment: "Kod okreslajacy czy bankot jest Obiegowy/wymienny/nieobieggowy.."
