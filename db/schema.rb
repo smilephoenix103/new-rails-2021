@@ -90,17 +90,17 @@ ActiveRecord::Schema.define(version: 2021_04_20_084443) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "countries", id: { type: :bigint, default: -> { "nextval('countries_sequence'::regclass)" }, comment: "Klucz główny" }, comment: "Państwa swiata", force: :cascade do |t|
-    t.string "continent", limit: 100, null: false, comment: "Kontynent na kórym lezy państwo"
-    t.string "country_en", limit: 100, null: false, comment: "Nazwa państwa po angielsku"
-    t.string "country_pl", limit: 100, null: false, comment: "Nazwa państwa po polsku"
-    t.string "capital_city", limit: 100, null: false, comment: "Stolica państwa"
-    t.string "alfa_2", limit: 5, comment: "część standardu ISO 3166-1, zawiera dwuliterowe kody państw oraz terytoriów"
-    t.string "alfa_3", limit: 5, comment: "część standardu ISO 3166-1, zawiera trzyliterowe kody państw, które są wizualnie łatwiejsze w rozpoznawaniu krajów"
-    t.string "numeric_code", limit: 5, comment: "trzycyfrowe kody państw"
-    t.string "iso_code", limit: 20, comment: " kodowanie nazw państw, terytoriów zależnych oraz jednostek ich podziałów administracyjnych"
-    t.datetime "created_at", null: false, comment: "Data dodania"
-    t.datetime "updated_at", null: false, comment: "Data modyfikacji"
+  create_table "countries", force: :cascade do |t|
+    t.string "continent"
+    t.string "country_en"
+    t.string "country_pl"
+    t.string "capital_city"
+    t.string "alfa_2"
+    t.string "alfa_3"
+    t.string "numeric_code"
+    t.string "iso_code"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.boolean "exists"
   end
 
