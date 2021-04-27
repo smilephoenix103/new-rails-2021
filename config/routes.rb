@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
   
+  get 'coin_new/index'
+  get 'note_new/index'
   resources :boughts
   resources :patterns
   resources :bonds
@@ -29,6 +31,8 @@ Rails.application.routes.draw do
   resources :notes
   resources :note_for_sell, only: [:index, :show]
   resources :note_sold, only: [:index, :show]
+  resources :note_new, only: [:index, :show]
+  resources :coin_new, only: [:index, :show]
   resources :note_collection, only: [:index, :show]
   resources :coin_for_sell, only: [:index, :show]
   resources :coin_collection, only: [:index, :show]

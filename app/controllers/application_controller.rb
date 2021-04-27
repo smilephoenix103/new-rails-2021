@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  add_flash_types :info, :error, :warning
 
   protect_from_forgery with: :exception
 
@@ -34,5 +35,6 @@ class ApplicationController < ActionController::Base
           :current_password )}
 
   end
+  
 
 end
