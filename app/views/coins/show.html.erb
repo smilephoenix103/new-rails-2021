@@ -111,9 +111,11 @@
         <%= link_to 'Back', coin_show_currency_path(@coin.currency_id), class:"btn btn-dark" %>
       </div>
     <% end %>
-    <div style="float:right">
-      <%= link_to 'Back', show_coins_path(@coin.currency_id), class:"btn btn-outline-info" %> 
-    </div>
+    <% if @coin.status == "KOLEKCJA" %>
+      <div style="float:right">
+        <%= link_to 'Back', show_coins_path(@coin.currency_id), class:"btn btn-outline-info" %> 
+      </div>
+    <% end %>
   </div>
   
 </div>

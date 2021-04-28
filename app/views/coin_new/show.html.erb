@@ -1,0 +1,42 @@
+<h3>Nowe monety do weryfikacji</h3>
+<h4><%= "Ilość banknotów: " + @coins.size.to_s %></h4>
+<table class="table table-striped  table-hover" style="border-collapse: separate; border-spacing:0 20px;">
+  <% @coins.each do |coin| %>
+      <tr>
+        <td><%= "Id. " + coin.id.to_s %></td>
+        <td style="width:20%">        
+        	<% if (coin.avers_path.length > 200) %>
+            	<%= link_to image_tag(coin.avers_path, :alt => "AVERSE" , style:"width:100%;height:100%;"), coin_path(coin)  %>
+            <% else %>
+            	<%= coin.avers_path %>
+            <% end %> 
+        </td>
+        <td style="width:20%">        
+        	<% if (coin.reverse_path.length > 200) %>
+            	<%= link_to image_tag(coin.reverse_path, :alt => "REVERSE" , style:"width:100%;height:100%;"), coin_path(coin) %>
+            <% else %>
+            	<%= coin.reverse_path %>
+            <% end %> 
+        </td>
+        <td>
+          <div>
+            <strong>
+              <%= coin.currency.country.country_en + ": " %>
+              <%= number_with_delimiter(coin.denomination, delimiter: " ") + " " + coin.name_currency + " Data: " + coin.coin_date  %>
+            </strong>
+          </div>
+        </td>
+    
+        <% if user_signed_in? && current_user.role == 'admin' %>
+          <td>
+            <%
+=begin%>
+ <%= link_to 'Show', coin_path(coin), class:"btn btn-info btn-sm" %> 
+<%
+=end%>
+            <%= link_to 'Edit', edit_coin_path(coin), class:"btn btn-primary btn-sm" %>
+          </td>
+        <% end %>
+      </tr>
+  <% end %>
+</table>

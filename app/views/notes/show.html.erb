@@ -1,5 +1,4 @@
 <p id="notice"><%= notice %></p>
-
 <div class="jumbotron">
   <%= render 'notes/show_flag_country' %>
   <%= render 'note_collection/show_note' %>
@@ -10,9 +9,11 @@
         <%= link_to 'Back', note_show_currency_path(@note.currency_id), class:"btn btn-dark" %>
     </div>
   <% end %>
-   <div style="float:right">
-        <%= link_to 'Back', show_note_path(@note.currency_id), class:"btn btn-outline-info" %> 
-   </div>
+  <% if @note.status == "KOLEKCJA" %>
+    <div style="float:right">
+          <%= link_to 'Back', show_note_path(@note.currency_id), class:"btn btn-outline-info" %> 
+    </div>
+  <% end %>
 </div>
 
 

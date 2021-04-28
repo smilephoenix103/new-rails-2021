@@ -8,4 +8,10 @@ class CoinNewController < ApplicationController
     puts @countries.size
     puts "^^^^^^^^^^^^^^^^^^^^^^^^^^END TEST^^^^^^^^^^^^^^^^^^^^^^^^^^^"
   end
+
+  def show
+    puts params[:id]
+    @coins = Coin.includes(:currency => :country).where(:currency => { :country_id => params[:id]}, :status => "NEW")
+
+  end
 end
