@@ -3,6 +3,7 @@ class CoinsController < ApplicationController
   before_action :require_admin_logged_in!
 
   include CurrenciesHelper
+  include CountriesHelper
 
   # GET /coins or /coins.json
   def index
@@ -58,6 +59,12 @@ class CoinsController < ApplicationController
 
     @country = @coin.currency.country
   end
+
+  def coin_search
+    @countries = search_country(params[:q])
+    # @countries = Country.where("country_en ILIKE ?","%" + params[:q] + "%")
+    render :index
+  end 
 
   # GET /coins/1/edit
   def edit

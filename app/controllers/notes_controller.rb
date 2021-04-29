@@ -5,6 +5,7 @@ class NotesController < ApplicationController
   # require 'List_element'
 
   include CurrenciesHelper
+  include CountriesHelper
 
   # GET /notes
   # GET /notes.json
@@ -88,6 +89,12 @@ class NotesController < ApplicationController
     @country = @note.currency.country
   end
 
+  def note_search
+    @countries = search_country(params[:q])
+    # @countries = Country.where("country_en ILIKE ?","%" + params[:q] + "%")
+    render :index
+  end 
+
   # GET /notes/1/edit
   def edit
     @statuses = ElementSelect.statuses
@@ -153,7 +160,7 @@ class NotesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_note
-      @note = Note.find(params[:id])
+        @note = Note.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

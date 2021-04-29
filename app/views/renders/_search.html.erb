@@ -1,10 +1,16 @@
-<h1> WYBIERZ PAŃSTWO</h1>
+<%
+=begin%>
+ *******************VIEWS*************************
+ - notes/index.html.erb 
+ - coins/index.html.erb
+<%
+=end%>
+
 <div>
 	<nav class="navbar navbar-light bg-light">
-  		<form class="form-inline" action="/coin_search">
+  		<form class="form-inline" action="/search">
     		<input class="form-control mr-sm-2" name="q" placeholder="Search" aria-label="Search" >
     		<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     	</form>
 	</nav>
 </div>
-<%= render 'renders/countries' %>

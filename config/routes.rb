@@ -46,11 +46,13 @@ Rails.application.routes.draw do
   resources :notes
   get 'notes/note_currencies/:id', to: 'notes#note_currencies', as: 'note_currencies'
   get 'notes/note_show_currency/:id', to: 'notes#note_show_currency', as: 'note_show_currency'
+  get 'note_search', to: 'notes#note_search'
 
   resources :coins
   get 'coins/coin_currencies/:id', to: 'coins#coin_currencies', as: 'coin_currencies'
   get 'coins/coin_show_currency/:id', to: 'coins#coin_show_currency', as: 'coin_show_currency'
   get 'coins/new/:id', to: 'coins#new', as: 'new'
+  get 'coin_search', to: 'coins#coin_search'
 
   # BONDS
  

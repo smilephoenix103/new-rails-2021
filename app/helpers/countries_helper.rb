@@ -14,4 +14,8 @@ module CountriesHelper
 	def get_countries_bond_colection(status)
 		Country.includes(:currencies => :bonds).where({ :currencies => { :bonds => { status: status}}}).order(country_en: :asc)
 	end
+
+	def search_country(country_name)
+		@countries = Country.where("country_en ILIKE ?","%" + country_name + "%")
+	end
 end
