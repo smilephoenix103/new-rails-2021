@@ -3,6 +3,7 @@ class CountriesController < ApplicationController
   before_action :require_admin_logged_in!
 
   include CurrenciesHelper
+  include CountriesHelper
 
   
   # GET /countries
@@ -34,6 +35,13 @@ class CountriesController < ApplicationController
   # GET /countries/1/edit
   def edit
   end
+
+  def country_search
+    @countries = search_country(params[:q])
+    # @countries = Country.where("country_en ILIKE ?","%" + params[:q] + "%")
+    render :index
+  end 
+
 
   # POST /countries
   # POST /countries.json

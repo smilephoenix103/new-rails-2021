@@ -65,7 +65,9 @@ Rails.application.routes.draw do
 
   resources :countries do
     resources :currencies
-  end
+  end 
+
+  get 'country_search', to: 'countries#country_search'
 
   resources :currencies do
     resources :notes
