@@ -1,4 +1,7 @@
 <h2>BANKNOTY</h2>
+<%= render 'renders/door_open_fill' %>
+<%= link_to '<Back', back_show_currency_path(@notes[0].currency_id), class:"btn btn-secondary btn-sm", style:"float:left" %>                        
+
 <%= render 'renders/show_flag_country' %>
 
 <div class="container row" style="text-align: center ">
@@ -22,7 +25,6 @@
             
                   <div class="btn-image-collection" >
                     <%= link_to 'Show', show_note_user_path(note), class:"btn btn-outline-info btn-sm", style:"float:left" %> 
-                    <%= link_to 'Back', back_show_currency_path(note.currency_id), class:"btn btn-secondary btn-sm", style:"float:right" %>                        
                   </div>
                 
             </div>

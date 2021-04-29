@@ -11,6 +11,7 @@ class CountriesController < ApplicationController
   def index
     # @countries = Country.all.order(country_en: :asc)
     @countries = countries_list
+    flash.now[:info] = @countries.size.to_s + " - Państw"
   end
 
   # GET /countries/1
@@ -39,6 +40,7 @@ class CountriesController < ApplicationController
   def country_search
     @countries = search_country(params[:q])
     # @countries = Country.where("country_en ILIKE ?","%" + params[:q] + "%")
+    flash.now[:info] = "Ilość państw: " + @countries.size.to_s
     render :index
   end 
 
