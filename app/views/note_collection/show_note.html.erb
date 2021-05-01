@@ -1,6 +1,10 @@
 <h2>BANKNOTY</h2>
-<%= render 'renders/door_open_fill' %>
-<%= link_to '<Back', back_show_currency_path(@notes[0].currency_id), class:"btn btn-secondary btn-sm", style:"float:left" %>                        
+<%
+=begin%>
+ <%= render 'renders/door_open_fill' %> 
+<%
+=end%>
+<%= link_to (render 'renders/door_open_fill') , back_show_currency_path(@notes[0].currency_id), class:"btn btn-secondary btn-sm", style:"float:left" %>                        
 
 <%= render 'renders/show_flag_country' %>
 
