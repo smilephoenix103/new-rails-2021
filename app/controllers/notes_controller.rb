@@ -17,6 +17,8 @@ class NotesController < ApplicationController
   def note_currencies
     puts "$$$$$$$$$$$$$$$$$$$$$$$$$$ TEST NOTE $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
     puts params[:id]
+    puts params[:pattern]
+    @pattern = params[:pattern]
     puts "$$$$$$$$$$$$$$$$$$$$$$$$$$ END TEST $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
     @country = Country.find(params[:id])
     @currencies = get_currencies_with_pattern(@country.id, "NOTE")

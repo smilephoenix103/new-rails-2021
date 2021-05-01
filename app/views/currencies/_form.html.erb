@@ -25,13 +25,13 @@
       <td>
         <div class="field ">
           <% form.label :cod %>
-          <%= form.text_field :cod, class:"form-control form-control-sm", placeholder:"Kod" %>
+          <%= form.text_field :cod, class:"form-control form-control-sm", placeholder:"Kod"%>
         </div>
       </td>
       <td>
         <div class="field ">
           <% form.label :pattern %>
-          <%= form.select :pattern, Pattern.all.map { |p| [p.name_en, p.name_en]}, {:include_blank => "Select(Pattern)"}, class:"form-control form-control-sm" %>
+          <%= form.select :pattern, Pattern.all.map { |p| [p.name_en, p.name_en]}, {:include_blank => "Select(Pattern)"}, class:"form-control form-control-sm", disabled:""%>
           <% currency.errors.full_messages_for(:pattern).each do |message| %>
             <div style="color:red" ><%= message %></div>
           <% end %>

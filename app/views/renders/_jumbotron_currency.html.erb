@@ -39,4 +39,4 @@
   <%= link_to 'Back', countries_path, class:"btn btn-dark" %> 
 <%
 =end%>
-  <%= link_to 'Add Currency', new_country_currency_path(@country), class:"btn btn-secondary" %>
+  <%= link_to 'Add Currency ' + @pattern , new_country_currency_path(@country, 'pattern' => @pattern), class:"btn btn-secondary" %>
