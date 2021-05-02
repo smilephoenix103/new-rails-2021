@@ -49,7 +49,7 @@
 =end%>       
     
         <% if user_signed_in? && current_user.role == 'admin' %>
-          <td><%= link_to 'Edit', edit_note_path(note), class:"btn btn-primary btn-sm" %></td>
+          <td><%= link_to (render 'renders/button_edit'), edit_note_path(note), class:"btn btn-primary btn-sm" %></td>
         <% end %>
       </tr>
   <% end %>

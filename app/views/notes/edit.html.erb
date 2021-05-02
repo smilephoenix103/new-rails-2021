@@ -9,7 +9,7 @@
 
 <%= render 'form', note: @note %>
 <div class="container">
-    <%= link_to 'Show', @note, class:"btn btn-sm btn-secondary" %> 
     <!-- <%= link_to 'Back', notes_path %> -->
-    <%= link_to 'Back', note_show_currency_path(@note.currency_id), class:"btn btn-sm btn-dark" %>
+    <%= link_to (render 'renders/button_back'), note_show_currency_path(@note.currency_id), class:"btn btn-sm btn-dark" %>
+    <%= link_to 'Show', @note, class:"btn btn-sm btn-info" %> 
 </div>
