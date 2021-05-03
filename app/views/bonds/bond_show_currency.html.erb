@@ -20,7 +20,7 @@
   
 
   <%= link_to 'Edit', edit_currency_path(@currency), class:"btn btn-secondary" %> 
-  <%= link_to 'Back', bond_currencies_path(@currency.country_id), class:"btn btn-dark" %> 
+  <%= link_to 'Back', bond_currencies_path(@currency.country_id, 'pattern' => @currency.pattern), class:"btn btn-dark" %> 
   <%= link_to 'Add Bond', new_currency_bond_path(@currency), class:"btn btn-secondary" %>  
 
 </div>
