@@ -31,7 +31,7 @@
       <td>
         <div class="field ">
           <% form.label :pattern %>
-          <%= form.select :pattern, Pattern.all.map { |p| [p.name_en, p.name_en]}, {:include_blank => "Select(Pattern)"}, class:"form-control form-control-sm", disabled:""%>
+          <%= form.select :pattern, Pattern.all.map { |p| [p.name_en, p.name_en]}, {:include_blank => "Select(Pattern)"}, class:"form-control form-control-sm" %>
           <% currency.errors.full_messages_for(:pattern).each do |message| %>
             <div style="color:red" ><%= message %></div>
           <% end %>
