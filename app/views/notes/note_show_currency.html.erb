@@ -22,8 +22,8 @@
   <p>
     <strong>Description:</strong><%= @currency.description %>
   </p>
-  
-  <%= link_to (render 'renders/button_back'), note_currencies_path(@currency.country_id), class:"btn btn-secondary btn-sm" %> 
+
+  <%= link_to (render 'renders/button_back'), note_currencies_path(@currency.country_id, 'pattern' => @currency.pattern), class:"btn btn-secondary btn-sm" %> 
   <%= link_to 'Add Note', new_currency_note_path(@currency), class:"btn btn-primary btn-sm" %> 
   <%= link_to 'Edit currency', edit_currency_path(@currency), class:"btn btn-primary btn-sm", style:"float: right"  %> 
 
