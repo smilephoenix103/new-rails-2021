@@ -47,9 +47,9 @@
       
       <td>
         <%= link_to 'Show', note_show_currency_path(currency), class:"btn btn-info btn-sm"%>
-        <%= link_to 'Edit', edit_currency_path(currency), class:"btn btn-primary btn-sm" %></td>
+        <%= link_to (render 'renders/button_edit'), edit_currency_path(currency), class:"btn btn-primary btn-sm" %></td>
       <td>
-        <%= link_to 'Delete', currency, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger btn-sm", style:"float: right"  %>
+        <%= link_to (render 'renders/button_delete'), currency, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger btn-sm", style:"float: right"  %>
       </td>
 
     </tr>

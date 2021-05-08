@@ -65,8 +65,8 @@
             <td>        
                 <% if (note.avers_path.length > 200) %>
                 <div class="show-note">
-                    <%= image_tag(note.avers_path, :alt => "AVERSE" , style:"width:40%;height:50%") %>
-                    <%= image_tag(note.reverse_path, :alt => "REVERSE" , style:"width:40%;height:50%") %>
+                    <%= link_to (image_tag(note.avers_path, :alt => "AVERSE" , style:"width:40%;height:50%")), note_path(note) %>
+                    <%= link_to (image_tag(note.reverse_path, :alt => "REVERSE" , style:"width:40%;height:50%")), note_path(note) %>
                 </div>
                 <% else %>
                     <%= note.avers_path %>
@@ -74,7 +74,11 @@
                 <% end %> 
             </td>
             <td>
-                <%= link_to 'Show', note_path(note), class:"btn btn-info btn-sm" %>
+                <%
+=begin%>
+ <%= link_to 'Show', note_path(note), class:"btn btn-info btn-sm" %> 
+<%
+=end%>
                 <%= link_to (render 'renders/button_edit'), edit_note_path(note), class:"btn btn-primary btn-sm" %>
             </td>
             <td>
