@@ -7,7 +7,7 @@
     	<%= link_to country.country_en, show_currency_path(country) %>
   		<% if (File.exist?(@root_path + (country.country_en + '.png'))) %>
 		  <div class="country-flag">
-        	<%= image_tag("flags/" + country.country_en + ".png", :alt => country.country_en , class:"size-flag") %>
+        	<%= link_to (image_tag("flags/" + country.country_en + ".png", :alt => country.country_en , class:"size-flag")), show_currency_path(country) %>
 		  </div>
         <% else %>
 			<div class="country-flag">
