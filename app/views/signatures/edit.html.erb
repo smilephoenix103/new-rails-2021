@@ -1,0 +1,8 @@
+<div style="text-align:center">
+    <h1>Edytuj kod Sygnatury</h1>
+</div>
+
+<%= render 'form', signature: @signature %>
+
+<%= link_to (render 'renders/button_back'), signatures_path, class:"btn btn-secondary btn-sm" %>
+<%= link_to (render 'renders/button_show'), @signature, class:"btn btn-info btn-sm" %> 

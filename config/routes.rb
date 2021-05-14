@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   
+  resources :signatures
   get 'coin_new/index'
   get 'note_new/index'
   resources :boughts

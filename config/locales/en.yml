@@ -31,3 +31,11 @@
 
 en:
   hello: "Hello world"
+
+en:
+  helpers:
+    submit:
+      signature:
+        create: "Dodaj Sygnature"
+        update: "Zapisz Zmainy"
+

@@ -1,0 +1,21 @@
+<div class="jumbotron">
+  <h1 class="display-4">Opis kodów sygnatur</h1>
+  <p>
+    <strong>Kos Sygnatury:</strong>
+    <%= @signature.signature_cod %>
+  </p>
+  <p>
+    <strong>Nazwa:</strong>
+    <%= @signature.short_name %>
+  </p>
+  <p>
+    <strong>Description:</strong>
+    <%= @signature.description %>
+  </p>
+  <hr class="my-4">
+  <%= link_to (render 'renders/button_back'), signatures_path, class:"btn btn-secondary btn-sm" %>
+  <%= link_to (render 'renders/button_edit'), edit_signature_path(@signature), class:"btn btn-primary btn-sm" %> 
+</div>
+
+
+

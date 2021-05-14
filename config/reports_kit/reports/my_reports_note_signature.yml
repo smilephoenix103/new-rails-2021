@@ -1,0 +1,9 @@
+measure: note 
+dimensions:
+  # - signature_code
+  - making
+  - signature_code
+  # - signature_code
+  # - key: updated_at
+    # granularity: day
+# order: dimension1.label asc

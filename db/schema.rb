@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_20_084443) do
+ActiveRecord::Schema.define(version: 2021_05_14_154926) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -127,8 +127,8 @@ ActiveRecord::Schema.define(version: 2021_04_20_084443) do
     t.string "name_currency", comment: "Nazwa banknotu"
     t.string "note_date", comment: "Data druku banknotu"
     t.integer "signature_code", comment: "Kod okreslajacy czy bankot jest Obiegowy/wymienny/nieobieggowy.."
-    t.decimal "price_buy", precision: 6, scale: 2, comment: "Cena zakupy banknotu"
-    t.decimal "price_sell", precision: 6, scale: 2, comment: "Cena sprzedaży (możliwość negocjacji)"
+    t.float "price_buy", comment: "Cena zakupy banknotu"
+    t.float "price_sell", comment: "Cena sprzedaży (możliwość negocjacji)"
     t.integer "quantity", comment: "Ilość sztuk"
     t.string "quality", comment: "Stan banknotu"
     t.string "status", comment: "\"K\" - kolekcja, \"S\" - na sprzedaż"
@@ -158,6 +158,14 @@ ActiveRecord::Schema.define(version: 2021_04_20_084443) do
     t.string "report"
     t.string "string"
     t.string "name"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "signatures", force: :cascade do |t|
+    t.integer "signature_cod"
+    t.string "short_name"
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
