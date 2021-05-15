@@ -1,5 +1,6 @@
 class SignaturesController < ApplicationController
   before_action :set_signature, only: %i[ show edit update destroy ]
+  before_action :require_user_logged_in!, only: [:index]
   before_action :require_admin_logged_in!, only: [:show, :new, :edit, :update, :destroy]
 
   # GET /signatures or /signatures.json
