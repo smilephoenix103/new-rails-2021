@@ -1,6 +1,8 @@
-<h1>Editing Country</h1>
+<h1>Edycja Państwa</h1>
 
 <%= render 'form', country: @country %>
 
-<%= link_to 'Show', @country %> |
-<%= link_to 'Back', countries_path %>
+<div class="container">
+    <%= link_to (render 'renders/button_back'), countries_path, class:"btn btn-secondary btn-sm" %>
+    <%= link_to (render 'renders/button_show'), @country, class:"btn btn-info btn-sm" %>
+</div>

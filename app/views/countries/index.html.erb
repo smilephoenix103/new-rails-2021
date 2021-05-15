@@ -8,33 +8,36 @@
 <div>
 	<nav class="navbar navbar-light bg-light">
     <div>
-      <%= link_to 'Add New Country', new_country_path, class:"btn btn-primary" %>
+      <%= link_to 'Add New Country', new_country_path, class:"btn btn-primary btn-sm" %>
     </div>
   		<form class="form-inline" action="/country_search">
-    		<input class="form-control mr-sm-2" name="q" placeholder="Search" aria-label="Search" >
-    		<button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+    		<input class="form-control-sm mr-sm-2" name="q" placeholder="Search" aria-label="Search" >
+    		<button class="btn btn-sm btn-outline-success my-2 my-sm-0" type="submit">
           <%= render 'renders/button_search' %>
         </button>
     	</form>   
 	</nav>  
 </div>
 
-
-<br/><br/>
-<table class="table table-striped table-bordered table-hover">
+<table class="table table-striped table-bordered table-hover table-sm">
     <thead class="thead-dark">
     <tr>
-      <th>Continent</th>
-      <th>Country en</th>
-      <th>Country pl</th>
-      <th>Flag</th>
-      <th>Capital city</th>
-      <th>Alfa 2</th>
+      <th>Kontynent</th>
+      <th>Państwo(en)</th>
+      <th>Państwo(pl)</th>
+      <th>Flaga</th>
+      <th>Stolicay</th>
+      <%
+=begin%>
+ <th>Alfa 2</th>
       <th>Alfa 3</th>
       <th>Numeric code</th>
-      <th>Iso code</th>
+      <th>Iso code</th> 
+<%
+=end%>
       <!--<th>Exists</th> -->
-      <th colspan="3"></th>
+      <th colspan="2"></th>
+      <th></th>
     </tr>
   </thead>
 
@@ -44,7 +47,7 @@
         <td><%= country.continent %></td>
         <td><%= country.country_en %></td>
         <td><%= country.country_pl %></td>
-        <td>
+        <td style="width:10%">
           <% if (File.exist?(@root_path + (country.country_en + '.png'))) %>
             <%= image_tag("flags/" + country.country_en + ".png", :alt => "rss feed" , style:"width:100%;height:100%;") %>
           <% else %>
@@ -52,14 +55,24 @@
           <% end %>
         </td> 
         <td><%= country.capital_city %></td>
-        <td><%= country.alfa_2 %></td>
+        <%
+=begin%>
+ <td><%= country.alfa_2 %></td>
         <td ><%= country.alfa_3 %></td>
         <td><%= country.numeric_code %></td>
-        <td><%= country.iso_code %></td>
+        <td><%= country.iso_code %></td> 
+<%
+=end%>
         <!--<td><%= country.exists %></td>-->
-        <td><%= link_to 'Show', country %></td>
-        <td><%= link_to 'Edit', edit_country_path(country) %></td>
-        <td><%= link_to 'Destroy', country, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= link_to (render 'renders/button_show'), country, class:"btn btn-info btn-sm" %>
+        </td>
+        <td>
+          <%= link_to (render 'renders/button_edit'), edit_country_path(country), class:"btn btn-primary btn-sm" %>
+        </td>
+        <td>
+          <%= link_to (render 'renders/button_delete'), country, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger btn-sm" %>
+        </td>
       </tr>
     <% end %>
   </tbody>

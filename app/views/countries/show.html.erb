@@ -1,41 +1,51 @@
 <div class="jumbotron">
   <h1 class="display-4">
-    <%= @country.continent %> : 
-    <%= @country.country_en %> 
-
-    <% @root_path = Rails.root.join('app', 'assets', 'images','flags') %> 
-
-    <% if (File.exist?(@root_path + (@country.country_en + '.png'))) %>
-      <%= image_tag("flags/" + @country.country_en + ".png", :alt => "rss feed" , style:"width:15%;height:15%;") %>
-    <% else %>
-      <%= image_tag("flags/test.png", :alt => "rss feed" , style:"width:10%;height:10%;") %>
-    <% end %>
-
+    <div style="text-align:center">
+      <%= "Kontynent: " + @country.continent %> 
+      <p>
+        <%= @country.country_en %>
+        <% @root_path = Rails.root.join('app', 'assets', 'images','flags') %>
+        <% if (File.exist?(@root_path + (@country.country_en + '.png'))) %>
+          <%= image_tag("flags/" + @country.country_en + ".png", :alt => "rss feed" , style:"width:15%;height:15%;") %>
+        <% else %>
+          <%= image_tag("flags/test.png", :alt => "rss feed" , style:"width:10%;height:10%;") %>
+        <% end %>
+      </p>
+    </div>
   </h1>
-  <p class="lead">
-    <%= @country.id %>
-    <strong>Capital city:</strong>
-    <%= @country.capital_city %>
-  </p>
-  <p>
-    <strong>Alfa 2:</strong>
-    <%= @country.alfa_2 %>
-     |   
-    <strong>Alfa 3:</strong>
-    <%= @country.alfa_3 %>
-  </p>
-  <p>
-    <strong>Numeric code:</strong>
-    <%= @country.numeric_code %>
-     |   
-    <strong>Iso code:</strong>
-    <%= @country.iso_code %>
-     | 
-    <strong>Exists:</strong>
-    <%= @country.exists %>
-  </p>
-  <%= link_to 'Edit', edit_country_path(@country), class:"btn btn-secondary" %>  
-  <%= link_to 'Back', countries_path, class:"btn btn-dark" %>
+  <h3>
+    <p>
+      <strong>Id: </strong>
+      <%= @country.id %>
+    </p>
+    <p>
+      <strong>Capital city:</strong>
+      <%= @country.capital_city %>
+    </p>
+    <p>
+      <strong>Alfa 2:</strong>
+      <%= @country.alfa_2 %>
+      |   
+      <strong>Alfa 3:</strong>
+      <%= @country.alfa_3 %>
+    </p>
+    <p>
+      <strong>Numeric code:</strong>
+      <%= @country.numeric_code %>
+      |   
+      <strong>Iso code:</strong>
+      <%= @country.iso_code %>
+       
+      <%
+=begin%>
+ <strong>Exists:</strong>
+      <%= @country.exists %> 
+<%
+=end%>
+    </p>
+  </h3>
+  <%= link_to (render 'renders/button_back'), countries_path, class:"btn btn-secondary btn-sm" %>
+  <%= link_to (render 'renders/button_edit'), edit_country_path(@country), class:"btn btn-primary btn-sm" %>  
   <%
 =begin%>
  <%= link_to 'Add Currency', new_country_currency_path(@country), class:"btn btn-secondary" %> 

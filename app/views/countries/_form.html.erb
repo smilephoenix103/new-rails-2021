@@ -13,64 +13,55 @@
 
   
 
-<div class="container row">
-	<div class="col-md-4">
-      <div class="field">
-        <%= form.label :continent %>
-        <%= form.select :continent, Continent.all.map { |p| [p.name_pl, p.name_pl]}, class:"form-control" %>
+
+	<div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+      <div class="col field ">
+        <%= form.label :continent %><br/>
+        <%= form.select :continent, Continent.all.map { |p| [p.name_pl, p.name_pl]}, class:"form-control form-control-sm" %>
       </div>
 
-      <div class="field">
+      <div class="col field">
         <%= form.label :country_en %>
-        <%= form.text_field :country_en, class:"form-control" %>
+        <%= form.text_field :country_en, class:"form-control form-control-sm" %>
       </div>
 
-      <div class="field">
+      <div class="col field">
         <%= form.label :country_pl %>
-        <%= form.text_field :country_pl, class:"form-control" %>
+        <%= form.text_field :country_pl, class:"form-control form-control-sm" %>
       </div>
 
-      <div class="field">
+      <div class="col field">
         <%= form.label :capital_city %>
-        <%= form.text_field :capital_city, class:"form-control" %>
+        <%= form.text_field :capital_city, class:"form-control form-control-sm" %>
       </div>
 
-      <div class="field">
+      <div class="col field">
         <%= form.label :alfa_2 %>
-        <%= form.text_field :alfa_2, class:"form-control" %>
+        <%= form.text_field :alfa_2, class:"form-control form-control-sm" %>
       </div>
 
-      <div class="field">
+      <div class="col field">
         <%= form.label :alfa_3 %>
-        <%= form.text_field :alfa_3, class:"form-control" %>
+        <%= form.text_field :alfa_3, class:"form-control form-control-sm" %>
       </div>
 
-      <div class="field">
+      <div class="col field">
         <%= form.label :numeric_code %>
-        <%= form.text_field :numeric_code, class:"form-control" %>
+        <%= form.text_field :numeric_code, class:"form-control form-control-sm" %>
       </div>
 
-      <div class="field">
+      <div class=" col field">
         <%= form.label :iso_code %>
-        <%= form.text_field :iso_code, class:"form-control" %>
+        <%= form.text_field :iso_code, class:"form-control form-control-sm" %>
       </div>
 
-      <div class="field">
+      <div class="col field">
         <%= form.label :Exists %>
-        <%= form.text_field :exists, class:"form-control" %>
+        <%= form.text_field :exists, class:"form-control form-control-sm" %>
       </div>
-
+  </div>
       <div class="actions">
-        <%= form.submit %>
+        <%= form.submit class:"btn btn-sm btn-primary" %>
       </div>
     <% end %>    
-  </div>
-  <div class="page-header col-md-2">
 
-		<br/>
-	</div>
-	<div class="page-header col-md-2">
-		
-		<br/>
-	</div>
-</div>
