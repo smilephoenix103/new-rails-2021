@@ -1,4 +1,4 @@
-<%= link_to '<Back', back_show_currency_coin_path(@coins[0].currency_id), class:"btn btn-secondary", style:"float:left" %><br/>
+<%= link_to (render 'renders/button_back'), back_show_currency_coin_path(@coins[0].currency_id), class:"btn btn-secondary btn-sm", style:"float:left" %><br/>
 <%
 =begin%>
  <h2>Monety</h2> 
@@ -21,98 +21,15 @@
                       <%= "Rok: " + coin.coin_date.to_s %><br/>
                       <%= "Nominał: " + number_with_delimiter(coin.denomination, delimiter: " ") %><br/>
                       <%= "Waluta: " + coin.name_currency.to_s %>
+                      <div class="btn-image-collection" >
+                        <%= link_to (render 'renders/button_show'), show_coin_user_path(coin), class:"btn btn-outline-info btn-sm", style:"float:left" %>                      
+                      </div>
                     </div>
-                </div>
-                
-
- <%
-=begin%>
- <% if user_signed_in? && current_user.role == 'admin' %>
-                    <div class="btn-image-collection" style="float:left">
-                        <%= link_to 'Show', coin_path(coin), class:"btn btn-secondary btn-sm" %> 
-                    </div>
-                  <% end %>  
-<%
-=end%>
-
-                  <div class="btn-image-collection" >
-
-                  <%= link_to 'Show', show_coin_user_path(coin), class:"btn btn-outline-info btn-sm", style:"float:left" %>  
-
-                                            
-                  </div>
-                
+                </div>             
             </div>
         </div>
     <% end %>
 </div>
-
-
-<%
-=begin%>
- <h3>MONETY</h3>
-<table class="table table-striped table-bordered table-hover">
-  <thead class="thead-dark">
-  <tr>
-      <th>Id</th>
-      <th>Nominał</th>
-      <th>Waluta</th>
-      <th>Rok</th>   
-      
-      <th>Stan</th>
-      <% if user_signed_in? && current_user.role == 'admin' %>
-        <th>SIG</th>
-        <th>Status</th>
-        <th>Kupno</th>
-         <th>Cena</th>
-      <% end %>
-      
-      <th>Averse</th>
-      <th>Reverse</th>
-      <th></th>
-
-    </tr>
-  </thead>
-  <% @coins.each do |coin| %>
-
-      <tr>
-        <td><%= coin.id %></td>
-        <td><%= coin.denomination %></td>
-        <td><%= coin.name_currency %></td>
-        <td><%= coin.coin_date %></td>
-              
-        
-        <td><%= coin.quality %></td>
-        <% if user_signed_in? && current_user.role == 'admin' %>
-          <td><%= coin.signature_code %></td>
-          <td><%= coin.status %></td>
-          <td><%= coin.price_buy %></td>
-          <td><%= coin.price_sell.to_s + "zł" %></td>
-        <% end %>
-        
-        <td>        
-        	<% if (coin.avers_path.length > 200) %>
-            <img src=<%= coin.avers_path %> alt = <%= coin.avers_path %> style="width:50%;height:50%;" >
-
-
-            <% else %>
-            	<%= coin.avers_path %>
-            <% end %> 
-        </td>
-        <td>        
-            <% if (coin.reverse_path.length > 200) %>
-              <img src=<%= coin.reverse_path %> alt = <%= coin.reverse_path %> style="width:50%;height:50%;" >
-
-  
-
-            <% else %>
-            	<%= coin.reverse_path %>
-            <% end %> 
-            
-        </td>
-        <td><%= link_to 'Show', show_details_coin_path(coin), class:"btn btn-info" %></td>
-      </tr>
-  <% end %>
-</table> 
-<%
-=end%>
+<div class="container">
+  <%= link_to (render 'renders/button_back'), back_show_currency_coin_path(@coins[0].currency_id), class:"btn btn-secondary btn-sm", style:"float:left" %><br/>
+</div>

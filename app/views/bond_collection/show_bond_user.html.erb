@@ -87,8 +87,8 @@
  <div>
     <% if user_signed_in? && current_user.role == 'admin' %>
       <div style="float: left">
-        <%= link_to (render 'renders/button_edit'), edit_bond_path(@bond), class:"btn btn-primary btn-sm" %>
         <%= link_to (render 'renders/button_back'), bond_show_currency_path(@bond.currency_id), class:"btn btn-secondary btn-sm" %>
+        <%= link_to (render 'renders/button_edit'), edit_bond_path(@bond), class:"btn btn-primary btn-sm" %>
       </div>
     <% end %>
     <div style="float:right">

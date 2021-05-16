@@ -13,6 +13,7 @@ class BondCollectionController < ApplicationController
     def show
         puts "&&&&&&&&&&&&&&&&&&&&&&&&& TEST &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&"
         @currencies  = Currency.joins(:bonds).where(bonds: {status: "KOLEKCJA"},country_id: params[:id], pattern: 'BOND' ). group(:id)
+        @country = @currencies[0].country
     end
 
     def show_bonds

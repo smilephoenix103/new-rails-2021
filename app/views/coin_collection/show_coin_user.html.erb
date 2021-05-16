@@ -6,12 +6,12 @@
   <div>
     <% if user_signed_in? && current_user.role == 'admin' %>
       <div style="float: left">
-          <%= link_to 'Edit', edit_coin_path(@coin), class:"btn btn-secondary" %> 
-          <%= link_to 'Back', coin_show_currency_path(@coin.currency_id), class:"btn btn-dark" %> 
+        <%= link_to (render 'renders/button_back'), coin_show_currency_path(@coin.currency_id), class:"btn btn-secondary btn-sm" %> 
+        <%= link_to (render 'renders/button_edit'), edit_coin_path(@coin), class:"btn btn-primary btn-sm" %> 
       </div>
     <% end %>
     <div style="float:right">
-      <%= link_to 'Back', show_coins_path(@coin.currency_id), class:"btn btn-outline-info" %> 
+      <%= link_to (render 'renders/button_back'), show_coins_path(@coin.currency_id), class:"btn btn-outline-info btn-sm" %> 
     </div>
    </div>
 </div>

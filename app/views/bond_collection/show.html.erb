@@ -1,4 +1,7 @@
-<h3>OBLIGACJE CZAS</h3>
+<div class="container">
+	<h3>WALUTY</h3>
+	<%= render 'renders/show_flag_country' %>
+</div>
 <% @currencies.each do |currency| %>
 	<div class="btn btn-secondary btn-sm" style="margin:10px;">
 		<%= link_to (currency.data_exchange), show_bonds_path(currency), style:"color:black; margin:10px; padding:10px" %>
