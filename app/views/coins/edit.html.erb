@@ -9,10 +9,5 @@
 
 <%= render 'form', coin: @coin %>
 
-<%= link_to 'Show', @coin, class:"btn btn-info btn-sm" %>
-<%
-=begin%>
- <%= link_to 'Back', coins_path %> 
-<%
-=end%>
 <%= link_to (render 'renders/button_back'), coin_show_currency_path(@coin.currency_id), class:"btn btn-secondary btn-sm" %>
+<%= link_to (render 'renders/button_show'), @coin, class:"btn btn-info btn-sm" %>
