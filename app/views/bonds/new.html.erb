@@ -2,4 +2,9 @@
 
 <%= render 'form', bond: @bond %>
 
-<%= link_to 'Back', bonds_path, class:"btn btn-dark" %>
+<%
+=begin%>
+ <%= link_to 'Back', bonds_path, class:"btn btn-dark" %> 
+<%
+=end%>
+<%= link_to (render 'renders/button_back'), bond_show_currency_path(@bond.currency_id), class:"btn btn-sm btn-secondary" %>

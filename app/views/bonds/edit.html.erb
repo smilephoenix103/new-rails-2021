@@ -1,6 +1,10 @@
 <h1>Editing Bond</h1>
 
 <%= render 'form', bond: @bond %>
-
-<%= link_to 'Show', @bond, class:"btn btn-secondary" %> 
-<%= link_to 'Back', bonds_path, class:"btn btn-dark" %>
+<%= link_to (render 'renders/button_back'), bond_show_currency_path(@bond.currency_id), class:"btn btn-sm btn-secondary" %>
+<%= link_to (render 'renders/button_show'), @bond, class:"btn btn-info btn-sm" %> 
+<%
+=begin%>
+ <%= link_to 'Back', bonds_path, class:"btn btn-dark" %> 
+<%
+=end%>

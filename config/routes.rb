@@ -59,8 +59,13 @@ Rails.application.routes.draw do
  
   get 'bonds/bond_currencies/:id', to: 'bonds#bond_currencies', as: 'bond_currencies'
   get 'bonds/bond_show_currency/:id', to: 'bonds#bond_show_currency', as: 'bond_show_currency'
+  get 'bond_search', to: 'bonds#bond_search'
 
   get 'bond_collection/show_bonds/:id', to: 'bond_collection#show_bonds', as: 'show_bonds'
+  get 'bond_collection/back_show_currency_bond/:id', to: 'bond_collection#back_show_currency_bond', as: 'back_show_currency_bond'
+  get 'bond_collection/show_bond_user/:id', to: 'bond_collection#show_bond_user', as: 'show_bond_user'
+
+
   # get 'bond_collection/show_details_bond/:id', to:'bond_collection#show_details_bond', as: 'show_details_bond'  
 
 

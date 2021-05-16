@@ -3,6 +3,7 @@ class BondsController < ApplicationController
   before_action :require_admin_logged_in!
 
   include CurrenciesHelper
+  include CountriesHelper
 
   # GET /bonds or /bonds.json
   def index
@@ -50,10 +51,28 @@ class BondsController < ApplicationController
     @bond.currency_id = params[:currency_id]
     puts "****************** test dodawania obligacji ********************************"
     puts params[:currency_id]
+
+    @boughts = Bought.all
+    @statuses = ElementSelect.statuses
+    @makings = ElementSelect.makings
+    @img_types = ElementSelect.img_types
+
+    @country = @bond.currency.country
   end
+
+  def bond_search
+    @countries = search_country(params[:q])
+    # @countries = Country.where("country_en ILIKE ?","%" + params[:q] + "%")
+    render :index
+  end 
 
   # GET /bonds/1/edit
   def edit
+    @boughts = Bought.all
+    @statuses = ElementSelect.statuses
+    @img_types = ElementSelect.img_types
+    @makings = ElementSelect.makings
+    @country = @bond.currency.country
   end
 
   # POST /bonds or /bonds.json
@@ -65,6 +84,11 @@ class BondsController < ApplicationController
         format.html { redirect_to @bond, notice: "Bond was successfully created." }
         format.json { render :show, status: :created, location: @bond }
       else
+        @boughts = Bought.all
+        @statuses = ElementSelect.statuses
+        @makings = ElementSelect.makings
+        @img_types = ElementSelect.img_types
+        @country = @bond.currency.country
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @bond.errors, status: :unprocessable_entity }
       end
@@ -78,6 +102,11 @@ class BondsController < ApplicationController
         format.html { redirect_to @bond, notice: "Bond was successfully updated." }
         format.json { render :show, status: :ok, location: @bond }
       else
+        @boughts = Bought.all
+        @statuses = ElementSelect.statuses
+        @makings = ElementSelect.makings
+        @img_types = ElementSelect.img_types
+        @country = @bond.currency.country
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @bond.errors, status: :unprocessable_entity }
       end
