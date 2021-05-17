@@ -67,11 +67,6 @@
                 <%= link_to 'Add Bond', bonds_path, class:"nav-link" %>             
               <% end %>
               <% if user_signed_in? %>
-                <%
-=begin%>
- <%= link_to "Coin For Sell", coin_for_sell_index_path, class:"nav-link" %> 
-<%
-=end%>
                 <%= link_to 'Collection', bond_collection_index_path, class:"nav-link" %> 
               <% end %>
                 
