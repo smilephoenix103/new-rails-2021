@@ -30,12 +30,20 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
-
-en:
   helpers:
     submit:
-      signature:
-        create: "Dodaj Sygnature"
-        update: "Zapisz Zmainy"
-
+      country:
+        create: "Add Country"
+        update: "Update Country"
+  activerecord:
+    attributes:
+      country:
+        continent: "Continent"
+        country_en: "Country (en)"
+        country_pl: "Country (pl)"
+        capital_city: "Capital City"
+        alfa_2: "Alfa 2"
+        alfa_3: "Alfa 3"
+        numeric_code: "Numeric code"
+        iso_code: "Iso code"
+        exists: "Exists"

@@ -1,0 +1,18 @@
+pl:
+  helpers:
+    submit:
+      country:
+        create: "Dodaj Państwo"
+        update: "Zapisz zmiany"
+  activerecord:
+    attributes:
+      country:
+        continent: "Komtynent"
+        country_en: "Państwo (en)"
+        country_pl: "Państwo (pl)"
+        capital_city: "Stolica"
+        alfa_2: "Alfa 2"
+        alfa_3: "Alfa 3"
+        numeric_code: "Kod numeryczny"
+        iso_code: "Kod Iso"
+        exists: "Istnieje"
