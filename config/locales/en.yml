@@ -30,6 +30,36 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  menu:
+    country:
+      country: "Country"
+      add_country: "Add Country"
+      countries: "Countries"
+    note:
+      note: "Note"
+      add_note: "Add Note"
+      new_notes: "New Notes (To Veryfication)"
+      note_sold: "Note Sold"
+      note_for_sell: "Note For Sell"
+      collection: "Collection"
+    coin:
+      coin: "Coin"
+      add_coin: "Add Coin"
+      new_coins: "New Coins (To Veryfication)"
+      # coin_sold: "Coin Sold"
+      coin_for_sell: "Coin For Sell"
+      collection: "Collection"
+    bond:
+      bond: "Bond"
+      add_bond: "Add Bond"
+      collection: "Collection"
+    set:
+      set: "Set"
+      reports: "Reports"
+      chart: "Chart"
+      pattern: "Pattern"
+      bought: "Bought"
+      signature_cod: "Signature Cod"
   helpers:
     submit:
       country:

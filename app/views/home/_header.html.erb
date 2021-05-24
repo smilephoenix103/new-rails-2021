@@ -10,10 +10,10 @@
     <% if user_signed_in? && current_user.role == 'admin' %>
     <li class="nav-item">          
             <div class="dropdown nav-link ">
-              <button class="dropbtn bg-dark dropdown-toggle">Country</button>
+              <button class="dropbtn bg-dark dropdown-toggle"><%= t 'menu.country.country' %></button>
                 <div class="dropdown-content">
-                  <%= link_to 'Add Country', new_country_path, class:"nav-link" %>
-                  <%= link_to 'Countries', countries_path, class:"nav-link" %>             
+                  <%= link_to t('menu.country.add_country'), new_country_path, class:"nav-link" %>
+                  <%= link_to t('menu.country.countries'), countries_path, class:"nav-link" %>             
                 </div>
             </div>        
         </li>
@@ -22,16 +22,16 @@
       <li class="nav-item " > 
         <% if user_signed_in? %>
           <div class="dropdown nav-link ">
-            <button class="dropbtn bg-dark dropdown-toggle">Notes</button>
+            <button class="dropbtn bg-dark dropdown-toggle"><%= t 'menu.note.note' %></button>
             <div class="dropdown-content ">
               <% if user_signed_in? && current_user.role == 'admin' %>
-                <%= link_to 'Add Note', notes_path, class:"nav-link" %>
-                <%= link_to 'New Notes(Veryfication)', note_new_index_path, class:"nav-link" %>
-                <%= link_to 'Note Sold', note_sold_index_path, class:'nav-link' %>
+                <%= link_to t('menu.note.add_note'), notes_path, class:"nav-link" %>
+                <%= link_to t('menu.note.new_notes'), note_new_index_path, class:"nav-link" %>
+                <%= link_to t('menu.note.note_sold'), note_sold_index_path, class:'nav-link' %>
               <% end %>
               <% if user_signed_in? %>
-                  <%= link_to 'Note For Sell', note_for_sell_index_path, class:"nav-link" %>
-                  <%= link_to 'Collection', note_collection_index_path, class:"nav-link" %>
+                  <%= link_to t('menu.note.note_for_sell'), note_for_sell_index_path, class:"nav-link" %>
+                  <%= link_to t('menu.note.collection'), note_collection_index_path, class:"nav-link" %>
               <% end %>
                 
             </div>
@@ -42,15 +42,15 @@
       <li class="nav-item"> 
         <% if user_signed_in? %>
           <div class="dropdown nav-link ">
-            <button class="dropbtn bg-dark dropdown-toggle">Coins</button>
+            <button class="dropbtn bg-dark dropdown-toggle"><%= t 'menu.coin.coin' %></button>
               <div class="dropdown-content">
               <% if user_signed_in? && current_user.role == 'admin' %>
-                <%= link_to 'Add Coin', coins_path, class:"nav-link" %> 
-                <%= link_to 'New Coins(Veryfication)', coin_new_index_path, class:"nav-link" %>            
+                <%= link_to t('menu.coin.add_coin'), coins_path, class:"nav-link" %> 
+                <%= link_to t('menu.coin.new_coins'), coin_new_index_path, class:"nav-link" %>            
               <% end %>
               <% if user_signed_in? %>
-                 <%= link_to "Coin For Sell", coin_for_sell_index_path, class:"nav-link" %>
-                 <%= link_to 'Collection', coin_collection_index_path, class:"nav-link" %>
+                 <%= link_to t('menu.coin.coin_for_sell'), coin_for_sell_index_path, class:"nav-link" %>
+                 <%= link_to t('menu.coin.collection'), coin_collection_index_path, class:"nav-link" %>
               <% end %>
                 
             </div>
@@ -61,13 +61,13 @@
        <li class="nav-item"> 
         <% if user_signed_in? %>
           <div class="dropdown nav-link ">
-            <button class="dropbtn bg-dark dropdown-toggle">Bonds</button>
+            <button class="dropbtn bg-dark dropdown-toggle"><%= t 'menu.bond.bond' %></button>
               <div class="dropdown-content">
               <% if user_signed_in? && current_user.role == 'admin' %>
-                <%= link_to 'Add Bond', bonds_path, class:"nav-link" %>             
+                <%= link_to t('menu.bond.add_bond'), bonds_path, class:"nav-link" %>             
               <% end %>
               <% if user_signed_in? %>
-                <%= link_to 'Collection', bond_collection_index_path, class:"nav-link" %> 
+                <%= link_to t('menu.bond.collection'), bond_collection_index_path, class:"nav-link" %> 
               <% end %>
                 
             </div>
@@ -78,14 +78,14 @@
         <li class="nav-item"> 
           <% if user_signed_in? && current_user.role == 'admin' %>
             <div class="dropdown nav-link ">
-              <button class="dropbtn bg-dark dropdown-toggle">Reports</button>
+              <button class="dropbtn bg-dark dropdown-toggle"><%= t 'menu.set.set' %></button>
                 <div class="dropdown-content">
-                  <%= link_to 'Reports', reports_path, class:"nav-link" %>  
-                  <%= link_to (render 'renders/icon_chart') + 'Chart', reports_chart_path, class:"nav-link" %>              
+                  <%= link_to t('menu.set.reports'), reports_path, class:"nav-link" %>  
+                  <%= link_to (render 'renders/icon_chart') + t('menu.set.chart'), reports_chart_path, class:"nav-link" %>              
                   <hr class="my-1">
-                  <%= link_to 'Add Pattern', patterns_path, class:"nav-link" %>
-                  <%= link_to 'Add bought', boughts_path, class:"nav-link" %>
-                  <%= link_to 'Kody sygnatur', signatures_path, class:"nav-link" %> 
+                  <%= link_to t('menu.set.pattern'), patterns_path, class:"nav-link" %>
+                  <%= link_to t('menu.set.bought'), boughts_path, class:"nav-link" %>
+                  <%= link_to t('menu.set.signature_cod'), signatures_path, class:"nav-link" %> 
                 </div>
             </div>
           <% end %>

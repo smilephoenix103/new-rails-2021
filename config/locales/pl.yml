@@ -1,4 +1,34 @@
 pl:
+  menu:
+    country:
+      country: "Państwo"
+      add_country: "Dodaj Państwo"
+      countries: "Państwa"
+    note:
+      note: "Banknot"
+      add_note: "Dodaj Banknot"
+      new_notes: "Nowe Banknoty (Do Weryfikacji)"
+      note_sold: "Sprzedane Banknoty"
+      note_for_sell: "Banknoty Na Sprzedaż"
+      collection: "Kolekcja"
+    coin:
+      coin: "Moneta"
+      add_coin: "Dodaj Monetę"
+      new_coins: "Nowa Moneta (Do Weryfikacji)"
+      # coin_sold: "Sprzedane Monety"
+      coin_for_sell: "Monety Na Sprzedaż"
+      collection: "Kolekcja"
+    bond:
+      bond: "Obligacja"
+      add_bond: "Dodaj Obligację"
+      collection: "Kolekcja"
+    set:
+      set: "Ustawienia"
+      reports: "Raporty"
+      chart: "Wykres"
+      pattern: "Rodzaj Waluty"
+      bought: "Miejsce Zakupu"
+      signature_cod: "Kody Sygnatur"
   helpers:
     submit:
       country:
