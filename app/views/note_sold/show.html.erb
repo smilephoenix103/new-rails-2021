@@ -16,7 +16,7 @@
             <% else %>
             	<%= note.avers_path %>
             <% end %> 
-            
+              <hr class="my-2">
         	<% if (note.reverse_path.length > 200) %>
             	<%= image_tag(note.reverse_path, :alt => "REVERSE" , style:"width:100%") %>
             <% else %>
@@ -24,7 +24,7 @@
             <% end %>         
         </div>
 
-        <div class="page-header col-md-4" style="margin-left:10%">
+        <div class="page-header col-md-6" style="margin-left:0%">
             <B>Year: </B> <%= note.note_date %><br/>
             <B>Currency: </B> <%= note.denomination.to_s + " " + note.name_currency %><br/>
             <B>Making: </B> <%= note.making %><br/>
