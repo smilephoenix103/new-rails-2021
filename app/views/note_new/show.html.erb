@@ -1,9 +1,4 @@
 <h3>Nowe banknoty do weryfikacji</h3>
-<%
-=begin%>
- <%= render 'renders/show_notes' %> 
-<%
-=end%>
 <h4><%= "Ilość banknotów: " + @notes.size.to_s %></h4>
 <table class="table table-striped  table-hover" style="border-collapse: separate; border-spacing:0 20px;">
   <% @notes.each do |note| %>

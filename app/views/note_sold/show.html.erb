@@ -1,2 +1,47 @@
 <h2>SOLD</h2>
-<%= render 'renders/show_notes' %>
+<%
+=begin%>
+ <%= render 'renders/show_notes' %> 
+<%
+=end%>
+<% @notes.each do |note| %>
+    <div class="container row">
+        <div class="page-header col-md-1">
+            <B>Id: </B>	<%= note.id %>
+        </div>
+
+        <div class="col-md-3">	       
+        	<% if (note.avers_path.length > 200) %>
+            	<%= image_tag(note.avers_path, :alt => "AVERSE" , style:"width:100%") %>
+            <% else %>
+            	<%= note.avers_path %>
+            <% end %> 
+            
+        	<% if (note.reverse_path.length > 200) %>
+            	<%= image_tag(note.reverse_path, :alt => "REVERSE" , style:"width:100%") %>
+            <% else %>
+            	<%= note.reverse_path %>
+            <% end %>         
+        </div>
+
+        <div class="page-header col-md-4" style="margin-left:10%">
+            <B>Year: </B> <%= note.note_date %><br/>
+            <B>Currency: </B> <%= note.denomination.to_s + " " + note.name_currency %><br/>
+            <B>Making: </B> <%= note.making %><br/>
+            <B>Quality: </B> <%= note.quality %><br/>
+            <B>Price Buy: </B> <%= note.price_buy %><span>zł</span><br/>
+            <B>Price Sell: </B> <%= note.price_sell %><span>zł</span><br/>
+            <B>Profit: </B> <%= note.price_sell - note.price_buy %><span>zł</span><br>
+            <B>Description: </B><br/>
+            <%= note.description %>
+
+        </div>
+
+        <div class="page-header col-md-2">
+            <%= link_to (render 'renders/button_show'), note_path(note), class:"btn btn-info btn-sm" %>
+        </div>
+
+    </div>
+     <hr class="my-4">
+<% end %>
+

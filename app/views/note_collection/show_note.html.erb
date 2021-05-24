@@ -24,7 +24,7 @@
                       <%= "Nominał: " + number_with_delimiter(note.denomination, delimiter: " ") %><br/>
                       <%= "Waluta: " + note.name_currency.to_s %>
                         <div class="btn-image-collection" >
-                          <%= link_to 'Show', show_note_user_path(note), class:"btn btn-outline-info btn-sm", style:"float:left" %> 
+                          <%= link_to (render 'renders/button_show'), show_note_user_path(note), class:"btn btn-outline-info btn-sm", style:"float:left" %> 
                         </div>
                     </div><br/>
                     
