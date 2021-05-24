@@ -6,7 +6,7 @@
 =end%>
 <% @notes.each do |note| %>
     <div class="container row">
-        <div class="page-header col-md-1">
+        <div class="page-header col-md-1" style="border-right: solid;border-color: darkgray;">
             <B>Id: </B>	<%= note.id %>
         </div>
 
@@ -37,7 +37,7 @@
 
         </div>
 
-        <div class="page-header col-md-2">
+        <div class="page-header col-md-2" style="border-left: solid;border-color: darkgray;">
             <%= link_to (render 'renders/button_show'), note_path(note), class:"btn btn-info btn-sm" %>
         </div>
 
