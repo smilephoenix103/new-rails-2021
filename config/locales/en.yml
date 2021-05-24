@@ -77,3 +77,22 @@ en:
         numeric_code: "Numeric code"
         iso_code: "Iso code"
         exists: "Exists"
+  tables:
+    country:
+      headers:
+        continent: "Continent"
+        country_en: "Country (en)"
+        country_pl: "Country (pl)"
+        capital_city: "Capital City"
+        alfa_2: "Alfa 2"
+        alfa_3: "Alfa 3"
+        numeric_code: "Numeric code"
+        iso_code: "Iso code"
+        exists: "Exists"
+        flag: "Flag"
+  buttons:
+    back: "Back"
+    show: "Show"
+    edit: "Edit"
+    delete: "Delete"
+    search: "Search"

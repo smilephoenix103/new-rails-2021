@@ -46,3 +46,22 @@ pl:
         numeric_code: "Kod numeryczny"
         iso_code: "Kod Iso"
         exists: "Istnieje"
+  tables:
+    country:
+      headers:
+        continent: "Kontynent"
+        country_en: "Państwo (en)"
+        country_pl: "Państwo (pl)"
+        capital_city: "Stolica"
+        alfa_2: "Alfa 2"
+        alfa_3: "Alfa 3"
+        numeric_code: "Kod numeryczny"
+        iso_code: "Kod Iso"
+        exists: "Istnieje"
+        flag: "Flaga"
+  buttons:
+    back: "Powrót"
+    show: "Wyświetl"
+    edit: "Edytuj"
+    delete: "Usuń"
+    search: "Szukaj"
