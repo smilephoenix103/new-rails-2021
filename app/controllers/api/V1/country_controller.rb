@@ -1,6 +1,6 @@
 class Api::V1::CountryController < ApplicationController
 
-    before_action :find_country, only: [:show]
+    # before_action :find_country, only: [:show]
 
   
     def index
@@ -10,21 +10,25 @@ class Api::V1::CountryController < ApplicationController
 
     def show
         puts params[:id]
-        # @countries = Country.where(continent: params[:id]) 
+        @countries = Country.where(continent: params[:id]).order(country_en: :asc)
         
-        @continent = Continent.new
-        @continent.continent = @country.continent
+        @continent_dto = ContinentDto.new
+        @continent_dto.continent = @countries[0].continent
 
-        
-        @country_dto = CountryDto.new
-        @country_dto.counrty_en = @country.country_en
-        @country_dto.capital_city = @country.capital_city
+        countries_dto = Array.new
 
-        @continent.country = @country_dto
-        puts @continent.inspect
+        @countries.each do |c|
+            @country_dto = CountryDto.new
+            @country_dto.id = c.id
+            @country_dto.counrty_en = c.country_en
+            @country_dto.capital_city = c.capital_city        
+            countries_dto.push(@country_dto)
+        end
+        @continent_dto.countries = countries_dto
+        puts @continent_dto.inspect
 
         puts @country_dto.inspect
-        render json: @continent
+        render json: @continent_dto
     end
 
 

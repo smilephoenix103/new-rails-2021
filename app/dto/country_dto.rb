@@ -1,4 +1,5 @@
 class CountryDto
+    Integer @id = 0
     String @country_en
     String @capital_city
     
@@ -11,7 +12,7 @@ class CountryDto
     # end
     # attr_reader :counrty_en, :capitalCity
     # attr_writer :counrty_en, :capitalCity
-    attr_accessor :counrty_en, :capital_city
+    attr_accessor :id, :counrty_en, :capital_city
 
     # def to_s
     #     "Exchange: #{@table}, #{@no}, #{@effectiveDate}}."
