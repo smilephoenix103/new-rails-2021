@@ -96,7 +96,10 @@ Rails.application.routes.draw do
     # APi controller
   
     namespace :api do 
-      resources :country, only: [:index, :show]    
+      namespace :v1 do
+        resources :country, only: [:index, :show]  
+        resources :currencies
+      end    
     end
 
 end

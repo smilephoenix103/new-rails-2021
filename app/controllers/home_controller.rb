@@ -21,6 +21,7 @@ class HomeController < ApplicationController
     @exchange = @exchange_rate.rate
     puts @exchange.no
 
+
   	
   end
 
