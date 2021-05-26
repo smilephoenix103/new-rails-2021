@@ -9,6 +9,7 @@ class Api::V1::CountryController < ApplicationController
     end
 
     def show
+        puts "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
         puts params[:id]
         @countries = Country.where(continent: params[:id]).order(country_en: :asc)
         
