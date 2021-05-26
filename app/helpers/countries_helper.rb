@@ -16,6 +16,7 @@ module CountriesHelper
 	end
 
 	def search_country(country_name)
-		@countries = Country.where("country_en ILIKE ?","%" + country_name + "%")
+		# @countries = Country.where("country_en ILIKE ?","%" + country_name + "%")
+		@countries = Country.where("country_en ILIKE '%" + params[:q] + "%' OR country_pl ILIKE '%" + params[:q] + "%'")
 	end
 end

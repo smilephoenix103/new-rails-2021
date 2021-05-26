@@ -39,8 +39,14 @@ class CountriesController < ApplicationController
 
   def country_search
     @countries = search_country(params[:q])
+    # @countries = Country.where("country_en ILIKE '%" + params[:q] + "%' OR country_pl ILIKE '%" + params[:q] + "%'")
     # @countries = Country.where("country_en ILIKE ?","%" + params[:q] + "%")
     flash.now[:info] = "Ilość państw: " + @countries.size.to_s
+
+    # Country.where("country_en ILIKE '%kol%' OR country_pl ILIKE '%kol%'")
+    Country.where("country_en ILIKE '%" + params[:q] + "%' OR country_pl ILIKE '%" + params[:q] + "%'").each do |c|
+      puts c.country_en + " - " + c.country_pl
+    end
     render :index
   end 
 
