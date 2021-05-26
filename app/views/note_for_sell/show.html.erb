@@ -5,42 +5,55 @@
 <%
 =end%>
 <h4><%= "Ilość banknotów: " + @notes.size.to_s %></h4>
-<table class="table table-striped  table-hover" style="border-collapse: separate; border-spacing:0 20px;">
   <% @notes.each do |note| %>
-      <tr>
-        <td><%= "Id. " + note.id.to_s %></td>
-        <td style="width:20%">        
+    <div class="container row" style="border-bottom: solid;border-color: darkgray;">
+      
+        <div class="page-header col-md-1" style="border-right: solid;border-color: darkgray;">
+            <B>Id: </B>	<%= note.id %>
+        </div>
+        <div class="col-md-3">	       
         	<% if (note.avers_path.length > 200) %>
-            	<%= image_tag(note.avers_path, :alt => "AVERSE" , style:"width:100%;height:100%;") %>
+            	<%= image_tag(note.avers_path, :alt => "AVERSE" , style:"width:100%") %>
             <% else %>
             	<%= note.avers_path %>
             <% end %> 
-        </td>
-        <td>
-          <div>
-            <strong>
-              <%= note.currency.country.country_en + ": " %>
-              <%= number_with_delimiter(note.denomination, delimiter: " ") + " " + note.name_currency + " Data: " + note.note_date  %>
-            </strong><br/>
-            <% if user_signed_in? && current_user.role == 'admin' %>
-              <%= "Cena zakupu: " + note.price_buy.to_s + "zł/szt" %><br/>
+              <hr class="my-2">
+        	  <% if (note.reverse_path.length > 200) %>
+            	<%= image_tag(note.reverse_path, :alt => "REVERSE" , style:"width:100%") %>
+            <% else %>
+            	<%= note.reverse_path %>
+            <% end %>      
+        </div>
+      
+        <div class="page-header col-md-6" >
+          <strong  style="color:black; font-size:20px">
+            <%= note.currency.country.country_en + ": " %>
+            <% if note.denomination >= 1 %>
+              <%= number_to_currency(note.denomination, delimiter: " ", unit: "", precision: 0) + " " + note.name_currency %>
+            <% else %>
+              <%= number_to_currency(note.denomination, delimiter: " ", unit: "", precision: 2) + " " + note.name_currency %>
             <% end %>
-              <%= "Cena Sprzedaży: " + note.price_sell.to_s + "zł/szt" %><br/>
-              <span>Koszty wysyłki 10zł<span><br/>
-              <span>Mozliwy odbiór osobisty</span>
-          </div>
-        </td>
-     
-        <%
-=begin%>
-        <td><%= note.making %></td>
-        <td><%= note.quality %></td> 
-<%
-=end%>       
-    
-        <% if user_signed_in? && current_user.role == 'admin' %>
-          <td><%= link_to (render 'renders/button_edit'), edit_note_path(note), class:"btn btn-primary btn-sm" %></td>
-        <% end %>
-      </tr>
+          </strong><br/>
+          <b>Data: </b> <%= note.note_date %><br/>
+          <B>Making: </B> <%= note.making %><br/>
+          <B>Quality: </B> <%= note.quality %><br/>
+          <% if user_signed_in? && current_user.role == 'admin' %>
+            <b>Cena Zakupu: </b><%= note.price_buy.to_s + "zł/szt" %><br/>
+          <% end %>
+            <b>Price : </b> <%= note.price_sell.to_s + "zł/szt" %><br/>
+            <b>Shipping Type</b> <span>Lis Polecony Priorytet</span><br/>
+            <b>Shipping Costs: </b><span> 10zł<span><br/>
+            <span style="color:black">Mozliwy odbiór osobisty</span><br/>
+            <b>Description:</b><br/>
+            <%= note.description %>
+        </div>
+             
+        <div class="page-header col-md-2" style="border-left: solid;border-color: darkgray;">
+          <% if user_signed_in? && current_user.role == 'admin' %>
+            <td><%= link_to (render 'renders/button_edit'), edit_note_path(note), class:"btn btn-primary btn-sm" %></td>
+          <% end %>
+        </div>
+      
+    </div>
   <% end %>
-</table>
+

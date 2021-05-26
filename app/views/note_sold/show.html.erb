@@ -26,7 +26,12 @@
 
         <div class="page-header col-md-6" style="margin-left:0%">
             <B>Year: </B> <%= note.note_date %><br/>
-            <B>Currency: </B> <%= note.denomination.to_s + " " + note.name_currency %><br/>
+            <B>Currency: </B> 
+            <% if note.denomination >= 1 %>
+                <%= number_to_currency(note.denomination, delimiter: " ", unit: "", precision: 0) + " " + note.name_currency %>
+            <% else %>
+                <%= number_to_currency(note.denomination, delimiter: " ", unit: "", precision: 2) + " " + note.name_currency %>
+            <% end %><br/>
             <B>Making: </B> <%= note.making %><br/>
             <B>Quality: </B> <%= note.quality %><br/>
             <B>Price Buy: </B> <%= note.price_buy %><span>zł</span><br/>
