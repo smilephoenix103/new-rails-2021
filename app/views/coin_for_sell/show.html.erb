@@ -1,43 +1,50 @@
-<h4><%= "Ilość Monet: " + @collection_for_sell.size.to_s %></h4>
-<table class="table table-striped  table-hover" style="border-collapse: separate; border-spacing:0 20px;">
+<h4>Ilość Monet:  <%= @collection_for_sell.size %></h4>
   <% @collection_for_sell.each do |item| %>
-
-      <tr>
-        <td><%= "Id. " + item.id.to_s %></td>
-        <td style="width:20%">        
+    <div class="container row bg-sell" style="border-bottom: solid;border-color: darkgray;">
+      <div class="page-header col-md-1" style="border-right: solid;border-color: darkgray;">
+          <B>Id: </B>	<%= item.id %>
+      </div>
+        <div class="col-md-3">        
         	<% if (item.avers_path.length > 200) %>
-            	<%= image_tag(item.avers_path, :alt => "AVERSE" , style:"width:100%;height:100%;") %>
+            <%= image_tag(item.avers_path, :alt => "AVERSE" , style:"width:100%") %>
+          <% else %>
+           	<%= item.avers_path %>
+          <% end %> 
+              <hr class="my-2">
+          <% if (item.reverse_path.length > 200) %>
+            <%= image_tag(item.reverse_path, :alt => "REVERSE" , style:"width:100%") %>
+          <% else %>
+           	<%= item.reverse_path %>
+          <% end %> 
+        </div>        
+        <div class="page-header col-md-6">
+          <strong  style="color:black; font-size:20px">
+            <%= item.currency.country.country_en + ": " %>
+            <% if item.denomination >= 1 %>
+              <%= number_to_currency(item.denomination, delimiter: " ", unit: "", precision: 0) + " " + item.name_currency %>
             <% else %>
-            	<%= item.avers_path %>
-            <% end %> 
-        </td>
-        <td>
-          <div>
-            <strong>
-              <%= item.currency.country.country_en + ": " %>
-              <%= number_with_delimiter(item.denomination, delimiter: " ") + " " + item.name_currency + " Data: " + item.coin_date  %>
-            </strong><br/>
-            <% if user_signed_in? && current_user.role == 'admin' %>
-              <%= "Cena zakupu: " + item.price_buy.to_s + "zł/szt" %><br/>
+              <%= number_to_currency(item.denomination, delimiter: " ", unit: "", precision: 2) + " " + item.name_currency %>
             <% end %>
-              <%= "Cena Sprzedaży: " + item.price_sell.to_s + "zł/szt" %><br/>
-              <span>Koszty wysyłki 10zł<span><br/>
-              <span>Mozliwy odbiór osobisty</span>
-          </div>
-        </td>
-     
-        <%
-=begin%>
-        <td><%= item.making %></td>
-        <td><%= item.quality %></td> 
-<%
-=end%>
-      
-        
-    
-        <% if user_signed_in? && current_user.role == 'admin' %>
-          <td><%= link_to 'Edit', edit_coin_path(item), class:"btn btn-primary" %></td>
-        <% end %>
-      </tr>
+          </strong><br/>
+          <b>Data: </b> <%= item.coin_date %><br/>
+          <B>Quality: </B> <%= item.quality %><br/>
+
+          <% if user_signed_in? && current_user.role == 'admin' %>
+            <b>Cena Zakupu: </b><%= item.price_buy.to_s + "zł/szt" %><br/>
+          <% end %>
+            <b>Price : </b> <%= item.price_sell.to_s + "zł/szt" %><br/>
+            <b>Shipping Type</b> <span>Lis Polecony Priorytet</span><br/>
+            <b>Shipping Costs: </b><span> 10zł<span><br/>
+            <span style="color:black">Mozliwy odbiór osobisty</span><br/>
+            <B>Composition: </B><br/>
+            <%= item.composition %><br/>
+            <b>Description:</b><br/>
+            <%= item.description %>
+        </div>       
+        <div class="page-header col-md-2" style="border-left: solid;border-color: darkgray;">
+          <% if user_signed_in? && current_user.role == 'admin' %>
+            <td><%= link_to (render 'renders/button_edit'), edit_coin_path(item), class:"btn btn-primary btn-sm" %></td>
+          <% end %>
+        </div>
+    </div>
   <% end %>
-</table>

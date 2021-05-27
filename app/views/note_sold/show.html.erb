@@ -5,7 +5,7 @@
 <%
 =end%>
 <% @notes.each do |note| %>
-    <div class="container row">
+    <div class="container row bg-sell" style="border-bottom: solid;border-color: darkgray;">
         <div class="page-header col-md-1" style="border-right: solid;border-color: darkgray;">
             <B>Id: </B>	<%= note.id %>
         </div>
@@ -24,14 +24,16 @@
             <% end %>         
         </div>
 
-        <div class="page-header col-md-6" style="margin-left:0%">
+        <div class="page-header col-md-6">            
+            <strong>
+                <%= note.currency.country.country_en + ": " %>            
+                <% if note.denomination >= 1 %>
+                    <%= number_to_currency(note.denomination, delimiter: " ", unit: "", precision: 0) + " " + note.name_currency %>
+                <% else %>
+                    <%= number_to_currency(note.denomination, delimiter: " ", unit: "", precision: 2) + " " + note.name_currency %>
+                <% end %><br/>
+            </strong>
             <B>Year: </B> <%= note.note_date %><br/>
-            <B>Currency: </B> 
-            <% if note.denomination >= 1 %>
-                <%= number_to_currency(note.denomination, delimiter: " ", unit: "", precision: 0) + " " + note.name_currency %>
-            <% else %>
-                <%= number_to_currency(note.denomination, delimiter: " ", unit: "", precision: 2) + " " + note.name_currency %>
-            <% end %><br/>
             <B>Making: </B> <%= note.making %><br/>
             <B>Quality: </B> <%= note.quality %><br/>
             <B>Price Buy: </B> <%= note.price_buy %><span>zł</span><br/>
@@ -39,7 +41,6 @@
             <B>Profit: </B> <%= note.price_sell - note.price_buy %><span>zł</span><br>
             <B>Description: </B><br/>
             <%= note.description %>
-
         </div>
 
         <div class="page-header col-md-2" style="border-left: solid;border-color: darkgray;">
@@ -47,6 +48,5 @@
         </div>
 
     </div>
-     <hr class="my-4">
 <% end %>
 

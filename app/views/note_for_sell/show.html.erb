@@ -4,10 +4,9 @@
  <%= render 'renders/collection_for_sell' %> 
 <%
 =end%>
-<h4><%= "Ilość banknotów: " + @notes.size.to_s %></h4>
+<h4>Ilość banknotów: <%= @notes.size %></h4>
   <% @notes.each do |note| %>
-    <div class="container row" style="border-bottom: solid;border-color: darkgray;">
-      
+    <div class="container row bg-sell" style="border-bottom: solid;border-color: darkgray;">      
         <div class="page-header col-md-1" style="border-right: solid;border-color: darkgray;">
             <B>Id: </B>	<%= note.id %>
         </div>
