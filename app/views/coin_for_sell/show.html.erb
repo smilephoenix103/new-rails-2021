@@ -40,11 +40,11 @@
             <%= item.composition %><br/>
             <b>Description:</b><br/>
             <%= item.description %>
-        </div>       
-        <div class="page-header col-md-2" style="border-left: solid;border-color: darkgray;">
-          <% if user_signed_in? && current_user.role == 'admin' %>
+        </div> 
+        <% if user_signed_in? && current_user.role == 'admin' %>      
+          <div class="page-header col-md-2" style="border-left: solid;border-color: darkgray;">
             <td><%= link_to (render 'renders/button_edit'), edit_coin_path(item), class:"btn btn-primary btn-sm" %></td>
-          <% end %>
-        </div>
+          </div>
+        <% end %>
     </div>
   <% end %>

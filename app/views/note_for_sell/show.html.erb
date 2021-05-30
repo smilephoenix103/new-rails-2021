@@ -46,12 +46,12 @@
             <b>Description:</b><br/>
             <%= note.description %>
         </div>
-             
-        <div class="page-header col-md-2" style="border-left: solid;border-color: darkgray;">
-          <% if user_signed_in? && current_user.role == 'admin' %>
+
+        <% if user_signed_in? && current_user.role == 'admin' %>     
+          <div class="page-header col-md-2" style="border-left: solid;border-color: darkgray;">
             <td><%= link_to (render 'renders/button_edit'), edit_note_path(note), class:"btn btn-primary btn-sm" %></td>
-          <% end %>
-        </div>
+          </div>
+        <% end %>
       
     </div>
   <% end %>

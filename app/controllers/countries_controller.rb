@@ -5,7 +5,8 @@ class CountriesController < ApplicationController
   include CurrenciesHelper
   include CountriesHelper
 
-  
+  $country_search
+
   # GET /countries
   # GET /countries.json
   def index
@@ -38,16 +39,26 @@ class CountriesController < ApplicationController
   end
 
   def country_search
-    @countries = search_country(params[:q])
-    # @countries = Country.where("country_en ILIKE '%" + params[:q] + "%' OR country_pl ILIKE '%" + params[:q] + "%'")
-    # @countries = Country.where("country_en ILIKE ?","%" + params[:q] + "%")
-    flash.now[:info] = "Ilość państw: " + @countries.size.to_s
+    begin
+      @countries = search_country(params[:q])
+      $country_search = @countries
+      puts "&&&&&&&&&&&&& PARAMS &&&&&&&&&&&&&&&&&&&&&&&&"
+      puts params.values
+      puts $country_search
+      puts "&&&&&&&&&&&&& END &&&&&&&&&&&&&&&&&&&&&&&&&&"
+      # @countries = Country.where("country_en ILIKE '%" + params[:q] + "%' OR country_pl ILIKE '%" + params[:q] + "%'")
+      # @countries = Country.where("country_en ILIKE ?","%" + params[:q] + "%")
+      # flash.now[:info] = "Ilość państw: " + @countries.size.to_s
 
-    # Country.where("country_en ILIKE '%kol%' OR country_pl ILIKE '%kol%'")
-    Country.where("country_en ILIKE '%" + params[:q] + "%' OR country_pl ILIKE '%" + params[:q] + "%'").each do |c|
-      puts c.country_en + " - " + c.country_pl
+      # Country.where("country_en ILIKE '%kol%' OR country_pl ILIKE '%kol%'")
+      # Country.where("country_en ILIKE '%" + params[:q] + "%' OR country_pl ILIKE '%" + params[:q] + "%'").each do |c|
+      #   puts c.country_en + " - " + c.country_pl
+      # end
+      render :index
+    rescue  
+      @countries = $country_search
+      render :index
     end
-    render :index
   end 
 
 
