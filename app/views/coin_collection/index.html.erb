@@ -1,9 +1,9 @@
 <h2>PAŃSTWA</h2>
 <% @root_path = Rails.root.join('app', 'assets', 'images','flags') %> 
 <div class="container background-flags ">
-  <div class="row">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-6">
   	<% @countries.each do |country| %>
-  	<div class="col-md-2 position-flag" >  	
+  	<div class="col position-flag" >  	
     	<%= link_to country.country_en, coin_collection_path(country) %>
   		<% if (File.exist?(@root_path + (country.country_en + '.png'))) %>
 		  <div class="country-flag">
