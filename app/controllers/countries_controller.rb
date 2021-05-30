@@ -5,7 +5,7 @@ class CountriesController < ApplicationController
   include CurrenciesHelper
   include CountriesHelper
 
-  $country_search
+  # $country_search
 
   # GET /countries
   # GET /countries.json
