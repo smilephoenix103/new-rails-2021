@@ -41,7 +41,7 @@ div {
 }
  .size-flag {
 	width:30%;
-	height:30%;
+	/* height:30%; */
  }
  .position-flag {
 	text-align: center; 
