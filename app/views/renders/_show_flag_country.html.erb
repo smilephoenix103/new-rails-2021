@@ -23,11 +23,11 @@
   <%= @country.country_en %>
   <% if (File.exist?(@root_path + (@country.country_en + '.png'))) %>
 		  <div class="">
-        	<%= image_tag("flags/" + @country.country_en + ".png", :alt => @country.country_en , class:"size-flag") %>
+        	<%= image_tag("flags/" + @country.country_en + ".png", :alt => @country.country_en , class:"size-flag-container") %>
 		  </div>
   <% else %>
 			<div class="country-flag">			
-				<%= image_tag("flags/test.png", :alt => "rss feed" , class:"size-flag") %>
+				<%= image_tag("flags/test.png", :alt => "rss feed" , class:"size-flag-container") %>
 			</div>
   <% end %>  	
 </div>

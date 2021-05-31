@@ -1,7 +1,15 @@
 <p id="notice"><%= notice %></p>
 
 <div class="jumbotron">
-  <%= render 'renders/show_flag_country' %>
+<div class="container row">
+		<div class="col-md-2">
+		</div>
+		<div class="col-md-8">
+			<%= render 'renders/show_flag_country' %>
+		</div>			
+		<div class="col-md-2">
+		</div>
+</div>
   <%= render 'coin_collection/show_coin' %>
   <div>
     <% if user_signed_in? && current_user.role == 'admin' %>

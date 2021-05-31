@@ -1,4 +1,13 @@
-<h1>Editing Bond</h1>
+<div class="container row">
+	<div class="col-md-2">
+        <h3>Editing Bond</h3>
+	</div>
+	<div class="col-md-8">
+		<%= render 'renders/show_flag_country' %>
+	</div>			
+	<div class="col-md-2">
+	</div>
+</div>
 
 <%= render 'form', bond: @bond %>
 <%= link_to (render 'renders/button_back'), bond_show_currency_path(@bond.currency_id), class:"btn btn-sm btn-secondary" %>

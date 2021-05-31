@@ -1,12 +1,17 @@
-<h2>BANKNOTY</h2>
-<%
-=begin%>
- <%= render 'renders/door_open_fill' %> 
-<%
-=end%>
-<%= link_to (render 'renders/button_back') , back_show_currency_path(@notes[0].currency_id), class:"btn btn-secondary btn-sm", style:"float:left" %>                        
+<div class="container">
+	<div class="container row">
+		<div class="col-md-2">
+      <%= link_to (render 'renders/button_back') , back_show_currency_path(@notes[0].currency_id), class:"btn btn-secondary btn-sm", style:"float:left" %>
+      <h2>BANKNOTY</h2>
+    </div>
+    <div class="col-md-8">
+      <%= render 'renders/show_flag_country' %>
+    </div>
+    <div class="col-md-2">
+    </div>
+  </div>
+</div>
 
-<%= render 'renders/show_flag_country' %>
 
 <div class="container row" style="text-align: center ">
     <% @notes.each do |note| %> 

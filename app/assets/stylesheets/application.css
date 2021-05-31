@@ -40,8 +40,11 @@ div {
 	height: 100px;
 }
  .size-flag {
-	width:30%;
+	width:35%;
 	/* height:30%; */
+ }
+ .size-flag-container {
+	width:100%;
  }
  .position-flag {
 	text-align: center; 

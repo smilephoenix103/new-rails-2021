@@ -43,6 +43,7 @@ class BondsController < ApplicationController
 
   # GET /bonds/1 or /bonds/1.json
   def show
+    @country = @bond.currency.country
   end
 
   # GET /bonds/new

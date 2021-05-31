@@ -18,9 +18,9 @@
     <strong>Description:</strong><%= @currency.description %>
   </p>
   <%= link_to (render 'renders/button_back'), bond_currencies_path(@currency.country_id, 'pattern' => @currency.pattern), class:"btn btn-secondary btn-sm" %> 
-  <%= link_to (render 'renders/button_edit'), edit_currency_path(@currency), class:"btn btn-primary btn-sm" %>
+  <%= link_to 'Add Bond', new_currency_bond_path(@currency), class:"btn btn-primary btn-sm"%>  
+  <%= link_to (render 'renders/button_edit'), edit_currency_path(@currency), class:"btn btn-primary btn-sm",style:"float: right"  %>
 
-  <%= link_to 'Add Bond', new_currency_bond_path(@currency), class:"btn btn-primary btn-sm", style:"float: right"   %>  
 
 </div>
 
