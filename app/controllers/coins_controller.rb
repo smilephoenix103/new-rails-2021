@@ -63,9 +63,15 @@ class CoinsController < ApplicationController
   end
 
   def coin_search
-    @countries = search_country(params[:q])
-    # @countries = Country.where("country_en ILIKE ?","%" + params[:q] + "%")
-    render :index
+    begin
+      @countries = search_country(params[:q])
+      # @countries = Country.where("country_en ILIKE ?","%" + params[:q] + "%")
+      $country_search = @countries
+      render :index
+    rescue
+      @countries = $country_search
+      render :index
+    end
   end 
 
   # GET /coins/1/edit

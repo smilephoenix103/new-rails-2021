@@ -92,9 +92,15 @@ class NotesController < ApplicationController
   end
 
   def note_search
-    @countries = search_country(params[:q])
-    # @countries = Country.where("country_en ILIKE ?","%" + params[:q] + "%")
-    render :index
+    begin
+      @countries = search_country(params[:q])
+      $country_search = @countries
+      # @countries = Country.where("country_en ILIKE ?","%" + params[:q] + "%")
+      render :index
+    rescue
+      @countries = $country_search
+      render :index
+    end
   end 
 
   # GET /notes/1/edit

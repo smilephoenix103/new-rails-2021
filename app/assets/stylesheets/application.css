@@ -156,6 +156,13 @@ div {
 	width: 90%; 
 	/* height: 100%; */
 }
+.image-out-container:hover
+{
+	border: black solid 1px; 
+	background-color: rgb(194, 194, 194); 
+	width: 90%; 
+	/* height: 100%; */
+}
 
 .primary-container
 {
