@@ -1,3 +1,4 @@
+<% @root_path = Rails.root.join('app', 'assets', 'images','flags') %>
 <div class="container row">
 	<div class="page-header col-md-2">
 		<%= image_tag("header/logo.png", :alt => "rss feed" , :size => "100x100", class:"rounded-circle")%>
@@ -11,8 +12,28 @@
 	</div>
 	<div class="page-header col-md-1">
 		<div style="font-size:10px">
-			<%= link_to 'English', url_for(locale: :en) %>
-			<%= link_to 'Polish', url_for(locale: :pl) %>
+			<div>
+				<% if (File.exist?(@root_path + ('Poland.png'))) %>
+					<div class="country-flag-lang">
+						<%= link_to (image_tag("flags/" + "Poland.png", :alt => "Poland", class:"size-flag-lang")), url_for(locale: :pl)  %>
+						<%= link_to (image_tag("flags/" + "England.png", :alt => "England", class:"size-flag-lang")), url_for(locale: :en)  %>
+					</div>
+				<% else %>
+					<div class="country-flag-lang">
+						<%= image_tag("flags/test.png", :alt => "rss feed" , class:"size-flag") %>
+					</div>
+				<% end %>
+			</div>
+			<%
+=begin%>
+ <%= link_to 'English', url_for(locale: :en) %> 
+<%
+=end%>
+			<%
+=begin%>
+ <%= link_to 'Polish', url_for(locale: :pl) %> 
+<%
+=end%>
 		</div>
 	</div>
 
