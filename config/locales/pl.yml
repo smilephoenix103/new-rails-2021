@@ -1,25 +1,25 @@
 pl:
   menu:
     country:
-      country: "Państwo"
+      country: "Państwa"
       add_country: "Dodaj Państwo"
       countries: "Państwa"
     note:
-      note: "Banknot"
+      note: "Banknoty"
       add_note: "Dodaj Banknot"
       new_notes: "Nowe Banknoty (Do Weryfikacji)"
       note_sold: "Sprzedane Banknoty"
       note_for_sell: "Banknoty Na Sprzedaż"
       collection: "Kolekcja"
     coin:
-      coin: "Moneta"
+      coin: "Monety"
       add_coin: "Dodaj Monetę"
       new_coins: "Nowa Moneta (Do Weryfikacji)"
       # coin_sold: "Sprzedane Monety"
       coin_for_sell: "Monety Na Sprzedaż"
       collection: "Kolekcja"
     bond:
-      bond: "Obligacja"
+      bond: "Obligacje"
       add_bond: "Dodaj Obligację"
       collection: "Kolekcja"
     set:

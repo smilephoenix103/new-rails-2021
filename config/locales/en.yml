@@ -32,29 +32,29 @@
 en:
   menu:
     country:
-      country: "Country"
+      country: "Countries"
       add_country: "Add Country"
       countries: "Countries"
     note:
-      note: "Note"
+      note: "Notes"
       add_note: "Add Note"
       new_notes: "New Notes (To Veryfication)"
       note_sold: "Note Sold"
       note_for_sell: "Note For Sell"
       collection: "Collection"
     coin:
-      coin: "Coin"
+      coin: "Coins"
       add_coin: "Add Coin"
       new_coins: "New Coins (To Veryfication)"
       # coin_sold: "Coin Sold"
       coin_for_sell: "Coin For Sell"
       collection: "Collection"
     bond:
-      bond: "Bond"
+      bond: "Bonds"
       add_bond: "Add Bond"
       collection: "Collection"
     set:
-      set: "Set"
+      set: "Sets"
       reports: "Reports"
       chart: "Chart"
       pattern: "Pattern"
