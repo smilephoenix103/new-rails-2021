@@ -18,8 +18,22 @@ class HomeController < ApplicationController
   	# puts "!!!!!!!!!!TEST!!!!!!!!!!!!"
 
     @exchange_rate = ExchangeRate.new
-    @exchange = @exchange_rate.rate
-    puts @exchange.no
+    if (@exchange_rate.response_code == "200")
+      @exchange = @exchange_rate.rate
+      @response_code = @exchange_rate.response_code
+      puts "777777777777777777777777777777777777777777"
+      puts @response_code
+    else
+      @response_code = @exchange_rate.response_code
+      puts "888888888888888888888888888888888888888888888888888888888"
+      puts @response_code
+    end
+
+    
+ 
+    
+    puts @exchange
+    # puts @exchange.no
 
 
   	
