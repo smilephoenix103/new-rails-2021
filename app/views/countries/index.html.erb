@@ -3,14 +3,13 @@
  <p id="notice"><%= notice %></p> 
 <%
 =end%>
-
 <% @root_path = Rails.root.join('app', 'assets', 'images','flags') %>
 <div>
 	<nav class="navbar navbar-light bg-light">
     <div>
       <%= link_to 'Add New Country', new_country_path, class:"btn btn-primary btn-sm" %>
     </div>
-  		<form class="form-inline" action="/country_search">
+  		<form class="form-inline" action= '<% @lang %>country_search'>
     		<input class="form-control-sm mr-sm-2" name="q" placeholder="Search" aria-label="Search" >
     		<button class="btn btn-sm btn-outline-success my-2 my-sm-0" type="submit">
           <%= render 'renders/button_search' %>

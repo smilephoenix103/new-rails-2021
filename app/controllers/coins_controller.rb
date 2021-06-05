@@ -9,6 +9,8 @@ class CoinsController < ApplicationController
   def index
     # @coins = Coin.all
     @countries = countries_list
+    @lang = extract_locale
+
   end
 
   def coin_currencies
@@ -67,9 +69,11 @@ class CoinsController < ApplicationController
       @countries = search_country(params[:q])
       # @countries = Country.where("country_en ILIKE ?","%" + params[:q] + "%")
       $country_search = @countries
+      @lang = extract_locale
       render :index
     rescue
       @countries = $country_search
+      @lang = extract_locale
       render :index
     end
   end 

@@ -13,6 +13,7 @@ class CountriesController < ApplicationController
     # @countries = Country.all.order(country_en: :asc)
     @countries = countries_list
     flash.now[:info] = @countries.size.to_s + " - Państw"
+    @lang = extract_locale
   end
 
   # GET /countries/1
@@ -42,10 +43,7 @@ class CountriesController < ApplicationController
     begin
       @countries = search_country(params[:q])
       $country_search = @countries
-      puts "&&&&&&&&&&&&& PARAMS &&&&&&&&&&&&&&&&&&&&&&&&"
-      puts params.values
-      puts $country_search
-      puts "&&&&&&&&&&&&& END &&&&&&&&&&&&&&&&&&&&&&&&&&"
+      @lang = extract_locale
       # @countries = Country.where("country_en ILIKE '%" + params[:q] + "%' OR country_pl ILIKE '%" + params[:q] + "%'")
       # @countries = Country.where("country_en ILIKE ?","%" + params[:q] + "%")
       # flash.now[:info] = "Ilość państw: " + @countries.size.to_s
@@ -55,8 +53,10 @@ class CountriesController < ApplicationController
       #   puts c.country_en + " - " + c.country_pl
       # end
       render :index
+      
     rescue  
       @countries = $country_search
+      @lang = extract_locale
       render :index
     end
   end 

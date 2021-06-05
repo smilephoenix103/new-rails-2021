@@ -9,6 +9,7 @@ class BondsController < ApplicationController
   def index
     # @bonds = Bond.all
     @countries = countries_list
+    @lang = extract_locale
   end
 
   def bond_currencies
@@ -66,9 +67,11 @@ class BondsController < ApplicationController
       @countries = search_country(params[:q])
       # @countries = Country.where("country_en ILIKE ?","%" + params[:q] + "%")
       $country_search = @countries
+      @lang = extract_locale
       render :index
     rescue
       @countries = $country_search
+      @lang = extract_locale
       render :index
     end
   end 
