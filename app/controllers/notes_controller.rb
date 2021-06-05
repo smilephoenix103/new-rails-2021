@@ -13,6 +13,7 @@ class NotesController < ApplicationController
     # @notes = Note.all
     @countries = countries_list
     @lang = extract_locale
+    @search = "note_search"
   end
 
   def note_currencies
@@ -97,11 +98,13 @@ class NotesController < ApplicationController
       @countries = search_country(params[:q])
       $country_search = @countries
       @lang = extract_locale
+      @search = "note_search"
       # @countries = Country.where("country_en ILIKE ?","%" + params[:q] + "%")
       render :index
     rescue
       @countries = $country_search
       @lang = extract_locale
+      @search = "note_search"
       render :index
     end
   end 
