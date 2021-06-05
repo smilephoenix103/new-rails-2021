@@ -33,12 +33,6 @@
     </div>
     
     <div class="col-4">
-    <%
-=begin%>
- <%= "Tabela - " + @exchange.table.to_s %> <br/> 
-    <%= "Numer - " + @exchange.no.to_s %> <br/> 
-<%
-=end%>
   <% if @response_code =="200" %>
     <%= "Data - " + @exchange.effectiveDate %>
       <table class="table table-striped table-bordered table-hover table-sm">

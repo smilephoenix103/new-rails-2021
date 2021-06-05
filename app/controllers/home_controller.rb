@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+  include HomeHelper
   def index
   	# @title = "test pecunia"
 
@@ -15,28 +16,20 @@ class HomeController < ApplicationController
   	# puts "!!!!!!!!!!TEST!!!!!!!!!!!!"
    #  puts params[:report_name]
   	# puts params[:chart_name]
-  	# puts "!!!!!!!!!!TEST!!!!!!!!!!!!"
-
+  	# puts "!!!!!!!!!!TEST!!!!!!!!!!!!"   
+  
     @exchange_rate = ExchangeRate.new
-    if (@exchange_rate.response_code == "200")
-      @exchange = @exchange_rate.rate
-      @response_code = @exchange_rate.response_code
+    url = 'https://api.nbp.pl/api/exchangerates/tables/a/?format=json' 
+    if (response_code(url) == "200")
+      @exchange = @exchange_rate.rate(url)  
+      @response_code = response_code(url)
       puts "777777777777777777777777777777777777777777"
-      puts @response_code
     else
-      @response_code = @exchange_rate.response_code
+      @response_code = response_code(url)
       puts "888888888888888888888888888888888888888888888888888888888"
-      puts @response_code
-    end
-
+    end 
     
- 
-    
-    puts @exchange
-    # puts @exchange.no
-
-
-  	
+    puts @exchange  	
   end
 
   def about

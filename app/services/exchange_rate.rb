@@ -1,19 +1,19 @@
 class ExchangeRate
     require 'json'
+    include HomeHelper
 
-    def response_code
-        source = 'https://api.nbp.pl/api/exchangerates/tables/a/?format=json'     
-        resp = Net::HTTP.get_response(URI.parse(source))
-        puts resp.code
-        puts resp.message
-        puts resp.class.name
-        return resp.code
-    end
+    # def response_code
+    #     source = 'https://api.nbp.pl/api/exchangerates/tables/a/?format=json'     
+    #     resp = Net::HTTP.get_response(URI.parse(source))
+    #     puts resp.code
+    #     puts resp.message
+    #     puts resp.class.name
+    #     return resp.code
+    # end
 
-    def rate
+    def rate(source)
         code_list = ["USD", "EUR", "CHF", "GBP"]
-        begin
-            source = 'https://api.nbp.pl/api/exchangerates/tables/a/?format=json'     
+        # source = 'https://api.nbp.pl/api/exchangerates/tables/a/?format=json'               
             resp = Net::HTTP.get_response(URI.parse(source))
             data = resp.body
             result = JSON.parse(data)  
@@ -48,10 +48,5 @@ class ExchangeRate
                 puts r
             end
             return @exchange
-        rescue
-            puts "KOD BŁĘDY"
-            puts resp.code
-            return resp.code            
-        end
     end
 end
