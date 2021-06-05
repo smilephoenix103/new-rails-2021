@@ -95,7 +95,7 @@ div {
 /* DROPDOWN */
 
 .dropbtn {
-	/* background-color: #4CAF50; */
+	background-color: #343a40 !important;
 	color: gray;
 	/* padding: 16px; */
 	font-size: 16px;
@@ -110,7 +110,7 @@ div {
   .dropdown-content {
 	display: none;	
 	position: absolute;
-	background-color: grey;
+	background-color: rgba(128, 128, 128, 0.9);
 	min-width: 160px;
 	box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.2);
 	z-index: 1;
@@ -123,7 +123,10 @@ div {
 	display: block;
   }
   
-  .dropdown-content a:hover {background-color: dimgrey;}
+  .dropdown-content a:hover {
+	background-color: rgba(105, 105, 105, 0.9);
+	border-radius: 15px;
+}
   
   .dropdown:hover .dropdown-content {display: block;}
   
