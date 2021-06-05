@@ -1,28 +1,32 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 	<%= link_to 'Pecunia', root_path, class:"navbar-brand" %>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <%
+=begin%>
+ <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
-  </button>
+  </button> 
+<%
+=end%>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <div class="collapse navbar-collapse">
     <ul class="navbar-nav mr-auto">
     <% if user_signed_in? && current_user.role == 'admin' %>
-    <li class="nav-item">          
-            <div class="dropdown nav-link ">
-              <button class="dropbtn bg-dark dropdown-toggle"><%= t 'menu.country.country' %></button>
+      <li>          
+            <div class="dropdown nav-link">
+              <button class="dropbtn dropdown-toggle"><%= t 'menu.country.country' %></button>
                 <div class="dropdown-content">
                   <%= link_to t('menu.country.add_country'), new_country_path, class:"nav-link" %>
                   <%= link_to t('menu.country.countries'), countries_path, class:"nav-link" %>             
                 </div>
             </div>        
-        </li>
+      </li>
     <% end %> 
  
-      <li class="nav-item " > 
+      <li> 
         <% if user_signed_in? %>
           <div class="dropdown nav-link ">
-            <button class="dropbtn bg-dark dropdown-toggle"><%= t 'menu.note.note' %></button>
+            <button class="dropbtn dropdown-toggle"><%= t 'menu.note.note' %></button>
             <div class="dropdown-content ">
               <% if user_signed_in? && current_user.role == 'admin' %>
                 <%= link_to t('menu.note.add_note'), notes_path, class:"nav-link" %>
@@ -42,7 +46,7 @@
       <li class="nav-item"> 
         <% if user_signed_in? %>
           <div class="dropdown nav-link ">
-            <button class="dropbtn bg-dark dropdown-toggle"><%= t 'menu.coin.coin' %></button>
+            <button class="dropbtn dropdown-toggle"><%= t 'menu.coin.coin' %></button>
               <div class="dropdown-content">
               <% if user_signed_in? && current_user.role == 'admin' %>
                 <%= link_to t('menu.coin.add_coin'), coins_path, class:"nav-link" %> 
@@ -57,28 +61,25 @@
           </div>
         <% end %>
       </li>
-
        <li class="nav-item"> 
         <% if user_signed_in? %>
           <div class="dropdown nav-link ">
-            <button class="dropbtn bg-dark dropdown-toggle"><%= t 'menu.bond.bond' %></button>
+            <button class="dropbtn dropdown-toggle"><%= t 'menu.bond.bond' %></button>
               <div class="dropdown-content">
               <% if user_signed_in? && current_user.role == 'admin' %>
                 <%= link_to t('menu.bond.add_bond'), bonds_path, class:"nav-link" %>             
               <% end %>
               <% if user_signed_in? %>
                 <%= link_to t('menu.bond.collection'), bond_collection_index_path, class:"nav-link" %> 
-              <% end %>
-                
+              <% end %>                
             </div>
           </div>
         <% end %>
       </li>
-
         <li class="nav-item"> 
           <% if user_signed_in? && current_user.role == 'admin' %>
             <div class="dropdown nav-link ">
-              <button class="dropbtn bg-dark dropdown-toggle"><%= t 'menu.set.set' %></button>
+              <button class="dropbtn dropdown-toggle"><%= t 'menu.set.set' %></button>
                 <div class="dropdown-content">
                   <%= link_to t('menu.set.reports'), reports_path, class:"nav-link" %>  
                   <%= link_to (render 'renders/icon_chart') + t('menu.set.chart'), reports_chart_path, class:"nav-link" %>              
@@ -89,36 +90,20 @@
                 </div>
             </div>
           <% end %>
-        </li>
-
-      
-      
+        </li>      
       <li class="nav-item">
       	<%= link_to 'About PECUNIA', home_about_path, class:"nav-link" %>
-      </li>
-      
+      </li>      
     </ul>
-    <%
-=begin%>
- <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form> 
-<%
-=end%>
 
     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <% if user_signed_in? %>
             <li class= "navbar-brand">
               <%= current_user.role %>
-            </li>
-            
-        
+            </li>        
               <li class="nav-item">
                 <%= link_to current_user.email, edit_user_registration_path, class:"nav-link" %>
-              </li>
-           
-            
+              </li>            
             <li class="nav-item">
               <%= button_to "Logout", destroy_user_session_path, method: :delete, class:"btn btn-sm btn-outline-secondary"  %>
             </li>
@@ -133,29 +118,3 @@
       </ul> 
   </div>
 </nav>
-
-<!--
-<script>
-/* When the user clicks on the button, 
-toggle between hiding and showing the dropdown content */
-function myFunction() {
-  document.getElementById("myDropdown").classList.toggle("show");
-}
-function myFunctionCoin() {
-  document.getElementById("myDropdownCoin").classList.toggle("show");
-}
-// Close the dropdown if the user clicks outside of it
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-  }
-}
-</script>
--->
