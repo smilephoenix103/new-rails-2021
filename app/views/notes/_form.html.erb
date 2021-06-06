@@ -95,10 +95,7 @@
         <div  class="alert alert-danger" role="alert"><%= message %></div>
       <% end %>
     </div>
-    <div class="col field">
-      <% form.label :Status_sprzedaży %>
-      <%= form.text_field :status_sell, class:"form-control form-control-sm", placeholder:"Status sprzedaży" %>
-    </div>
+   
     <div class="col field">
       <% form.label :Typ_obrazka %>
       <% form.text_field :img_type, class:"form-control form-control-sm" %>
@@ -107,11 +104,15 @@
       <% note.errors.messages_for(:img_type).each do |message| %>
         <div  class="alert alert-danger" role="alert"><%= message %></div>
       <% end %>  
-
     </div>
-    <div class="col col-lg-6 field">
+    
+    <div class="col col-lg-9 field">
       <% form.label :description %>
       <%= form.text_area :description, class:"form-control form-control-sm", placeholder:"opis" %>
+    </div>
+    <div class="col field">
+      <% form.label :Status_sprzedaży %>
+      <%= form.text_field :status_sell, class:"form-control form-control-sm", placeholder:"Status sprzedaży" %>
     </div>
 
   </div>
