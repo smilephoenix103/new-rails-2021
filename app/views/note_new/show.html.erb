@@ -6,14 +6,14 @@
         <td><%= "Id. " + note.id.to_s %></td>
         <td style="width:20%">        
         	<% if (note.avers_path.length > 200) %>
-            	<%= link_to image_tag(note.avers_path, :alt => "AVERSE" , style:"width:100%;height:100%;"), note_path(note) %>
+            	<%= link_to image_tag(note.avers_path, :alt => "AVERSE" , style:"width:100%;"), note_path(note) %>
             <% else %>
             	<%= note.avers_path %>
             <% end %> 
         </td>
         <td style="width:20%">        
         	<% if (note.reverse_path.length > 200) %>
-            	<%= link_to image_tag(note.reverse_path, :alt => "REVERSE" , style:"width:100%;height:100%;"), note_path(note) %>
+            	<%= link_to image_tag(note.reverse_path, :alt => "REVERSE" , style:"width:100%;"), note_path(note) %>
             <% else %>
             	<%= note.reverse_path %>
             <% end %> 

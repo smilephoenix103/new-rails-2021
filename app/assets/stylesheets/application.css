@@ -28,7 +28,11 @@ div {
 }
 
 .logo-center {
-	text-align: -moz-center;
+	display: flex;
+    align-items: center;
+	text-align: center;
+    justify-content: center;
+	/* text-align: -moz-center; */
 	background-color: lightgrey;
 }
 
