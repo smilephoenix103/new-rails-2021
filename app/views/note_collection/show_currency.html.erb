@@ -13,9 +13,12 @@
 </div>
 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-6">
 	<% @currencies.each do |currency| %>
-		<div class="col btn btn-secondary btn-sm" style="margin:10px;">
+		<div class="col btn btn-secondary btn-sm logo-center" style="margin:10px;">
 			<%= link_to (currency.currency_series.to_s), show_note_path(currency), style:"color:black" %>
 			
 		</div>
 	<% end %>
+		<div class="col btn btn-secondary btn-sm logo-center" style="margin:10px;">
+			<%= link_to ('ALL NOTE COLLECTION - ' + @notes_size.to_s), show_all_notes_path(@currencies[0].country_id), style:"color:black" %>
+		</div>
 </div>

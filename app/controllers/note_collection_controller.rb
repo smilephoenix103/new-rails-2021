@@ -3,6 +3,8 @@ before_action :require_user_logged_in!
 
 include CountriesHelper
 include NoteCollectionHelper
+include NoteForSellHelper
+
   def index
   	# @continent_countris = Country.includes(:currencies => :notes).where({ :currencies => { :notes => { status: "FOR SELL"}}, :continent => 'Azja'}).order(country_en: :asc)
 	# @continent_countris.each do |con|
@@ -34,12 +36,14 @@ include NoteCollectionHelper
   	puts params[:id]
   	# @currencies = Currency.where(country_id: params[:id], pattern: 'NOTE')
 	  @currencies  = Currency.joins(:notes).where(notes: {status: "KOLEKCJA"},country_id: params[:id], pattern: 'NOTE' ). group(:id).order(currency_series: :asc)
+	  @notes_size = colection_notes_status_asc(params[:id], 'KOLEKCJA').size
 	  @country = @currencies[0].country
   end
 
   def show_note
   	puts params[:id]
   	@notes = notes_collections(params[:id], "KOLEKCJA")
+	
 	@country = @notes[0].currency.country
   end
 
@@ -52,13 +56,22 @@ include NoteCollectionHelper
 	redirect_to show_currency_path(@currency.country_id)
   end
 
-
-
   def show_note_user
 	puts "&&&&&&&&&&&&&& SHOW NOTE USER &&&&&&&&&&&&&&&&&&&"
 	puts params[:id]
 	@note = Note.find(params[:id])  
 	@country = @note.currency.country
 	puts "&&&&&&&&&&&&&& END &&&&&&&&&&&&&&&&&&&&&&&&&&"
+  end
+
+  def show_all_notes
+	puts "TEST SHOW"
+	@notes_size = colection_notes_status_asc(params[:id], 'KOLEKCJA').size
+	puts @notes_size
+	puts params[:id]
+	# @notes = Note.includes(:currency => :country).where(:currency => { :country_id => params[:id]}, :status => 'KOLEKCJA')
+	@notes = colection_notes_status_asc(params[:id], 'KOLEKCJA')
+	@country = @notes[0].currency.country
+	render :show_note
   end
 end
