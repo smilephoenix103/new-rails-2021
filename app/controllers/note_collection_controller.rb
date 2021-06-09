@@ -42,7 +42,9 @@ include NoteForSellHelper
 
   def show_note
   	puts params[:id]
-  	@notes = notes_collections(params[:id], "KOLEKCJA")
+  	# @notes = notes_collections(params[:id], "KOLEKCJA")
+  	@notes = notes_collections(params[:id], "KOLEKCJA").page(params[:page]).per(10)
+
 	
 	@country = @notes[0].currency.country
   end
@@ -70,7 +72,8 @@ include NoteForSellHelper
 	puts @notes_size
 	puts params[:id]
 	# @notes = Note.includes(:currency => :country).where(:currency => { :country_id => params[:id]}, :status => 'KOLEKCJA')
-	@notes = colection_notes_status_asc(params[:id], 'KOLEKCJA')
+	# @notes = colection_notes_status_asc(params[:id], 'KOLEKCJA')
+	@notes = colection_notes_status_asc(params[:id], 'KOLEKCJA').page(params[:page]).per(10)
 	@country = @notes[0].currency.country
 	render :show_note
   end

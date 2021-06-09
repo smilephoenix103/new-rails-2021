@@ -12,7 +12,9 @@
   </div>
 </div>
 
-
+<div>
+  <%= paginate @notes, theme: 'bootstrap4' %>
+</div>
 <div class="container row" style="text-align: center ">
     <% @notes.each do |note| %> 
         <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 primary-container" >
@@ -31,18 +33,19 @@
                         <div class="btn-image-collection" >
                           <%= link_to (render 'renders/button_show'), show_note_user_path(note), class:"btn btn-outline-info btn-sm", style:"float:left" %> 
                         </div>
-                    </div><br/>
-                    
-                </div>
-                
-            
-                  
+                    </div><br/>                    
+                </div>     
                 
             </div>
         </div>
-    <% end %>
+    <% end %>    
 </div>
+<div>
+  <%= paginate @notes, theme: 'bootstrap4' %>
+</div>
+
 <div class="container">
+
   <%= link_to (render 'renders/button_back') , back_show_currency_path(@notes[0].currency_id), class:"btn btn-secondary btn-sm", style:"float:left" %>                        
 <br/>
 </div>
