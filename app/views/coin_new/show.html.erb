@@ -6,14 +6,14 @@
         <td><%= "Id. " + coin.id.to_s %></td>
         <td style="width:20%">        
         	<% if (coin.avers_path.length > 200) %>
-            	<%= link_to image_tag(coin.avers_path, :alt => "AVERSE" , style:"width:100%;height:100%;"), coin_path(coin)  %>
+            	<%= link_to image_tag(coin.avers_path, :alt => "AVERSE" , style:"width:100%;"), coin_path(coin)  %>
             <% else %>
             	<%= coin.avers_path %>
             <% end %> 
         </td>
         <td style="width:20%">        
         	<% if (coin.reverse_path.length > 200) %>
-            	<%= link_to image_tag(coin.reverse_path, :alt => "REVERSE" , style:"width:100%;height:100%;"), coin_path(coin) %>
+            	<%= link_to image_tag(coin.reverse_path, :alt => "REVERSE" , style:"width:100%;"), coin_path(coin) %>
             <% else %>
             	<%= coin.reverse_path %>
             <% end %> 
