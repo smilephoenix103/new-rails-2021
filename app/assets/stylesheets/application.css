@@ -361,3 +361,12 @@ div {
   {
 	background-color: rgba(0, 0, 0, 0.1); 
   }
+
+  /* +++++++++++++++++++ KAMINARI PAGINATION ++++++++++++++++++++++++++++++*/
+
+  .page-link
+  {
+	padding: 2px 5px;
+	background-color: #a7a8a8;
+	color: #151515;
+  }
