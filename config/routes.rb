@@ -72,6 +72,8 @@ Rails.application.routes.draw do
 
     # get 'bond_collection/show_details_bond/:id', to:'bond_collection#show_details_bond', as: 'show_details_bond'  
 
+    # Note for sell
+    get 'note_for_sell_list', to: 'note_for_sell#note_for_sell_list'
 
     resources :countries do
       resources :currencies

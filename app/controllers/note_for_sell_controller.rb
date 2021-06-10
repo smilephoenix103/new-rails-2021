@@ -1,4 +1,5 @@
 class NoteForSellController < ApplicationController
+	before_action :require_admin_logged_in!, only: [:note_for_sell_list]
 	before_action :require_user_logged_in!
 
 	include NoteForSellHelper
@@ -25,5 +26,9 @@ class NoteForSellController < ApplicationController
     #   puts n.inspect
 
     @notes = colection_notes_status(params[:id], "FOR SELL")
+  end
+
+  def note_for_sell_list
+	@note_for_sell_list = Note.where(:status => "FOR SELL")
   end
 end
