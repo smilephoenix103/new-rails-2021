@@ -370,3 +370,13 @@ div {
 	background-color: #a7a8a8;
 	color: #151515;
   }
+  .page-item.active .page-link
+  {
+	  background-color: black;
+	  color: wheat;
+	  border-color: #dee2e6;
+  }
+  .page-item.disabled .page-link
+  {
+	background-color: rgb(239, 240, 241);
+  }
