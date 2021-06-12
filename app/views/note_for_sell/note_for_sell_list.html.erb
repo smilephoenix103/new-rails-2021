@@ -1,0 +1,32 @@
+<h1>LISTS NOTE FOR SELL</h1>
+<table class="table table-striped table-bordered table-hover table-sm table-fs">
+    <thead class="thead-dark">
+    <tr>
+        <th>Lp.</th>
+        <th>Country</th>
+        <th>Denomination</th>
+        <th>Year</th>
+        <th>Making</th>
+        <th>Qoulity</th>
+        <th>Quantity
+        <th>Price Buy</th>
+        <th>Price Sell</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @note_for_sell_list.each_with_index do |note, count| %>
+        <tr>
+            <td style="text-align: right"><%= count+1 %></td>
+            <td><%= note.currency.country.country_en %> </td>
+            <td><%= number_to_currency(note.denomination.to_s, unit: "", separator: ".", delimiter: " ", strip_insignificant_zeros: true) + " " + note.name_currency %></td>
+            <td><%= note.note_date %></td>
+            <td><%= note.making %></td>
+            <td><%= note.quality %></td>
+            <td><%= note.quantity %></td>
+            <td class="price buy"><%= number_to_currency(note.price_buy, unit:"zł", precision: 2, format: "%n %u") %></td>
+            <td class="price sell"><%=  number_to_currency(note.price_sell, unit:"zł", precision: 2, format: "%n %u") %></td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>

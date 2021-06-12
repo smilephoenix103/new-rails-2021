@@ -1,3 +1,23 @@
 // Place all the styles related to the Note_for_sell controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.table-fs
+{
+    font-size: 0.8rem;
+    line-height: 1;
+}
+.price
+{
+    text-align: right;
+}
+.price.buy
+{
+    color:green; 
+    background-color: rgb(12, 12, 12);
+}
+.price.sell
+{
+    color:red; 
+    background-color: rgb(63, 62, 63);
+}
