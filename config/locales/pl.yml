@@ -9,6 +9,7 @@ pl:
       add_note: "Dodaj Banknot"
       new_notes: "Nowe Banknoty (Do Weryfikacji)"
       note_sold: "Sprzedane Banknoty"
+      note_for_sell_list: "Lista Banknotów Na Sprzedaż"
       note_for_sell: "Banknoty Na Sprzedaż"
       collection: "Kolekcja"
     coin:

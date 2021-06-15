@@ -11,7 +11,7 @@
 <%
 =end%>
   		<% if (File.exist?(@root_path + (continent.file_name))) %>
-        	<%= link_to (image_tag("continents/" + continent.file_name, :alt => "Kontynent", style:"width:80%")), note_collection_path(continent)   %>
+        	<%= link_to (image_tag("continents/" + continent.file_name, :alt => "Kontynent", style:"width:80%;height:80%")), note_collection_path(continent)   %>
         <% else %>
       	<%= image_tag("flags/test.png", :alt => "rss feed" ) %>
     	<% end %>

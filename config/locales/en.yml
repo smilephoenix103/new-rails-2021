@@ -40,6 +40,7 @@ en:
       add_note: "Add Note"
       new_notes: "New Notes (To Veryfication)"
       note_sold: "Note Sold"
+      note_for_sell_list: "Note For Sell List"
       note_for_sell: "Note For Sell"
       collection: "Collection"
     coin:
