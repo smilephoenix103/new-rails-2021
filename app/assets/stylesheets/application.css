@@ -27,6 +27,12 @@ div {
 	padding: 5px;
 }
 
+.center-row {
+	/* align-items: center; */
+	text-align: center;
+    justify-content: center;	
+}
+
 .logo-center {
 	display: flex;
     align-items: center;
