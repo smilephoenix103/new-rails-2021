@@ -12,9 +12,9 @@
 	</div>
 	<div class=" col-md-1">
 		<div style="font-size:10px">
-			<div style="padding:0">  	
+			<div style="padding:2px">  	
 				<% if (File.exist?(@root_path + 'Poland.png')) %>
-					<div style="padding:0">
+					<div style="padding:0px">
 						<%= link_to (image_tag("flags/" + "Poland.png", :alt => "polish", style:"height:15px" )), url_for(locale: :pl) %>
 					</div>
 				<% else %>
@@ -28,9 +28,9 @@
  <%= link_to 'Polish', url_for(locale: :pl) %> 
 <%
 =end%>
-			<div style="padding:0">  	
+			<div style="padding:2px">  	
 				<% if (File.exist?(@root_path + 'England.png')) %>
-					<div style="padding:0">
+					<div style="padding:0px">
 						<%= link_to (image_tag("flags/" + "England.png", :alt => "english", style:"height:15px" )), url_for(locale: :en) %>
 					</div>
 				<% else %>
