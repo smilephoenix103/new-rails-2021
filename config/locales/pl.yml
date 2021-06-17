@@ -66,3 +66,10 @@ pl:
     edit: "Edytuj"
     delete: "Usuń"
     search: "Szukaj"
+
+  date:
+    month_names: [~, Styczeń, Luty, Morzec, Kwiecień, Maj, Czerwiec, Lipiec, Sierpień, Wrzesień, Październik, Listopad, Grudzień]
+    order:
+      - :year
+      - :month
+      - :day
