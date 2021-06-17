@@ -56,11 +56,11 @@ class CoinsController < ApplicationController
     puts params[:currency_id]
     @coin.currency_id = params[:currency_id]
 
-    @boughts = Bought.all
+    @currencies = currency_series(@coin, "COIN")
 
+    @boughts = Bought.all
     @statuses = ElementSelect.statuses
     @img_types = ElementSelect.img_types
-
     @country = @coin.currency.country
   end
 
@@ -82,6 +82,8 @@ class CoinsController < ApplicationController
 
   # GET /coins/1/edit
   def edit
+    @currencies = currency_series(@coin, "COIN")
+
     @statuses = ElementSelect.statuses
     @img_types = ElementSelect.img_types
     @country = @coin.currency.country

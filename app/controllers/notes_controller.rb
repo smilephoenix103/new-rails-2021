@@ -84,10 +84,8 @@ class NotesController < ApplicationController
     @note.currency_id = params[:currency_id]
 
     puts @note.currency.country.id
-    @currencies = Currency.where(country_id: @note.currency.country.id, pattern: "NOTE").order(currency_series: :asc)
-    @currencies.each do |c|
-      puts c.id.to_s + " - " + c.pattern
-    end
+    # @currencies = Currency.where(country_id: @note.currency.country.id, pattern: "NOTE").order(currency_series: :asc)
+    @currencies = currency_series(@note, "NOTE")
     puts "@@@@@@@@@@@@@TEST@@@@@@@@@@@@@@@@@"
 
     @boughts = Bought.all
@@ -116,13 +114,18 @@ class NotesController < ApplicationController
 
   # GET /notes/1/edit
   def edit
-    @currencies = Currency.where(country_id: @note.currency.country.id, pattern: "NOTE").order(currency_series: :asc)
+    # @currencies = Currency.where(country_id: @note.currency.country.id, pattern: "NOTE").order(currency_series: :asc)
+    @currencies = currency_series(@note, "NOTE")
 
     @statuses = ElementSelect.statuses
     @makings = ElementSelect.makings
     @img_types = ElementSelect.img_types
 
     @country = @note.currency.country
+    curr = currency_series(@note, "NOTE")
+    curr.each do |c|
+      puts c.currency_series
+    end
   end
 
   # POST /notes

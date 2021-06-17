@@ -17,7 +17,7 @@
   <%= form.text_field :currency_id, value:@note.currency_id %> 
 <%
 =end%>
-<%= form.label "Okres Wystepowania" %>
+        <%= form.label "Okres Wystepowania" %>
         <% form.text_field :currency_id, class:"form-control form-control-sm" %>
         <%= form.select :currency_id, @currencies.all.map { |b| [b.currency_series, b.id]}, {:include => ""}, class:"form-control  form-control-sm" %>
 </div>

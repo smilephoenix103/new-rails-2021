@@ -1,14 +1,19 @@
-<div class="container row">
-	<div class="col-md-2">
+<div  class="card  text-white bg-info">  
+  <div class="container">
+    <div class="container row">
+      <div class="col-md-2">
+      <div class="header">
         <h3>New Bond</h3>
-	</div>
-	<div class="col-md-8">
-		<%= render 'renders/show_flag_country' %>
-	</div>			
-	<div class="col-md-2">
-	</div>
+      </div>
+      </div>
+      <div class="col-md-8">
+        <%= render 'renders/show_flag_country' %>
+      </div>			
+      <div class="col-md-2">
+      </div>
+    </div>
+  </div>  
 </div>
-
 <%= render 'form', bond: @bond %>
 
 <%

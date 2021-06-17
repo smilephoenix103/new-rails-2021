@@ -55,6 +55,8 @@ class BondsController < ApplicationController
     puts "****************** test dodawania obligacji ********************************"
     puts params[:currency_id]
 
+    @currencies = currency_series(@bond, "BOND")
+
     @boughts = Bought.all
     @statuses = ElementSelect.statuses
     @makings = ElementSelect.makings
@@ -81,6 +83,8 @@ class BondsController < ApplicationController
 
   # GET /bonds/1/edit
   def edit
+    @currencies = currency_series(@bond, "BOND")
+
     @boughts = Bought.all
     @statuses = ElementSelect.statuses
     @img_types = ElementSelect.img_types
