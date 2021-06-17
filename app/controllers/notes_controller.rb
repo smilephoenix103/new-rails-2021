@@ -84,7 +84,7 @@ class NotesController < ApplicationController
     @note.currency_id = params[:currency_id]
 
     puts @note.currency.country.id
-    @currencies = Currency.where(country_id: @note.currency.country.id, pattern: "NOTE")
+    @currencies = Currency.where(country_id: @note.currency.country.id, pattern: "NOTE").order(currency_series: :asc)
     @currencies.each do |c|
       puts c.id.to_s + " - " + c.pattern
     end
@@ -116,7 +116,7 @@ class NotesController < ApplicationController
 
   # GET /notes/1/edit
   def edit
-    @currencies = Currency.where(country_id: @note.currency.country.id, pattern: "NOTE")
+    @currencies = Currency.where(country_id: @note.currency.country.id, pattern: "NOTE").order(currency_series: :asc)
 
     @statuses = ElementSelect.statuses
     @makings = ElementSelect.makings
