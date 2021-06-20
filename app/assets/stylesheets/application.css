@@ -378,9 +378,10 @@ div {
   }
   .page-item.active .page-link
   {
-	  background-color: black;
-	  color: wheat;
-	  border-color: #dee2e6;
+	z-index: 0;
+	background-color: black;
+	color: wheat;
+	border-color: #dee2e6;
   }
   .page-item.disabled .page-link
   {
