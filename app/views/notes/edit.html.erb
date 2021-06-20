@@ -17,5 +17,5 @@
 <div class="container">
     <!-- <%= link_to 'Back', notes_path %> -->
     <%= link_to (render 'renders/button_back'), note_show_currency_path(@note.currency_id), class:"btn btn-sm btn-secondary" %>
-    <%= link_to 'Show', @note, class:"btn btn-sm btn-info" %> 
+    <%= link_to (render 'renders/button_show'), @note, class:"btn btn-sm btn-info" %> 
 </div>

@@ -35,22 +35,22 @@
               <%= number_to_currency(note.denomination.to_s, unit: "", separator: ".", delimiter: " ", precision: 2, strip_insignificant_zeros: true, format: "%n %u") + " " + note.name_currency %>
             <% end %>
           </strong><br/>
-          <b>Data: </b> <%= note.note_date %><br/>
-          <B>Making: </B> <%= note.making %><br/>
-          <B>Quality: </B> <%= note.quality %><br/>
-          <B>Quantity: </B> <%= note.quantity %><br/>
+          <b><%= t('activerecord.attributes.note.note_date') + ":" %></b> <%= note.note_date %><br/>
+          <B><%= t('activerecord.attributes.note.making') + ":" %></B> <%= note.making %><br/>
+          <B><%= t('activerecord.attributes.note.quality') + ":" %></B> <%= note.quality %><br/>
+          <B><%= t('activerecord.attributes.note.quantity') + ":" %></B> <%= note.quantity %><br/>
           <% if user_signed_in? && current_user.role == 'admin' %>
-            <b>Price Buy: </b>
+            <b><%= t('activerecord.attributes.note.price_buy') + ":" %></b>
               <% note.price_buy.to_s + "zł/szt" %>
               <%= number_to_currency(note.price_buy, unit: "zł", separator: ".", delimiter: " ", precision: 0, strip_insignificant_zeros: true, format: "%n %u") %>              
               <br/>
           <% end %>
-            <b>Price: </b> 
+            <b><%= t('activerecord.attributes.note.price_sell') + ":" %></b> 
               <% note.price_sell.to_s + "zł/szt" %>
               <%= number_to_currency(note.price_sell, unit: "zł", separator: ".", delimiter: " ", precision: 0, strip_insignificant_zeros: true, format: "%n %u") %>
               <br/>
               <%= render "renders/shipping" %>
-            <b>Description:</b><br/>
+            <b><%= t('activerecord.attributes.note.description') + ":" %></b><br/>
             <%= note.description %>
         </div>
 

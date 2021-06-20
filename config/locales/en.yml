@@ -66,6 +66,9 @@ en:
       country:
         create: "Add Country"
         update: "Update Country"
+      note:
+        create: "Add Note"
+        update: "Update Note"
   activerecord:
     attributes:
       country:
@@ -78,6 +81,37 @@ en:
         numeric_code: "Numeric code"
         iso_code: "Iso code"
         exists: "Exists"
+      note:
+        denomination: "Denomination"
+        name_currency: "Name Currency"
+        note_date: "Date"
+        signature_code: "Signature"
+        price_buy: "Price Buy"
+        price_sell: "Price"
+        quantity: "Quantity"
+        quality: "Quality"
+        status: "Status"
+        description: "Description"
+        img_type: "Image Type"
+        avers_path: "Avers Path"
+        reverse_path: "Reverse Path"
+        series: "Series"
+        making: "Making"
+        date_buy_note: "Date Buy Note"
+        bought: "Bought"
+        status_sell: "Status Sell"
+      currency:
+        currency_series: "Currency Series"
+    errors:
+      models:
+        note:
+          attributes:
+            making:
+              blank: " - Can't be blank!"
+            status: 
+              blank: " - Can't be blank!"    
+            img_type:
+              blank: " - Can't be blank!"
   tables:
     country:
       headers:
@@ -104,3 +138,7 @@ en:
       - :year
       - :month
       - :day
+
+  shipping_cost: "Shipping Cost"
+  priority_registered_letter_pl : "Priority registered letter (Poland)"
+  possible_personal_collection: "Possible personal collection"

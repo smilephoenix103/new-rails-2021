@@ -79,6 +79,9 @@ class NotesController < ApplicationController
   # GET /notes/new
   def new
     @note = Note.new
+    @note.price_buy = 0.0
+    @note.price_sell = 0.0
+    $noteNew = @note
     puts "@@@@@@@@@@@@@TEST@@@@@@@@@@@@@@@@@"
     puts params[:currency_id]
     @note.currency_id = params[:currency_id]
@@ -86,6 +89,7 @@ class NotesController < ApplicationController
     puts @note.currency.country.id
     # @currencies = Currency.where(country_id: @note.currency.country.id, pattern: "NOTE").order(currency_series: :asc)
     @currencies = currency_series(@note, "NOTE")
+    puts @currencies.inspect
     puts "@@@@@@@@@@@@@TEST@@@@@@@@@@@@@@@@@"
 
     @boughts = Bought.all
@@ -131,8 +135,10 @@ class NotesController < ApplicationController
   # POST /notes
   # POST /notes.json
   def create
+    @currencies = currency_series($noteNew, "NOTE")
     @note = Note.new(note_params)
     puts @note.inspect
+    puts "!!!!!!!!!!!!!!!!!!!!!!!!!!((((((((((((((((())))))))))))))))))))))))!!!!!!!!!!!!!!!!!!!!!!!!!"
 
     respond_to do |format|
       if @note.save
@@ -153,6 +159,7 @@ class NotesController < ApplicationController
   # PATCH/PUT /notes/1
   # PATCH/PUT /notes/1.json
   def update
+    @currencies = currency_series($noteNew, "NOTE")
     respond_to do |format|
       if @note.update(note_params)
         @currency = Currency.find(@note.currency_id)

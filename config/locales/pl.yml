@@ -35,6 +35,9 @@ pl:
       country:
         create: "Dodaj Państwo"
         update: "Zapisz zmiany"
+      note:
+        create: "Dodaj Banknot"
+        update: "Zapisz zmiany"
   activerecord:
     attributes:
       country:
@@ -47,6 +50,37 @@ pl:
         numeric_code: "Kod numeryczny"
         iso_code: "Kod Iso"
         exists: "Istnieje"
+      note:
+        denomination: "Nominał"
+        name_currency: "Nazwa Waluty"
+        note_date: "Data"
+        signature_code: "Sygnatura"
+        price_buy: "Cena Kupna"
+        price_sell: "Sprzedaż"
+        quantity: "Ilość"
+        quality: "Stan"
+        status: "Status"
+        description: "Opis"
+        img_type: "Typ obrazka"
+        avers_path: "Avers Ścieżka"
+        reverse_path: "Reverse Ścieżka"
+        series: "Seria"
+        making: "Materiał"
+        date_buy_note: "Data Zakupu Banknotu"
+        bought: "Kupiony"
+        status_sell: "Status Sprzedaży"
+      currency:
+        currency_series: "Okres Występowania"
+    errors:
+      models:
+        note:
+          attributes:
+            making:
+              blank: " - Pole nie może być puste!"
+            status: 
+              blank: " - Pole nie może być puste!"    
+            img_type:
+              blank: " - Pole nie może być puste!"
   tables:
     country:
       headers:
@@ -73,3 +107,6 @@ pl:
       - :year
       - :month
       - :day
+  shipping_cost: "Koszty Dostawy"
+  priority_registered_letter_pl : "List Polecony Priorytet (Polska)"
+  possible_personal_collection: "Możliwy odbiór osobisty"
