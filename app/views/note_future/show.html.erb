@@ -1,0 +1,64 @@
+<h2>NOTE FUTURE</h2>
+<h4>Ilość banknotów: <%= @notes.size %></h4>
+  <% @notes.each do |note| %>
+    <div class="container row bg-sell" style="border-bottom: solid;border-color: darkgray;">      
+        <div class="page-header col-md-1" style="border-right: solid;border-color: darkgray;">
+            <B>Id: </B>	<%= note.id %>
+        </div>
+        <div class="col-md-3">	       
+        	<% if (note.avers_path.length > 200) %>
+            	<%= image_tag(note.avers_path, :alt => "AVERSE" , style:"width:100%") %>
+            <% else %>
+            	<%= note.avers_path %>
+            <% end %> 
+              <hr class="my-2">
+        	  <% if (note.reverse_path.length > 200) %>
+            	<%= image_tag(note.reverse_path, :alt => "REVERSE" , style:"width:100%") %>
+            <% else %>
+            	<%= note.reverse_path %>
+            <% end %>      
+        </div>
+      
+        <div class="page-header col-md-6" >
+          <strong  style="color:black; font-size:20px">
+            <%= note.currency.country.country_en + ": " %>
+            <% if note.denomination >= 1 %>
+              <% number_to_currency(note.denomination, delimiter: " ", unit: "", precision: 0) + " " + note.name_currency %>
+              <%= number_to_currency(note.denomination.to_s, unit: "", separator: ".", delimiter: " ", precision: 0, strip_insignificant_zeros: true, format: "%n %u") + " " + note.name_currency %>
+            <% else %>
+              <% number_to_currency(note.denomination, delimiter: " ", unit: "zł", precision: 2) + " " + note.name_currency %>
+              <%= number_to_currency(note.denomination.to_s, unit: "", separator: ".", delimiter: " ", precision: 2, strip_insignificant_zeros: true, format: "%n %u") + " " + note.name_currency %>
+            <% end %>
+          </strong><br/>
+          <b><%= t('activerecord.attributes.note.note_date') + ":" %></b> <%= note.note_date %><br/>
+          <B><%= t('activerecord.attributes.note.making') + ":" %></B> <%= note.making %><br/>
+          <B><%= t('activerecord.attributes.note.quality') + ":" %></B> <%= note.quality %><br/>
+          <B><%= t('activerecord.attributes.note.quantity') + ":" %></B> <%= note.quantity %><br/>
+          <% if user_signed_in? && current_user.role == 'admin' %>
+            <b><%= t('activerecord.attributes.note.price_buy') + ":" %></b>
+              <% note.price_buy.to_s + "zł/szt" %>
+              <%= number_to_currency(note.price_buy, unit: "zł", separator: ".", delimiter: " ", precision: 0, strip_insignificant_zeros: true, format: "%n %u") %>              
+              <br/>
+          <% end %>
+            <%
+=begin%>
+ <b><%= t('activerecord.attributes.note.price_sell') + ":" %></b> 
+              <% note.price_sell.to_s + "zł/szt" %>
+              <%= number_to_currency(note.price_sell, unit: "zł", separator: ".", delimiter: " ", precision: 0, strip_insignificant_zeros: true, format: "%n %u") %>
+              <br/> 
+<%
+=end%>
+              
+            <b><%= t('activerecord.attributes.note.description') + ":" %></b><br/>
+            <%= note.description %>
+        </div>
+
+        <% if user_signed_in? && (current_user.role == 'admin' || current_user.role == 's_user') %>     
+          <div class="page-header col-md-2" style="border-left: solid;border-color: darkgray;">
+            <td><%= link_to (render 'renders/button_edit'), edit_note_path(note), class:"btn btn-primary btn-sm" %></td>
+          </div>
+        <% end %>
+      
+    </div>
+  <% end %>
+

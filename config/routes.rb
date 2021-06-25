@@ -40,6 +40,7 @@ Rails.application.routes.draw do
     resources :coin_new, only: [:index, :show]
     resources :note_collection, only: [:index, :show]
     resources :coin_for_sell, only: [:index, :show]
+    resources :note_future, only: [:index, :show]
     resources :coin_collection, only: [:index, :show]
     resources :bond_collection, only: [:index, :show]
     get 'coin_collection/show_coins/:id', to: 'coin_collection#show_coins', as: 'show_coins'
