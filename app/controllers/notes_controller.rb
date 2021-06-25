@@ -1,6 +1,8 @@
 class NotesController < ApplicationController
   before_action :set_note, only: [:show, :edit, :update, :destroy]
-  before_action :require_admin_logged_in!
+  before_action :set_role
+  before_action :set_role_status, only: [:edit]
+  before_action :require_admin_logged_in!, only: [:show, :new, :create, :destroy]
 
   # require 'List_element'
 
@@ -164,9 +166,18 @@ class NotesController < ApplicationController
     puts "!!!!!!!!!!!!!!!!!!!!!!!!!!(((((((((((((((((END UPDATE))))))))))))))))))))))))!!!!!!!!!!!!!!!!!!!!!!!!!"
     respond_to do |format|
       if @note.update(note_params)
-        @currency = Currency.find(@note.currency_id)
-        format.html { redirect_to note_show_currency_path(@currency), notice: 'Note was successfully updated.' }
-        format.json { render :show, status: :ok, location: @note }
+        if (@note.status == "FUTURE")
+          puts "&&&&&&&&&&&&&&&&&TEST FUTURE UPDATE&&&&&&&&&&&&&&&&&&&"
+          puts @note.currency.country.id
+          @currency = Currency.find(@note.currency_id)
+          # format.html { redirect_to note_show_currency_path(@currency), notice: 'Note was successfully updated.' }
+          format.html { redirect_to note_future_path(@note.currency.country), notice: 'Note was successfully updated.' }
+
+        else
+          @currency = Currency.find(@note.currency_id)
+          format.html { redirect_to note_show_currency_path(@currency), notice: 'Note was successfully updated.' }
+          format.json { render :show, status: :ok, location: @note }
+        end
       else
         @statuses = ElementSelect.statuses
         @makings = ElementSelect.makings
@@ -199,5 +210,28 @@ class NotesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def note_params
       params.require(:note).permit(:currency_id, :denomination, :name_currency, :note_date, :signature_code, :price_buy, :price_sell, :quantity, :quality, :status, :description, :img_type, :avers_path, :reverse_path, :series, :making, :date_buy_note, :bought, :status_sell)
+    end
+
+    def set_role
+      if (current_user == nil)
+          redirect_to root_path
+      elsif (current_user.role == 'admin' || current_user.role == 's_user')
+          puts "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^TEST^^^^^^^^^^^^^^^^^^^^^^^"
+          puts @note.inspect
+          puts "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^END TEST^^^^^^^^^^^^^^^^^"
+          return true
+      else
+          redirect_to root_path
+      end
+    end
+
+    def set_role_status
+      if (current_user == nil)
+        redirect_to root_path
+      elsif ((current_user.role == 's_user' && @note.status == "FUTURE") || (current_user.role == 'admin'))
+        return
+      else
+        redirect_to root_path
+      end
     end
 end
