@@ -10,5 +10,4 @@ module CurrenciesHelper
     def currency_series(object, pattern)
         currencies = Currency.where(country_id: object.currency.country.id, pattern: pattern).order(currency_series: :asc)
     end
-
 end
