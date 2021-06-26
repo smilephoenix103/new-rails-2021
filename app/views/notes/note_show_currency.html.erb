@@ -63,7 +63,7 @@
             <td><%= note.price_buy %></td>
             <td><%= note.price_sell %></td>
             <td>        
-                <% if (note.avers_path.length > 200) %>
+                <% if (note.avers_path.length > 80) %>
                 <div class="show-note">
                     <%= link_to (image_tag(note.avers_path, :alt => "AVERSE" , style:"width:40%;height:50%")), note_path(note) %>
                     <%= link_to (image_tag(note.reverse_path, :alt => "REVERSE" , style:"width:40%;height:50%")), note_path(note) %>

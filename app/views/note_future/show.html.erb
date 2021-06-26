@@ -6,13 +6,13 @@
             <B>Id: </B>	<%= note.id %>
         </div>
         <div class="col-md-3">	       
-        	<% if (note.avers_path.length > 200) %>
+        	<% if (note.avers_path.length > 80) %>
             	<%= image_tag(note.avers_path, :alt => "AVERSE" , style:"width:100%") %>
             <% else %>
             	<%= note.avers_path %>
             <% end %> 
               <hr class="my-2">
-        	  <% if (note.reverse_path.length > 200) %>
+        	  <% if (note.reverse_path.length > 80) %>
             	<%= image_tag(note.reverse_path, :alt => "REVERSE" , style:"width:100%") %>
             <% else %>
             	<%= note.reverse_path %>
@@ -50,7 +50,9 @@
 =end%>
               
             <b><%= t('activerecord.attributes.note.description') + ":" %></b><br/>
-            <%= note.description %>
+            <% note.description %>
+            <%= text_area_tag(:ad, note.description, size: '50x5', :readonly => true, 
+                                                    style:"background-color:darkgray; max-height: 100px; padding-left: 5px;")  %>
         </div>
 
         <% if user_signed_in? && (current_user.role == 'admin' || current_user.role == 's_user') %>     
