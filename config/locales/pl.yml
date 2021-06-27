@@ -110,3 +110,4 @@ pl:
   shipping_cost: "Koszty Dostawy"
   priority_registered_letter_pl : "List Polecony Priorytet (Polska)"
   possible_personal_collection: "Możliwy odbiór osobisty"
+  pieces: "szt"

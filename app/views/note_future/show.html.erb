@@ -33,7 +33,11 @@
           <b><%= t('activerecord.attributes.note.note_date') + ":" %></b> <%= note.note_date %><br/>
           <B><%= t('activerecord.attributes.note.making') + ":" %></B> <%= note.making %><br/>
           <B><%= t('activerecord.attributes.note.quality') + ":" %></B> <%= note.quality %><br/>
-          <B><%= t('activerecord.attributes.note.quantity') + ":" %></B> <%= note.quantity %><br/>
+          <B><%= t('activerecord.attributes.note.quantity') + ":" %></B> <%= note.quantity %>
+            <% if (note.quantity != nil && note.quantity > 0) %>
+              <%= t('pieces') %>
+            <% end %>
+            <br/>
           <% if user_signed_in? && (current_user.role == 'admin' || current_user.role == 's_user') %>
             <b><%= t('activerecord.attributes.note.price_buy') + ":" %></b>
               <% note.price_buy.to_s + "zł/szt" %>
@@ -51,8 +55,7 @@
               
             <b><%= t('activerecord.attributes.note.description') + ":" %></b><br/>
             <% note.description %>
-            <%= text_area_tag(:ad, note.description, size: '50x5', :readonly => true, 
-                                                    style:"background-color:darkgray; max-height: 100px; padding-left: 5px;")  %>
+            <%= text_area_tag(:ad, note.description, rows: 4, :readonly => true, class:"textarea-note-future")  %>
         </div>
 
         <% if user_signed_in? && (current_user.role == 'admin' || current_user.role == 's_user') %>     
