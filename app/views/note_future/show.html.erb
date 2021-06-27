@@ -37,7 +37,7 @@
           <% if user_signed_in? && (current_user.role == 'admin' || current_user.role == 's_user') %>
             <b><%= t('activerecord.attributes.note.price_buy') + ":" %></b>
               <% note.price_buy.to_s + "zł/szt" %>
-              <%= number_to_currency(note.price_buy, unit: "£", separator: ".", delimiter: " ", precision: 2, strip_insignificant_zeros: true, format: "%n %u") %>              
+              <%= number_to_currency(note.price_buy, unit: "£", separator: ".", delimiter: " ", precision: 2, format: "%u%n") %>
               <br/>
           <% end %>
             <%
