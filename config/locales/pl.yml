@@ -81,6 +81,12 @@ pl:
               blank: " - Pole nie może być puste!"    
             img_type:
               blank: " - Pole nie może być puste!"
+            price_buy:
+              blank: " - Pole nie może być puste!"
+              not_a_number: " - Podana wartość nie jest liczbą"
+            price_sell:
+              blank: " - Pole nie może być puste!"
+              not_a_number: " - Podana wartość nie jest liczbą"
   tables:
     country:
       headers:
@@ -111,3 +117,7 @@ pl:
   priority_registered_letter_pl : "List Polecony Priorytet (Polska)"
   possible_personal_collection: "Możliwy odbiór osobisty"
   pieces: "szt"
+  note_future_list: "Lista Zamówionych Banknotów"
+  country: "Państwo"
+  note: "Banknot"
+  price: "Cena"

@@ -76,6 +76,10 @@ Rails.application.routes.draw do
     # Note for sell
     get 'note_for_sell_list', to: 'note_for_sell#note_for_sell_list'
 
+    # Note Future
+    get 'note_future_list', to: 'note_future#note_future_list'
+
+
     resources :countries do
       resources :currencies
     end 

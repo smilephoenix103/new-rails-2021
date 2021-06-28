@@ -112,6 +112,12 @@ en:
               blank: " - Can't be blank!"    
             img_type:
               blank: " - Can't be blank!"
+            price_buy:
+              blank: " - Can't be blank!"
+              not_a_number: " - Is not a number"
+            price_sell:
+              blank: " - Can't be blank!"
+              not_a_number: " - Is not a number"
   tables:
     country:
       headers:
@@ -143,3 +149,7 @@ en:
   priority_registered_letter_pl : "Priority registered letter (Poland)"
   possible_personal_collection: "Possible personal collection"
   pieces: "pcs"
+  note_future_list: "Note Future List"
+  country: "Country"
+  note: 'Note'
+  price: "Price"

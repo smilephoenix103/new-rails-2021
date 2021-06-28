@@ -11,6 +11,15 @@ class NoteFutureController < ApplicationController
         @notes = colection_notes_status(params[:id], "FUTURE")
     end
 
+    def note_future_list
+        @notes = Note.where("price_buy > 0 AND status = 'FUTURE'")
+	    @note_future_list1 = @notes.sort_by {|note| [note.currency.country.country_en, note.denomination ] }
+
+        @notes = Note.where("price_buy = 0 AND status = 'FUTURE'")
+        @note_future_list2 = @notes.sort_by {|note| [note.currency.country.country_en, note.denomination ] }
+
+    end
+
     private
     def set_role
         if (current_user == nil)
