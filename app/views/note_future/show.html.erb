@@ -1,7 +1,7 @@
 <div>
   <h2>NOTE FUTURE</h2>
   <h4>Ilość banknotów: <%= @notes.size %></h4>
-  <%= link_to t('note_future_list'), note_future_list_path %>
+  <%= link_to t('note_future_list'), note_future_list_path,class:"btn btn-sm btn-info" %>
 </div>
   <% @notes.each do |note| %>
     <div class="container row bg-sell" style="border-bottom: solid;border-color: darkgray;">      
@@ -10,13 +10,13 @@
         </div>
         <div class="col-md-3">	       
         	<% if (note.avers_path.length > 80) %>
-            	<%= image_tag(note.avers_path, :alt => "AVERSE" , style:"width:100%") %>
+            	<%= link_to (image_tag(note.avers_path, :alt => "AVERSE" , style:"width:100%")), show_note_future_path(note) %>
             <% else %>
             	<%= note.avers_path %>
             <% end %> 
               <hr class="my-2">
         	  <% if (note.reverse_path.length > 80) %>
-            	<%= image_tag(note.reverse_path, :alt => "REVERSE" , style:"width:100%") %>
+            	<%= link_to (image_tag(note.reverse_path, :alt => "REVERSE" , style:"width:100%")), show_note_future_path(note) %>
             <% else %>
             	<%= note.reverse_path %>
             <% end %>      

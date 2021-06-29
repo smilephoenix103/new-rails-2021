@@ -2,7 +2,7 @@ class NotesController < ApplicationController
   before_action :set_note, only: [:show, :edit, :update, :destroy]
   before_action :set_role
   before_action :set_role_status, only: [:edit]
-  before_action :require_admin_logged_in!, only: [:show, :new, :create, :destroy]
+  before_action :require_admin_logged_in!, only: [:show, :new, :create, :destroy, :note_show_currency, :note_currencies]
 
   # require 'List_element'
 

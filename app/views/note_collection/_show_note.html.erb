@@ -5,20 +5,25 @@
   <h1 class="display-4" id="notice"></h1>
   <div class="container">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4", style="font-size: small;">
-    <% if user_signed_in? && current_user.role == 'admin' %>
+    <% if user_signed_in? && (current_user.role == 'admin' || current_user.role == 's_user') %>
       <div class="col">
         <strong>Data zakupu:</strong>
         <%= @note.date_buy_note %>
       </div>  
+    <% end %>
+    <% if user_signed_in? && current_user.role == 'admin' %>
       <div class="col">
         <strong>Miejsce zakupu:</strong>
         <%= @note.bought %>
       </div>
+    <% end %>
+    <% if user_signed_in? && (current_user.role == 'admin' || current_user.role == 's_user') %>
       <div class="col">
         <strong>cena zakupu:</strong>
-        <%= @note.price_buy.to_s + "zł" %>
+        <%= number_to_currency(@note.price_buy, unit:"", precision: 2, format: "%n %u") %>
       </div>
-      
+    <% end %>
+    <% if user_signed_in? && (current_user.role == 'admin') %>
       <div class="col">
         <strong>Cena:</strong>
         <%= @note.price_sell.to_s + "zł" %>

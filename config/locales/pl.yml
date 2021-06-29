@@ -121,3 +121,4 @@ pl:
   country: "Państwo"
   note: "Banknot"
   price: "Cena"
+  to_list: " Do Listy"

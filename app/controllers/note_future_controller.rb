@@ -17,7 +17,14 @@ class NoteFutureController < ApplicationController
 
         @notes = Note.where("price_buy = 0 AND status = 'FUTURE'")
         @note_future_list2 = @notes.sort_by {|note| [note.currency.country.country_en, note.denomination ] }
+    end
 
+    def show_note_future
+        puts "()()()()()()()()()()()()()()()"
+        puts params[:id]
+        @note = Note.find(params[:id])
+        @country = @note.currency.country
+        puts @note.inspect
     end
 
     private

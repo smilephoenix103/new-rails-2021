@@ -78,6 +78,7 @@ Rails.application.routes.draw do
 
     # Note Future
     get 'note_future_list', to: 'note_future#note_future_list'
+    get 'note_future/show_note_future/:id', to: 'note_future#show_note_future', as: 'show_note_future'
 
 
     resources :countries do

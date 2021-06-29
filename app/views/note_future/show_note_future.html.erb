@@ -1,0 +1,32 @@
+<h1>Show Note Future</h1>
+<p id="notice"><%= notice %></p>
+<div class="jumbotron">
+  <div class="container row">
+		<div class="col-md-2">
+		</div>
+		<div class="col-md-8">
+			<%= render 'renders/show_flag_country' %>
+		</div>			
+		<div class="col-md-2">
+		</div>
+  </div>
+  <%= render 'note_collection/show_note' %>
+  <div>
+    <% if user_signed_in? && (current_user.role == 'admin' || current_user.role == 's_user') %>
+      <div style="float: left">
+        <%= link_to (render 'renders/button_back'), note_future_path(@note.currency.country), class:"btn btn-sm btn-secondary" %>
+        <%= link_to (render 'renders/button_edit'), edit_note_path(@note), class:"btn btn-primary btn-sm" %> 
+      </div>
+    <% end %>
+    <div style="float:right">
+          <%= link_to ((render 'renders/button_back') + t('to_list')) , note_future_list_path, class:"btn btn-outline-info btn-sm" %> 
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
