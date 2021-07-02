@@ -1,16 +1,18 @@
-<h1>LISTS NOTE FOR SELL</h1>
+<div style="text-align:center">
+  <h1><%= t('list_banknotes_for_sale') %></h1>
+</div>
 <table class="table table-striped table-bordered table-hover table-sm table-fs">
     <thead class="thead-dark">
     <tr>
         <th>Lp.</th>
-        <th>Country</th>
-        <th>Denomination</th>
-        <th>Year</th>
-        <th>Making</th>
-        <th>Qoulity</th>
-        <th>Quantity
-        <th>Price Buy</th>
-        <th>Price Sell</th>
+        <th><%= t('country') %></th>
+        <th><%= t('note') %></th>
+        <th><%= t('year') %></th>
+        <th><%= t('activerecord.attributes.note.making') %></th>
+        <th><%= t('activerecord.attributes.note.quality') %></th>
+        <th style="text-align: right"><%= t('activerecord.attributes.note.quantity') %></th>
+        <th style="text-align: right"><%= t('activerecord.attributes.note.price_buy') %></th>
+        <th style="text-align: right"><%= t('price') %></th>
     </tr>
   </thead>
 
@@ -23,9 +25,21 @@
             <td><%= note.note_date %></td>
             <td><%= note.making %></td>
             <td><%= note.quality %></td>
-            <td><%= note.quantity %></td>
-            <td class="price buy"><%= number_to_currency(note.price_buy, unit:"zł", precision: 2, format: "%n %u") %></td>
-            <td class="price sell"><%=  number_to_currency(note.price_sell, unit:"zł", precision: 2, format: "%n %u") %></td>
+            <td style="text-align:right"><%= note.quantity %> szt</td>
+            <td class="price buy">
+              <% if( note.quantity > 1) %>
+                <%= number_to_currency(note.price_buy, unit:"zł/szt", precision: 2, format: "%n %u") %>
+              <% else %>
+                <%= number_to_currency(note.price_buy, unit:"zł", precision: 2, format: "%n %u") %>
+              <% end %>
+            </td>
+            <td class="price sell">
+              <% if( note.quantity > 1) %>
+                <%= number_to_currency(note.price_sell, unit:"zł/szt", precision: 2, format: "%n %u") %>
+              <% else %>
+                <%= number_to_currency(note.price_sell, unit:"zł", precision: 2, format: "%n %u") %>
+              <% end %>
+            </td>
         </tr>
     <% end %>
   </tbody>

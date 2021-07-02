@@ -11,7 +11,10 @@ pl:
       note_sold: "Sprzedane Banknoty"
       note_for_sell_list: "Lista Banknotów Na Sprzedaż"
       note_for_sell: "Banknoty Na Sprzedaż"
+      note_for_sell_list: "Lista Banknotów Na Sprzedaż"
       collection: "Kolekcja"
+      note_future: "Przyszłe Banknoty"
+      note_future_list: "Lista Przyszłych Banknotów"
     coin:
       coin: "Monety"
       add_coin: "Dodaj Monetę"
@@ -118,7 +121,10 @@ pl:
   possible_personal_collection: "Możliwy odbiór osobisty"
   pieces: "szt"
   note_future_list: "Lista Zamówionych Banknotów"
+  list_banknotes_for_sale: "Lista banknotów na sprzedaż"
+  list_countries_note_for_sell: "Lista państw (banknoty na sprzedaż)"
   country: "Państwo"
   note: "Banknot"
+  year: 'Rok'
   price: "Cena"
   to_list: " Do Listy"
