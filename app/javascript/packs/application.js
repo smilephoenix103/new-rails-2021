@@ -33,7 +33,9 @@ document.addEventListener('turbolinks:load', () => {
     console.log(myReport);
 
     const root = location.protocol + '//' + location.host;
-    console.log(root);
+    
+    // const lang = document.querySelector("#lang").dataset.chart;
+    // console.log(root + lang);
 
     // const chartUrl =  "http://localhost:3000/reports_kit/reports.json?report_params[key]=my_reports&properties={}";
     const chartUrl = root + "/reports_kit/reports.json?report_params[key]=" + myReport + "&properties={}";

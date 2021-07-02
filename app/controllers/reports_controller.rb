@@ -31,6 +31,19 @@ class ReportsController < ApplicationController
     @report = Report.all
   	select_char
     select_report
+    @extract_locale = extract_locale
+    puts "+++++++++++++++++++++++++++++++TEST URL ++++++++++++++++++++++++++++++"
+    puts select_report
+    puts select_char
+    puts request.original_url
+    puts "****EXTRACT LOCALE*****"
+    if (@extract_locale == nil)
+      @extract_locale = params[:extract_locale]
+    end
+    puts @extract_locale
+    puts params[:extract_locale]
+    puts "+++++++++++++++++++++++++++++END TEST+++++++++++++++++++++++++++++++++"
+
   end
 
   # POST /reports
