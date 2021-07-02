@@ -31,7 +31,7 @@
               <% number_to_currency(note.denomination, delimiter: " ", unit: "", precision: 0) + " " + note.name_currency %>
               <%= number_to_currency(note.denomination.to_s, unit: "", separator: ".", delimiter: " ", precision: 0, strip_insignificant_zeros: true, format: "%n %u") + " " + note.name_currency %>
             <% else %>
-              <% number_to_currency(note.denomination, delimiter: " ", unit: "zł", precision: 2) + " " + note.name_currency %>
+              <% number_to_currency(note.denomination, delimiter: " ", unit: "", precision: 2) + " " + note.name_currency %>
               <%= number_to_currency(note.denomination.to_s, unit: "", separator: ".", delimiter: " ", precision: 2, strip_insignificant_zeros: true, format: "%n %u") + " " + note.name_currency %>
             <% end %>
           </strong><br/>
@@ -45,13 +45,19 @@
               <%= number_to_currency(note.price_buy, unit: "zł", separator: ".", delimiter: " ", precision: 0, strip_insignificant_zeros: true, format: "%n %u") %>              
               <br/>
           <% end %>
-            <b><%= t('activerecord.attributes.note.price_sell') + ":" %></b> 
+            <b><%= t('price') + ":" %></b> 
               <% note.price_sell.to_s + "zł/szt" %>
-              <%= number_to_currency(note.price_sell, unit: "zł", separator: ".", delimiter: " ", precision: 0, strip_insignificant_zeros: true, format: "%n %u") %>
+              <% if(note.quantity > 1) %>
+                <%= number_to_currency(note.price_sell, unit: "zł/szt", separator: ".", delimiter: " ", precision: 2, strip_insignificant_zeros: false, format: "%n %u") %>
+              <% else %>
+                <%= number_to_currency(note.price_sell, unit: "zł", separator: ".", delimiter: " ", precision: 2, strip_insignificant_zeros: false, format: "%n %u") %>
+              <% end %>
               <br/>
               <%= render "renders/shipping" %>
             <b><%= t('activerecord.attributes.note.description') + ":" %></b><br/>
-            <%= note.description %>
+            <% note.description %>
+            <%= text_area_tag(:ad, note.description, rows: 4, :readonly => true, class:"textarea-note-future")  %>
+
         </div>
 
         <% if user_signed_in? && current_user.role == 'admin' %>     

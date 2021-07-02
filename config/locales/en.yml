@@ -42,7 +42,10 @@ en:
       note_sold: "Note Sold"
       note_for_sell_list: "Note For Sell List"
       note_for_sell: "Note For Sell"
+      note_for_sell_list: "Note For Sell List"
       collection: "Collection"
+      note_future: "Note Future"
+      note_future_list: "Note Future List"
     coin:
       coin: "Coins"
       add_coin: "Add Coin"
@@ -150,7 +153,10 @@ en:
   possible_personal_collection: "Possible personal collection"
   pieces: "pcs"
   note_future_list: "Note Future List"
+  list_banknotes_for_sale: "List of banknotes for sale"
+  list_countries_note_for_sell: "List of countries (banknotes for sale)"
   country: "Country"
   note: 'Note'
+  year: 'Year'
   price: "Price"
   to_list: " To List"
