@@ -34,10 +34,7 @@
                   <%= link_to t('menu.note.note_for_sell'), note_for_sell_index_path, class:"nav-link" %>
                   <%= link_to t('menu.note.collection'), note_collection_index_path, class:"nav-link" %>
               <% end %>
-              <% if user_signed_in? && (current_user.role == 'admin' || current_user.role == 's_user') %>
-                <%= link_to t('menu.note.note_future'), note_future_index_path, class:"nav-link" %>
-                <%= link_to t('menu.note.note_future_list'), note_future_list_path, class:'nav-link' %>
-              <% end %>
+              
             </div>
           </div>
         <% end %>
@@ -76,6 +73,17 @@
           </div>
         <% end %>
       </li>
+      <% if user_signed_in? && (current_user.role == 'admin' || current_user.role == 's_user') %>
+        <li>          
+              <div class="dropdown nav-link">
+                <button class="dropbtn dropdown-toggle"><%= t 'menu.future.future' %></button>
+                  <div class="dropdown-content">
+                    <%= link_to t('menu.future.note_future'), note_future_index_path, class:"nav-link" %>
+                    <%= link_to t('menu.future.note_future_list'), note_future_list_path, class:'nav-link' %>             
+                  </div>
+              </div>        
+        </li>
+      <% end %>
         <li class="nav-item"> 
           <% if user_signed_in? && current_user.role == 'admin' %>
             <div class="dropdown nav-link ">

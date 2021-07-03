@@ -44,8 +44,6 @@ en:
       note_for_sell: "Note For Sell"
       note_for_sell_list: "Note For Sell List"
       collection: "Collection"
-      note_future: "Note Future"
-      note_future_list: "Note Future List"
     coin:
       coin: "Coins"
       add_coin: "Add Coin"
@@ -57,6 +55,10 @@ en:
       bond: "Bonds"
       add_bond: "Add Bond"
       collection: "Collection"
+    future:
+      future: "Future"
+      note_future: "Note Future"
+      note_future_list: "Note Future List"
     set:
       set: "Sets"
       reports: "Reports"
