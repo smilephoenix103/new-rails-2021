@@ -22,5 +22,10 @@
             <%= link_to (render 'renders/button_back'), show_note_path(@note.currency_id), class:"btn btn-outline-info btn-sm" %> 
       </div>
     <% end %>
+    <% if @note.status == "FOR SELL" %>
+      <div style="float:right">
+            <%= link_to (render 'renders/button_back') + " Back To List", note_for_sell_list_path, class:"btn btn-outline-info btn-sm" %> 
+      </div>
+    <% end %>
   </div>
 </div>
