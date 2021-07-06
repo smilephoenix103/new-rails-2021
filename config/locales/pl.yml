@@ -13,8 +13,6 @@ pl:
       note_for_sell: "Banknoty Na Sprzedaż"
       note_for_sell_list: "Lista Banknotów Na Sprzedaż"
       collection: "Kolekcja"
-      note_future: "Przyszłe Banknoty"
-      note_future_list: "Lista Przyszłych Banknotów"
     coin:
       coin: "Monety"
       add_coin: "Dodaj Monetę"
@@ -26,6 +24,10 @@ pl:
       bond: "Obligacje"
       add_bond: "Dodaj Obligację"
       collection: "Kolekcja"
+    future:
+      future: "Future"
+      note_future: "Przyszłe Banknoty"
+      note_future_list: "Lista Przyszłych Banknotów"
     set:
       set: "Ustawienia"
       reports: "Raporty"
