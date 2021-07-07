@@ -1,0 +1,9 @@
+<% if object.reverse_path != nil %>  
+    <% if object.reverse_path.include? "https" %>    
+      <div style="background-color:black">
+        <% @avers = object.avers_path %>
+        <% @reverse = object.reverse_path %> 
+        <%= render 'renders/show_image_lightbox' %>
+      </div>
+    <% end %>
+  <% end %>

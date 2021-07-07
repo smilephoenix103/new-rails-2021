@@ -43,6 +43,12 @@ pl:
       note:
         create: "Dodaj Banknot"
         update: "Zapisz zmiany"
+      coin:
+        create: "Dodaj Monetę"
+        update: "Zapisz zmiany"
+      bond:
+        create: "Dodaj Obligację"
+        update: "Zapisz zmiany"
   activerecord:
     attributes:
       country:
@@ -67,13 +73,36 @@ pl:
         status: "Status"
         description: "Opis"
         img_type: "Typ obrazka"
-        avers_path: "Avers Ścieżka"
-        reverse_path: "Reverse Ścieżka"
         series: "Seria"
         making: "Materiał"
         date_buy_note: "Data Zakupu Banknotu"
         bought: "Kupiony"
         status_sell: "Status Sprzedaży"
+        avers_path: "Avers Link"
+        reverse_path: "Reverse Link"
+      coin:
+        denomination: "Nominał"
+        name_currency: "Nazwa Waluty"
+        coin_date: "Data"
+        signature_code: "Sygnatura"
+        price_buy: "Cena Kupna"
+        price_sell: "Sprzedaż"
+        diameter: "Średnica"
+        thickness: "Grubość"
+        weight: "Waga"
+        composition: "Skład"
+        quantity: "Ilość"
+        quality: "Stan"
+        status: "Status"
+        description: "Opis"
+        img_type: "Typ obrazka"
+        series: "Seria"
+        making: "Materiał"
+        date_buy: "Data Zakupu Monety"
+        bought: "Kupiony"
+        status_sell: "Status Sprzedaży"
+        avers_path: "Avers Link"
+        reverse_path: "Reverse Link"
       currency:
         currency_series: "Okres Występowania"
     errors:
@@ -86,6 +115,27 @@ pl:
               blank: " - Pole nie może być puste!"    
             img_type:
               blank: " - Pole nie może być puste!"
+            price_buy:
+              blank: " - Pole nie może być puste!"
+              not_a_number: " - Podana wartość nie jest liczbą"
+            price_sell:
+              blank: " - Pole nie może być puste!"
+              not_a_number: " - Podana wartość nie jest liczbą"
+        coin:
+          attributes:
+            status: 
+              blank: " - Pole nie może być puste!"    
+            img_type:
+              blank: " - Pole nie może być puste!"
+            diameter:
+              blank: " - Pole nie może być puste!"
+              not_a_number: " - Podana wartość nie jest liczbą"
+            thickness:
+              blank: " - Pole nie może być puste!"
+              not_a_number: " - Podana wartość nie jest liczbą"
+            weight:
+              blank: " - Pole nie może być puste!"
+              not_a_number: " - Podana wartość nie jest liczbą"
             price_buy:
               blank: " - Pole nie może być puste!"
               not_a_number: " - Podana wartość nie jest liczbą"

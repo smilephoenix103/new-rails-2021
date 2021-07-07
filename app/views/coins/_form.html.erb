@@ -18,7 +18,7 @@
     <%= form.text_field :currency_id, value:@coin.currency_id %> 
 <%
 =end%>
-    <%= form.label "Okres Wystepowania" %>
+    <%= form.label t('activerecord.attributes.currency.currency_series') %>
     <% form.text_field :currency_id, class:"form-control form-control-sm" %>
     <%= form.select :currency_id, @currencies.all.map { |b| [b.currency_series, b.id]}, {:include => ""}, class:"form-control  form-control-sm" %>
   </div>
@@ -26,14 +26,14 @@
   <div class="container">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
       <div class="col field">
-        <%= form.label :Data_zakupu %><br/>
+        <%= form.label :date_buy %><br/>
         <%= form.date_select :date_buy, class:"form-control form-control-sm" %>
       </div>
       <div class="col col-lg-5 field">
         <div style="float:left">
-          <%= form.label :Miejsce_zakupu %>
+          <%= form.label :bought %>
           <% form.text_field :bought, class:"form-control form-control-sm" %>
-          <%= form.select :bought, Bought.all.map { |b| [b.name, b.name]}, {:include_blank => "Select (Miejsce zakupu)"}, class:"form-control  form-control-sm" %>
+          <%= form.select :bought, Bought.all.map { |b| [b.name, b.name]}, {:include_blank => "Select(" + t('activerecord.attributes.note.bought') + ")"}, class:"form-control  form-control-sm" %>
         </div>
         <div style="float:right; margin-top:7%">
           <%= link_to 'Nowe miejsce zakupu', new_bought_path, class:"btn btn-sm btn-primary", style:"float:left" %>
@@ -44,114 +44,116 @@
 
   <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
     <div class="col field">
-      <% form.label :Nominał %>
-      <%= form.text_field :denomination, class:"form-control form-control-sm", placeholder:"Nominał"%>
+      <%= form.label :denomination %>
+      <%= form.text_field :denomination, class:"form-control form-control-sm", placeholder: t('activerecord.attributes.coin.denomination')%>
     </div>
     <div class="col field ">
-      <% form.label :Waluta %>
-      <%= form.text_field :name_currency, class:"form-control form-control-sm", placeholder:"Nazwa waluty" %>
+      <%= form.label :name_currency %>
+      <%= form.text_field :name_currency, class:"form-control form-control-sm", placeholder: t('activerecord.attributes.coin.name_currency') %>
     </div>
     <div class="col field">
-      <% form.label :Seria %>
-      <%= form.text_field :series, class:"form-control form-control-sm", placeholder:"Seria" %>
+      <%= form.label :series %>
+      <%= form.text_field :series, class:"form-control form-control-sm", placeholder: t('activerecord.attributes.coin.series') %>
     </div>
     <div class="col field">
-      <% form.label :Data %>
-      <%= form.text_field :coin_date, class:"form-control form-control-sm", placeholder:"Data" %>
+      <%= form.label :coin_date %>
+      <%= form.text_field :coin_date, class:"form-control form-control-sm", placeholder: t('activerecord.attributes.coin.coin_date') %>
     </div>
 
 
     <div class="col field">
-      <% form.label :diameter %>
-      <%= form.text_field :diameter, class:"form-control form-control-sm", placeholder:"Średnica" %>
+      <%= form.label :diameter %>
+      <%= form.text_field :diameter, class:"form-control form-control-sm", placeholder: t('activerecord.attributes.coin.diameter') %>
       <% coin.errors.messages_for(:diameter).each do |message| %>
         <div  class="alert alert-danger" role="alert"><%= message %></div>
       <% end %>
     </div>
     <div class="col field">
-      <% form.label :thickness %>
-      <%= form.text_field :thickness, class:"form-control form-control-sm", placeholder:"Grubość"  %>
+      <%= form.label :thickness %>
+      <%= form.text_field :thickness, class:"form-control form-control-sm", placeholder: t('activerecord.attributes.coin.thickness')  %>
       <% coin.errors.messages_for(:thickness).each do |message| %>
         <div  class="alert alert-danger" role="alert"><%= message %></div>
       <% end %>
     </div>
     <div class="col field">
-      <% form.label :weight %>
-      <%= form.text_field :weight, class:"form-control form-control-sm", placeholder:"Waga"  %>
+      <%= form.label :weight %>
+      <%= form.text_field :weight, class:"form-control form-control-sm", placeholder: t('activerecord.attributes.coin.weight')  %>
       <% coin.errors.messages_for(:weight).each do |message| %>
         <div  class="alert alert-danger" role="alert"><%= message %></div>
       <% end %>
     </div>
     <div class="col field">
-      <% form.label :quality %>
-      <%= form.text_field :quality, class:"form-control form-control-sm", placeholder:"Stan Monety" %>
+      <%= form.label :quality %>
+      <%= form.text_field :quality, class:"form-control form-control-sm", placeholder: t('activerecord.attributes.coin.quality') %>
     </div>
 
     
     <div class="col field">
-      <%= form.label :Sygnatura %>
-      <%= form.number_field :signature_code, class:"form-control form-control-sm" %>
+      <%= form.label :signature_code %>
+      <%= form.number_field :signature_code, class:"form-control form-control-sm", placeholder: t('activerecord.attributes.coin.signature_code') %>
     </div>
     <div class="col field">
-      <%= form.label :Kupna %>
+      <%= form.label :price_buy %>
       <%= form.text_field :price_buy, class:"form-control form-control-sm" %>
       <% coin.errors.messages_for(:price_buy).each do |message| %>
         <div  class="alert alert-danger" role="alert"><%= message %></div>
       <% end %>
     </div>
     <div class="field">
-      <%= form.label :Sprzedaż %>
+      <%= form.label :price_sell %>
       <%= form.text_field :price_sell, class:"form-control form-control-sm" %>
       <% coin.errors.messages_for(:price_sell).each do |message| %>
         <div  class="alert alert-danger" role="alert"><%= message %></div>
       <% end %>
     </div>    
     <div class="col field">
-      <%= form.label :Ilość %>
-      <%= form.number_field :quantity, class:"form-control form-control-sm" %>
+      <%= form.label :quantity %>
+      <%= form.number_field :quantity, class:"form-control form-control-sm", placeholder: t('activerecord.attributes.coin.quantity') %>
     </div>
    
  
     <div class="col field">
-      <% form.label :Status %>
+      <%= form.label :status %>
       <% form.text_field :status, class:"form-control form-control-sm" %>
-      <%= form.select :status, (@statuses.collect { |s| [s[0], s[0]] }),  {:include_blank => "Select(Status)"}, class:"form-control form-control-sm"  %>  
+      <%= form.select :status, (@statuses.collect { |s| [s[0], s[0]] }),  {:include_blank => "Select(" + t('activerecord.attributes.coin.status') + ")"}, class:"form-control form-control-sm"  %>  
       <% coin.errors.full_messages_for(:status).each do |message| %>
         <div  class="alert alert-danger" role="alert"><%= message %></div>
       <% end %>  
     </div>
     <div class="col field">
-      <% form.label :Typ_obrazka %>
+      <%= form.label :img_type %>
       <% form.text_field :img_type, class:"form-control form-control-sm" %> 
-      <%= form.select :img_type, (@img_types.collect { |img| [img[0], img[0]] }),  {:include_blank => "Select(Typ Obrazka)"}, class:"form-control form-control-sm"  %>  
+      <%= form.select :img_type, (@img_types.collect { |img| [img[0], img[0]] }),  {:include_blank => "Select(" + t('activerecord.attributes.coin.img_type') + ")"}, class:"form-control form-control-sm"  %>  
       <% coin.errors.messages_for(:img_type).each do |message| %>
         <div  class="alert alert-danger" role="alert"><%= message %></div>
       <% end %>  
     </div>
     <div class="field">
-      <% form.label :status_sell %>
-      <%= form.text_field :status_sell, class:"form-control form-control-sm", placeholder:"Status sprzedaży"%>
+      <%= form.label :status_sell %>
+      <%= form.text_field :status_sell, class:"form-control form-control-sm", placeholder: t('activerecord.attributes.coin.status_sell')%>
     </div>
 
     <div class="col col-lg-6 field">
-      <% form.label :composition %>
-      <%= form.text_area :composition, class:"form-control form-control-sm", placeholder:"Skład monety" %>
+      <%= form.label :composition %>
+      <%= form.text_area :composition, class:"form-control form-control-sm", placeholder: t('activerecord.attributes.coin.composition') %>
     </div>
 
     <div class="col col-lg-6 field">
-      <% form.label :description %>
-      <%= form.text_area :description, class:"form-control form-control-sm", placeholder:"opis"%>
+      <%= form.label :description %>
+      <%= form.text_area :description, class:"form-control form-control-sm", placeholder: t('activerecord.attributes.coin.description')%>
     </div>
   </div>
     <div class="field">
       <% form.label :avers_path %>
-      <%= form.text_field :avers_path, class:"form-control form-control-sm", placeholder:"AVERS PATH" %>
+      <%= form.text_field :avers_path, class:"form-control form-control-sm", placeholder: t('activerecord.attributes.coin.avers_path') %>
     </div>
 
     <div class="field">
       <% form.label :reverse_path %>
-      <%= form.text_field :reverse_path, class:"form-control form-control-sm", placeholder:"REVERSE PATH" %>
+      <%= form.text_field :reverse_path, class:"form-control form-control-sm", placeholder: t('activerecord.attributes.coin.reverse_path') %>
     </div>
+
+    <%= render 'renders/image_edit', object: coin %>
 
   <div class="actions">
     <%= form.submit class:"btn btn-primary btn-sm" %>

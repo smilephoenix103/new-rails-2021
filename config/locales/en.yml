@@ -74,6 +74,12 @@ en:
       note:
         create: "Add Note"
         update: "Update Note"
+      coin:
+        create: "Add Coin"
+        update: "Update Coin"
+      bond:
+        create: "Add Bond"
+        update: "Update Bond"
   activerecord:
     attributes:
       country:
@@ -98,13 +104,36 @@ en:
         status: "Status"
         description: "Description"
         img_type: "Image Type"
-        avers_path: "Avers Path"
-        reverse_path: "Reverse Path"
         series: "Series"
         making: "Making"
         date_buy_note: "Date Buy Note"
         bought: "Bought"
         status_sell: "Status Sell"
+        avers_path: "Avers Path"
+        reverse_path: "Reverse Path"
+      coin:
+        denomination: "Denomination"
+        name_currency: "Name Currency"
+        coin_date: "Date"
+        signature_code: "Signature"
+        price_buy: "Price Buy"
+        price_sell: "Price"
+        diameter: "Diameter"
+        thickness: "Thickness"
+        weight: "Weight"
+        composition: "Composition"
+        quantity: "Quantity"
+        quality: "Quality"
+        status: "Status"
+        description: "Description"
+        img_type: "Image Type"
+        series: "Series"
+        making: "Making"
+        date_buy: "Date Buy Coin"
+        bought: "Bought"
+        status_sell: "Status Sell"
+        avers_path: "Avers Path"
+        reverse_path: "Reverse Path"
       currency:
         currency_series: "Currency Series"
     errors:
@@ -117,6 +146,27 @@ en:
               blank: " - Can't be blank!"    
             img_type:
               blank: " - Can't be blank!"
+            price_buy:
+              blank: " - Can't be blank!"
+              not_a_number: " - Is not a number"
+            price_sell:
+              blank: " - Can't be blank!"
+              not_a_number: " - Is not a number"
+        coin:
+          attributes:
+            status: 
+              blank: " - Can't be blank!"    
+            img_type:
+              blank: " - Can't be blank!"
+            diameter:
+              blank: " - Can't be blank!"
+              not_a_number: " - Is not a number"
+            thickness:
+              blank: " - Can't be blank!"
+              not_a_number: " - Is not a number"
+            weight:
+              blank: " - Can't be blank!"
+              not_a_number: " - Is not a number"
             price_buy:
               blank: " - Can't be blank!"
               not_a_number: " - Is not a number"

@@ -51,6 +51,11 @@ class CoinsController < ApplicationController
   # GET /coins/new
   def new
     @coin = Coin.new
+    @coin.price_buy = 0.0
+    @coin.price_sell = 0.0
+    @coin.diameter = 0.0
+    @coin.thickness = 0.0
+    @coin.weight = 0.0
 
     puts "****************** test dodawania monety ********************************"
     puts params[:currency_id]
@@ -92,7 +97,7 @@ class CoinsController < ApplicationController
   # POST /coins or /coins.json
   def create
     @coin = Coin.new(coin_params)
-
+    @currencies = currency_series(@coin, "COIN")
     @statuses = ElementSelect.statuses
     @img_types = ElementSelect.img_types
     @country = @coin.currency.country
