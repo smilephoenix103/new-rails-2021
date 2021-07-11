@@ -14,16 +14,16 @@
 
         <div id="myModal" class="modal">
           <span class="close cursor" onclick="closeModal()">&times;</span>
-          <div class="modal-content">
+          <div class="modal-content center-row">
 
             <div class="mySlides">
               <div class="numbertext">1 / 2</div>
-              <img src=<%= @avers %> style="width:100%">
+              <img src=<%= @avers %> style="max-width:100%; max-height:700px">
             </div>
 
             <div class="mySlides">
               <div class="numbertext">2 / 2</div>
-              <img src=<%= @reverse %> style="width:100%">
+              <img src=<%= @reverse %> style="max-width:100%; max-height:700px">
             </div>
             
             <a class="prev" onclick="plusSlides(-1)">&#10094;</a>

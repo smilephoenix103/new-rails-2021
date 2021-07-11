@@ -294,13 +294,14 @@ div {
 	width: auto;
 	padding: 16px;
 	margin-top: -50px;
-	color:black;
+	color:wheat;
 	font-weight: bold;
 	font-size: 20px;
 	transition: 0.6s ease;
 	border-radius: 0 3px 3px 0;
 	user-select: none;
 	-webkit-user-select: none;
+	background-color: rgba(211, 211, 211, 0.432);
   }
   
   /* Position the "next button" to the right */
@@ -355,8 +356,9 @@ div {
 
   .image-size-show
   {
-	height: 100%;
+	/* height: 100%; */
 	width: 100%;
+	max-height: 300px;
   }
 
   /*styl tła TEST  */
