@@ -14,18 +14,36 @@ class NotesController < ApplicationController
   def index
     # @notes = Note.all
     @countries = countries_list
+    puts countries_list.size
     @lang = extract_locale
     @search = "note_search"
+    puts "TU JESTEM INDEX"
+    puts params[:q].to_s
+    if(params[:q] == "")
+      puts "coś znalazło"
+    end
   end
 
   def note_currencies
+    @lang = extract_locale
     puts "$$$$$$$$$$$$$$$$$$$$$$$$$$ TEST NOTE $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
     puts params[:id]
     puts params[:pattern]
     @pattern = params[:pattern]
+    puts @lang
+
+    
     puts "$$$$$$$$$$$$$$$$$$$$$$$$$$ END TEST $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
     @country = Country.find(params[:id])
     @currencies = get_currencies_with_pattern(@country.id, "NOTE")
+    if (@currencies.size == 0)
+      @pattern = "NOTE"
+    else (params[:pattern] != "")
+      puts @currencies[0].pattern 
+      puts "++++++++++++++++++++++++++++++++++++++++++++++++++++s"
+      puts params[:pattern].to_s
+      @pattern = @currencies[0].pattern 
+    end
   end
 
   def note_show_currency
@@ -106,13 +124,18 @@ class NotesController < ApplicationController
       @countries = search_country(params[:q])
       $country_search = @countries
       @lang = extract_locale
-      @search = "note_search"
+      # @search = "note_search"
+      # TODO sprawdzić gdzie jest potrzebne @search
+      if (params[:q] == "")
+        @countries = countries_list
+      end
       # @countries = Country.where("country_en ILIKE ?","%" + params[:q] + "%")
       render :index
     rescue
       @countries = $country_search
       @lang = extract_locale
-      @search = "note_search"
+      # @search = "note_search"
+      # TODO sprawdzić gdzie jest potrzebne @search
       render :index
     end
   end 

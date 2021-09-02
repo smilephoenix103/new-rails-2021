@@ -21,6 +21,16 @@ class CoinsController < ApplicationController
     puts "$$$$$$$$$$$$$$$$$$$$$$$$$$ END TEST $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
     @country = Country.find(params[:id])
     @currencies = get_currencies_with_pattern(@country.id, "COIN")
+    puts @currencies.size
+    if (@currencies.size == 0)
+      @pattern = "COIN"
+    else (params[:pattern] != "")
+      puts @currencies[0].pattern 
+      puts "++++++++++++++++++++++++++++++++++++++++++++++++++++s"
+      puts params[:pattern].to_s
+      @pattern = @currencies[0].pattern 
+    end
+    puts "++++++++++++++++++++++++ po tescie+++++++++++++++++++++++++++++++++++++"
   end
 
   def coin_show_currency
