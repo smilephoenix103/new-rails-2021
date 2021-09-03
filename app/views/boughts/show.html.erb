@@ -1,19 +1,20 @@
 <p id="notice"><%= notice %></p>
+<div class="jumbotron">
+  <p>
+    <strong><%= t('activerecord.attributes.bought.name') + ':' %></strong>
+    <%= @bought.name %>
+  </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @bought.name %>
-</p>
+  <p>
+    <strong><%= t('activerecord.attributes.bought.full_name') + ':' %></strong>
+    <%= @bought.full_name %>
+  </p>
 
-<p>
-  <strong>Full name:</strong>
-  <%= @bought.full_name %>
-</p>
+  <p>
+    <strong><%= t('activerecord.attributes.bought.description') + ':' %></strong>
+    <%= @bought.description %>
+  </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @bought.description %>
-</p>
-
-<%= link_to 'Edit', edit_bought_path(@bought), class:"btn btn-primary" %> 
-<%= link_to 'Back', boughts_path, class:"btn btn-dark"  %>
+  <%= link_to (render 'renders/button_edit'), edit_bought_path(@bought), class:"btn btn-primary btn-sm" %> 
+  <%= link_to (render 'renders/button_back'), boughts_path, class:"btn btn-secondary btn-sm"  %>
+</div>

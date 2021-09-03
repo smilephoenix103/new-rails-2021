@@ -2,5 +2,5 @@
 
 <%= render 'form', bought: @bought %>
 
-<%= link_to 'Show', @bought, class:"btn btn-info" %>
-<%= link_to 'Back', boughts_path, class:"btn btn-dark" %>
+<%= link_to (render 'renders/button_back'), boughts_path, class:"btn btn-secondary btn-sm" %>
+<%= link_to (render 'renders/button_show'), @bought, class:"btn btn-info btn-sm" %>

@@ -80,6 +80,9 @@ en:
       bond:
         create: "Add Bond"
         update: "Update Bond"
+      bought:
+        create: "Add Seller"
+        update: "Update Seller"
   activerecord:
     attributes:
       country:
@@ -136,6 +139,10 @@ en:
         reverse_path: "Reverse Path"
       currency:
         currency_series: "Currency Series"
+      bought:
+        name: "Seller"
+        full_name: "Full Name"
+        description: "Seller Information"
     errors:
       models:
         note:
@@ -212,3 +219,4 @@ en:
   year: 'Year'
   price: "Price"
   to_list: " To List"
+  new_seller: "New Seller"

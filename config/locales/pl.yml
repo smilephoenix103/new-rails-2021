@@ -49,6 +49,9 @@ pl:
       bond:
         create: "Dodaj Obligację"
         update: "Zapisz zmiany"
+      bought:
+        create: "Nowy Sprzedawca"
+        update: "Zapisz Zmiany"
   activerecord:
     attributes:
       country:
@@ -105,6 +108,10 @@ pl:
         reverse_path: "Reverse Link"
       currency:
         currency_series: "Okres Występowania"
+      bought:
+        name: "Sprzedawca"
+        full_name: "Pełna Nazwa Sprzedawcy"
+        description: "Informacje o Sprzedawcy"
     errors:
       models:
         note:
@@ -180,3 +187,4 @@ pl:
   year: 'Rok'
   price: "Cena"
   to_list: " Do Listy"
+  new_seller: "Nowy Sprzedawca"
