@@ -91,7 +91,7 @@
     <% end %>
     
     <div class="col field">
-      <%= form.label :quantity %>
+      <%= form.label :quality %>
       <%= form.text_field :quality, class:"form-control form-control-sm", placeholder: t('activerecord.attributes.note.quality') %>
     </div>
      <% if user_signed_in? && current_user.role == 'admin' %>
