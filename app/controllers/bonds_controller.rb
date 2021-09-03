@@ -21,6 +21,11 @@ class BondsController < ApplicationController
     puts "$$$$$$$$$$$$$$$$$$$$$$$$$$ END TEST $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
     @country = Country.find(params[:id])
     @currencies = get_currencies_with_pattern(@country.id, "BOND")
+    if (@currencies.size == 0)
+      @pattern = "BOND"
+    else (params[:pattern] != "")
+      @pattern = @currencies[0].pattern 
+    end
   end
 
   def bond_show_currency
