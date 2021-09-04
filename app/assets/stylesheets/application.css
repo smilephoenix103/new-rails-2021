@@ -236,7 +236,7 @@ div {
   }
   
   /* The Modal (background) */
-  .modal {
+  .modal_lightbox{
 	display: none;
 	position: fixed;
 	z-index: 1;
