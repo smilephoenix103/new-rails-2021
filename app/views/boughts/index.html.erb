@@ -9,34 +9,36 @@
   <%= link_to t('new_seller'), new_bought_path, {class:"btn btn-primary btn-sm", 'data-toggle' => "modal", 'data-target' => "#staticBackdrop"} %>
 </div>
 <div class="container">
-  <table class="table table-sm table-striped table-bordered table-hover">
-    <thead class="thead-dark">
-      <tr>
-        <th><%= t('activerecord.attributes.bought.name') %></th>
-        <th><%= t('activerecord.attributes.bought.full_name') %></th>
-        <th><%= t('activerecord.attributes.bought.description') %></th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @boughts.each do |bought| %>
-        <tr style="font-size: 12px;">
-          <td style="font-weight: bold; font-size: 16px;"><%= bought.name %></td>
-          <td><%= bought.full_name %></td>
-          <td><%= bought.description %></td>
-          <td style="width: 70px;">
-            <%= link_to (render 'renders/button_show_small_icon'), bought, class:"btn btn-info btn-sm" %>
-            <%= link_to (render 'renders/button_edit_small_icon'), edit_bought_path(bought), class:"btn btn-primary btn-sm" %>
-            
-          </td>
-          <td>
-            <%= link_to (render 'renders/button_delete_small_icon'), bought, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger btn-sm", style:"float: right" %>
-          </td>
+  <div class="table-responsive">
+    <table class="table table-sm table-striped table-bordered table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th><%= t('activerecord.attributes.bought.name') %></th>
+          <th><%= t('activerecord.attributes.bought.full_name') %></th>
+          <th><%= t('activerecord.attributes.bought.description') %></th>
+          <th colspan="3"></th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
+
+      <tbody>
+        <% @boughts.each do |bought| %>
+          <tr style="font-size: 12px;">
+            <td style="font-weight: bold; font-size: 16px;"><%= bought.name %></td>
+            <td><%= bought.full_name %></td>
+            <td><%= bought.description %></td>
+            <td style="width: 70px;">
+              <%= link_to (render 'renders/button_show_small_icon'), bought, class:"btn btn-info btn-sm" %>
+              <%= link_to (render 'renders/button_edit_small_icon'), edit_bought_path(bought), class:"btn btn-primary btn-sm" %>
+              
+            </td>
+            <td>
+              <%= link_to (render 'renders/button_delete_small_icon'), bought, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger btn-sm", style:"float: right" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>
 
 <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true")>
