@@ -1,9 +1,14 @@
 class BoughtsController < ApplicationController
   before_action :set_bought, only: %i[ show edit update destroy ]
+  before_action :require_admin_logged_in!
 
   # GET /boughts or /boughts.json
   def index
     @boughts = Bought.all
+    @bought = Bought.new
+    puts "test edit"
+    # @bought = Bought.find(params[:id])
+    puts params[:id]
   end
 
   # GET /boughts/1 or /boughts/1.json
@@ -17,6 +22,10 @@ class BoughtsController < ApplicationController
 
   # GET /boughts/1/edit
   def edit
+    puts "test test tets tets"
+    puts params[:id]
+    @bought = Bought.find(params[:id])
+    
   end
 
   # POST /boughts or /boughts.json
