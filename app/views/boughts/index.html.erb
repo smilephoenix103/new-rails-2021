@@ -8,8 +8,8 @@
   <h1>Boughts</h1>
   <%= link_to t('new_seller'), new_bought_path, {class:"btn btn-primary btn-sm", 'data-toggle' => "modal", 'data-target' => "#staticBackdrop"} %>
 </div>
-<div class="container">
-  <div class="table-responsive">
+<div class="container-sm">
+  <div class="table-sm">
     <table class="table table-sm table-striped table-bordered table-hover">
       <thead class="thead-dark">
         <tr>
@@ -23,7 +23,7 @@
       <tbody>
         <% @boughts.each do |bought| %>
           <tr style="font-size: 12px;">
-            <td style="font-weight: bold; font-size: 16px;"><%= bought.name %></td>
+            <td style="font-weight: bold; font-size: 12px;"><%= bought.name %></td>
             <td><%= bought.full_name %></td>
             <td><%= bought.description %></td>
             <td style="width: 70px;">

@@ -4,7 +4,7 @@ class BoughtsController < ApplicationController
 
   # GET /boughts or /boughts.json
   def index
-    @boughts = Bought.all
+    @boughts = Bought.all.order(name: :asc)
     @bought = Bought.new
     puts "test edit"
     # @bought = Bought.find(params[:id])
