@@ -1,6 +1,5 @@
 <%= form_with(model: bought) do |form| %>
-  <%
-=begin%>
+
  <% if bought.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(bought.errors.count, "error") %> prohibited this bought from being saved:</h2>
@@ -11,9 +10,9 @@
         <% end %>
       </ul>
     </div>
-  <% end %> 
-<%
-=end%>
+  <% end %>  
+
+
 
   <div class="col field">
     <%= form.label :name %>
