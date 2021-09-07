@@ -6,6 +6,7 @@ class SignaturesController < ApplicationController
   # GET /signatures or /signatures.json
   def index
     @signatures = Signature.all.order(signature_cod: :asc)
+    @signature = Signature.new
   end
 
   # GET /signatures/1 or /signatures/1.json
