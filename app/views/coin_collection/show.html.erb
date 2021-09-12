@@ -11,7 +11,7 @@
 		</div>
 	</div>	
 </div>
-<div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-6">
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-6 center-row">
 	<% @currencies.each do |currency| %>
 		<div class="col btn btn-secondary btn-sm logo-center" style="margin:10px;">
 			<%= link_to (currency.id.to_s + " - " + currency.currency_series.to_s), show_coins_path(currency), style:"color:black; margin:10px; padding:10px" %>
