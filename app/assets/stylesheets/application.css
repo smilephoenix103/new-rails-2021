@@ -421,3 +421,32 @@ div {
 	padding-right: 10px;
 	padding-left: 10px;
   }
+
+  /* NOTYFICATION */
+  .notyfication
+  {
+	max-width: 300px;
+	position: fixed;
+	top: 0;
+	text-align: center;
+	background: rgb(0, 0, 0);
+	color: rgb(26, 228, 53);
+  }
+  .notyfication-position
+  {	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+  }
+ 
+  #hidethis 
+  { 
+	animation: css 0s 2s forwards; 
+  }
+
+@keyframes css  { to	
+	{ 		
+		visibility: hidden; 
+	} 
+}
+
