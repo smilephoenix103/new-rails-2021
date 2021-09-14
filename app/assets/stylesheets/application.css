@@ -429,7 +429,7 @@ div {
 	position: fixed;
 	top: -10px;
 	text-align: center;
-	background: rgb(0, 0, 0, 0.7);
+	background-image: rgb(0, 0, 0, 0.7);
 	color: rgb(26, 228, 53);
   }
   .notyfication-position
