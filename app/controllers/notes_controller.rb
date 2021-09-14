@@ -194,11 +194,11 @@ class NotesController < ApplicationController
           puts @note.currency.country.id
           @currency = Currency.find(@note.currency_id)
           # format.html { redirect_to note_show_currency_path(@currency), notice: 'Note was successfully updated.' }
-          format.html { redirect_to note_future_path(@note.currency.country), notice: 'Note was successfully updated.' }
+          format.html { redirect_to note_future_path(@note.currency.country), notice: t('note_success_update') }
 
         else
           @currency = Currency.find(@note.currency_id)
-          format.html { redirect_to note_show_currency_path(@currency), notice: 'Note was successfully updated.' }
+          format.html { redirect_to note_show_currency_path(@currency), notice: t('note_success_update') }
           format.json { render :show, status: :ok, location: @note }
         end
       else

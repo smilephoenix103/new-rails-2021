@@ -115,6 +115,9 @@ class CurrenciesController < ApplicationController
   # DELETE /currencies/1.json
   def destroy
     @country = @currency.country
+    puts "**********************^^^^^^^^^^^^^^^^^^^^^^^^^%%%%%%%%%%%%%%%%%%%%%%"
+    @coins = Coin.where(currency_id: @currency.id)
+    puts @coins.size
     @currency.destroy 
     respond_to do |format|
       if (@currency.pattern == "COIN")

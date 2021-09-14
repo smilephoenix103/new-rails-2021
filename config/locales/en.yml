@@ -220,3 +220,8 @@ en:
   price: "Price"
   to_list: " To List"
   new_seller: "New Seller"
+
+  # Add, Update, Delete
+
+  note_success_update: "Note was successfully updated."
+  note_success_create: "Note was successfully created."

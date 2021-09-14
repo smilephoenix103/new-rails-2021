@@ -1,8 +1,15 @@
 <% if notice %>
-<div id="hidethis" onclick="myFunction()" class = "notyfication-position " aria-atomic="true" data-dismiss="alert" >
-    <div  class="container alert alert-info mt-4 notyfication" role="alert">
-        <span>PECUNIA</span><br/>
-        <span class="notice"><%= notice %></span>
+<div id="hidethis"  onclick="myFunction()" class = "notyfication-position " aria-atomic="true" data-dismiss="alert" >
+    <div id = "myDIV" class="container alert alert-info mt-4 notyfication" role="alert">
+        <div class="toast-header">
+            <img src="" class="rounded mr-2" alt="">
+            <strong class="mr-auto">Pecunia</strong>
+            <small>CZAS</small>
+            </button>
+        </div>
+        <div class="toast-body">
+            <span class="notice"><%= notice %></span>
+        </div>
     </div>
     </div>
 <% end %>

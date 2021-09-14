@@ -188,3 +188,8 @@ pl:
   price: "Cena"
   to_list: " Do Listy"
   new_seller: "Nowy Sprzedawca"
+
+  # Add, Update, Delete
+
+  note_success_update: "Udana aktualizacja banknotu."
+  note_success_create: "Dodano banknot."
