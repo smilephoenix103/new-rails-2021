@@ -65,15 +65,15 @@ class CurrenciesController < ApplicationController
         @country = @currency.country
         if (@currency.pattern == "NOTE")
           puts "TO JEST BANKNOT"
-          format.html { redirect_to note_currencies_path(@country, 'pattern' => @currency.pattern), notice: 'Currency was successfully create.' }
+          format.html { redirect_to note_currencies_path(@country, 'pattern' => @currency.pattern), notice: t('currency_create') }
         end
         if (@currency.pattern == "COIN")
           puts "TO JES MONETA"
-          format.html { redirect_to coin_currencies_path(@country, 'pattern' => @currency.pattern), notice: 'Currency was successfully created.' }
+          format.html { redirect_to coin_currencies_path(@country, 'pattern' => @currency.pattern), notice: t('currency_create') }
         end
         if (@currency.pattern == "BOND")
           puts "TO JES OBLIGACJA"
-          format.html { redirect_to bond_currencies_path(@country, 'pattern' => @currency.pattern), notice: 'Currency was successfully created.' }
+          format.html { redirect_to bond_currencies_path(@country, 'pattern' => @currency.pattern), notice: t('currency_create') }
         end
         # format.html { redirect_to @country, notice: 'Currency was successfully created.' }
         # format.json { render :show, status: :created, location: @currency }
@@ -92,15 +92,15 @@ class CurrenciesController < ApplicationController
          @country = @currency.country
         if (@currency.pattern == "NOTE")
           puts "TO JES BANKNOT"
-          format.html { redirect_to note_currencies_path(@country, 'pattern' => @currency.pattern), notice: 'Currency was successfully update.' }
+          format.html { redirect_to note_currencies_path(@country, 'pattern' => @currency.pattern), notice: t('currency_update') }
         end
         if (@currency.pattern == "COIN")
           puts "TO JES MONETA"
-          format.html { redirect_to coin_currencies_path(@country, 'pattern' => @currency.pattern), notice: 'Currency was successfully update.' }
+          format.html { redirect_to coin_currencies_path(@country, 'pattern' => @currency.pattern), notice: t('currency_update') }
         end
         if (@currency.pattern == "BOND")
           puts "TO JES OBLIGACJA"
-          format.html { redirect_to bond_currencies_path(@country, 'pattern' => @currency.pattern), notice: 'Currency was successfully update.' }
+          format.html { redirect_to bond_currencies_path(@country, 'pattern' => @currency.pattern), notice: t('currency_update') }
         end
         # format.html { redirect_to @country, notice: 'Currency was successfully updated.' }
         # format.json { render :show, status: :ok, location: @currency }
@@ -115,24 +115,48 @@ class CurrenciesController < ApplicationController
   # DELETE /currencies/1.json
   def destroy
     @country = @currency.country
-    puts "**********************^^^^^^^^^^^^^^^^^^^^^^^^^%%%%%%%%%%%%%%%%%%%%%%"
-    @coins = Coin.where(currency_id: @currency.id)
-    puts @coins.size
-    @currency.destroy 
-    respond_to do |format|
-      if (@currency.pattern == "COIN")
-        format.html { redirect_to coin_currencies_path(@country, 'pattern' => @currency.pattern), notice: 'Currency was successfully destroyed.' }
+    # @coins = Coin.where(currency_id: @currency.id)
+    # @notes = Note.where(currency_id: @currency.id)
+    # @bonds = Bond.where(currency_id: @currency.id)
+    if (@currency.pattern == "COIN")
+      @items = Coin.where(currency_id: @currency.id)
+    elsif (@currency.pattern == "BOND")
+      @items = Bond.where(currency_id: @currency.id)
+    elsif (@currency.pattern == "NOTE")
+      @items = Note.where(currency_id: @currency.id)
+    else
+      @items = nil
+    end
+    if (@items.size == 0)
+      @currency.destroy 
+      respond_to do |format|
+        if (@currency.pattern == "COIN")
+          format.html { redirect_to coin_currencies_path(@country, 'pattern' => @currency.pattern), notice: t('currency_delete') }
+        end
+        if (@currency.pattern == "BOND")
+          format.html { redirect_to bond_currencies_path(@country, 'pattern' => @currency.pattern), notice: t('currency_delete') }
+        end
+        if (@currency.pattern == "NOTE")
+          format.html { redirect_to note_currencies_path(@country, 'pattern' => @currency.pattern), notice: t('currency_delete') }
+        end  
+          format.html { redirect_to @country, notice: 'Currency was successfully destroyed.' }
+          format.json { head :no_content }
+        end 
+      else
+        respond_to do |format|
+          if (@currency.pattern == "COIN")
+            format.html { redirect_to coin_currencies_path(@country, 'pattern' => @currency.pattern), alert: t('currency_not_empty', items: @items.size.to_s) }
+          end
+          if (@currency.pattern == "BOND")
+            format.html { redirect_to bond_currencies_path(@country, 'pattern' => @currency.pattern), alert: t('currency_not_empty', items: @items.size.to_s) }
+          end
+          if (@currency.pattern == "NOTE")
+            format.html { redirect_to note_currencies_path(@country, 'pattern' => @currency.pattern), alert: t('currency_not_empty', items: @items.size.to_s) }
+          end
+            format.html { redirect_to @country, notice: 'Currency was successfully destroyed.' }
+            format.json { head :no_content }
+          end 
       end
-      if (@currency.pattern == "BOND")
-        format.html { redirect_to bond_currencies_path(@country, 'pattern' => @currency.pattern), notice: 'Currency was successfully destroyed.' }
-      end
-      if (@currency.pattern == "NOTE")
-        format.html { redirect_to note_currencies_path(@country, 'pattern' => @currency.pattern), notice: 'Currency was successfully destroyed.' }
-      end
-     
-        format.html { redirect_to @country, notice: 'Currency was successfully destroyed.' }
-        format.json { head :no_content }
-      end    
   end
 
   private

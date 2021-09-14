@@ -1,31 +1,49 @@
 <% if notice %>
-<div id="hidethis"  onclick="myFunction()" class = "notyfication-position " aria-atomic="true" data-dismiss="alert" >
-    <div id = "myDIV" class="container alert alert-info mt-4 notyfication" role="alert">
-        <div class="toast-header">
-            <img src="" class="rounded mr-2" alt="">
-            <strong class="mr-auto">Pecunia</strong>
-            <small>CZAS</small>
-            </button>
+    <div id="hidethis"  onclick="myFunction()" class = "notyfication-position " aria-atomic="true" data-dismiss="alert" >
+        <div id = "myDIV" class="container alert alert-info mt-4 notyfication notyfication-notice" role="alert">
+            <div class="toast-header">
+                <img src="" class="rounded mr-2" alt="">
+                <strong class="mr-auto">Pecunia</strong>
+                <small>CZAS</small>
+                </button>
+            </div>
+            <div class="toast-body">
+                <span class="notice"><%= notice %></span>
+            </div>
         </div>
-        <div class="toast-body">
-            <span class="notice"><%= notice %></span>
-        </div>
-    </div>
     </div>
 <% end %>
+
 <% if alert %>
-    <div class="alert alert-warning mt-4" role="alert">
-        <p class="alert"><%= alert %></p>
+    <div  onclick="myFunction()" class = "notyfication-position hidethis-alert" aria-atomic="true" data-dismiss="alert" >
+        <div id = "myDIV" class="container alert alert-info mt-4 notyfication notyfication-alert" role="alert">
+            <div class="toast-header">
+                <img src="" class="rounded mr-2" alt="">
+                <strong class="mr-auto">Pecunia</strong>
+                <small>CZAS</small>
+                </button>
+            </div>
+            <div class="toast-body">
+                <span class="notice"><%= alert %></span>
+            </div>
+        </div>
     </div>
 <% end %>
+
 <% if info %>
-<div class="alert alert-warning alert-dismissible fade show" role="alert" style="text-align:center">
-<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-  <strong><%= info %></strong>
-  
-</div>
+    <div id="hidethis"  onclick="myFunction()" class = "notyfication-position " aria-atomic="true" data-dismiss="alert" >
+        <div id = "myDIV" class="container alert alert-info mt-4 notyfication notyfication-info" role="alert">
+            <div class="toast-header">
+                <img src="" class="rounded mr-2" alt="">
+                <strong class="mr-auto">Pecunia</strong>
+                <small>CZAS</small>
+                </button>
+            </div>
+            <div class="toast-body">
+                <span class="notice"><%= info %></span>
+            </div>
+        </div>
+    </div>
 <% end %>
 
 <%

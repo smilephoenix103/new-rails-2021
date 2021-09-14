@@ -193,3 +193,8 @@ pl:
 
   note_success_update: "Udana aktualizacja banknotu."
   note_success_create: "Dodano banknot."
+
+  currency_create: "Pmyślnie dodano nową walutę."
+  currency_update: "Pomyślnie zaktualizowano walutę."
+  currency_delete: "Waluta została pomyślnie usunięta."
+  currency_not_empty: "Waluta nie jest pusta (zawiera %{items} elementu do usunięcia)."

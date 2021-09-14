@@ -225,3 +225,8 @@ en:
 
   note_success_update: "Note was successfully updated."
   note_success_create: "Note was successfully created."
+
+  currency_create: "Currency was successfully create."
+  currency_update: "Currency was successfully update."
+  currency_delete: "Currency was successfully destroyed."
+  currency_not_empty: "Currency is not empty (currencies contain %{items} elements)."
