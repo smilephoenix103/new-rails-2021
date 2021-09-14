@@ -430,22 +430,22 @@ div {
 	position: fixed;
 	top: -10px;
 	text-align: center;
-	background: rgb(0, 0, 0, 0.7);
+	background-color: rgb(0, 0, 0, 0.7);
 	
   }
   .notyfication-notice
   {
-	color: rgb(26, 228, 53);
+	color: rgba(26, 228, 53);
   }
 
   .notyfication-alert
   {
-	color: rgb(231, 14, 14);
+	color: rgba(231, 14, 14);
   }
 
   .notyfication-info
   {
-	color: rgb(18, 97, 245);
+	color: rgba(18, 97, 245);
   }
   
   .notyfication-position
