@@ -124,6 +124,7 @@ class CoinsController < ApplicationController
 
   # PATCH/PUT /coins/1 or /coins/1.json
   def update
+    @currencies = currency_series(@coin, "COIN")
     @statuses = ElementSelect.statuses
     @img_types = ElementSelect.img_types
     @country = @coin.currency.country
