@@ -435,17 +435,17 @@ div {
   }
   .notyfication-notice
   {
-	color: rgba(26, 228, 53);
+	color: rgb(26, 228, 53);
   }
 
   .notyfication-alert
   {
-	color: rgba(231, 14, 14);
+	color: rgb(231, 14, 14);
   }
 
   .notyfication-info
   {
-	color: rgba(18, 97, 245);
+	color: rgb(151, 157, 168);
   }
   
   .notyfication-position
