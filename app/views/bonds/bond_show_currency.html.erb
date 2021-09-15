@@ -23,7 +23,7 @@
 
 </div>
 
-<table class="table table-sm table-striped table-bordered table-hover">
+<table class="table table-sm table-striped table-bordered table-hover"  style="font-size: small;">
   <thead class="thead-dark">
   <tr>
       <th>Id</th>
@@ -42,13 +42,13 @@
 
       <tr>
         <td><%= bond.id %></td>
-        <td><%= bond.denomination %></td>
+        <td><%= number_with_delimiter(bond.denomination , delimiter: " ") %></td>
         <td><%= bond.name_currency %></td>
         <td><%= bond.bond_date %></td>
         <td><%= bond.signature_code %></td>
         <td><%= bond.status %></td>
-        <td><%= bond.price_buy %></td>
-        <td><%= bond.price_sell %></td>
+        <td><%= number_to_currency(bond.price_buy, unit:"zł", precision: 2, format: "%n %u") %></td>
+        <td><%= number_to_currency(bond.price_sell, unit:"zł", precision: 2, format: "%n %u")%></td>
         <td>        
             <% if (bond.avers_path.length > 200) %>
               <div class="show-note">

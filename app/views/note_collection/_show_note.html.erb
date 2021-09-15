@@ -20,16 +20,17 @@
     <% if user_signed_in? && (current_user.role == 'admin' || current_user.role == 's_user') %>
       <div class="col">
         <strong>cena zakupu:</strong>
-        <%= number_to_currency(@note.price_buy, unit:"", precision: 2, format: "%n %u") %>
+        <%= number_to_currency(@note.price_buy, unit:"zł", precision: 2, format: "%n %u") %>
       </div>
     <% end %>
     <% if user_signed_in? && (current_user.role == 'admin') %>
       <div class="col">
         <strong>Cena:</strong>
-        <%= @note.price_sell.to_s + "zł" %>
+        <%= number_to_currency(@note.price_sell, unit:"zł", precision: 2, format: "%n %u") %>
       </div>         
     <% end %>
       <div class="col">
+      tu jestem
         <strong>Nominał:</strong>
         <% @note.denomination %>
         <%= number_with_delimiter(@note.denomination , delimiter: " ") %>
