@@ -199,6 +199,7 @@ en:
     edit: "Edit"
     delete: "Delete"
     search: "Search"
+    close: "Close"
 
   date:
     month_names: [~, January, February, March, April, May, June, July, August, September, October, November, December]
@@ -222,6 +223,9 @@ en:
   new_seller: "New Seller"
 
   # Add, Update, Delete
+
+  add_new_country: "Add New Country"
+  edit_country: "Edit Country"
 
   note_success_update: "Note was successfully updated."
   note_success_create: "Note was successfully created."

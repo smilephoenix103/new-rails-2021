@@ -168,6 +168,7 @@ pl:
     edit: "Edytuj"
     delete: "Usuń"
     search: "Szukaj"
+    close: "Zamknij"
 
   date:
     month_names: [~, Styczeń, Luty, Morzec, Kwiecień, Maj, Czerwiec, Lipiec, Sierpień, Wrzesień, Październik, Listopad, Grudzień]
@@ -190,6 +191,9 @@ pl:
   new_seller: "Nowy Sprzedawca"
 
   # Add, Update, Delete
+
+  add_new_country: "Dodaj Nowe Państwo"
+  edit_country: "Eycja Państwa"
 
   note_success_update: "Udana aktualizacja banknotu."
   note_success_create: "Dodano banknot."

@@ -15,6 +15,7 @@ class CountriesController < ApplicationController
     flash.now[:info] = @countries.size.to_s + " - Państw"
     @search = "country_search"
     @lang = extract_locale
+    @country = Country.new
   end
 
   # GET /countries/1
