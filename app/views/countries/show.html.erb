@@ -36,12 +36,10 @@
       <strong>Iso code:</strong>
       <%= @country.iso_code %>
        
-      <%
-=begin%>
- <strong>Exists:</strong>
+    <p>
+      <strong>Exists:</strong>
       <%= @country.exists %> 
-<%
-=end%>
+    </p>
     </p>
   </h3>
   <%= link_to (render 'renders/button_back'), countries_path, class:"btn btn-secondary btn-sm" %>
