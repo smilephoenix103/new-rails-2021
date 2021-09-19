@@ -220,12 +220,15 @@ en:
   year: 'Year'
   price: "Price"
   to_list: " To List"
-  new_seller: "New Seller"
+  
 
   # Add, Update, Delete
 
   add_new_country: "Add New Country"
   edit_country: "Edit Country"
+
+  new_seller: "New Seller"
+  edit_seller: "Edit Seller"
 
   note_success_update: "Note was successfully updated."
   note_success_create: "Note was successfully created."

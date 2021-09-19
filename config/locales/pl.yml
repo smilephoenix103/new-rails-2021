@@ -188,12 +188,15 @@ pl:
   year: 'Rok'
   price: "Cena"
   to_list: " Do Listy"
-  new_seller: "Nowy Sprzedawca"
 
   # Add, Update, Delete
 
   add_new_country: "Dodaj Nowe Państwo"
   edit_country: "Eycja Państwa"
+
+  new_seller: "Nowy Sprzedawca"
+  edit_seller: "Edycja Sprzedawcy"
+
 
   note_success_update: "Udana aktualizacja banknotu."
   note_success_create: "Dodano banknot."
