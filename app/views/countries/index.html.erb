@@ -63,8 +63,8 @@
         </td>
         <td>
         <% @countryEdit = country %>
-          <%= link_to (render 'renders/button_edit'), edit_country_path(country), {class:"btn btn-primary btn-sm", 'data-toggle' => "modal", 'data-target' => "#" + country.country_en.gsub(" ", "_")}%>
-          <div class="modal fade" id=<%= country.country_en.gsub(" ", "_") %> data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <%= link_to (render 'renders/button_edit'), edit_country_path(country), {class:"btn btn-primary btn-sm", 'data-toggle' => "modal", 'data-target' => "#" + country.country_en.gsub(" ", "_") + country.id.to_s}%>
+          <div class="modal fade" id=<%= country.country_en.gsub(" ", "_") + country.id.to_s %> data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog modal-xl">
               <div class="modal-content">
                 <div class="modal-header">

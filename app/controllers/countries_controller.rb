@@ -50,12 +50,15 @@ class CountriesController < ApplicationController
       # Country.where("country_en ILIKE '%" + params[:q] + "%' OR country_pl ILIKE '%" + params[:q] + "%'").each do |c|
       #   puts c.country_en + " - " + c.country_pl
       # end
+      @country = Country.new
       render :index
       
     rescue  
       @countries = $country_search
       @search = "country_search"
       @lang = extract_locale
+
+      @country = Country.new
       render :index
     end
   end 
