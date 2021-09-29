@@ -63,9 +63,6 @@ class CoinsController < ApplicationController
     @coin = Coin.new
     @coin.price_buy = 0.0
     @coin.price_sell = 0.0
-    @coin.diameter = 0.0
-    @coin.thickness = 0.0
-    @coin.weight = 0.0
 
     puts "****************** test dodawania monety ********************************"
     puts params[:currency_id]
