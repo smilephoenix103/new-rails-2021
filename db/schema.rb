@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2021_09_29_082900) do
     t.date "date_buy"
     t.string "series"
     t.string "bought"
-    t.bigint "denomination"
+    t.float "denomination"
     t.string "name_currency"
     t.string "bond_date"
     t.integer "signature_code"
