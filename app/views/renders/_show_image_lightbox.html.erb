@@ -43,6 +43,10 @@
             <div class="column col col-lg-6">
               <img class="demo cursor" src=<%= @reverse %> style="width:50%" onclick="currentSlide(2)" alt= "REVERS">
             </div>
+            <div style="color: lightgray">
+              <strong>Wymiar: </Strong>
+              <%= @note.note_width.to_s + ' x ' + @note.note_height.to_s + ' mm' %>
+            </div>
           </div>
           </div>
         </div>
