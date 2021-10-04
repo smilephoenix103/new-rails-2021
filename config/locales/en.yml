@@ -114,6 +114,8 @@ en:
         status_sell: "Status Sell"
         avers_path: "Avers Path"
         reverse_path: "Reverse Path"
+        note_width: "Width"
+        note_height: "Height"
       coin:
         denomination: "Denomination"
         name_currency: "Name Currency"
@@ -158,6 +160,10 @@ en:
               not_a_number: " - Is not a number"
             price_sell:
               blank: " - Can't be blank!"
+              not_a_number: " - Is not a number"
+            note_width:
+              not_a_number: " - Is not a number"
+            note_height:
               not_a_number: " - Is not a number"
         coin:
           attributes:
