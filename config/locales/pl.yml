@@ -83,6 +83,8 @@ pl:
         status_sell: "Status Sprzedaży"
         avers_path: "Avers Link"
         reverse_path: "Reverse Link"
+        note_width: "Szerokość"
+        note_height: "Wysokość"
       coin:
         denomination: "Nominał"
         name_currency: "Nazwa Waluty"
@@ -127,6 +129,10 @@ pl:
               not_a_number: " - Podana wartość nie jest liczbą"
             price_sell:
               blank: " - Pole nie może być puste!"
+              not_a_number: " - Podana wartość nie jest liczbą"
+            note_width:
+              not_a_number: " - Podana wartość nie jest liczbą"
+            note_height:
               not_a_number: " - Podana wartość nie jest liczbą"
         coin:
           attributes:

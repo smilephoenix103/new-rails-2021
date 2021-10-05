@@ -64,6 +64,12 @@
         <strong>Materiał:</strong>
         <%= @note.making %>
       </div>
+      <% if (@note.note_width != nil && @note.note_height != nil) %>
+       <div class="col">
+        <strong>Wymiar:</strong>
+          <%= @note.note_width.to_s + ' x ' + @note.note_height.to_s + ' mm' %>
+        </div>
+      <% end %>
       <div class="col">
         <strong>typ obrazka:</strong>
         <%= @note.img_type %> 
@@ -73,10 +79,12 @@
         <%= @note.status %>
       </div>
       <% if user_signed_in? && current_user.role == 'admin' %>
-        <div class="col">
-            <strong>Status sprzedaży:</strong>
-            <%= @note.status_sell %>
-        </div>
+        <% if @note.status_sell != "" %>
+          <div class="col">
+              <strong>Status sprzedaży:</strong>
+              <%= @note.status_sell %>
+          </div>
+        <% end %>
       <% end %>
     </div>
   </div>
