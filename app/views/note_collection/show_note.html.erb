@@ -28,7 +28,9 @@
                     </div>
                     <div class="item-collection-info">
                       <%= "Rok: " + note.note_date.to_s %><br/>
-                      <%= "Nominał: " + number_with_delimiter(note.denomination, delimiter: " ") %><br/>
+                      <% if (note.denomination != nil) %>
+                        <%= "Nominał: " + number_with_delimiter(note.denomination, delimiter: " ") %><br/>
+                      <% end %>
                       <%= "Waluta: " + note.name_currency.to_s %><br/>
                       <% if (note.note_width != nil && note.note_height != nil) %>
                           <strong>Wymiar:</strong>
