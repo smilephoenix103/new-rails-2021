@@ -23,7 +23,9 @@
                     </div><br/>
                     <div class="item-collection-info" style="margin-top: 10%;">
                       <%= "Rok: " + coin.coin_date.to_s %><br/>
-                      <%= "Nominał: " + number_with_delimiter(coin.denomination, delimiter: " ") %><br/>
+                      <% if (coin.denomination != nil) %>
+                        <%= "Nominał: " + number_with_delimiter(coin.denomination, delimiter: " ") %><br/>
+                      <% end %>
                       <%= "Waluta: " + coin.name_currency.to_s %>
                       <div class="btn-image-collection" >
                         <%= link_to (render 'renders/button_show'), show_coin_user_path(coin), class:"btn btn-outline-info btn-sm", style:"float:left" %>                      
