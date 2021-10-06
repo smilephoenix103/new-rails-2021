@@ -46,7 +46,7 @@
             <% if (defined?(@note.note_width) != nil) %>
               <% if (@note.note_width != nil && @note.note_height != nil) %>
                 <div style="color: lightgray">
-                  <strong>Wymiar: </Strong>     
+                  <strong><%= t('dimension') %></Strong>     
                   <%= @note.note_width.to_s + ' x ' + @note.note_height.to_s + ' mm' %>
                 </div>
               <% end %>
