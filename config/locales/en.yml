@@ -110,7 +110,7 @@ en:
         series: "Series"
         making: "Making"
         date_buy_note: "Date Buy Note"
-        bought: "Bought"
+        bought: "Place Of Purchase"
         status_sell: "Status Sell"
         avers_path: "Avers Path"
         reverse_path: "Reverse Path"
@@ -226,6 +226,8 @@ en:
   year: 'Year'
   price: "Price"
   to_list: " To List"
+  dimension: "Dimension"
+  currency: "Currency"
   
 
   # Add, Update, Delete

@@ -79,7 +79,7 @@ pl:
         series: "Seria"
         making: "Materiał"
         date_buy_note: "Data Zakupu Banknotu"
-        bought: "Kupiony"
+        bought: "Miejsce Zakupu"
         status_sell: "Status Sprzedaży"
         avers_path: "Avers Link"
         reverse_path: "Reverse Link"
@@ -194,6 +194,9 @@ pl:
   year: 'Rok'
   price: "Cena"
   to_list: " Do Listy"
+  dimension: "Wymiar"
+  currency: "Waluta"
+
 
   # Add, Update, Delete
 
