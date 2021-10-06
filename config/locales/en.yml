@@ -140,7 +140,16 @@ en:
         avers_path: "Avers Path"
         reverse_path: "Reverse Path"
       currency:
+        cod: "Cod"
+        pattern: "Pattern"
+        currency: "Currency"
+        change: "Change"
+        active: "Active"
+        data_exchange: "Data Exchange"
         currency_series: "Currency Series"
+        currency_from: "Currency From"
+        converter: "Converter"
+        description: "Description"
       bought:
         name: "Seller"
         full_name: "Full Name"
@@ -245,3 +254,7 @@ en:
   currency_update: "Currency was successfully update."
   currency_delete: "Currency was successfully destroyed."
   currency_not_empty: "Currency is not empty (currencies contain %{items} elements)."
+
+  # **************CURRENCY*****************
+  new_currency: "New Currency"
+  edit_currency: "Editting Currency"
