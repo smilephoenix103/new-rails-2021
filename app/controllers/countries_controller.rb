@@ -12,9 +12,10 @@ class CountriesController < ApplicationController
   def index
     # @countries = Country.all.order(country_en: :asc)
     @countries = countries_list
-    flash.now[:info] = @countries.size.to_s + " - Państw"
+    # flash.now[:info] = @countries.size.to_s + " - Państw"
     @search = "country_search"
     @lang = extract_locale
+    @country = Country.new
   end
 
   # GET /countries/1
@@ -49,12 +50,15 @@ class CountriesController < ApplicationController
       # Country.where("country_en ILIKE '%" + params[:q] + "%' OR country_pl ILIKE '%" + params[:q] + "%'").each do |c|
       #   puts c.country_en + " - " + c.country_pl
       # end
+      @country = Country.new
       render :index
       
     rescue  
       @countries = $country_search
       @search = "country_search"
       @lang = extract_locale
+
+      @country = Country.new
       render :index
     end
   end 
@@ -65,14 +69,18 @@ class CountriesController < ApplicationController
   def create
     @country = Country.new(country_params)
 
-    respond_to do |format|
-      if @country.save
-        format.html { redirect_to @country, notice: 'Country was successfully created.' }
-        format.json { render :show, status: :created, location: @country }
-      else
-        format.html { render :new }
-        format.json { render json: @country.errors, status: :unprocessable_entity }
+    if (identical_country)
+      respond_to do |format|
+        if @country.save
+          format.html { redirect_to @country, notice: 'Country was successfully created.' }
+          format.json { render :show, status: :created, location: @country }
+        else
+          format.html { render :new }
+          format.json { render json: @country.errors, status: :unprocessable_entity }
+        end
       end
+    else
+      redirect_to @country, alert: 'Państwo o podanej nazwie już istnieje (:'
     end
   end
 
@@ -109,5 +117,18 @@ class CountriesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def country_params
       params.require(:country).permit(:continent, :country_en, :country_pl, :capital_city, :alfa_2, :alfa_3, :numeric_code, :iso_code, :exists)
+    end
+
+    def identical_country
+      puts @country.inspect
+      countries = Country.where(:country_en => @country.country_en)
+              .or(Country.where(:country_en => @country.country_pl))
+              .or(Country.where(:country_pl => @country.country_en))
+              .or(Country.where(:country_pl => @country.country_pl))
+      if (countries.size == 0)
+        return true
+      else
+        return false
+      end
     end
 end

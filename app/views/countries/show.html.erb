@@ -36,19 +36,36 @@
       <strong>Iso code:</strong>
       <%= @country.iso_code %>
        
-      <%
-=begin%>
- <strong>Exists:</strong>
+    <p>
+      <strong>Exists:</strong>
       <%= @country.exists %> 
-<%
-=end%>
+    </p>
     </p>
   </h3>
   <%= link_to (render 'renders/button_back'), countries_path, class:"btn btn-secondary btn-sm" %>
-  <%= link_to (render 'renders/button_edit'), edit_country_path(@country), class:"btn btn-primary btn-sm" %>  
+  <%= link_to (render 'renders/button_edit'), edit_country_path(@country), {class:"btn btn-primary btn-sm", 'data-toggle' => "modal", 'data-target' => "#editCountry"} %>  
   <%
 =begin%>
  <%= link_to 'Add Currency', new_country_currency_path(@country), class:"btn btn-secondary" %> 
 <%
 =end%>
+</div>
+
+<div class="modal fade" id="editCountry" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel"><%= t('edit_country') %></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= render 'form', country: @country %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal"><%= render ('renders/button_close') %></button>
+      </div>
+    </div>
+  </div>
 </div>

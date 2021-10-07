@@ -7,7 +7,7 @@
 <div>
 	<nav class="navbar navbar-light bg-light">
     <div>
-      <%= link_to 'Add New Country', new_country_path, class:"btn btn-primary btn-sm" %>
+      <%= link_to (t('add_new_country')), new_country_path, {class:"btn btn-primary btn-sm", 'data-toggle' => "modal", 'data-target' => "#newCountry"}%>
     </div>
       <%= render 'renders/search' %>
 	</nav>  
@@ -62,7 +62,26 @@
           <%= link_to (render 'renders/button_show'), country, class:"btn btn-info btn-sm" %>
         </td>
         <td>
-          <%= link_to (render 'renders/button_edit'), edit_country_path(country), class:"btn btn-primary btn-sm" %>
+        <% @countryEdit = country %>
+          <%= link_to (render 'renders/button_edit'), edit_country_path(country), {class:"btn btn-primary btn-sm", 'data-toggle' => "modal", 'data-target' => "#" + country.country_en.gsub(" ", "_") + country.id.to_s}%>
+          <div class="modal fade" id=<%= country.country_en.gsub(" ", "_") + country.id.to_s %> data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="staticBackdropLabel"><%= t('edit_country') %></h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <%= render 'form', country: country %>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal"><%= render ('renders/button_close') %></button>
+                </div>
+              </div>
+            </div>
+          </div>
         </td>
         <td>
           <%= link_to (render 'renders/button_delete'), country, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger btn-sm" %>
@@ -73,3 +92,23 @@
 </table>
 
 <br>
+
+<div class="modal fade" id="newCountry" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm modal-lg modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel"><%= t('add_new_country') %></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= render 'form', country: @country %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal"><%= render ('renders/button_close') %></button>
+      </div>
+    </div>
+  </div>
+</div>
+

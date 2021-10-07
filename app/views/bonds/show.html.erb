@@ -14,7 +14,7 @@
   </p>
   <h1 class="display-4" id="notice"></h1>
   <div class="container">
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4" style="font-size: small;">
     <% if user_signed_in? && current_user.role == 'admin' %>
       <div class="col">
         <strong>Data zakupu:</strong>
@@ -26,19 +26,19 @@
       </div>
       <div class="col">
         <strong>cena zakupu:</strong>
-        <%= @bond.price_buy.to_s + "zł" %>
+        <%= number_to_currency(@bond.price_buy, unit:"zł", precision: 2, format: "%n %u") %>
       </div>
       
       <% if @bond.price_sell.to_s != "" %>
         <div class="col">
           <strong>Cena:</strong>
-          <%= @bond.price_sell.to_s + "zł" %>
+          <%= number_to_currency(@bond.price_sell, unit:"zł", precision: 2, format: "%n %u") %>
         </div> 
       <% end %>        
     <% end %>
       <div class="col">
         <strong>Nominał:</strong>
-        <%= @bond.denomination %>
+        <%= number_to_currency(@bond.denomination , delimiter: " ", unit:"", precision: 2, format: "%n %u") %>
       </div>
       <div class="col">
         <strong>Nazwa waluty:</strong>

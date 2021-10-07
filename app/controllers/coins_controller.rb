@@ -63,9 +63,6 @@ class CoinsController < ApplicationController
     @coin = Coin.new
     @coin.price_buy = 0.0
     @coin.price_sell = 0.0
-    @coin.diameter = 0.0
-    @coin.thickness = 0.0
-    @coin.weight = 0.0
 
     puts "****************** test dodawania monety ********************************"
     puts params[:currency_id]
@@ -124,6 +121,7 @@ class CoinsController < ApplicationController
 
   # PATCH/PUT /coins/1 or /coins/1.json
   def update
+    @currencies = currency_series(@coin, "COIN")
     @statuses = ElementSelect.statuses
     @img_types = ElementSelect.img_types
     @country = @coin.currency.country

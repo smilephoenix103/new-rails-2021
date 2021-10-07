@@ -1,0 +1,53 @@
+.notyfication
+{
+  max-width: 300px;
+  position: fixed;
+  z-index: 1;
+  top: -10px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  
+}
+.notyfication-notice
+{
+  color: rgb(26, 228, 53);
+}
+
+.notyfication-alert
+{
+  color: rgb(231, 14, 14);
+}
+
+.notyfication-info
+{
+  color: rgb(7, 89, 243);
+}
+
+.notyfication-position
+{	
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#hidethis 
+{ 
+  animation: css 0s 3s forwards; 
+}
+
+@keyframes css  { to	
+  { 		
+      visibility: hidden; 
+  } 
+}
+
+.hidethis-alert
+{ 
+  animation: css 0s 60s forwards; 
+}
+
+@keyframes css  { to	
+  { 		
+      visibility: hidden; 
+  } 
+}

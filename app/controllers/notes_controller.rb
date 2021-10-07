@@ -194,11 +194,11 @@ class NotesController < ApplicationController
           puts @note.currency.country.id
           @currency = Currency.find(@note.currency_id)
           # format.html { redirect_to note_show_currency_path(@currency), notice: 'Note was successfully updated.' }
-          format.html { redirect_to note_future_path(@note.currency.country), notice: 'Note was successfully updated.' }
+          format.html { redirect_to note_future_path(@note.currency.country), notice: t('note_success_update') }
 
         else
           @currency = Currency.find(@note.currency_id)
-          format.html { redirect_to note_show_currency_path(@currency), notice: 'Note was successfully updated.' }
+          format.html { redirect_to note_show_currency_path(@currency), notice: t('note_success_update') }
           format.json { render :show, status: :ok, location: @note }
         end
       else
@@ -232,7 +232,9 @@ class NotesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def note_params
-      params.require(:note).permit(:currency_id, :denomination, :name_currency, :note_date, :signature_code, :price_buy, :price_sell, :quantity, :quality, :status, :description, :img_type, :avers_path, :reverse_path, :series, :making, :date_buy_note, :bought, :status_sell)
+      params.require(:note).permit(:currency_id, :denomination, :name_currency, :note_date, :signature_code, :price_buy, :price_sell, 
+                                   :quantity, :quality, :status, :description, :img_type, :avers_path, :reverse_path, :series, :making, 
+                                   :date_buy_note, :bought, :status_sell, :note_width, :note_height)
     end
 
     def set_role

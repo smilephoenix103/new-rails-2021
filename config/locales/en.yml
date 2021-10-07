@@ -110,10 +110,12 @@ en:
         series: "Series"
         making: "Making"
         date_buy_note: "Date Buy Note"
-        bought: "Bought"
+        bought: "Place Of Purchase"
         status_sell: "Status Sell"
         avers_path: "Avers Path"
         reverse_path: "Reverse Path"
+        note_width: "Width"
+        note_height: "Height"
       coin:
         denomination: "Denomination"
         name_currency: "Name Currency"
@@ -138,7 +140,16 @@ en:
         avers_path: "Avers Path"
         reverse_path: "Reverse Path"
       currency:
+        cod: "Cod"
+        pattern: "Pattern"
+        currency: "Currency"
+        change: "Change"
+        active: "Active"
+        data_exchange: "Data Exchange"
         currency_series: "Currency Series"
+        currency_from: "Currency From"
+        converter: "Converter"
+        description: "Description"
       bought:
         name: "Seller"
         full_name: "Full Name"
@@ -158,6 +169,10 @@ en:
               not_a_number: " - Is not a number"
             price_sell:
               blank: " - Can't be blank!"
+              not_a_number: " - Is not a number"
+            note_width:
+              not_a_number: " - Is not a number"
+            note_height:
               not_a_number: " - Is not a number"
         coin:
           attributes:
@@ -199,6 +214,7 @@ en:
     edit: "Edit"
     delete: "Delete"
     search: "Search"
+    close: "Close"
 
   date:
     month_names: [~, January, February, March, April, May, June, July, August, September, October, November, December]
@@ -219,4 +235,26 @@ en:
   year: 'Year'
   price: "Price"
   to_list: " To List"
+  dimension: "Dimension"
+  currency: "Currency"
+  
+
+  # Add, Update, Delete
+
+  add_new_country: "Add New Country"
+  edit_country: "Edit Country"
+
   new_seller: "New Seller"
+  edit_seller: "Edit Seller"
+
+  note_success_update: "Note was successfully updated."
+  note_success_create: "Note was successfully created."
+
+  currency_create: "Currency was successfully create."
+  currency_update: "Currency was successfully update."
+  currency_delete: "Currency was successfully destroyed."
+  currency_not_empty: "Currency is not empty (currencies contain %{items} elements)."
+
+  # **************CURRENCY*****************
+  new_currency: "New Currency"
+  edit_currency: "Editting Currency"

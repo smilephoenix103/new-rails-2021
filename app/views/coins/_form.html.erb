@@ -25,17 +25,19 @@
 
   <div class="container">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
-      <div class="col field">
+      <div class="col-4 field">
         <%= form.label :date_buy %><br/>
         <%= form.date_select :date_buy, class:"form-control form-control-sm" %>
       </div>
-      <div class="col col-lg-5 field">
+      <div class="col field">
         <div style="float:left">
           <%= form.label :bought %>
           <% form.text_field :bought, class:"form-control form-control-sm" %>
           <%= form.select :bought, Bought.all.map { |b| [b.name, b.name]}, {:include_blank => "Select(" + t('activerecord.attributes.note.bought') + ")"}, class:"form-control  form-control-sm" %>
         </div>
-        <div style="float:right; margin-top:7%">
+      </div>
+      <div class="col field">
+        <div style="float:left; margin-top:7%">
           <%= link_to 'Nowe miejsce zakupu', new_bought_path, class:"btn btn-sm btn-primary", style:"float:left" %>
         </div>
       </div>

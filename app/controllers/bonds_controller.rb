@@ -100,6 +100,7 @@ class BondsController < ApplicationController
   # POST /bonds or /bonds.json
   def create
     @bond = Bond.new(bond_params)
+    @currencies = currency_series(@bond, "BOND")
 
     respond_to do |format|
       if @bond.save
@@ -119,6 +120,7 @@ class BondsController < ApplicationController
 
   # PATCH/PUT /bonds/1 or /bonds/1.json
   def update
+    @currencies = currency_series(@bond, "BOND")
     respond_to do |format|
       if @bond.update(bond_params)
         format.html { redirect_to @bond, notice: "Bond was successfully updated." }

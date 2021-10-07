@@ -27,9 +27,15 @@
                         <img class="img-responsive image-collection_size" src=<%= note.reverse_path %> alt = <%= note.reverse_path %>>                     
                     </div>
                     <div class="item-collection-info">
-                      <%= "Rok: " + note.note_date.to_s %><br/>
-                      <%= "Nominał: " + number_with_delimiter(note.denomination, delimiter: " ") %><br/>
-                      <%= "Waluta: " + note.name_currency.to_s %>
+                      <%= t('activerecord.attributes.note.note_date') + ": "  + note.note_date.to_s %><br/>
+                      <% if (note.denomination != nil) %>
+                        <%= t('activerecord.attributes.note.denomination') + ": " + number_with_delimiter(note.denomination, delimiter: " ") %><br/>
+                      <% end %>
+                      <%= t('currency') + ": " + note.name_currency.to_s %><br/>
+                      <% if (note.note_width != nil && note.note_height != nil) %>
+                          <strong><%= t('dimension') + ": " %></strong>
+                          <%= note.note_width.to_s + ' x ' + note.note_height.to_s + ' mm' %>                      
+                      <% end %>
                         <div class="btn-image-collection" >
                           <%= link_to (render 'renders/button_show'), show_note_user_path(note), class:"btn btn-outline-info btn-sm", style:"float:left" %> 
                         </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_14_154926) do
+ActiveRecord::Schema.define(version: 2021_09_29_082900) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2021_05_14_154926) do
     t.date "date_buy"
     t.string "series"
     t.string "bought"
-    t.bigint "denomination"
+    t.float "denomination"
     t.string "name_currency"
     t.string "bond_date"
     t.integer "signature_code"
@@ -143,6 +143,8 @@ ActiveRecord::Schema.define(version: 2021_05_14_154926) do
     t.date "date_buy_note", comment: "Data zakupu banknotu"
     t.string "bought", comment: "Gdzie banknot został kupiony"
     t.string "status_sell", comment: "Czy banknot został wystawiony na sprzedaż"
+    t.integer "note_width"
+    t.integer "note_height"
     t.index ["currency_id"], name: "index_notes_on_currency_id"
   end
 

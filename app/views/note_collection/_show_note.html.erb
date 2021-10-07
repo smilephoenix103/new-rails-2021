@@ -7,81 +7,87 @@
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4", style="font-size: small;">
     <% if user_signed_in? && (current_user.role == 'admin' || current_user.role == 's_user') %>
       <div class="col">
-        <strong>Data zakupu:</strong>
+        <strong><%= t('activerecord.attributes.note.date_buy_note') + ":" %></strong>
         <%= @note.date_buy_note %>
       </div>  
     <% end %>
     <% if user_signed_in? && current_user.role == 'admin' %>
       <div class="col">
-        <strong>Miejsce zakupu:</strong>
+        <strong><%= t('activerecord.attributes.note.bought') + ":"  %></strong>
         <%= @note.bought %>
       </div>
     <% end %>
     <% if user_signed_in? && (current_user.role == 'admin' || current_user.role == 's_user') %>
       <div class="col">
-        <strong>cena zakupu:</strong>
-        <%= number_to_currency(@note.price_buy, unit:"", precision: 2, format: "%n %u") %>
+        <strong><%= t('activerecord.attributes.note.price_buy') + ":"  %></strong>
+        <%= number_to_currency(@note.price_buy, unit:"zł", precision: 2, format: "%n %u") %>
       </div>
     <% end %>
     <% if user_signed_in? && (current_user.role == 'admin') %>
       <div class="col">
-        <strong>Cena:</strong>
-        <%= @note.price_sell.to_s + "zł" %>
+        <strong><%= t('activerecord.attributes.note.price_sell') + ":"  %></strong>
+        <%= number_to_currency(@note.price_sell, unit:"zł", precision: 2, format: "%n %u") %>
       </div>         
     <% end %>
       <div class="col">
-        <strong>Nominał:</strong>
+        <strong><%= t('activerecord.attributes.note.denomination') + ":"  %></strong>
         <% @note.denomination %>
         <%= number_with_delimiter(@note.denomination , delimiter: " ") %>
       </div>
       <div class="col">
-        <strong>Nazwa waluty:</strong>
+        <strong><%= t('activerecord.attributes.note.name_currency') + ":"  %></strong>
         <%= @note.name_currency %>
       </div>
       <div class="col">
-        <strong>Data:</strong>
+        <strong><%= t('activerecord.attributes.note.note_date') + ":"  %></strong>
         <%= @note.note_date %>
       </div>
       <div class="col">
-        <strong>SERIA:</strong>
+        <strong><%= t('activerecord.attributes.note.series') + ":"  %></strong>
         <%= @note.series %>
       </div>
       <div class="col">
-        <strong>Signature code:</strong>
+        <strong><%= t('activerecord.attributes.note.signature_code') + ":"  %></strong>
         <%= @note.signature_code %>
-      </div>
-    
-      
+      </div>    
       <div class="col">
-        <strong>Ilość:</strong>
+        <strong><%= t('activerecord.attributes.note.quantity') + ":"  %></strong>
         <%= @note.quantity %>
       </div>
       <div class="col">
-        <strong>Stan banknotu:</strong>
+        <strong><%= t('activerecord.attributes.note.quality') + ":"  %></strong>
         <%= @note.quality %>
       </div>
       <div class="col">
-        <strong>Materiał:</strong>
+        <strong><%= t('activerecord.attributes.note.making') + ":"  %></strong>
         <%= @note.making %>
       </div>
+      <% if (@note.note_width != nil && @note.note_height != nil) %>
+       <div class="col">
+        <strong><%= t('dimension') + ":" %></strong>
+          <%= @note.note_width.to_s + ' x ' + @note.note_height.to_s + ' mm' %>
+        </div>
+      <% end %>
       <div class="col">
-        <strong>typ obrazka:</strong>
+        <strong><%= t('activerecord.attributes.note.img_type') + ":"  %></strong>
         <%= @note.img_type %> 
       </div>
       <div class="col">
-        <strong>Status:</strong>
+        <strong><%= t('activerecord.attributes.note.status') + ":"  %></strong>
         <%= @note.status %>
       </div>
       <% if user_signed_in? && current_user.role == 'admin' %>
-        <div class="col">
-            <strong>Status sprzedaży:</strong>
-            <%= @note.status_sell %>
-        </div>
+        <% if @note.status_sell != "" %>
+          <div class="col">
+              <strong><%= t('activerecord.attributes.note.status_sell') + ":"  %></strong>
+              <%= @note.status_sell %>
+          </div>
+        <% end %>
       <% end %>
     </div>
   </div>
   <p>
-    <strong>Description:</strong>
+    <strong><%= t('activerecord.attributes.note.description') + ":"  %></strong>
     <%= @note.description %>
   </p>
   <hr class="my-1">

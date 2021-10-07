@@ -79,10 +79,12 @@ pl:
         series: "Seria"
         making: "Materiał"
         date_buy_note: "Data Zakupu Banknotu"
-        bought: "Kupiony"
+        bought: "Miejsce Zakupu"
         status_sell: "Status Sprzedaży"
         avers_path: "Avers Link"
         reverse_path: "Reverse Link"
+        note_width: "Szerokość"
+        note_height: "Wysokość"
       coin:
         denomination: "Nominał"
         name_currency: "Nazwa Waluty"
@@ -107,7 +109,16 @@ pl:
         avers_path: "Avers Link"
         reverse_path: "Reverse Link"
       currency:
-        currency_series: "Okres Występowania"
+        cod: "Kod"
+        pattern: "Rodzaj"
+        currency: "Waluta"
+        change: "Drobne"
+        active: "Aktywna"
+        data_exchange: "Data Wymiany"
+        currency_series: "Okres Wystepowania"
+        currency_from: "Poprzednia Waluta"
+        converter: "Przelicznik"
+        description: "Opis"
       bought:
         name: "Sprzedawca"
         full_name: "Pełna Nazwa Sprzedawcy"
@@ -127,6 +138,10 @@ pl:
               not_a_number: " - Podana wartość nie jest liczbą"
             price_sell:
               blank: " - Pole nie może być puste!"
+              not_a_number: " - Podana wartość nie jest liczbą"
+            note_width:
+              not_a_number: " - Podana wartość nie jest liczbą"
+            note_height:
               not_a_number: " - Podana wartość nie jest liczbą"
         coin:
           attributes:
@@ -168,6 +183,7 @@ pl:
     edit: "Edytuj"
     delete: "Usuń"
     search: "Szukaj"
+    close: "Zamknij"
 
   date:
     month_names: [~, Styczeń, Luty, Morzec, Kwiecień, Maj, Czerwiec, Lipiec, Sierpień, Wrzesień, Październik, Listopad, Grudzień]
@@ -187,4 +203,27 @@ pl:
   year: 'Rok'
   price: "Cena"
   to_list: " Do Listy"
+  dimension: "Wymiar"
+  currency: "Waluta"
+
+
+  # Add, Update, Delete
+
+  add_new_country: "Dodaj Nowe Państwo"
+  edit_country: "Eycja Państwa"
+
   new_seller: "Nowy Sprzedawca"
+  edit_seller: "Edycja Sprzedawcy"
+
+
+  note_success_update: "Udana aktualizacja banknotu."
+  note_success_create: "Dodano banknot."
+
+  currency_create: "Pmyślnie dodano nową walutę."
+  currency_update: "Pomyślnie zaktualizowano walutę."
+  currency_delete: "Waluta została pomyślnie usunięta."
+  currency_not_empty: "Waluta nie jest pusta (zawiera %{items} elementu do usunięcia)."
+
+   # **************CURRENCY*****************
+  new_currency: "Nowa Waluta"
+  edit_currency: "Edycja Waluty"
