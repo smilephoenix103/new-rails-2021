@@ -79,7 +79,7 @@ pl:
         series: "Seria"
         making: "Materiał"
         date_buy_note: "Data Zakupu Banknotu"
-        bought: "Kupiony"
+        bought: "Miejsce Zakupu"
         status_sell: "Status Sprzedaży"
         avers_path: "Avers Link"
         reverse_path: "Reverse Link"
@@ -109,7 +109,16 @@ pl:
         avers_path: "Avers Link"
         reverse_path: "Reverse Link"
       currency:
-        currency_series: "Okres Występowania"
+        cod: "Kod"
+        pattern: "Rodzaj"
+        currency: "Waluta"
+        change: "Drobne"
+        active: "Aktywna"
+        data_exchange: "Data Wymiany"
+        currency_series: "Okres Wystepowania"
+        currency_from: "Poprzednia Waluta"
+        converter: "Przelicznik"
+        description: "Opis"
       bought:
         name: "Sprzedawca"
         full_name: "Pełna Nazwa Sprzedawcy"
@@ -194,6 +203,9 @@ pl:
   year: 'Rok'
   price: "Cena"
   to_list: " Do Listy"
+  dimension: "Wymiar"
+  currency: "Waluta"
+
 
   # Add, Update, Delete
 
@@ -211,3 +223,7 @@ pl:
   currency_update: "Pomyślnie zaktualizowano walutę."
   currency_delete: "Waluta została pomyślnie usunięta."
   currency_not_empty: "Waluta nie jest pusta (zawiera %{items} elementu do usunięcia)."
+
+   # **************CURRENCY*****************
+  new_currency: "Nowa Waluta"
+  edit_currency: "Edycja Waluty"

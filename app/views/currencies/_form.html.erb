@@ -19,19 +19,18 @@
     <%= form.label :country_id %>
     <%= form.text_field :country_id, value:@currency.country_id %>
   </div>
-
   <table class="table table-striped table-bordered table-hover">
     <tr>
       <td>
         <div class="field ">
-          <% form.label :cod %>
-          <%= form.text_field :cod, class:"form-control form-control-sm", placeholder:"Kod"%>
+          <%= form.label :cod %>
+          <%= form.text_field :cod, class:"form-control form-control-sm", placeholder: t('activerecord.attributes.currency.cod')%>
         </div>
       </td>
       <td>
         <div class="field ">
-          <% form.label :pattern %>
-          <%= form.select :pattern, Pattern.all.map { |p| [p.name_en, p.name_en]}, {:include_blank => "Select(Pattern)"}, class:"form-control form-control-sm" %>
+          <%= form.label :pattern %>
+          <%= form.select :pattern, Pattern.all.map { |p| [p.name_en, p.name_en]}, {:include_blank => "Select(" + t('activerecord.attributes.currency.pattern') +")"}, class:"form-control form-control-sm" %>
           <% currency.errors.full_messages_for(:pattern).each do |message| %>
             <div style="color:red" ><%= message %></div>
           <% end %>
@@ -40,58 +39,58 @@
       </td>
       <td>
         <div class="field ">
-          <% form.label :currency %>
-         <%= form.text_field :currency, class:"form-control form-control-sm", placeholder:"Waluta" %>
+          <%= form.label :currency %>
+         <%= form.text_field :currency, class:"form-control form-control-sm", placeholder: t('activerecord.attributes.currency.currency') %>
         </div>
       </td>
     </tr>
     <tr>
       <td>
         <div class="field ">
-          <% form.label :change %>
-          <%= form.text_field :change, class:"form-control form-control-sm", placeholder:"Drobne" %>
+          <%= form.label :change %>
+          <%= form.text_field :change, class:"form-control form-control-sm", placeholder:t('activerecord.attributes.currency.change') %>
         </div>
       </td>
       <td>
         <div class="field ">
-          <% form.label :active %>
-          <%= form.number_field :active, class:"form-control form-control-sm", placeholder:"Active" %>
+          <%= form.label :active %>
+          <%= form.number_field :active, class:"form-control form-control-sm", placeholder:t('activerecord.attributes.currency.active') %>
         </div>
       </td>
       <td>
         <div class="field">
-          <% form.label :data_exchange %>
-          <%= form.text_field :data_exchange, class:"form-control form-control-sm", placeholder:"Data wymiany" %>
+          <%= form.label :data_exchange %>
+          <%= form.text_field :data_exchange, class:"form-control form-control-sm", placeholder: t('activerecord.attributes.currency.data_exchange') %>
         </div>
       </td>
     </tr>
     <tr>
       <td colspan="3">
         <div class="field">
-          <% form.label :currency_series %>
-          <%= form.text_field :currency_series, class:"form-control form-control-sm", placeholder:"Okres wystepowania" %>
+          <%= form.label :currency_series %>
+          <%= form.text_field :currency_series, class:"form-control form-control-sm", placeholder: t('activerecord.attributes.currency.currency_series') %>
         </div>
       </td>
     </tr>
     <tr>
       <td>
         <div class="field ">
-          <% form.label :currency_from %>
-          <%= form.text_field :currency_from, class:"form-control form-control-sm", placeholder:"Poprzedni awaluta" %>
+          <%= form.label :currency_from %>
+          <%= form.text_field :currency_from, class:"form-control form-control-sm", placeholder: t('activerecord.attributes.currency.currency_from') %>
         </div>
       </td>
       <td>
         <div class="field ">
-          <% form.label :converter %>
-          <%= form.text_field :converter, class:"form-control form-control-sm", placeholder:"Przelicznik" %>
+          <%= form.label :converter %>
+          <%= form.text_field :converter, class:"form-control form-control-sm", placeholder: t('activerecord.attributes.currency.converter') %>
         </div>
       </td>
     </tr>
   </table>  
 
   <div class="field ">
-    <% form.label :description %>
-    <%= form.text_area :description, class:"form-control form-control-sm", placeholder:"Opis" %>
+    <%= form.label :description %>
+    <%= form.text_area :description, class:"form-control form-control-sm", placeholder: t('activerecord.attributes.currency.description') %>
   </div>
 
   <div class="actions">
