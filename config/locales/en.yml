@@ -83,6 +83,9 @@ en:
       bought:
         create: "Add Seller"
         update: "Update Seller"
+      signature: 
+        create: "Add Signature"
+        update: "Update Signature"
   activerecord:
     attributes:
       country:
@@ -154,6 +157,10 @@ en:
         name: "Seller"
         full_name: "Full Name"
         description: "Seller Information"
+      signature:
+        signature_cod: "Signature Cod"
+        short_name: "Name"
+        description: "Description"
     errors:
       models:
         note:
@@ -258,3 +265,7 @@ en:
   # **************CURRENCY*****************
   new_currency: "New Currency"
   edit_currency: "Editting Currency"
+
+  # *************SIGNATURES****************
+  signature_codes: "Signature Codes"
+  description_of_signature: "Description Of Signature Codes"

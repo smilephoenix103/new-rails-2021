@@ -1,15 +1,15 @@
 <div class="jumbotron">
-  <h1 class="display-4">Opis kodów sygnatur</h1>
+  <h1 class="display-4"><%= t('description_of_signature') %></h1>
   <p>
-    <strong>Kos Sygnatury:</strong>
+    <strong><%= t('activerecord.attributes.signature.signature_cod') + ": " %></strong>
     <%= @signature.signature_cod %>
   </p>
   <p>
-    <strong>Nazwa:</strong>
+    <strong><%= t('activerecord.attributes.signature.short_name') + ": " %></strong>
     <%= @signature.short_name %>
   </p>
   <p>
-    <strong>Description:</strong>
+    <strong><%= t('activerecord.attributes.signature.description') + ": " %></strong>
     <%= @signature.description %>
   </p>
   <hr class="my-4">

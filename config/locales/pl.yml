@@ -52,6 +52,9 @@ pl:
       bought:
         create: "Nowy Sprzedawca"
         update: "Zapisz Zmiany"
+      signature: 
+        create: "Dodaj Sygnaturę"
+        update: "Edytuj Sygnaturę"
   activerecord:
     attributes:
       country:
@@ -123,6 +126,10 @@ pl:
         name: "Sprzedawca"
         full_name: "Pełna Nazwa Sprzedawcy"
         description: "Informacje o Sprzedawcy"
+      signature:
+        signature_cod: "Kod Sygnatury"
+        short_name: "Nazwa"
+        description: "Opis"
     errors:
       models:
         note:
@@ -224,6 +231,10 @@ pl:
   currency_delete: "Waluta została pomyślnie usunięta."
   currency_not_empty: "Waluta nie jest pusta (zawiera %{items} elementu do usunięcia)."
 
-   # **************CURRENCY*****************
+  # **************CURRENCY*****************
   new_currency: "Nowa Waluta"
   edit_currency: "Edycja Waluty"
+
+  # *************SIGNATURES****************
+  signature_codes: "Kody Sygnatur"
+  description_of_signature: "Opis Kodów Sygnatur"
