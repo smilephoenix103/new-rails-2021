@@ -44,6 +44,19 @@
 
 <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true")>
   <% @header_new = t('helpers.submit.signature.create') %>
-  <%= render 'modal_signature', signature: @signature %>
+  <%= render 'modal_signature', signature: @signature%>
 </div>
+
+
+<% if (@error_signature == true) %>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $("#myModal").modal('show');
+    });
+  </script>
+  <div id="myModal" class="modal fade">
+      <%= render 'modal_signature', signature: @signature%>
+  </div>
+<% end %>
 

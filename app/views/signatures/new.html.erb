@@ -1,7 +1,10 @@
-<div style="text-align:center">
+ <div style="text-align:center">
     <h1>Dodaj nową synaturę</h1>
-</div>
+</div> 
 
-<%= render 'form', signature: @signature %>
+ <%= render 'form', signature: @signature %> 
 
-<%= link_to (render 'renders/button_back'), signatures_path, class:"btn btn-secondary btn-sm" %>
+ <%= render 'modal_signature', signature: @signature%> 
+
+ <%= link_to (render 'renders/button_back'), signatures_path, class:"btn btn-secondary btn-sm" %> 
+

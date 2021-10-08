@@ -31,8 +31,10 @@ class SignaturesController < ApplicationController
         format.html { redirect_to @signature, notice: "Signature was successfully created." }
         format.json { render :show, status: :created, location: @signature }
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @signature.errors, status: :unprocessable_entity }
+        format.html { render :index, status: :unprocessable_entity }
+        # format.json { render json: @signature.errors, status: :unprocessable_entity }
+        @signatures = Signature.all.order(signature_cod: :asc)
+        @error_signature = true
       end
     end
   end
@@ -44,8 +46,10 @@ class SignaturesController < ApplicationController
         format.html { redirect_to @signature, notice: "Signature was successfully updated." }
         format.json { render :show, status: :ok, location: @signature }
       else
-        format.html { render :edit, status: :unprocessable_entity }
+        format.html { render :index, status: :unprocessable_entity }
         format.json { render json: @signature.errors, status: :unprocessable_entity }
+        @signatures = Signature.all.order(signature_cod: :asc)
+        @error_signature = true
       end
     end
   end

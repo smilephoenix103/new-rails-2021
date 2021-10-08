@@ -1,4 +1,4 @@
-<div class="modal-dialog">
+<div class="modal-dialog modal-lg">
     <div class="modal-content">
         <div class="modal-header">
             <h5 class="modal-title" id="staticBackdropLabel">
@@ -16,7 +16,12 @@
             <%= render 'form', signature: signature %>               
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+            <%
+=begin%>
+ <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button> 
+<%
+=end%>
+            <%= link_to (render 'renders/button_close'), signatures_path, {class:"btn btn-secondary btn-sm"} %>
         </div>
     </div>
 </div>
