@@ -15,13 +15,18 @@
             	<%= image_tag(note.avers_path, :alt => "AVERSE" , style:"width:100%") %>
             <% else %>
             	<%= note.avers_path %>
-            <% end %> 
+          <% end %> 
               <hr class="my-2">
-        	  <% if (note.reverse_path.length > 200) %>
+        	<% if (note.reverse_path.length > 200) %>
             	<%= image_tag(note.reverse_path, :alt => "REVERSE" , style:"width:100%") %>
             <% else %>
             	<%= note.reverse_path %>
-            <% end %>      
+          <% end %>  
+          <br/>
+          <% if (note.note_width != nil && note.note_height != nil) %>
+            <strong><%= t('dimension') + ":" %></strong>
+            <%= note.note_width.to_s + ' x ' + note.note_height.to_s + ' mm' %>
+          <% end %>    
         </div>
       
         <div class="page-header col-md-6" >
