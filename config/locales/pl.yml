@@ -171,6 +171,10 @@ pl:
             price_sell:
               blank: " - Pole nie może być puste!"
               not_a_number: " - Podana wartość nie jest liczbą"
+        signature:
+          attributes:
+            signature_cod:
+              not_a_number: " - Podana wartość nie jest liczbą"
   tables:
     country:
       headers:
@@ -230,6 +234,10 @@ pl:
   currency_update: "Pomyślnie zaktualizowano walutę."
   currency_delete: "Waluta została pomyślnie usunięta."
   currency_not_empty: "Waluta nie jest pusta (zawiera %{items} elementu do usunięcia)."
+
+  signature_success_create: "Pomyślne dodano nową sygnaturę."
+  signature_success_update: "Pomyślnie zaktulizowano sygnaturę."
+  signature_success_delete: "Signatura została pomyslnie usunięta."
 
   # **************CURRENCY*****************
   new_currency: "Nowa Waluta"

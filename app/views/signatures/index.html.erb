@@ -42,7 +42,7 @@
   </table>
 </div>
 
-<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true")>
+<div class="modal fade modal-background-color" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" )>
   <% @header_new = t('helpers.submit.signature.create') %>
   <%= render 'modal_signature', signature: @signature%>
 </div>
@@ -55,7 +55,7 @@
       $("#myModal").modal('show');
     });
   </script>
-  <div id="myModal" class="modal fade">
+  <div id="myModal" class="modal fade" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
       <%= render 'modal_signature', signature: @signature%>
   </div>
 <% end %>

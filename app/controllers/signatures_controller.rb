@@ -28,7 +28,7 @@ class SignaturesController < ApplicationController
 
     respond_to do |format|
       if @signature.save
-        format.html { redirect_to @signature, notice: "Signature was successfully created." }
+        format.html { redirect_to @signature, notice: t('signature_success_create') }
         format.json { render :show, status: :created, location: @signature }
       else
         format.html { render :index, status: :unprocessable_entity }
@@ -43,7 +43,7 @@ class SignaturesController < ApplicationController
   def update
     respond_to do |format|
       if @signature.update(signature_params)
-        format.html { redirect_to @signature, notice: "Signature was successfully updated." }
+        format.html { redirect_to @signature, notice: t('signature_success_update')}
         format.json { render :show, status: :ok, location: @signature }
       else
         format.html { render :index, status: :unprocessable_entity }
@@ -58,7 +58,7 @@ class SignaturesController < ApplicationController
   def destroy
     @signature.destroy
     respond_to do |format|
-      format.html { redirect_to signatures_url, notice: "Signature was successfully destroyed." }
+      format.html { redirect_to signatures_url, notice: t('signature_success_delete') }
       format.json { head :no_content }
     end
   end

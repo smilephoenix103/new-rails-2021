@@ -22,10 +22,9 @@
         <%= form.label :"signature_cod" %>
         <%= form.text_field :signature_cod, class:"form-control form-control-sm" %>
         <% signature.errors.full_messages_for(:signature_cod).each do |message| %>
-          <div  class="alert alert-danger" role="alert"><%= message %></div>
+          <div  class="alert alert-danger alert-sm" role="alert"><%= message %></div>
         <% end %>
       </div>
-      <h3><%= @test %>  </h3>
       <div class="field">
         <%= form.label :short_name %>
         <%= form.text_field :short_name, class:"form-control form-control-sm" %>
