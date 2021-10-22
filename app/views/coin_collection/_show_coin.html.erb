@@ -4,6 +4,7 @@
   </span>
   <h1 class="display-4" id="notice"></h1>
   <div class="container">
+  <%= render 'renders/data_ad', dateAdMod: @coin %>
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4", style="font-size: small;">
     <% if user_signed_in? && current_user.role == 'admin' %>
       <div class="col">

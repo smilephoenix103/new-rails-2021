@@ -1,0 +1,26 @@
+<% if user_signed_in? && (current_user.role == 'admin') %>
+    <div class="data-ad">
+        <table>
+            <tr>
+                <td>
+                    <strong>Dodano do bazy: </strong>
+                </td> 
+                <td>
+                    <span style="color:blue">
+                    <%= dateAdMod.created_at.strftime("%F %T") %><br/>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>Ostatnia modyfikacja: </strong> 
+                </td>
+                <td>
+                    <span style="color:red">
+                        <%= dateAdMod.updated_at.strftime("%F %T") %> 
+                    </span>
+                </td>
+            </tr>
+        </table>
+    </div>
+<% end %>

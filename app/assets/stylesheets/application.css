@@ -421,3 +421,11 @@ div {
 	padding-right: 10px;
 	padding-left: 10px;
   }
+
+  /* *********** RENDER/data_ad************* */
+  .data-ad
+  {
+	background: lightgray; 
+	width: max-content; 
+	font-size: small;
+  }
