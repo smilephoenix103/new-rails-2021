@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_29_082900) do
+ActiveRecord::Schema.define(version: 2021_11_02_220441) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -145,6 +145,8 @@ ActiveRecord::Schema.define(version: 2021_09_29_082900) do
     t.string "status_sell", comment: "Czy banknot został wystawiony na sprzedaż"
     t.integer "note_width"
     t.integer "note_height"
+    t.string "unit_quantity"
+    t.string "unit_currency"
     t.index ["currency_id"], name: "index_notes_on_currency_id"
   end
 

@@ -6,4 +6,6 @@ class ElementSelect < ActiveRecord::Base
 
     enum img_type: ["Skan", "Foto", "LOC", "WWW" ]
 
+    enum unit_quantity: ["szt", "set"]
+
 end

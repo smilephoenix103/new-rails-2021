@@ -115,6 +115,7 @@ class NotesController < ApplicationController
     @statuses = ElementSelect.statuses
     @makings = ElementSelect.makings
     @img_types = ElementSelect.img_types
+    @unit_quantities = ElementSelect.unit_quantities
 
     @country = @note.currency.country
   end
@@ -148,6 +149,7 @@ class NotesController < ApplicationController
     @statuses = ElementSelect.statuses
     @makings = ElementSelect.makings
     @img_types = ElementSelect.img_types
+    @unit_quantities = ElementSelect.unit_quantities
 
     @country = @note.currency.country
     curr = currency_series(@note, "NOTE")
@@ -173,6 +175,7 @@ class NotesController < ApplicationController
         @statuses = ElementSelect.statuses
         @makings = ElementSelect.makings
         @img_types = ElementSelect.img_types
+        @unit_quantities = ElementSelect.unit_quantities
         @country = @note.currency.country
         format.html { render :new }
         format.json { render json: @note.errors, status: :unprocessable_entity }
@@ -205,6 +208,7 @@ class NotesController < ApplicationController
         @statuses = ElementSelect.statuses
         @makings = ElementSelect.makings
         @img_types = ElementSelect.img_types
+        @unit_quantities = ElementSelect.unit_quantities
         @country = @note.currency.country
         format.html { render :edit }
         format.json { render json: @note.errors, status: :unprocessable_entity }
@@ -234,7 +238,7 @@ class NotesController < ApplicationController
     def note_params
       params.require(:note).permit(:currency_id, :denomination, :name_currency, :note_date, :signature_code, :price_buy, :price_sell, 
                                    :quantity, :quality, :status, :description, :img_type, :avers_path, :reverse_path, :series, :making, 
-                                   :date_buy_note, :bought, :status_sell, :note_width, :note_height)
+                                   :date_buy_note, :bought, :status_sell, :note_width, :note_height, :unit_quantity)
     end
 
     def set_role
