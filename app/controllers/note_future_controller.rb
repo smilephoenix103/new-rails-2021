@@ -34,7 +34,8 @@ class NoteFutureController < ApplicationController
         elsif (current_user.role == 'admin' || current_user.role == 's_user')
             return true
         else
-            redirect_to root_path
+      return false
+            redirect_to root_path, alert: "ERROR 404!!!"
         end
     end
 end

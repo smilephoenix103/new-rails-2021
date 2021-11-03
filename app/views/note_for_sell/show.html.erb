@@ -43,7 +43,7 @@
           <b><%= t('activerecord.attributes.note.note_date') + ":" %></b> <%= note.note_date %><br/>
           <B><%= t('activerecord.attributes.note.making') + ":" %></B> <%= note.making %><br/>
           <B><%= t('activerecord.attributes.note.quality') + ":" %></B> <%= note.quality %><br/>
-          <B><%= t('activerecord.attributes.note.quantity') + ":" %></B> <%= note.quantity %><%= note.unit_quantity %><br/>
+          <B><%= t('activerecord.attributes.note.quantity') + ":" %></B> <%= note.quantity %> <%= note.unit_quantity %><br/>
           <% if user_signed_in? && current_user.role == 'admin' %>
             <b><%= t('activerecord.attributes.note.price_buy') + ":" %></b>
               <% note.price_buy.to_s + "zł/szt" %>

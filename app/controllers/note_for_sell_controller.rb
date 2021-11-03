@@ -1,6 +1,7 @@
 class NoteForSellController < ApplicationController
-	before_action :require_admin_logged_in!, only: [:note_for_sell_list]
+	# before_action :require_admin_logged_in!, only: [:note_for_sell_list]
 	before_action :require_user_logged_in!
+	before_action :set_role, only: [:note_for_sell_list]
 
 	include NoteForSellHelper
 
@@ -33,4 +34,15 @@ class NoteForSellController < ApplicationController
 	@note_for_sell_list = @notes.sort_by {|note| [note.currency.country.country_en, note.denomination ] }
 	
   end
+
+  private
+    def set_role
+        if (current_user == nil)
+            redirect_to root_path
+        elsif (current_user.role == 'admin' || current_user.role == 's_user')
+            return true
+        else
+            redirect_to root_path, alert: "ERROR 404!!!"
+        end
+    end
 end
