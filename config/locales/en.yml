@@ -98,6 +98,7 @@ en:
         numeric_code: "Numeric code"
         iso_code: "Iso code"
         exists: "Exists"
+        description: "Description"
       note:
         denomination: "Denomination"
         name_currency: "Name Currency"
