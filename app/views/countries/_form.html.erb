@@ -59,10 +59,11 @@
         <%= form.label :exists %>
         <%= form.select :exists, [true, false], class:"form-control form-control-sm" %>
       </div>
-      <div class="field ">
-        <%= form.label :description %>
-        <%= form.text_area :description, class:"form-control form-control-sm", placeholder: t('activerecord.attributes.country.description') %>
-      </div>
+
+  </div>
+  <div class="field ">
+    <%= form.label :description %>
+    <%= form.text_area :description, class:"form-control form-control-sm", placeholder: t('activerecord.attributes.country.description') %>
   </div>
       <div class="actions">
         <%= form.submit class:"btn btn-sm btn-primary" %>
