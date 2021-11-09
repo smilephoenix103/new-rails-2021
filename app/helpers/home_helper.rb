@@ -1,9 +1,11 @@
 module HomeHelper
     def response_code(uri)
         resp = Net::HTTP.get_response(URI.parse(uri))
+        puts "4444444444444444444444444444444444444444444444"
         puts resp.code
         puts resp.message
         puts resp.class.name
+        puts "444444444444444444444444444444444444444444444"
 
         # url = URI("https://pecunia-rails.herokuapp.com")
         # res = Net::HTTP.get_response(url)

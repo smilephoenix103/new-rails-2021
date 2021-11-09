@@ -1,39 +1,61 @@
 <div class="container">
   <div class="row">
-    <div class="col"> 
-      <div style=" margin:10px;">
-        <a href="https://www.leftovercurrency.com/" style="color:black">
-          <%= image_tag("header/leftover-currency-logo.png", :alt => "Leftover currency" ,
-          style:"width:70%;height:70%; background-color: lightgrey; padding:10px")%>
-        </a>
-      </div>    
-    </div>
-    <div class="col-4">
-  <% if @response_code =="200" %>
-    <%= "Data - " + @exchange.effectiveDate %>
-      <table class="table table-striped table-bordered table-hover table-sm">
-        <thead class="thead-dark">
-            <tr>
-                <th>Waluta</th>
-                <th>Kod</th>
-                <th>Sredni</th>
-            </tr>
-        </thead>
-        <% @exchange.rates.each do |rate| %>
-            <tr>
-                <td><%= rate.currency %></td>
-                <td><%= rate.code %></td>
-                <td><%= rate.mid %></td>
-            </tr>
-        <% end %>
+  <div class="col-4">
+    <% if @response_code =="200" %>
+      <span><%= "Data - " + @exchange.effectiveDate %></span>
+        <table class="table table-striped table-bordered table-hover table-sm" style="font-size: small">
+          <thead class="thead-dark">
+              <tr>
+                  <th>Waluta</th>
+                  <th>Kod</th>
+                  <th>Sredni</th>
+              </tr>
+          </thead>
+          <% @exchange.rates.each do |rate| %>
+              <tr>
+                  <td><%= rate.currency %></td>
+                  <td><%= rate.code %></td>
+                  <td><%= rate.mid %></td>
+              </tr>
+          <% end %>
 
-      </table>
-  <% else %>
-    <B>KOD-</B><%=@response_code %>
-  <% end %>
+        </table>
+    <% else %>
+      <B>KOD-</B><%=@response_code %>
+    <% end %>
+  </div>
+    <div class="col-4">
+      <span style="text-align: center">Kurs Złota</span>
+      <% if @rate_gold != false  %>
+        <table class="table table-striped table-bordered table-hover table-sm" style="font-size: small">
+          <thead class="thead-dark">
+          <tr>
+            <th>Data</th>
+            <th>Cena</th>
+            <th>Cena</th>
+          </tr>
+          </thead>
+          <% @rate_gold.each do |rate| %>
+            <tr>
+              <td><%= rate.date %></td>
+              <td><%= number_to_currency(rate.price_for_gram, unit:"zł/gr", precision: 2, format: "%n %u") %></td>
+              <td><%= number_to_currency(rate.price_for_ounce, unit:"zł/Oz", precision: 3, format: "%n %u") %></td>
+            </tr>
+          <% end %>
+
+        </table>
+      <% else %>
+        <h3>ERROR 404</h3>
+      <% end %>
     </div>
-    <div class="col">
-      
+
+  </div>
+  <div class="col-2" style="float: right">
+    <div style=" margin:10px;">
+      <a href="https://www.leftovercurrency.com/" style="color:black">
+        <%= image_tag("header/leftover-currency-logo.png", :alt => "Leftover currency" ,
+                      style:"width:70%;height:70%; background-color: lightgrey; padding:10px")%>
+      </a>
     </div>
   </div>
   <div>

@@ -12,7 +12,7 @@ class ExchangeRate
     # end
 
     def rate(source)
-        code_list = ["USD", "EUR", "CHF", "GBP"]
+        code_list = %w(USD EUR CHF GBP)
         # source = 'https://api.nbp.pl/api/exchangerates/tables/a/?format=json'               
             resp = Net::HTTP.get_response(URI.parse(source))
             data = resp.body
@@ -48,5 +48,32 @@ class ExchangeRate
                 puts r
             end
             return @exchange
+    end
+
+    def rate_gold(source)
+        resp = Net::HTTP.get_response(URI.parse(source))
+        if (resp.code == "200")
+            data = resp.body
+            result = JSON.parse(data)
+
+            @rates_gold_list = Array.new
+
+            result.each do |g|
+                rate_gold = RateGold.new
+                rate_gold.date = g["data"]
+                rate_gold.price_for_gram = g["cena"]
+                rate_gold.price_for_ounce = g["cena"] * 31.1
+                @rates_gold_list.push(rate_gold)
+            end
+            printf " %-35s %-10s %-10s %20s \n","Data", "Cena/g", "Cena/Oz", "Zmiana"
+            @rates_gold_list.each do |g|
+                puts g.to_s
+            end
+        return @rates_gold_list
+        else
+            puts "ERROR 404"
+            return false
+        end
+
     end
 end
