@@ -67,6 +67,7 @@ pl:
         numeric_code: "Kod numeryczny"
         iso_code: "Kod Iso"
         exists: "Istnieje"
+        description: "Opis"
       note:
         denomination: "Nominał"
         name_currency: "Nazwa Waluty"

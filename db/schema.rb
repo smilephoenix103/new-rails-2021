@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_02_220441) do
+ActiveRecord::Schema.define(version: 2021_11_03_223627) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -102,6 +102,7 @@ ActiveRecord::Schema.define(version: 2021_11_02_220441) do
     t.datetime "created_at", precision: 6, null: false, comment: "Data dodania"
     t.datetime "updated_at", precision: 6, null: false, comment: "Data modyfikacji"
     t.boolean "exists"
+    t.text "description"
   end
 
   create_table "currencies", id: { comment: "Klucz główny" }, comment: "Spis waluty dla danego państwa swiata", force: :cascade do |t|
