@@ -1,19 +1,23 @@
 module HomeHelper
     def response_code(uri)
         resp = Net::HTTP.get_response(URI.parse(uri))
-        puts "4444444444444444444444444444444444444444444444"
-        puts resp.code
-        puts resp.message
-        puts resp.class.name
-        puts "444444444444444444444444444444444444444444444"
 
+        # puts resp.code
+        # puts resp.message
+        # puts resp.class.name
+
+        printf " -----------------------------------------------------------------------\n"
+        printf " |%-10s |%-25s |%-30s| \n","code", "message", "class name"
+        printf " -----------------------------------------------------------------------\n"
+        printf " |%-10s |%-25s |%-30s| \n",resp.code, resp.message, resp.class.name
+        printf " -----------------------------------------------------------------------\n"
         # url = URI("https://pecunia-rails.herokuapp.com")
         # res = Net::HTTP.get_response(url)
         # puts res['Set-Cookie']
-        # puts res.get_fields('set-cookie')
-        # puts res.to_hash['set-cookie']  
-        # puts "Headers: #{res.to_hash.inspect}"
-        # puts res.to_hash.inspect
+        # puts resp.get_fields('set-cookie')
+        # puts res.to_hash['set-cookie']
+        # puts "Headers: #{resp.to_hash.inspect}"
+        # puts resp.to_hash.inspect
         # puts res.to_hash.inspect
         return resp.code
     end
