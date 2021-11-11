@@ -26,7 +26,7 @@
   </div>
     <div class="col-4">
       <span style="text-align: center">Kurs Złota</span>
-      <% if @rate_gold != false  %>
+      <% if @response_code_gold == "200"  %>
         <table class="table table-striped table-bordered table-hover table-sm" style="font-size: small">
           <thead class="thead-dark">
           <tr>
@@ -45,7 +45,7 @@
 
         </table>
       <% else %>
-        <h3>ERROR 404</h3>
+        <h3>ERROR <%= @rate_gold %></h3>
       <% end %>
     </div>
 

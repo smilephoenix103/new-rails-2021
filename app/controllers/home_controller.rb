@@ -32,11 +32,14 @@ class HomeController < ApplicationController
     # RATE GOLD
     puts " $$$$$$$$$$$$$$$$$$$$$ RATE GOLD $$$$$$$$$$$$$$$$$$$$$$$$$$$$"
     url_gold = 'http://api.nbp.pl/api/cenyzlota/last/7/?format=json'
+
     if (response_code(url_gold) == "200")
       # puts response_code(url_gold)
+      @response_code_gold =response_code(url_gold)
       @rate_gold = @exchange_rate.rate_gold(url_gold)
     else
-      @response_code = response_code(url_gold)
+      @rate_gold = @exchange_rate.rate_gold(url_gold)
+      # @response_code = response_code(url_gold)
     end
   end
 

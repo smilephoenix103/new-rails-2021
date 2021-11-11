@@ -71,8 +71,8 @@ class ExchangeRate
             end
         return @rates_gold_list
         else
-            puts "ERROR 404"
-            return false
+            puts "resp.code"
+            return resp.code
         end
 
     end
