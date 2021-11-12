@@ -44,8 +44,8 @@ class ExchangeRate
             @exchange.effectiveDate = objects["effectiveDate"]
             @exchange.rates = @rates_list
 
-            @exchange.rates.each do |r|
-                puts r
+            @exchange.rates.each do |r, |
+                puts r.to_s
             end
             return @exchange
     end
@@ -65,11 +65,17 @@ class ExchangeRate
                 rate_gold.price_for_ounce = g["cena"] * 31.1
                 @rates_gold_list.push(rate_gold)
             end
-            printf " %-35s %-10s %-10s %20s \n","Data", "Cena/g", "Cena/Oz", "Zmiana"
-            @rates_gold_list.each do |g|
+            puts" ------------------------------------------------------------"
+            printf " | %-15s | %-10s | %-14s | %-9s| \n","Data", "Cena/g", "Cena/Oz", "Zmiana"
+            @rates_gold_list.each.with_index do |g, i|
+                @i = @rates_gold_list[i].price_for_gram
+                @j = @rates_gold_list[i-1].price_for_gram
+                # puts percentage_change(@i, @j)
+                g.change = percentage_change(@i, @j)
                 puts g.to_s
             end
-        return @rates_gold_list
+            puts" ------------------------------------------------------------"
+        return @rates_gold_list.drop(1)
         else
             puts "ERROR 404"
             return false

@@ -23,7 +23,6 @@ class HomeController < ApplicationController
     if (response_code(url) == "200")
       @exchange = @exchange_rate.rate(url)  
       @response_code = response_code(url)
-      puts "777777777777777777777777777777777777777777"
     else
       @response_code = response_code(url)
       puts "888888888888888888888888888888888888888888888888888888888"
@@ -31,7 +30,7 @@ class HomeController < ApplicationController
 
     # RATE GOLD
     puts " $$$$$$$$$$$$$$$$$$$$$ RATE GOLD $$$$$$$$$$$$$$$$$$$$$$$$$$$$"
-    url_gold = 'http://api.nbp.pl/api/cenyzlota/last/7/?format=json'
+    url_gold = 'http://api.nbp.pl/api/cenyzlota/last/8/?format=json'
     if (response_code(url_gold) == "200")
       # puts response_code(url_gold)
       @rate_gold = @exchange_rate.rate_gold(url_gold)

@@ -21,4 +21,12 @@ module HomeHelper
         # puts res.to_hash.inspect
         return resp.code
     end
+
+    def percentage_change(i, j)
+        if (j != nil)
+            return ((j/i)-1)*-100
+        else
+            return 1
+        end
+    end
 end

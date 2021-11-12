@@ -10,6 +10,9 @@ class RateGold
   attr_writer :date, :price_for_gram, :price_for_ounce, :change
 
   def to_s
-    printf " %-35s %-10s %-10s",@date, @price_for_gram, @price_for_ounce, @change
+    puts" ------------------------------------------------------------"
+    printf " | %-15s | %-10s | %0.3f \t\t | %0.4f\t|" ,@date, @price_for_gram, @price_for_ounce, @change
+
+
   end
 end
