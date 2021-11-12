@@ -23,6 +23,7 @@ class HomeController < ApplicationController
     if (response_code(url) == "200")
       @exchange = @exchange_rate.rate(url)  
       @response_code = response_code(url)
+      puts "777777777777777777777777777777777777777777"
     else
       @response_code = response_code(url)
       puts "888888888888888888888888888888888888888888888888888888888"
