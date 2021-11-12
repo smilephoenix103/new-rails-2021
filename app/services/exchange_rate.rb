@@ -77,8 +77,8 @@ class ExchangeRate
             puts" ------------------------------------------------------------"
         return @rates_gold_list.drop(1)
         else
-            puts "ERROR 404"
-            return false
+            puts "resp.code"
+            return resp.code
         end
 
     end
