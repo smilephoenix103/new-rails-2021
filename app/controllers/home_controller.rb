@@ -20,22 +20,22 @@ class HomeController < ApplicationController
   
     @exchange_rate = ExchangeRate.new
     url = 'https://api.nbp.pl/api/exchangerates/tables/a/?format=json'
-    if (response_code(url) == "200")
-      @exchange = @exchange_rate.rate(url)  
-      @response_code = response_code(url)
+    @response_code = response_code(url)
+    if (@response_code == "200")
+      @exchange = @exchange_rate.rate(url)
     else
-      @response_code = response_code(url)
+      @response_code
     end
 
     # RATE GOLD
     puts "\n\n $$$$$$$$$$$$$$$$$$$$$ RATE GOLD $$$$$$$$$$$$$$$$$$$$$$$$$$$$"
-    url_gold = 'http://api.nbp.pl/api/cenyzlota/last/8/?format=json'
-    if (response_code(url_gold) == "200")
-      # puts response_code(url_gold)
+    url_gold = 'http://api.nbp.pl/api/cenyzlota/last/16/?format=json'
+    @response_code_gold = response_code(url_gold)
+    # if (@response_code_gold == "200")
       @rate_gold = @exchange_rate.rate_gold(url_gold)
-    else
-      @response_code = response_code(url_gold)
-    end
+    # else
+    #   @response_code_gold
+    # end
   end
 
   def about
