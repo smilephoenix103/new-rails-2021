@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong><%= t('activerecord.attributes.setting.web') + ':' %></strong>
+  <%= @setting.web %>
+</p>
+
+<p>
+  <strong><%= t('activerecord.attributes.setting.name') + ':' %></strong>
+  <%= @setting.name %>
+</p>
+
+<p>
+  <strong><%= t('activerecord.attributes.setting.value') + ':' %></strong>
+  <%= @setting.value %>
+</p>
+
+<p>
+  <strong><%= t('activerecord.attributes.setting.description') + ':' %></strong>
+  <%= @setting.description %>
+</p>
+
+<%= link_to 'Edit', edit_setting_path(@setting) %> |
+<%= link_to 'Back', settings_path %>
