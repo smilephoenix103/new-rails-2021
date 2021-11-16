@@ -40,7 +40,6 @@ en:
       add_note: "Add Note"
       new_notes: "New Notes (To Veryfication)"
       note_sold: "Note Sold"
-      note_for_sell_list: "Note For Sell List"
       note_for_sell: "Note For Sell"
       note_for_sell_list: "Note For Sell List"
       collection: "Collection"
@@ -86,6 +85,9 @@ en:
       signature: 
         create: "Add Signature"
         update: "Update Signature"
+      setting:
+        create: "Add New Setting"
+        update: "Update Setting"
   activerecord:
     attributes:
       country:
@@ -161,6 +163,11 @@ en:
       signature:
         signature_cod: "Signature Cod"
         short_name: "Name"
+        description: "Description"
+      setting:
+        web: "Web"
+        name: "Name Setting"
+        value: "Value"
         description: "Description"
     errors:
       models:

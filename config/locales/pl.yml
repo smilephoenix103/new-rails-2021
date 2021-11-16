@@ -9,7 +9,6 @@ pl:
       add_note: "Dodaj Banknot"
       new_notes: "Nowe Banknoty (Do Weryfikacji)"
       note_sold: "Sprzedane Banknoty"
-      note_for_sell_list: "Lista Banknotów Na Sprzedaż"
       note_for_sell: "Banknoty Na Sprzedaż"
       note_for_sell_list: "Lista Banknotów Na Sprzedaż"
       collection: "Kolekcja"
@@ -55,6 +54,9 @@ pl:
       signature: 
         create: "Dodaj Sygnaturę"
         update: "Edytuj Sygnaturę"
+      setting:
+        create: "Dodaj Nowe Ustawienia"
+        update: "Edytuj Ustawienia"
   activerecord:
     attributes:
       country:
@@ -130,6 +132,11 @@ pl:
       signature:
         signature_cod: "Kod Sygnatury"
         short_name: "Nazwa"
+        description: "Opis"
+      setting:
+        web: "Strona"
+        name: "Nazwa Ustawień"
+        value: "Wartość"
         description: "Opis"
     errors:
       models:

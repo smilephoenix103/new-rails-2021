@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_03_223627) do
+ActiveRecord::Schema.define(version: 2021_11_16_231311) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -164,6 +164,15 @@ ActiveRecord::Schema.define(version: 2021_11_03_223627) do
     t.string "string"
     t.string "name"
     t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "settings", force: :cascade do |t|
+    t.string "web", comment: "Do której strony dotyczą ustawienia"
+    t.string "name", comment: "Nazwa ustawień"
+    t.string "value", comment: "Wartość ustawień"
+    t.text "description", comment: "Opis ustawień"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

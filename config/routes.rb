@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :settings
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
   
     resources :signatures
