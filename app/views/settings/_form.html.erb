@@ -11,27 +11,27 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field" style="width: 400px">
     <%= form.label :web %>
-    <%= form.text_field :web %>
+    <%= form.text_field :web, class:"form-control form-control-sm" %>
   </div>
 
-  <div class="field">
+  <div class="field" style="width: 400px">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, class:"form-control form-control-sm"  %>
   </div>
 
-  <div class="field">
+  <div class="field" style="width: 400px">
     <%= form.label :value %>
-    <%= form.text_field :value %>
+    <%= form.text_field :value, class:"form-control form-control-sm"  %>
   </div>
 
-  <div class="field">
+  <div class="field" style="width: 400px">
     <%= form.label :description %>
-    <%= form.text_area :description %>
+    <%= form.text_area :description, class:"form-control form-control-sm"  %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class:"btn btn-primary btn-sm"%>
   </div>
 <% end %>

@@ -12,12 +12,10 @@
   <% end %>
 
   <div class="field">
-    <%
-=begin%>
- <%= form.label :currency_id %>
-    <%= form.text_field :currency_id, value:@coin.currency_id %> 
-<%
-=end%>
+
+    <%#= form.label :currency_id %>
+    <%#= form.text_field :currency_id, value:@coin.currency_id %>
+
     <%= form.label t('activerecord.attributes.currency.currency_series') %>
     <% form.text_field :currency_id, class:"form-control form-control-sm" %>
     <%= form.select :currency_id, @currencies.all.map { |b| [b.currency_series, b.id]}, {:include => ""}, class:"form-control  form-control-sm" %>
