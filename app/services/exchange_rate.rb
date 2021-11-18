@@ -51,7 +51,6 @@ class ExchangeRate
     if (resp.code == "200")
       data = resp.body
       result = JSON.parse(data)
-
       @rates_gold_list = Array.new
 
       result.each do |g|
