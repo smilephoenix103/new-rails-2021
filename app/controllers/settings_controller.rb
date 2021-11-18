@@ -5,6 +5,24 @@ class SettingsController < ApplicationController
   # GET /settings or /settings.json
   def index
     @settings = Setting.all
+    puts "&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& START &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&"
+    url = URI.parse("https://www.goldapi.io/api/XAG/USD")
+    resp = Net::HTTP.get_response(URI.parse("https://www.goldapi.io/api/XAG/USD/?x-access-token=goldapi-kpcmtkw3iluo8-io"))
+    #
+    data = resp.body
+    result = JSON.parse(data)
+    puts result
+
+    # uri = URI('https://www.goldapi.io/api/XAG/USD/?x-access-token=goldapi-kpcmtkw3iluo8-io')
+    #
+    # req = Net::HTTP::Get.new(uri)
+    # # req.basic 'x-access-token', 'goldapi-kpcmtkw3iluo8-io'
+    #
+    # res = Net::HTTP.get_response(uri)
+    # puts res.inspect
+
+
+    puts "&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& KONIEC &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&"
   end
 
   # GET /settings/1 or /settings/1.json
