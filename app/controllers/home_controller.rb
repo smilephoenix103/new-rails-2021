@@ -33,6 +33,9 @@ class HomeController < ApplicationController
     @response_code_gold = response_code(url_gold)
     @rate_gold = @exchange_rate.rate_gold(url_gold)
 
+    # ------------------ TEST CURRENCY COD pobieranei z bazy -----------------------------
+
+
   end
 
   def about

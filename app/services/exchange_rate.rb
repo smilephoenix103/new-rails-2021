@@ -3,7 +3,15 @@ class ExchangeRate
   include HomeHelper
 
   def rate(source)
-    code_list = %w(USD EUR CHF GBP)
+    @setting = Setting.find_by(name: "Currency Cod")
+    puts @setting.inspect
+    if (@setting != nil)
+      code_list = @setting.value.gsub(/\s+/, "").split(",")  #Usuwanie wszystkich spacji i dzielenie po przecinku do tabicy
+      code_list.map!(&:upcase)
+    else
+      code_list = %w(USD EUR CHF GBP)
+    end
+
     # source = 'https://api.nbp.pl/api/exchangerates/tables/a/?format=json'
     resp = Net::HTTP.get_response(URI.parse(source))
     data = resp.body
