@@ -67,7 +67,10 @@
                     <td><%= rate.date %></td>
                     <td><%= number_to_currency(rate.price_for_gram, unit:"zł/gr", precision: 2, format: "%n %u") %></td>
                     <td><%= number_to_currency(rate.price_for_ounce, unit:"zł/Oz", precision: 3, format: "%n %u") %></td>
-                    <td class="<%= rate.change > 0 ? 'up' : 'down' %>" style="background-color: #151515" align="right"><%= number_to_currency(rate.change, unit:"%", precision: 3, format: "%n%u")  %></td>
+                    <td class="<%= rate.change > 0 ? 'up' : 'down' %>" style="background-color: #151515" align="right">
+                      <%= number_to_currency(rate.change, unit:"%", precision: 3, format: "%n%u") %>
+                      <%= rate.change > 0 ? (render 'renders/icon_arrow_up') : (render 'renders/icon_arrow_down') %>
+                    </td>
                   </tr>
                 <% end %>
 

@@ -98,7 +98,10 @@ Rails.application.routes.draw do
     
     resources :currencies do
       resources :bonds
-    end  
+    end
+
+    # get 'goldapi/index'
+    resources :goldapi, only: [:index]
 
     mount ReportsKit::Engine, at: '/'
 
@@ -111,5 +114,4 @@ Rails.application.routes.draw do
         resources :currencies
       end    
     end
-
 end

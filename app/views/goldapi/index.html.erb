@@ -1,0 +1,52 @@
+<h1>Goldapi</h1>
+<p>Today: <%= @stat_gold_api.today %> | Yesterday: <%= @stat_gold_api.yesterday %> |
+  This Month: <%= @stat_gold_api.this_month %> | Last Month: <%= @stat_gold_api.last_month %></p>
+
+<% if (@goldapi_metal_rates[0].error_gold_api.code == 0) || (@goldapi_metal_rates[0].error_gold_api.code == 859)  %>
+  <h4><%= @goldapi_metal_rates[0].error_gold_api.error_message %></h4>
+<% else %>
+  <table class="table table-sm table-striped table-bordered table-hover" style="font-size: small; background: darkgray">
+    <thead class="thead-dark">
+    <tr>
+      <th>Time</th>
+      <th>Metal</th>
+      <th>Currency</th>
+      <th>Exchange</th>
+      <th>Symbol</th>
+      <th>Prev Close Price</th>
+      <th>Open Price</th>
+      <th>Low Price</th>
+      <th>High Price</th>
+      <th>Open Time</th>
+      <th>Price</th>
+      <th>Change</th>
+      <th>Ask</th>
+      <th>Bid</th>
+    </tr>
+    </thead>
+    <tbody>
+      <% @goldapi_metal_rates.each do |metal| %>
+        <tr>
+          <% if metal.error_gold_api.code == 200 %>
+            <td align="right"><%= DateTime.strptime(@rate_metal.timestamp.to_s,'%s').strftime("%Y-%m-%d \n %H:%M:%S") %></td>
+            <td><%= metal.metal %></td>
+            <td><%= metal.currency %></td>
+            <td><%= metal.exchange %></td>
+            <td><%= metal.symbol %></td>
+            <td align="right"><%= metal.prev_close_price %></td>
+            <td align="right"><%= metal.open_price %></td>
+            <td align="right"><%= metal.low_price %></td>
+            <td align="right"><%= metal.high_price %></td>
+            <td align="right"><%= DateTime.strptime(metal.open_time.to_s,'%s').strftime("%Y-%m-%d \n %H:%M:%S") %></td>
+            <td align="right"><%= number_to_currency(metal.price, unit:"$", precision: 3, format: "%n%u") %> </td>
+            <td class="<%= metal.ch > 0 ? 'up' : 'down' %>" style="background-color: #151515; min-width: 70px;" align="right">
+              <%= metal.ch %> <%= metal.ch > 0 ? (render 'renders/icon_arrow_up') : (render 'renders/icon_arrow_down') %>
+            </td>
+            <td align="right"><%= metal.ask %></td>
+            <td align="right"><%= metal.bid %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
