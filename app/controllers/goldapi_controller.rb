@@ -7,6 +7,8 @@ class GoldapiController < ApplicationController
 
   def index
     @goldapi = Setting.find_by(name: "x-access-token")
+    puts " OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO"
+    puts @goldapi.inspect
     metals = %w(XAU XAG XPT)
     @goldapi_metal_rates = Array.new
     metals.each do |m|
