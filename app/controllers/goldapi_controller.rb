@@ -13,10 +13,6 @@ class GoldapiController < ApplicationController
       metals.each do |m|
         @rate_metal = RateMetal.new
         @rate_metal = goldapi_metal_rate(m, "USD", @goldapi.value)
-        # puts "********************************START******************************"
-        # puts @rate_metal.error_gold_api.code
-        # puts @rate_metal.error_gold_api.error_message
-        # puts "********************************END*********************************"
         @goldapi_metal_rates.push(@rate_metal)
       end
       goldapi_stat(@goldapi.value)

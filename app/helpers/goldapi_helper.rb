@@ -6,8 +6,6 @@ module GoldapiHelper
     # puts response.code
     # puts response.body
     # puts response.headers
-    puts ":::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::"
-    puts response.cookies
     data = response.body
     # puts data
     result = JSON.parse(data)
@@ -54,8 +52,7 @@ module GoldapiHelper
       @rate_metal.error_gold_api = @error_gold_api
       return @rate_metal
     else
-      puts "================================================================================"
-      puts @response.code
+      # puts @response.code
       # puts @response.class.name
       data = @response.body
       result = JSON.parse(data)
@@ -77,6 +74,7 @@ module GoldapiHelper
         @rate_metal.bid = result["bid"]
 
         @error_gold_api.code = @response.code
+        @error_gold_api.error_message = "OK"
         @rate_metal.error_gold_api = @error_gold_api
         return  @rate_metal
       else
@@ -89,10 +87,6 @@ module GoldapiHelper
         @rate_metal.error_gold_api = @error_gold_api
         return @rate_metal
       end
-
-      # puts @rate_metal.to_s
     end
-
   end
-
 end
