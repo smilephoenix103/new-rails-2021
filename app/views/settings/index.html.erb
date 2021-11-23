@@ -1,7 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Settings</h1>
-
+<div>
+  <%= link_to 'New Setting', new_setting_path, class:"btn btn-primary btn-sm" %>
+</div>
 <table class="table table-sm table-striped table-bordered table-hover">
   <thead class="thead-dark">
     <tr>
@@ -21,7 +23,28 @@
         <td><%= setting.value %></td>
         <td><%= setting.description %></td>
         <td style="width: 120px">
-          <%= link_to (render 'renders/button_show_small_icon'), setting, class:"btn btn-info btn-sm" %>
+          <%= link_to (render 'renders/button_show_small_icon'), setting, {class:"btn btn-info btn-sm", 'data-toggle' => "modal", 'data-target' => "#" + "S"+ setting.id.to_s} %>
+          <div class="modal fade" id=<%= "S" + setting.id.to_s %> data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="staticBackdropLabel">SETTING</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <p><b><%= t('activerecord.attributes.setting.web') %> : </b> <%= setting.web %></p>
+                  <p><b><%= t('activerecord.attributes.setting.name') %> : </b> <%= setting.name %></p>
+                  <p><b><%= t('activerecord.attributes.setting.value') %> : </b> <%= setting.value %></p>
+                  <p><b><%= t('activerecord.attributes.setting.description') %> : </b> <%= setting.description %></p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal"><%= render ('renders/button_close') %></button>
+                </div>
+              </div>
+            </div>
+          </div>
           <%= link_to (render 'renders/button_edit_small_icon'), edit_setting_path(setting), class:"btn btn-primary btn-sm" %>
           <%= link_to (render 'renders/button_delete_small_icon'), setting, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger btn-sm" %>
         </td>
@@ -29,7 +52,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Setting', new_setting_path, class:"btn btn-primary btn-sm" %>

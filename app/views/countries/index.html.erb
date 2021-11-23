@@ -1,8 +1,5 @@
-<%
-=begin%>
- <p id="notice"><%= notice %></p> 
-<%
-=end%>
+<!-- <p id="notice"><%#= notice %></p> -->
+
 <% @root_path = Rails.root.join('app', 'assets', 'images','flags') %>
 <div>
 	<nav class="navbar navbar-light bg-light">
@@ -21,14 +18,12 @@
       <th><%= t'tables.country.headers.country_pl' %></th>
       <th><%= t'tables.country.headers.flag' %></th>
       <th><%= t'tables.country.headers.capital_city' %></th>
-      <%
-=begin%>
- <th>Alfa 2</th>
-      <th>Alfa 3</th>
-      <th>Numeric code</th>
-      <th>Iso code</th> 
-<%
-=end%>
+
+<!-- <th>Alfa 2</th>-->
+<!--      <th>Alfa 3</th>-->
+<!--      <th>Numeric code</th>-->
+<!--      <th>Iso code</th> -->
+
       <!--<th>Exists</th> -->
       <th colspan="2"></th>
       <th></th>
@@ -49,14 +44,12 @@
           <% end %>
         </td> 
         <td><%= country.capital_city %></td>
-        <%
-=begin%>
- <td><%= country.alfa_2 %></td>
-        <td ><%= country.alfa_3 %></td>
-        <td><%= country.numeric_code %></td>
-        <td><%= country.iso_code %></td> 
-<%
-=end%>
+
+<!-- <td><%#= country.alfa_2 %></td>-->
+<!--        <td ><%#= country.alfa_3 %></td>-->
+<!--        <td><%#= country.numeric_code %></td>-->
+<!--        <td><%#= country.iso_code %></td> -->
+
         <!--<td><%= country.exists %></td>-->
         <td>
           <%= link_to (render 'renders/button_show'), country, class:"btn btn-info btn-sm" %>
