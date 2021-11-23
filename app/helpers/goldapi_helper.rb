@@ -6,7 +6,8 @@ module GoldapiHelper
     # puts response.code
     # puts response.body
     # puts response.headers
-
+    puts ":::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::"
+    puts response.cookies
     data = response.body
     # puts data
     result = JSON.parse(data)
@@ -53,7 +54,8 @@ module GoldapiHelper
       @rate_metal.error_gold_api = @error_gold_api
       return @rate_metal
     else
-      # puts @response.code
+      puts "================================================================================"
+      puts @response.code
       # puts @response.class.name
       data = @response.body
       result = JSON.parse(data)
