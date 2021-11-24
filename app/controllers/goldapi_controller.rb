@@ -10,11 +10,11 @@ class GoldapiController < ApplicationController
     @goldapi = Setting.find_by(name: "x-access-token")
     if @goldapi != nil
       @metal_code = Setting.find_by(name: "metals code")
-      puts "############################## START #####################################"
-      puts @metal_code.value
-      puts "############################# KONIEC ###################################"
       if @metal_code != nil
         metals = split_code(@metal_code.value)
+        puts "############################## START #####################################"
+        puts @metal_code.value
+        puts "############################# KONIEC ###################################"
       else
         metals = %w(XAU)
       end
