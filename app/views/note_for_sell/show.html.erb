@@ -1,9 +1,7 @@
 <h3>BANKNOTY NA SPRZEDAŻ</h3>
-<%
-=begin%>
- <%= render 'renders/collection_for_sell' %> 
-<%
-=end%>
+
+ <%#= render 'renders/collection_for_sell' %>
+
 <h4>Ilość banknotów: <%= @notes.size %></h4>
   <% @notes.each do |note| %>
     <div class="container row bg-sell" style="border-bottom: solid;border-color: darkgray;">      
@@ -12,7 +10,25 @@
         </div>
         <div class="col-md-3">	       
         	<% if (note.avers_path.length > 200) %>
-            	<%= image_tag(note.avers_path, :alt => "AVERSE" , style:"width:100%") %>
+            	<%= link_to (image_tag(note.avers_path, :alt => "AVERSE" , style:"width:100%")), edit_note_path(note), {'data-toggle' => "modal", 'data-target' => "#" + "FS"+ note.id.to_s} %>
+            <div class="modal fade" id=<%= "FS" + note.id.to_s %> data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+              <div class="modal-dialog" style="max-width: 100%">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">FOR SELL</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <%= image_tag(note.avers_path, :alt => "REVERSE" , style:"width:100%") %>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal"><%= render ('renders/button_close') %></button>
+                  </div>
+                </div>
+              </div>
+            </div>
             <% else %>
             	<%= note.avers_path %>
           <% end %> 
