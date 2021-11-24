@@ -6,8 +6,9 @@ class ExchangeRate
     @setting = Setting.find_by(name: "Currency Cod")
     puts @setting.inspect
     if (@setting != nil)
-      code_list = @setting.value.gsub(/\s+/, "").split(",")  #Usuwanie wszystkich spacji i dzielenie po przecinku do tabicy
-      code_list.map!(&:upcase)
+      # code_list = @setting.value.gsub(/\s+/, "").split(",")  #Usuwanie wszystkich spacji i dzielenie po przecinku do tabicy
+      # code_list.map!(&:upcase)
+      code_list = split_code(@setting.value)
     else
       code_list = %w(USD EUR CHF GBP)
     end

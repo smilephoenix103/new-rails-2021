@@ -28,9 +28,9 @@
         </thead>
         <tbody>
           <% @goldapi_metal_rates.each do |metal| %>
-            <tr>
-              <% if metal.error_gold_api.code == 200 %>
-                <td align="right"><%= DateTime.strptime(@rate_metal.timestamp.to_s,'%s').strftime("%Y-%m-%d \n %H:%M:%S") %></td>
+            <% if (metal.error_gold_api.code == 200) %>
+              <tr>
+                <td align="right"><%= DateTime.strptime(metal.timestamp.to_s,'%s').strftime("%Y-%m-%d \n %H:%M:%S") %></td>
                 <td><%= metal.metal %></td>
                 <td><%= metal.currency %></td>
                 <td><%= metal.exchange %></td>
@@ -46,8 +46,8 @@
                 </td>
                 <td align="right"><%= metal.ask %></td>
                 <td align="right"><%= metal.bid %></td>
-              <% end %>
-            </tr>
+              </tr>
+            <% end %>
           <% end %>
         </tbody>
       </table>

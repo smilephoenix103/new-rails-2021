@@ -29,4 +29,9 @@ module HomeHelper
             return 1
         end
     end
+
+    def split_code(string_code)
+        code_list = string_code.gsub(/\s+/, "").split(",")  #Usuwanie wszystkich spacji i dzielenie po przecinku do tabicy
+        return code_list.map!(&:upcase)
+    end
 end
