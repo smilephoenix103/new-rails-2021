@@ -10,32 +10,20 @@
         </div>
         <div class="col-md-3">	       
         	<% if (note.avers_path.length > 200) %>
-            	<%= link_to (image_tag(note.avers_path, :alt => "AVERSE" , style:"width:100%")), edit_note_path(note), {'data-toggle' => "modal", 'data-target' => "#" + "FS"+ note.id.to_s} %>
-            <div class="modal fade" id=<%= "FS" + note.id.to_s %> data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-              <div class="modal-dialog" style="max-width: 100%">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">FOR SELL</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    <%= image_tag(note.avers_path, :alt => "REVERSE" , style:"width:100%") %>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal"><%= render ('renders/button_close') %></button>
-                  </div>
-                </div>
+            <%= link_to (image_tag(note.avers_path, :alt => "AVERSE" , style:"width:100%")), edit_note_path(note), {'data-toggle' => "modal", 'data-target' => "#" + "FS-A"+ note.id.to_s} %>
+              <div class="modal fade" id=<%= "FS-A" + note.id.to_s %> data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <%= render 'modal_for_sell', note: note, image: note.avers_path %>
               </div>
-            </div>
-            <% else %>
-            	<%= note.avers_path %>
+          <% else %>
+            <%= note.avers_path %>
           <% end %> 
               <hr class="my-2">
         	<% if (note.reverse_path.length > 200) %>
-            	<%= image_tag(note.reverse_path, :alt => "REVERSE" , style:"width:100%") %>
-            <% else %>
+            <%= link_to (image_tag(note.reverse_path, :alt => "REVERSE" , style:"width:100%")), edit_note_path(note), {'data-toggle' => "modal", 'data-target' => "#" + "FS-R"+ note.id.to_s} %>
+              <div class="modal fade" id=<%= "FS-R" + note.id.to_s %> data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <%= render 'modal_for_sell', note: note, image: note.reverse_path %>
+              </div>
+          <% else %>
             	<%= note.reverse_path %>
           <% end %>  
           <br/>
