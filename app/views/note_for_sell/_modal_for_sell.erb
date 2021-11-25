@@ -5,8 +5,8 @@
         <b>Id:</b>  <%= note.id %> |
         <%= render 'note_denomination', note: note %>|
         <b><%= t('activerecord.attributes.note.note_date') + ":" %></b> <%= note.note_date %> |
+        <%= render 'note_price', note: note %> |
         <%= render 'note_dimension', note: note %>
-        <%= render 'note_price', note: note %>
       </h5>
       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
