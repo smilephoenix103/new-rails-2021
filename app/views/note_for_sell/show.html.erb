@@ -27,23 +27,16 @@
             	<%= note.reverse_path %>
           <% end %>  
           <br/>
-          <% if (note.note_width != nil && note.note_height != nil) %>
-            <strong><%= t('dimension') + ":" %></strong>
-            <%= note.note_width.to_s + ' x ' + note.note_height.to_s + ' mm' %>
-          <% end %>    
+
+          <%= render 'note_dimension', note: note %>
+
         </div>
       
         <div class="page-header col-md-6" >
-          <strong  style="color:black; font-size:20px">
-            <%= note.currency.country.country_en + ": " %>
-            <% if note.denomination >= 1 %>
-              <% number_to_currency(note.denomination, delimiter: " ", unit: "", precision: 0) + " " + note.name_currency %>
-              <%= number_to_currency(note.denomination.to_s, unit: "", separator: ".", delimiter: " ", precision: 0, strip_insignificant_zeros: true, format: "%n %u") + " " + note.name_currency %>
-            <% else %>
-              <% number_to_currency(note.denomination, delimiter: " ", unit: "", precision: 2) + " " + note.name_currency %>
-              <%= number_to_currency(note.denomination.to_s, unit: "", separator: ".", delimiter: " ", precision: 2, strip_insignificant_zeros: true, format: "%n %u") + " " + note.name_currency %>
-            <% end %>
-          </strong><br/>
+
+          <%= render 'note_denomination', note: note %>
+
+         <br/>
           <b><%= t('activerecord.attributes.note.note_date') + ":" %></b> <%= note.note_date %><br/>
           <B><%= t('activerecord.attributes.note.making') + ":" %></B> <%= note.making %><br/>
           <B><%= t('activerecord.attributes.note.quality') + ":" %></B> <%= note.quality %><br/>
@@ -54,15 +47,9 @@
               <%= number_to_currency(note.price_buy, unit: "zł", separator: ".", delimiter: " ", precision: 0, strip_insignificant_zeros: true, format: "%n %u") %>              
               <br/>
           <% end %>
-            <b><%= t('price') + ":" %></b> 
-              <% note.price_sell.to_s + "zł/szt" %>
-              <% if(note.quantity > 1) %>
-                <%= number_to_currency(note.price_sell, unit: "zł/", separator: ".", delimiter: " ", precision: 2, strip_insignificant_zeros: false, format: "%n %u") %><%= note.unit_quantity %>
-              <% else %>
-                <%= number_to_currency(note.price_sell, unit: "zł", separator: ".", delimiter: " ", precision: 2, strip_insignificant_zeros: false, format: "%n %u") %>
-              <% end %>
-              <br/>
-              <%= render "renders/shipping" %>
+            <%= render 'note_price', note: note %>
+            <br/>
+            <%= render "renders/shipping" %>
             <b><%= t('activerecord.attributes.note.description') + ":" %></b><br/>
             <% note.description %>
             <%= text_area_tag(:ad, note.description, rows: 4, :readonly => true, class:"textarea-note-future")  %>

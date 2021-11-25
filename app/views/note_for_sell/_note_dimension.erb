@@ -1,0 +1,4 @@
+<% if (note.note_width != nil && note.note_height != nil) %>
+  <strong><%= t('dimension') + ":" %></strong>
+  <%= note.note_width.to_s + ' x ' + note.note_height.to_s + ' mm' %> |
+<% end %>

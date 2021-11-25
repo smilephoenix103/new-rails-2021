@@ -2,18 +2,10 @@
   <div class="modal-content">
     <div class="modal-header" style="background: lightgray">
       <h5 class="modal-title" id="staticBackdropLabel" >
-        FOR SELL
-        <strong  style="color:black; font-size:20px">
-          <%= note.currency.country.country_en + ": " %>
-          <% if note.denomination >= 1 %>
-            <% number_to_currency(note.denomination, delimiter: " ", unit: "", precision: 0) + " " + note.name_currency %>
-            <%= number_to_currency(note.denomination.to_s, unit: "", separator: ".", delimiter: " ", precision: 0, strip_insignificant_zeros: true, format: "%n %u") + " " + note.name_currency %>
-          <% else %>
-            <% number_to_currency(note.denomination, delimiter: " ", unit: "", precision: 2) + " " + note.name_currency %>
-            <%= number_to_currency(note.denomination.to_s, unit: "", separator: ".", delimiter: " ", precision: 2, strip_insignificant_zeros: true, format: "%n %u") + " " + note.name_currency %>
-          <% end %>
-        </strong> |
-        <b><%= t('activerecord.attributes.note.note_date') + ":" %></b> <%= note.note_date %>
+        <%= render 'note_denomination', note: note %>|
+        <b><%= t('activerecord.attributes.note.note_date') + ":" %></b> <%= note.note_date %> |
+        <%= render 'note_dimension', note: note %>
+        <%= render 'note_price', note: note %>
       </h5>
       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
