@@ -9,6 +9,10 @@ class NoteFutureController < ApplicationController
 
     def show
         @notes = colection_notes_status(params[:id], "FUTURE")
+        puts "**************************************************"
+        puts current_user.inspect
+        puts current_user.role.inspect
+        puts "**************************************************"
     end
 
     def note_future_list
@@ -28,13 +32,13 @@ class NoteFutureController < ApplicationController
     end
 
     private
+
     def set_role
         if (current_user == nil)
             redirect_to root_path
         elsif (current_user.role == 'admin' || current_user.role == 's_user')
             return true
         else
-      return false
             redirect_to root_path, alert: "ERROR 404!!!"
         end
     end

@@ -23,11 +23,9 @@
 					</div>
 				<% end %>
 			</div> 
-			<%
-=begin%>
- <%= link_to 'Polish', url_for(locale: :pl) %> 
-<%
-=end%>
+
+ <%#= link_to 'Polish', url_for(locale: :pl) %>
+
 			<div style="padding:2px">  	
 				<% if (File.exist?(@root_path + 'England.png')) %>
 					<div style="padding:0px">
@@ -39,11 +37,9 @@
 					</div>
 				<% end %>
 			</div> 
-			<%
-=begin%>
- <%= link_to 'English', url_for(locale: :en) %> 
-<%
-=end%>
+
+ <%#= link_to 'English', url_for(locale: :en) %>
+
 			
 		</div>
 	</div>
