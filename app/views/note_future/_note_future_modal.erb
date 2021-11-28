@@ -14,8 +14,56 @@
       <%= render 'note_future/show_note', note: note %>
     </div>
     <div class="modal-footer" style="background: lightgray; display: flow-root">
-      <%= link_to (render 'renders/button_edit'), edit_note_path(note), class:"btn btn-primary btn-sm" %>
+      <%#= link_to (render 'renders/button_edit'), edit_note_path(note), {class:"btn btn-primary btn-sm", 'onclick' => "myFunction()" } %>
       <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal" style="float: right" ><%= render ('renders/button_close')%></button>
     </div>
   </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<script>
+    function myFunction() {
+
+        // $("[data-dismiss=modal]").trigger({ type: "click" });
+        // $("[data-dismiss=modal]").on("hidden.bs.modal",function(){history.back(0);});
+<!--        $('<%= "NF" + note.id.to_s %>').removeClass('show');-->
+<!--        $('<%= "NF" + note.id.to_s %>').modal('toggle');-->
+        // $('.modal-backdrop').remove();
+        // $('body').removeClass('modal-open');
+        console.log("<%= note.currency.country.inspect %>")
+        <%#=note_future_path(note.currency.country) %>
+        console.log("<%= "NF" + note.id.to_s %>")
+        console.log("TRUE")
+
+    }
+
+    $(document).ready(function(){
+        // $('div.modal').on('show.bs.modal', function() {
+        //     var modal = this;
+        //     var hash = modal.id;
+        //     window.location.hash = hash;
+        //     window.onhashchange = function() {
+        //         if (!location.hash){
+        //             $(modal).modal('hide');
+        //         }
+        //     }
+        // });
+        // $('div.modal').on('hidden.bs.modal', function() {
+        //     var hash = this.id;
+        //     history.replaceState('', document.title, window.location.pathname);
+        // });
+        // when close button clicked simulate back
+        // $('div.modal button.close').on('click', function(){
+        //     window.history.back();
+        // })
+        // // when esc pressed when modal open simulate back
+        // $('div.modal').keyup(function(e) {
+        //     if (e.keyCode == 27){
+        //         window.history.back();
+        //     }
+        // });
+    });
+</script>
+
+
+

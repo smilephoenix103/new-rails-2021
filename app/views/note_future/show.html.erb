@@ -11,7 +11,7 @@
         <div class="col-md-3">	       
         	<% if (note.avers_path.length > 80) %>
             	<%= link_to (image_tag(note.avers_path, :alt => "AVERSE" , style:"width:100%")), show_note_future_path(note), {'data-toggle' => "modal", 'data-target' => "#" + "NF"+ note.id.to_s} %>
-                <div class="modal fade" id=<%= "NF" + note.id.to_s %> data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal fade" id=<%= "NF" + note.id.to_s %> data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel">
                   <%= render 'note_future_modal', note: note %>
                 </div>
 
@@ -71,5 +71,4 @@
       
     </div>
   <% end %>
-
 
