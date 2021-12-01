@@ -27,7 +27,7 @@
         // $("[data-dismiss=modal]").trigger({ type: "click" });
         // $("[data-dismiss=modal]").on("hidden.bs.modal",function(){history.back(0);});
 <!--        $('<%= "NF" + note.id.to_s %>').removeClass('show');-->
-<!--        $('<%= "NF" + note.id.to_s %>').modal('toggle');-->
+        $("<%= "NF" + note.id.to_s %>").modal('toggle');
         $('.modal-backdrop').remove();
         // $('body').removeClass('modal-open');
         console.log("<%= note.currency.country.inspect %>")
