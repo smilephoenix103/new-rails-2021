@@ -1,6 +1,9 @@
 <span>
-    <strong>Currency Id:</strong>
-  <%= note.currency_id %>
+<!--    <strong>Currency Id:</strong>-->
+  <%#= note.currency_id %>
+  <strong>
+    <%= note.currency.currency_series %>
+  </strong>
   </span>
 <h1 class="display-4" id="notice"></h1>
 <div class="container" >
@@ -63,10 +66,10 @@
       <strong><%= t('activerecord.attributes.note.making') + ":"  %></strong>
       <%= note.making %>
     </div>
-    <% if (note.note_width != nil && @note.note_height != nil) %>
+    <% if (note.note_width != nil && note.note_height != nil) %>
       <div class="col">
         <strong><%= t('dimension') + ":" %></strong>
-        <%= note.note_width.to_s + ' x ' + @note.note_height.to_s + ' mm' %>
+        <%= note.note_width.to_s + ' x ' + note.note_height.to_s + ' mm' %>
       </div>
     <% end %>
     <div class="col">

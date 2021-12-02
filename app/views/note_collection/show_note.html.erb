@@ -21,10 +21,20 @@
             <div class="image-out-container" >
                 <div class="row image-container" >
                     <div class="item"  >
-                      <img class="img-responsive image-collection_size" src=<%= note.avers_path %> alt = <%= note.avers_path %>>                      
+<!--                      <img class="img-responsive image-collection_size" src=<%#= note.avers_path %>, alt = <%#= note.avers_path %>>-->
+                      <%= link_to (image_tag(note.avers_path, :alt => "AVERSE" , style:"width:100%")), show_note_future_path(note),
+                                  {class:"img-responsive image-collection_size", 'data-toggle' => "modal", 'data-target' => "#" + "NC-A"+ note.id.to_s} %>
+                      <div class="modal fade" id=<%= "NC-A" + note.id.to_s %> data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel">
+                        <%= render 'note_modal', image: note.avers_path, note: note %>
+                      </div>
                     </div >
-                    <div class="item">                      
-                        <img class="img-responsive image-collection_size" src=<%= note.reverse_path %> alt = <%= note.reverse_path %>>                     
+                    <div class="item">
+                      <%= link_to (image_tag(note.reverse_path, :alt => "REVERSE" , style:"width:100%")), show_note_future_path(note),
+                                  {class:"img-responsive image-collection_size", 'data-toggle' => "modal", 'data-target' => "#" + "NC-R"+ note.id.to_s} %>
+                      <div class="modal fade" id=<%= "NC-R" + note.id.to_s %> data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel">
+                        <%= render 'note_modal', image: note.reverse_path, note: note %>
+                      </div>
+<!--                        <img class="img-responsive image-collection_size" src=<%#= note.reverse_path %>, alt = <%#= note.reverse_path %>>-->
                     </div>
                     <div class="item-collection-info">
                       <%= t('activerecord.attributes.note.note_date') + ": "  + note.note_date.to_s %><br/>
@@ -37,7 +47,11 @@
                           <%= note.note_width.to_s + ' x ' + note.note_height.to_s + ' mm' %>                      
                       <% end %>
                         <div class="btn-image-collection" >
-                          <%= link_to (render 'renders/button_show'), show_note_user_path(note), class:"btn btn-outline-info btn-sm", style:"float:left" %> 
+                          <%= link_to (render 'renders/button_show'), show_note_user_path(note),
+                                      {class:"btn btn-outline-info btn-sm", style:"float:left", 'data-toggle' => "modal", 'data-target' => "#" + "NC"+ note.id.to_s}%>
+                          <div class="modal fade" id=<%= "NC" + note.id.to_s %> data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel">
+                            <%= render 'note_future/note_future_modal', note: note %>
+                          </div>
                         </div>
                     </div><br/>                    
                 </div>     
