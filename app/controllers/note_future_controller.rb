@@ -24,8 +24,6 @@ class NoteFutureController < ApplicationController
     end
 
     def show_note_future
-        puts "()()()()()()()()()()()()()()()"
-        puts params[:id]
         @note = Note.find(params[:id])
         @country = @note.currency.country
         puts @note.inspect
@@ -35,7 +33,7 @@ class NoteFutureController < ApplicationController
 
     def set_role
         if (current_user == nil)
-            redirect_to root_path
+            redirect_to root_path, alert: "ERROR 404!!!"
         elsif (current_user.role == 'admin' || current_user.role == 's_user')
             return true
         else

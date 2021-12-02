@@ -14,7 +14,7 @@
       <%= render 'note_future/show_note', note: note %>
     </div>
     <div class="modal-footer" style="background: lightgray; display: flow-root">
-      <%= link_to (render 'renders/button_edit'), edit_note_path(note), {class:"btn btn-primary btn-sm", 'onclick' => "myFunction()" } %>
+      <%#= link_to (render 'renders/button_edit'), edit_note_path(note), {class:"btn btn-primary btn-sm", 'onclick' => "myFunction()" } %>
       <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal" style="float: right" ><%= render ('renders/button_close')%></button>
     </div>
   </div>
