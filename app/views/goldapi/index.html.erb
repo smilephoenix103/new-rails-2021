@@ -42,7 +42,7 @@
                 <td align="right"><%= DateTime.strptime(metal.open_time.to_s,'%s').strftime("%Y-%m-%d \n %H:%M:%S") %></td>
                 <td align="right"><%= number_to_currency(metal.price, unit:"$", precision: 3, format: "%n%u") %> </td>
                 <td class="<%= metal.ch > 0 ? 'up' : 'down' %>" style="background-color: #151515; min-width: 70px;" align="right">
-                  <%= metal.ch %> <%= metal.ch > 0 ? (render 'renders/icon_arrow_up') : (render 'renders/icon_arrow_down') %>
+                  <%= number_to_currency(metal.ch, unit:"", precision: 2, format: "%n%u") %> <%= metal.ch > 0 ? (render 'renders/icon_arrow_up') : (render 'renders/icon_arrow_down') %>
                 </td>
                 <td align="right"><%= metal.ask %></td>
                 <td align="right"><%= metal.bid %></td>
