@@ -29,7 +29,7 @@ class HomeController < ApplicationController
 
     # RATE GOLD
     puts "\n\n $$$$$$$$$$$$$$$$$$$$$ RATE GOLD $$$$$$$$$$$$$$$$$$$$$$$$$$$$"
-    url_gold = 'http://api.nbp.pl/api/cenyzlota/last/16/?format=json'
+    url_gold = 'http://api.nbp.pl/api/cenyzlota/last/11/?format=json'
     @response_code_gold = response_code(url_gold)
     @rate_gold = @exchange_rate.rate_gold(url_gold)
 

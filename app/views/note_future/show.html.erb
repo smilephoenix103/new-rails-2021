@@ -10,16 +10,27 @@
         </div>
         <div class="col-md-3">	       
         	<% if (note.avers_path.length > 80) %>
-            	<%= link_to (image_tag(note.avers_path, :alt => "AVERSE" , style:"width:100%")), show_note_future_path(note) %>
-            <% else %>
+            	<%= link_to (image_tag(note.avers_path, :alt => "AVERSE" , style:"width:100%")), show_note_future_path(note), {'data-toggle' => "modal", 'data-target' => "#" + "NF"+ note.id.to_s} %>
+                <div class="modal fade" id=<%= "NF" + note.id.to_s %> data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel">
+                  <%= render 'note_future_modal', note: note %>
+                </div>
+          <% else %>
             	<%= note.avers_path %>
-            <% end %> 
+          <% end %>
               <hr class="my-2">
-        	  <% if (note.reverse_path.length > 80) %>
-            	<%= link_to (image_tag(note.reverse_path, :alt => "REVERSE" , style:"width:100%")), show_note_future_path(note) %>
-            <% else %>
-            	<%= note.reverse_path %>
-            <% end %>      
+          <% if (note.reverse_path.length > 80) %>
+            <%= link_to (image_tag(note.reverse_path, :alt => "REVERSE" , style:"width:100%")), show_note_future_path(note), {'data-toggle' => "modal", 'data-target' => "#" + "NF"+ note.id.to_s} %>
+            <div class="modal fade" id=<%= "NF" + note.id.to_s %> data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel">
+              <%= render 'note_future_modal', note: note %>
+            </div>
+          <% else %>
+            <%= note.reverse_path %>
+          <% end %>
+          <%# if (note.reverse_path.length > 80) %>
+            	<%#= link_to (image_tag(note.reverse_path, :alt => "REVERSE" , style:"width:100%")), show_note_future_path(note) %>
+            <%# else %>
+            	<%#= note.reverse_path %>
+            <%# end %>
         </div>
       
         <div class="page-header col-md-6" >
@@ -47,14 +58,12 @@
               <%= number_to_currency(note.price_buy, unit: "£", separator: ".", delimiter: " ", precision: 2, format: "%u%n") %>
               <br/>
           <% end %>
-            <%
-=begin%>
- <b><%= t('activerecord.attributes.note.price_sell') + ":" %></b> 
-              <% note.price_sell.to_s + "zł/szt" %>
-              <%= number_to_currency(note.price_sell, unit: "zł", separator: ".", delimiter: " ", precision: 0, strip_insignificant_zeros: true, format: "%n %u") %>
-              <br/> 
-<%
-=end%>
+
+<!--              <b><%#= t('activerecord.attributes.note.price_sell') + ":" %></b> -->
+              <%# note.price_sell.to_s + "zł/szt" %>
+              <%#= number_to_currency(note.price_sell, unit: "zł", separator: ".", delimiter: " ", precision: 0, strip_insignificant_zeros: true, format: "%n %u") %>
+<!--              <br/> -->
+
               
             <b><%= t('activerecord.attributes.note.description') + ":" %></b><br/>
             <% note.description %>
