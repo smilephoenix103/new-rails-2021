@@ -2,7 +2,7 @@
   <div class="modal-content">
     <div class="modal-header" style="background: lightgray; padding: 0">
       <div class="container modal-title center-row" id="staticBackdropLabel" >
-        <div class="container " style="max-width: 500px; min-width: 150px">
+        <div class="container " style="max-width: 500px; min-width: 150px; padding: 0">
           <% @country = note.currency.country %>
           <%= render 'renders/show_flag_country' %>
         </div>
@@ -21,10 +21,10 @@
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
-    <div class="modal-body">
+    <div class="modal-body" style="background: black">
       <%= image_tag(image, :alt => "REVERSE" , style:"width:100%") %>
     </div>
-    <div class="modal-footer" style="background: lightgray; display: flow-root">
+    <div class="modal-footer" style="background: lightgray; display: flow-root; padding: 0">
       <%#= link_to (render 'renders/button_edit'), edit_note_path(note), {class:"btn btn-primary btn-sm", 'onclick' => "myFunction()" } %>
       <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal" style="float: right" ><%= render ('renders/button_close')%></button>
     </div>
