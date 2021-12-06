@@ -61,8 +61,14 @@ include NoteForSellHelper
   def show_note_user
 	puts "&&&&&&&&&&&&&& SHOW NOTE USER &&&&&&&&&&&&&&&&&&&"
 	puts params[:id]
-	@note = Note.find(params[:id])  
-	@country = @note.currency.country
+	# @note = Note.find(params[:id])
+	@note = Note.find_by(id: params[:id])
+	if (@note == nil || @note.status == 'SOLD')
+		redirect_to root_path, alert: "ERROR 404!!! \n (" + params[:id].to_s + ")"
+		puts @note.inspect
+	else
+		@country = @note.currency.country
+	end
 	puts "&&&&&&&&&&&&&& END &&&&&&&&&&&&&&&&&&&&&&&&&&"
   end
 
