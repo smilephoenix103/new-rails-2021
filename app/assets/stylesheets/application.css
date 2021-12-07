@@ -430,3 +430,23 @@ div {
 	width: max-content; 
 	font-size: small;
   }
+
+  /*********************MODAL BACKGROUNF************************/
+
+.modal-backdrop {
+    /*background-color: rgba(0,0,0,.0001) !important;*/
+    opacity: 0;
+}
+.modal-backdrop.fade {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    /*background-color: rgba(0, 0, 0, 0.40) !important;*/
+}
+.modal-backdrop.in {
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+}
+
+.modal{
+    background-color: rgba(0, 0, 0, 0.60) !important;
+}
