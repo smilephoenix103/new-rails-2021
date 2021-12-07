@@ -70,6 +70,7 @@ module GoldapiHelper
         @rate_metal.open_time = result["open_time"]
         @rate_metal.price = result["price"]
         @rate_metal.ch = result["ch"]
+        @rate_metal.chp = result["chp"]
         @rate_metal.ask = result["ask"]
         @rate_metal.bid = result["bid"]
 

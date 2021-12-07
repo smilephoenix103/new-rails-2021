@@ -22,6 +22,7 @@
           <th>Open Time</th>
           <th>Price</th>
           <th>Change</th>
+          <th>Change %</th>
           <th>Ask</th>
           <th>Bid</th>
         </tr>
@@ -42,7 +43,12 @@
                 <td align="right"><%= DateTime.strptime(metal.open_time.to_s,'%s').strftime("%Y-%m-%d \n %H:%M:%S") %></td>
                 <td align="right"><%= number_to_currency(metal.price, unit:"$", precision: 3, format: "%n%u") %> </td>
                 <td class="<%= metal.ch > 0 ? 'up' : 'down' %>" style="background-color: #151515; min-width: 70px;" align="right">
-                  <%= number_to_currency(metal.ch, unit:"", precision: 2, format: "%n%u") %> <%= metal.ch > 0 ? (render 'renders/icon_arrow_up') : (render 'renders/icon_arrow_down') %>
+                  <%= number_to_currency(metal.ch, unit:"", precision: 2, format: "%n%u") %>
+                  <%= metal.ch > 0 ? (render 'renders/icon_arrow_up') : (render 'renders/icon_arrow_down') %>
+                </td>
+                <td class="<%= metal.chp > 0 ? 'up' : 'down' %>" style="background-color: #151515; min-width: 70px;" align="right">
+                  <%= number_to_currency(metal.chp, unit:"%", precision: 2, format: "%n%u") %>
+                  <%= metal.chp > 0 ? (render 'renders/icon_arrow_up') : (render 'renders/icon_arrow_down') %>
                 </td>
                 <td align="right"><%= metal.ask %></td>
                 <td align="right"><%= metal.bid %></td>
