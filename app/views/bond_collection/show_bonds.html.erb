@@ -10,14 +10,14 @@
                 <div class="row image-container">
                     <div class="item"  >
                         <% if (bond.avers_path.length > 200) %>
-                            <img class="img-responsive image-collection_size"  src=<%= bond.avers_path %> alt = <%= bond.avers_path %>>
+                            <img class="img-responsive image-collection_size"  src=<%= bond.avers_path %>, alt = <%= bond.avers_path %>>
                         <% else %>
                             <%= bond.avers_path %>          
                         <% end %>
                     </div >
                     <div class="item">
                         <% if (bond.reverse_path.length > 200) %>
-                            <img class="img-responsive image-collection_size" src=<%= bond.reverse_path %> alt = <%= bond.reverse_path %>>
+                            <img class="img-responsive image-collection_size" src=<%= bond.reverse_path %>, alt = <%= bond.reverse_path %>>
                         <% else %>
                             <%= bond.reverse_path %>
                         <% end %>
