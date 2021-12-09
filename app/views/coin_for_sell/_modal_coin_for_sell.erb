@@ -2,11 +2,11 @@
   <div class="modal-content">
     <div class="modal-header" style="background: lightgray">
       <h5 class="modal-title" id="staticBackdropLabel" >
-        <b>Id:</b>  <%= note.id %> |
-        <%= render 'renders_item/denomination', item: note %>|
-        <b><%= t('activerecord.attributes.note.note_date') + ":" %></b> <%= note.note_date %> |
-        <%= render 'renders_item/price_sell', item: note %> |
-        <%= render 'note_dimension', note: note %>
+        <b>Id:</b>  <%= coin.id %> |
+        <%= render 'renders_item/denomination', item: coin %>|
+        <b><%= t('activerecord.attributes.coin.coin_date') + ":" %></b> <%= coin.coin_date %> |
+        <%= render 'renders_item/price_sell', item: coin %> |
+        <%#= render 'note_dimension', note: note %>
       </h5>
       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>

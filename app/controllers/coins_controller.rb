@@ -73,6 +73,8 @@ class CoinsController < ApplicationController
     @boughts = Bought.all
     @statuses = ElementSelect.statuses
     @img_types = ElementSelect.img_types
+    @unit_quantities = ElementSelect.unit_quantities
+
     @country = @coin.currency.country
   end
 
@@ -98,6 +100,8 @@ class CoinsController < ApplicationController
 
     @statuses = ElementSelect.statuses
     @img_types = ElementSelect.img_types
+    @unit_quantities = ElementSelect.unit_quantities
+
     @country = @coin.currency.country
   end
 
@@ -107,6 +111,7 @@ class CoinsController < ApplicationController
     @currencies = currency_series(@coin, "COIN")
     @statuses = ElementSelect.statuses
     @img_types = ElementSelect.img_types
+    @unit_quantities = ElementSelect.unit_quantities
     @country = @coin.currency.country
     respond_to do |format|
       if @coin.save
@@ -124,6 +129,7 @@ class CoinsController < ApplicationController
     @currencies = currency_series(@coin, "COIN")
     @statuses = ElementSelect.statuses
     @img_types = ElementSelect.img_types
+    @unit_quantities = ElementSelect.unit_quantities
     @country = @coin.currency.country
     respond_to do |format|
       if @coin.update(coin_params)
@@ -153,6 +159,8 @@ class CoinsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def coin_params
-      params.require(:coin).permit(:currency_id, :date_buy, :bought, :denomination, :name_currency, :coin_date, :series, :diameter, :thickness, :weight, :signature_code, :price_buy, :price_sell, :quantity, :quality, :status, :status_sell, :img_type, :composition, :description, :avers_path, :reverse_path)
+      params.require(:coin).permit(:currency_id, :date_buy, :bought, :denomination, :name_currency, :coin_date, :series,
+                                   :diameter, :thickness, :weight, :signature_code, :price_buy, :price_sell, :quantity, :quality,
+                                   :status, :status_sell, :img_type, :composition, :description, :avers_path, :reverse_path, :unit_quantity)
     end
 end

@@ -1,0 +1,7 @@
+<b><%= t('price') + ":" %></b>
+<% item.price_sell.to_s + "zł/szt" %>
+<% if(item.quantity > 1) %>
+  <%= number_to_currency(item.price_sell, unit: "zł/", separator: ".", delimiter: " ", precision: 2, strip_insignificant_zeros: false, format: "%n %u") %><%= item.unit_quantity %>
+<% else %>
+  <%= number_to_currency(item.price_sell, unit: "zł", separator: ".", delimiter: " ", precision: 2, strip_insignificant_zeros: false, format: "%n %u") %>
+<% end %>

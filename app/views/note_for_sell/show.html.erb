@@ -34,7 +34,7 @@
       
         <div class="page-header col-md-6" >
 
-          <%= render 'note_denomination', note: note %>
+          <%= render 'renders_item/denomination', item: note %>
 
          <br/>
           <b><%= t('activerecord.attributes.note.note_date') + ":" %></b> <%= note.note_date %><br/>
@@ -47,7 +47,7 @@
               <%= number_to_currency(note.price_buy, unit: "zł", separator: ".", delimiter: " ", precision: 0, strip_insignificant_zeros: true, format: "%n %u") %>              
               <br/>
           <% end %>
-            <%= render 'note_price', note: note %>
+            <%= render 'renders_item/price_sell', item: note %>
             <br/>
             <%= render "renders/shipping" %>
             <b><%= t('activerecord.attributes.note.description') + ":" %></b><br/>

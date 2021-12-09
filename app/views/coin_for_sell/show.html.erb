@@ -6,25 +6,28 @@
       </div>
         <div class="col-md-3">        
         	<% if (item.avers_path.length > 200) %>
-            <%= image_tag(item.avers_path, :alt => "AVERSE" , style:"width:100%") %>
+            <%#= image_tag(item.avers_path, :alt => "AVERSE" , style:"width:100%") %>
+            <%= link_to (image_tag(item.avers_path, :alt => "AVERSE" , style:"width:100%")), edit_coin_path(item), {'data-toggle' => "modal", 'data-target' => "#" + "CFS-A"+ item.id.to_s} %>
+            <div class="modal fade" id=<%= "CFS-A" + item.id.to_s %> data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+              <%= render 'modal_coin_for_sell', coin: item, image: item.avers_path %>
+            </div>
           <% else %>
            	<%= item.avers_path %>
           <% end %> 
               <hr class="my-2">
           <% if (item.reverse_path.length > 200) %>
-            <%= image_tag(item.reverse_path, :alt => "REVERSE" , style:"width:100%") %>
+            <%#= image_tag(item.reverse_path, :alt => "REVERSE" , style:"width:100%") %>
+            <%= link_to (image_tag(item.reverse_path, :alt => "AVERSE" , style:"width:100%")), edit_coin_path(item), {'data-toggle' => "modal", 'data-target' => "#" + "CFS-B"+ item.id.to_s} %>
+            <div class="modal fade" id=<%= "CFS-B" + item.id.to_s %> data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+              <%= render 'modal_coin_for_sell', coin: item, image: item.reverse_path %>
+            </div>
           <% else %>
            	<%= item.reverse_path %>
           <% end %> 
         </div>        
         <div class="page-header col-md-6">
           <strong  style="color:black; font-size:20px">
-            <%= item.currency.country.country_en + ": " %>
-            <% if item.denomination >= 1 %>
-              <%= number_to_currency(item.denomination, delimiter: " ", unit: "", precision: 0) + " " + item.name_currency %>
-            <% else %>
-              <%= number_to_currency(item.denomination, delimiter: " ", unit: "", precision: 2) + " " + item.name_currency %>
-            <% end %>
+            <%= render 'renders_item/denomination', item: item %>
           </strong><br/>
           <b>Data: </b> <%= item.coin_date %><br/>
           <B>Quality: </B> <%= item.quality %><br/>
@@ -32,15 +35,18 @@
           <% if user_signed_in? && current_user.role == 'admin' %>
             <b>Cena Zakupu: </b><%= item.price_buy.to_s + "zł/szt" %><br/>
           <% end %>
-            <b>Price : </b> <%= item.price_sell.to_s + "zł/szt" %><br/>
+          <b>Ilość: </b><%= item.quantity %><%= item.unit_quantity %><br>
+<!--            <b>Price : </b> <%#= item.price_sell.to_s + "zł/szt" %><br/>-->
+          <%= render 'renders_item/price_sell', item: item %><br>
             <b>Shipping Type</b> <span>Lis Polecony Priorytet</span><br/>
-            <b>Shipping Costs: </b><span> 10zł<span><br/>
+            <b>Shipping Costs: </b><span> 10zł</span><br/>
             <span style="color:black">Mozliwy odbiór osobisty</span><br/>
             <B>Composition: </B><br/>
             <%= item.composition %><br/>
             <b>Description:</b><br/>
-            <%= item.description %>
-        </div> 
+            <%= text_area_tag(:ad, item.description, rows: 4, :readonly => true, class:"textarea-note-future")  %>
+            <%#= item.description %>
+        </div>
         <% if user_signed_in? && current_user.role == 'admin' %>      
           <div class="page-header col-md-2" style="border-left: solid;border-color: darkgray;">
             <td><%= link_to (render 'renders/button_edit'), edit_coin_path(item), class:"btn btn-primary btn-sm" %></td>

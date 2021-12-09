@@ -1,0 +1,10 @@
+<strong  style="color:black; font-size:20px">
+  <%= item.currency.country.country_en + ": " %>
+  <% if item.denomination >= 1 %>
+    <% number_to_currency(item.denomination, delimiter: " ", unit: "", precision: 0) + " " + item.name_currency %>
+    <%= number_to_currency(item.denomination.to_s, unit: "", separator: ".", delimiter: " ", precision: 0, strip_insignificant_zeros: true, format: "%n %u") + " " + item.name_currency %>
+  <% else %>
+    <% number_to_currency(item.denomination, delimiter: " ", unit: "", precision: 2) + " " + item.name_currency %>
+    <%= number_to_currency(item.denomination.to_s, unit: "", separator: ".", delimiter: " ", precision: 2, strip_insignificant_zeros: true, format: "%n %u") + " " + item.name_currency %>
+  <% end %>
+</strong>
