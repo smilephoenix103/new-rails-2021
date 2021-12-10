@@ -1,6 +1,10 @@
-  <span> 
-    <strong>Currency Id:</strong>
-    <%= @coin.currency_id %>
+<% if  defined?(coin) %>
+  <%@coin = coin %>
+<% end %>
+<span>
+    <strong>Currency Id:
+      <%= @coin.currency.currency_series %>
+    </strong>
   </span>
   <h1 class="display-4" id="notice"></h1>
   <div class="container">
@@ -105,7 +109,18 @@
   </p>
   <hr class="my-1">
 
+<% if  defined?(coin) %>
+  <%@coin = coin %>
+  <div class="row">
+    <div class="col col-lg-6 center-row">
+      <img src=<%= coin.avers_path %>, class="hover-shadow image-size-show">
+    </div>
+    <div class="col col-lg-6 center-row">
+      <img src=<%= coin.reverse_path %>, class="hover-shadow image-size-show">
+    </div>
+  </div>
+<% else %>
   <% @avers = @coin.avers_path %>
   <% @reverse = @coin.reverse_path %>
- 
   <%= render 'renders/show_image_lightbox' %>
+<% end %>
