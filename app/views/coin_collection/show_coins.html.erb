@@ -40,11 +40,11 @@
                       <% end %>
                     </div><br/>
                     <div class="item-collection-info" style="margin-top: 10%;">
-                      <%= "Rok: " + coin.coin_date.to_s %><br/>
+                      <%= t('activerecord.attributes.coin.coin_date') + ': ' %> <%= coin.coin_date %><br/>
                       <% if (coin.denomination != nil) %>
-                        <%= "Nominał: " + number_with_delimiter(coin.denomination, delimiter: " ") %><br/>
+                        <%= t('activerecord.attributes.coin.denomination') + ': ' %> <%= number_with_delimiter(coin.denomination, delimiter: " ") %><br/>
                       <% end %>
-                      <%= "Waluta: " + coin.name_currency.to_s %>
+                      <%= t('currency') + ': ' %> <%= coin.name_currency %>
                       <div class="btn-image-collection" >
                         <%= link_to (render 'renders/button_show'), show_coin_user_path(coin),
                                     {class:"btn btn-outline-info btn-sm", style:"float:left", 'data-toggle' => "modal", 'data-target' => "#" + "CC"+ coin.id.to_s} %>

@@ -9,10 +9,11 @@
 
         <div class="container modal-title" id="staticBackdropLabel" style="width: 100%" >
           <strong>
-            <%= coin.currency.currency_series %> |
+            <%= t('activerecord.attributes.currency.currency_series') + ': ' %>
           </strong>
+          <%= coin.currency.currency_series %> |
           <%= render 'renders_item/denomination', item: coin %>|
-<!--          <b><%#= t('activerecord.attributes.note.note_date') + ":" %></b> <%#= note.note_date %> |-->
+          <b><%= t('activerecord.attributes.coin.coin_date') + ":" %></b> <%= coin.coin_date %> |
           <%#= render 'note_for_sell/note_dimension', note: note %>
         </div>
 
