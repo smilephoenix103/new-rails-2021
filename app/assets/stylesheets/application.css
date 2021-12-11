@@ -55,7 +55,8 @@ div {
 }
 .country-flag {
 	text-align: center; 
-	height: 100px;
+	/*height: 100px;*/
+    /*width: 25%;*/
 }
 
  .size-flag {
@@ -74,7 +75,7 @@ div {
  {
 	text-align:center; 
 	font-size: x-large;
-	width: 25%;
+	/*width: 25%;*/
 	/* margin-top: -60px; */
  }
 
