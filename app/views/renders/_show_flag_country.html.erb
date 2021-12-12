@@ -20,7 +20,7 @@
 <div class="container flag-show" >
   <%= @country.country_en %>
   <% if (File.exist?(@root_path + (@country.country_en + '.png'))) %>
-		  <div class="container" style="width: 25%; min-width: 80px">
+		  <div class="container" style="width: 25%; min-width: 140px">
         	<%= image_tag("flags/" + @country.country_en + ".png", :alt => @country.country_en , class:"size-flag-container") %>
 		  </div>
   <% else %>
