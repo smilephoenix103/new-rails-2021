@@ -20,8 +20,11 @@ include NoteForSellHelper
   	
   	@continent = Continent.find(params[:id])
   	puts @continent.file_name
+		puts @continent.name_pl
   	# @continent_countris = Country.includes(:currencies => :notes).where({ :currencies => { :notes => { status: "KOLEKCJA"}}, :continent => params[:id]}).order(country_en: :asc)
   	@countries = get_countries_with_continent(@continent.name_pl, "KOLEKCJA")
+		@countriesv = get_countries_with_continent_notes_visible(@continent.name_pl, "KOLEKCJA", false)
+		puts @countriesv.inspect
 	puts "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^TEST^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
 	puts params[:id]
   end
@@ -36,6 +39,10 @@ include NoteForSellHelper
   	puts params[:id]
   	# @currencies = Currency.where(country_id: params[:id], pattern: 'NOTE')
 	  @currencies  = Currency.joins(:notes).where(notes: {status: "KOLEKCJA"},country_id: params[:id], pattern: 'NOTE' ). group(:id).order(currency_series: :asc)
+		@currenciesv =  Currency.joins(:notes).where(notes: ({status: "KOLEKCJA"})&&({visible: true}),country_id: params[:id], pattern: 'NOTE' ). group(:id).order(currency_series: :asc)
+		@currenciesv.each do |c|
+			puts c.id
+		end
 	  @notes_size = colection_notes_status_asc(params[:id], 'KOLEKCJA').size
 	  @country = @currencies[0].country
   end
@@ -44,7 +51,11 @@ include NoteForSellHelper
   	puts params[:id]
   	# @notes = notes_collections(params[:id], "KOLEKCJA")
   	@notes = notes_collections(params[:id], "KOLEKCJA").page(params[:page]).per(10)
-
+		puts "************************************TEST****************************"
+		@notesv = notes_collections_visible(params[:id], "KOLEKCJA", true)
+		puts @notes.size
+		puts @notesv.size
+		puts "***********************************END*************end*********************"
 	
 	@country = @notes[0].currency.country
   end

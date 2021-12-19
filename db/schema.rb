@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_20_92_220441) do
+ActiveRecord::Schema.define(version: 2021_20_92_220442) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 2021_20_92_220441) do
     t.text "reverse_path"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "visible"
     t.index ["currency_id"], name: "index_bonds_on_currency_id"
   end
 
@@ -81,6 +82,7 @@ ActiveRecord::Schema.define(version: 2021_20_92_220441) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "unit_quantity"
     t.string "unit_currency"
+    t.boolean "visible"
     t.index ["currency_id"], name: "index_coins_on_currency_id"
   end
 
@@ -150,6 +152,7 @@ ActiveRecord::Schema.define(version: 2021_20_92_220441) do
     t.integer "note_height"
     t.string "unit_quantity"
     t.string "unit_currency"
+    t.boolean "visible"
     t.index ["currency_id"], name: "index_notes_on_currency_id"
   end
 
@@ -171,10 +174,10 @@ ActiveRecord::Schema.define(version: 2021_20_92_220441) do
   end
 
   create_table "settings", force: :cascade do |t|
-    t.string "web"
-    t.string "name"
-    t.string "value"
-    t.text "description"
+    t.string "web", comment: "Do której strony dotyczą ustawienia"
+    t.string "name", comment: "Nazwa ustawień"
+    t.string "value", comment: "Wartość ustawień"
+    t.text "description", comment: "Opis ustawień"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
