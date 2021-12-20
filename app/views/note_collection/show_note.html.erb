@@ -56,6 +56,9 @@
                           <strong><%= t('dimension') + ": " %></strong>
                           <%= note.note_width.to_s + ' x ' + note.note_height.to_s + ' mm' %>                      
                       <% end %>
+                      <% if user_signed_in? && current_user.role == 'admin' %>
+                        <strong>Visible: </strong><%= note.visible %>
+                      <% end %>
                         <div class="btn-image-collection" >
                           <%= link_to (render 'renders/button_show'), show_note_user_path(note),
                                       {class:"btn btn-outline-info btn-sm", style:"float:left", 'data-toggle' => "modal", 'data-target' => "#" + "NC"+ note.id.to_s}%>

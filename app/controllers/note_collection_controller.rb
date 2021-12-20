@@ -22,10 +22,16 @@ include NoteForSellHelper
   	puts @continent.file_name
 		puts @continent.name_pl
   	# @continent_countris = Country.includes(:currencies => :notes).where({ :currencies => { :notes => { status: "KOLEKCJA"}}, :continent => params[:id]}).order(country_en: :asc)
-  	@countries = get_countries_with_continent(@continent.name_pl, "KOLEKCJA")
-		@countriesv = get_countries_with_continent_notes_visible(@continent.name_pl, "KOLEKCJA", false)
-		puts @countriesv.inspect
+    if current_user.role == 'admin'
+      @countries = get_countries_with_continent(@continent.name_pl, "KOLEKCJA")
+    else
+      @countries = get_countries_with_continent_notes_visible(@continent.name_pl, "KOLEKCJA", true)
+    end
+		@countries.each do |c|
+      puts c.country_en
+    end
 	puts "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^TEST^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+    puts current_user.role
 	puts params[:id]
   end
 
@@ -35,29 +41,44 @@ include NoteForSellHelper
   end
 
   def show_currency
-	puts "************************SHOW CURRENCY*****************************"
-  	puts params[:id]
-  	# @currencies = Currency.where(country_id: params[:id], pattern: 'NOTE')
-	  @currencies  = Currency.joins(:notes).where(notes: {status: "KOLEKCJA"},country_id: params[:id], pattern: 'NOTE' ). group(:id).order(currency_series: :asc)
-		@currenciesv =  Currency.joins(:notes).where(notes: ({status: "KOLEKCJA"})&&({visible: true}),country_id: params[:id], pattern: 'NOTE' ). group(:id).order(currency_series: :asc)
-		@currenciesv.each do |c|
+    puts "************************SHOW CURRENCY*****************************"
+      puts params[:id]
+      # @currencies = Currency.where(country_id: params[:id], pattern: 'NOTE')
+    if current_user.role == 'admin'
+      @currencies  = Currency.joins(:notes).where(notes: {status: "KOLEKCJA"},country_id: params[:id], pattern: 'NOTE' ). group(:id).order(currency_series: :asc)
+    else
+      @currencies =  Currency.joins(:notes).where(notes: {status: "KOLEKCJA", visible: true},country_id: params[:id], pattern: 'NOTE' ). group(:id).order(currency_series: :asc)
+    end
+		@currencies.each do |c|
 			puts c.id
 		end
 	  @notes_size = colection_notes_status_asc(params[:id], 'KOLEKCJA').size
-	  @country = @currencies[0].country
+    if @currencies.size != 0
+      puts "888888888888888888888888888888888888888888888888"
+      puts @currencies.inspect
+      @country = @currencies[0].country
+    else
+      redirect_to root_path, alert: "ERROR 404!!!"
+    end
   end
 
   def show_note
   	puts params[:id]
   	# @notes = notes_collections(params[:id], "KOLEKCJA")
-  	@notes = notes_collections(params[:id], "KOLEKCJA").page(params[:page]).per(10)
-		puts "************************************TEST****************************"
-		@notesv = notes_collections_visible(params[:id], "KOLEKCJA", true)
+    if current_user.role == 'admin'
+      @notes = notes_collections(params[:id], "KOLEKCJA").page(params[:page]).per(10)
+      puts "************************************TEST****************************"
+    else
+		  @notes = notes_collections_visible(params[:id], "KOLEKCJA", true).page(params[:page]).per(10)
+    end
 		puts @notes.size
-		puts @notesv.size
 		puts "***********************************END*************end*********************"
+    if @notes.size != 0
+      @country = @notes[0].currency.country    else
+      redirect_to root_path, alert: "ERROR 404!!!"
+    end
 	
-	@country = @notes[0].currency.country
+
   end
 
   def back_show_currency
@@ -74,8 +95,8 @@ include NoteForSellHelper
 	puts params[:id]
 	# @note = Note.find(params[:id])
 	@note = Note.find_by(id: params[:id])
-	if (@note == nil || @note.status == 'SOLD')
-		redirect_to root_path, alert: "ERROR 404!!! \n (" + params[:id].to_s + ")"
+	if (@note == nil || @note.status == 'SOLD' || @note.visible == false)
+		redirect_to root_path, alert: "ERROR 404!!??! \n (" + params[:id].to_s + ")"
 		puts @note.inspect
 	else
 		@country = @note.currency.country
