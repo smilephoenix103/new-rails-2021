@@ -81,6 +81,12 @@
         <strong><%= t('activerecord.attributes.note.status') + ":"  %></strong>
         <%= @note.status %>
       </div>
+      <% if current_user.role == 'admin' %>
+        <div class="col p-0" style="background: orange">
+          <strong style="background: orange">Visible: </strong>
+          <%= @note.visible %>
+        </div>
+      <% end %>
       <% if user_signed_in? && current_user.role == 'admin' %>
         <% if @note.status_sell != "" %>
           <div class="col p-0">

@@ -77,8 +77,6 @@ include NoteForSellHelper
       @country = @notes[0].currency.country    else
       redirect_to root_path, alert: "ERROR 404!!!"
     end
-	
-
   end
 
   def back_show_currency
@@ -92,12 +90,14 @@ include NoteForSellHelper
 
   def show_note_user
 	puts "&&&&&&&&&&&&&& SHOW NOTE USER &&&&&&&&&&&&&&&&&&&"
+  puts current_user.role
 	puts params[:id]
 	# @note = Note.find(params[:id])
 	@note = Note.find_by(id: params[:id])
-	if (@note == nil || @note.status == 'SOLD' || @note.visible == false)
-		redirect_to root_path, alert: "ERROR 404!!??! \n (" + params[:id].to_s + ")"
-		puts @note.inspect
+  if @note != nil && current_user.role == 'admin'
+    @country = @note.currency.country
+	elsif @note == nil || @note.status == 'SOLD' || @note.visible == false
+		redirect_to root_path, alert: "ERROR 404!?!?! \n (" + params[:id].to_s + ")"
 	else
 		@country = @note.currency.country
 	end
