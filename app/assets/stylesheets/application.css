@@ -64,7 +64,8 @@ div {
 	/* height:30%; */
  }
  .size-flag-container {
-	width:100%;
+    min-width: 140px;
+	max-width:20%;
  }
  .position-flag {
 	text-align: center; 
