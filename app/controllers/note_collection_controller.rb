@@ -111,8 +111,12 @@ include NoteForSellHelper
 	puts params[:id]
 	# @notes = Note.includes(:currency => :country).where(:currency => { :country_id => params[:id]}, :status => 'KOLEKCJA')
 	# @notes = colection_notes_status_asc(params[:id], 'KOLEKCJA')
-	@notes = colection_notes_status_asc(params[:id], 'KOLEKCJA').page(params[:page]).per(10)
-	@country = @notes[0].currency.country
-	render :show_note
+  if @notes_size > 0
+    @notes = colection_notes_status_asc(params[:id], 'KOLEKCJA').page(params[:page]).per(10)
+    @country = @notes[0].currency.country
+    render :show_note
+  else
+    redirect_to root_path, alert: "ERROR 404!?!?! \n (" + params[:id].to_s + ")"
+  end
   end
 end
