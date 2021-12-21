@@ -19,6 +19,8 @@ include NoteForSellHelper
   def show
   	
   	@continent = Continent.find(params[:id])
+    puts "&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&"
+    puts @continent.inspect
   	puts @continent.file_name
 		puts @continent.name_pl
   	# @continent_countris = Country.includes(:currencies => :notes).where({ :currencies => { :notes => { status: "KOLEKCJA"}}, :continent => params[:id]}).order(country_en: :asc)

@@ -20,7 +20,8 @@
             <div class="toast-header">
                 <img src="" class="rounded mr-2" alt="">
                 <strong class="mr-auto">Pecunia</strong>
-                <small>CZAS</small>
+<!--                <small><%#=Time.now.utc %></small>-->
+              <small><%= Time.now.utc.strftime("%H:%M:%S") %></small>
                 </button>
             </div>
             <div class="toast-body">
