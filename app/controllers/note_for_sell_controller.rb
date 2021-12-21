@@ -12,8 +12,11 @@ class NoteForSellController < ApplicationController
 				# 			   			 AND note.status = 'FOR SELL'
 				# 			  		   ORDER BY country_en")
 
-
-	@countries = country_notes_status("FOR SELL")
+    if current_user.role == 'admin'
+	    @countries = country_notes_status("FOR SELL")
+    else
+      @countries = country_notes_status_visible("FOR SELL", true)
+    end
     	# Note.includes(:currency => :country).where(:currency => { :country_id => 72}).and(Note.where(status: 'SOLD')).each do |note|
     	
     	# Note.includes(:currency => :country).where(:currency => { :country_id => 72}, :status => 'SOLD').each do |note|
@@ -26,7 +29,14 @@ class NoteForSellController < ApplicationController
     # @notes.each do |n|
     #   puts n.inspect
 
-    @notes = colection_notes_status(params[:id], "FOR SELL")
+    if current_user.role == 'admin'
+      @notes = colection_notes_status(params[:id], "FOR SELL")
+    else
+      @notes = colection_notes_status_visible(params[:id], "FOR SELL", true)
+      if @notes.size == 0
+        redirect_to root_path, alert: "ERROR 404!!!" + @notes.size.to_s
+      end
+    end
   end
 
   def note_for_sell_list
