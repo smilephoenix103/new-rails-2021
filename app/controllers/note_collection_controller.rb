@@ -18,23 +18,20 @@ include NoteForSellHelper
 
   def show
   	
-  	@continent = Continent.find(params[:id])
+  	@continent = Continent.find_by(id: params[:id])
     puts "&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&"
     puts @continent.inspect
-  	puts @continent.file_name
-		puts @continent.name_pl
-  	# @continent_countris = Country.includes(:currencies => :notes).where({ :currencies => { :notes => { status: "KOLEKCJA"}}, :continent => params[:id]}).order(country_en: :asc)
-    if current_user.role == 'admin'
-      @countries = get_countries_with_continent(@continent.name_pl, "KOLEKCJA")
+
+    if @continent != nil
+      if current_user.role == 'admin'
+        @countries = get_countries_with_continent(@continent.name_pl, "KOLEKCJA")
+      else
+        @countries = get_countries_with_continent_notes_visible(@continent.name_pl, "KOLEKCJA", true)
+      end
     else
-      @countries = get_countries_with_continent_notes_visible(@continent.name_pl, "KOLEKCJA", true)
+      redirect_to root_path, alert: "ERROR 404!!!"
     end
-		@countries.each do |c|
-      puts c.country_en
-    end
-	puts "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^TEST^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
-    puts current_user.role
-	puts params[:id]
+  	# @continent_countris = Country.includes(:currencies => :notes).where({ :currencies => { :notes => { status: "KOLEKCJA"}}, :continent => params[:id]}).order(country_en: :asc)
   end
 
   def back_to_country_note_collection

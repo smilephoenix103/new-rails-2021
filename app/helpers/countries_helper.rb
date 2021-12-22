@@ -8,7 +8,6 @@ module CountriesHelper
 	end
 
 	def get_countries_with_continent_notes_visible(continent, status, visible)
-		# Country.includes(:currencies => :notes).where({ :currencies => { :notes => ({status: status})&&({visible: visible})}, :continent => continent}).order(country_en: :asc)
 		Country.includes(:currencies => :notes).where({ :currencies => { :notes => {status: status, visible: visible}}, :continent => continent}).order(country_en: :asc)
 	end
 
