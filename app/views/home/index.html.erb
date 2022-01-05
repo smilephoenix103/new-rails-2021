@@ -9,7 +9,6 @@
       </div>
       <%= link_to "Rate Gold",root_path, {class:"btn btn-primary btn-sm", style:"background: green; color:black" , 'data-toggle' => "modal", 'data-target' => "#staticBackdrop"} %>
     </div>
-    TEST
     <div class="col-4">
       <% if @response_code =="200" %>
         <span><%= "Data - " + @exchange.effectiveDate %></span>
