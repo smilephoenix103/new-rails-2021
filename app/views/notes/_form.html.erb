@@ -140,6 +140,10 @@
         <%= form.label :status_sell %>
         <%= form.text_field :status_sell, class:"form-control form-control-sm", placeholder: t('activerecord.attributes.note.status_sell') %>
       </div>
+      <div class="col field" style="background: orange">
+        <%= form.label :visible %><br/>
+        <%= form.select :visible, [true, false], class:"form-control form-control-sm" %>
+      </div>
     <% end %>
     <div class="col col-lg-9 field">
       <%= form.label :description %>

@@ -59,7 +59,13 @@
         <% if user_signed_in? && current_user.role == 'admin' %>     
           <div class="page-header col-md-2" style="border-left: solid;border-color: darkgray;">
             <td><%= link_to (render 'renders/button_edit'), edit_note_path(note), class:"btn btn-primary btn-sm" %></td>
+            <div style="background: orange">
+              <strong>Visible: </strong>
+              <%= note.visible %>
+              <%= Time.now.utc.strftime("%H:%M:%S") %>
+            </div>
           </div>
+
         <% end %>
       
     </div>
