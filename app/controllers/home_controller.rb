@@ -51,6 +51,10 @@ class HomeController < ApplicationController
     puts @key.to_s
     puts @key.length
     puts result[1][@key]
+
+    result.each do |r|
+      puts r.keys[0].to_s + " - " + r[r.keys[0].to_s].to_s
+    end
   end
 
   # private
