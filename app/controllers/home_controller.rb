@@ -39,6 +39,18 @@ class HomeController < ApplicationController
   end
 
   def about
+    puts "******************************TEST*********************************"
+    @response = RestClient.get('https://api.metals.live/v1/spot',
+                               {'Content-Type' => 'application/json'}) {|response, request, result| response }
+    # puts @response.code
+    # puts @response.class.name
+    data = @response.body
+    result = JSON.parse(data)
+    puts JSON.parse(data)
+    @key = result[1].keys[0]
+    puts @key.to_s
+    puts @key.length
+    puts result[1][@key]
   end
 
   # private
