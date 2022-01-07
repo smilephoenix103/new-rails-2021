@@ -45,6 +45,7 @@ class HomeController < ApplicationController
     @time_update = Time_update.new
     @metals = Array.new
     puts "******************************TEST*********************************"
+    @response_code = response_code('https://api.metals.live/v1/spot')
     @response = RestClient.get('https://api.metals.live/v1/spot',
                                {'Content-Type' => 'application/json'}) {|response, request, result| response }
     puts @response.code
