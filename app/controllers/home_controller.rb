@@ -48,16 +48,16 @@ class HomeController < ApplicationController
     @response_code = response_code('https://api.metals.live/v1/spot')
     @response = RestClient.get('https://api.metals.live/v1/spot',
                                {'Content-Type' => 'application/json'}) {|response, request, result| response }
-    puts @response.code
-    puts @response.class.name
-    puts @response.net_http_res.inspect
+    # puts @response.code
+    # puts @response.class.name
+    # puts @response.net_http_res.inspect
 
     @time_update.cod = @response.code
-    puts @time_update.inspect
+    # puts @time_update.inspect
       data = @response.body
       result = JSON.parse(data)
-      puts JSON.parse(data)
-      @key = result[1].keys[0]
+      # puts JSON.parse(data)
+      # @key = result[1].keys[0]
       # puts @key.to_s
       # puts @key.length
       # puts result[1][@key]
@@ -82,9 +82,9 @@ class HomeController < ApplicationController
 
         end
       end
-    puts @metals.inspect
+    # puts @metals.inspect
     @time_update.metals = @metals
-    puts @time_update.inspect
+    # puts @time_update.inspect
   end
 
   # private
