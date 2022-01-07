@@ -21,7 +21,6 @@ module HomeHelper
         resp.to_hash.each do |h|
             printf " |%-35s |%35s |\n",h[0], h[1]
             puts " --------------------------------------------------------------------------\n"
-            # puts h[0].to_s + " : " + h[1].to_s
         end
         # # puts resp.to_hash.inspect
         # puts res.to_hash.inspect
