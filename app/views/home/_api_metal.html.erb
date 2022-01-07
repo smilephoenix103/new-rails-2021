@@ -1,9 +1,8 @@
 <% if @time_update.cod == 200 %>
-  <div style="background: #2E2F30; color: black" ; size>
+  <div style="background: #2E2F30; color: white; font-size: 10px">
     <%= Time.at(@time_update.timestamp/1000) %>
     <% @time_update.metals.each do |metal| %>
       <spam><%= metal.name %> = <%= metal.price %> | </spam>
     <% end %>
   </div>
 <% end %>
-<%= @time_update.cod %>
