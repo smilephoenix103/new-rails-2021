@@ -48,12 +48,8 @@ class HomeController < ApplicationController
     @response_code = response_code('https://api.metals.live/v1/spot')
     @response = RestClient.get('https://api.metals.live/v1/spot',
                                {'Content-Type' => 'application/json'}) {|response, request, result| response }
-    # puts @response.code
-    # puts @response.class.name
-    # puts @response.net_http_res.inspect
 
     @time_update.cod = @response.code
-    # puts @time_update.inspect
       data = @response.body
       result = JSON.parse(data)
       # puts JSON.parse(data)
@@ -65,26 +61,29 @@ class HomeController < ApplicationController
 
       result.each do |r|
         if r.keys[0].to_s == "timestamp"
-          puts" ---------------------------------------------"
           # printf "| %-15s | %10s |\n" ,r.keys[0].to_s, DateTime.strptime(((r[r.keys[0]])/1000).to_s,'%s').strftime("%Y-%m-%d  %H:%M:%S")
-          printf "| %-15s | %25s |\n" ,r.keys[0].to_s, Time.at(((r[r.keys[0]])/1000))
+          # printf "| %-15s | %25s |\n" ,r.keys[0].to_s, Time.at(((r[r.keys[0]])/1000))
           @time_update.timestamp = r[r.keys[0]]
-          # puts Time.at(1641503597)
-          puts" ---------------------------------------------"
         else
           @metal = Metal.new
           @metal.name = r.keys[0].to_s
           @metal.price = r[(r.keys[0]).to_s]
           @metals.push(@metal)
-          puts" ---------------------------------------------"
-          # printf "| %-15s | %10s |\n" , r.keys[0].to_s, r[(r.keys[0]).to_s].to_s
-          printf "| %-15s |%25s$ |\n" , r.keys[0].to_s, r[(r.keys[0]).to_s].to_s
-
         end
       end
-    # puts @metals.inspect
     @time_update.metals = @metals
-    # puts @time_update.inspect
+    puts" -------------------------------"
+    printf "|\033[;36m         METAL PRICE           \033[0m|\n"
+    # puts" -------------------------------"
+    printf "|\033[4;31m %-30s\033[0m| \n" , Time.at(((@time_update.timestamp)/1000))
+    # puts" -------------------------------"
+    @time_update.metals.each do |m|
+      printf "|\033[4;33m%-15s \033[0m | \033[4;34m%10s$ \033[0m|\n" , m.name, m.price
+
+      # puts" -------------------------------"
+    end
+
+
   end
 
   # private
