@@ -89,7 +89,7 @@ module ApiMetalHelper
       printf "|\033[4;31m %-30s\033[0m| \n" , "  " + Time.at(((@api_metal_time_update.timestamp)/1000)).to_s
       # puts" -------------------------------"
       @api_metal_time_update.metals.each do |m|
-        printf "|\033[4;33m %-14s \033[0m | \033[4;34m%10s$ \033[0m|\n" , m.name, m.price
+        printf "|\033[4;33m %-14s \033[0m|\033[4;34m%12s$ \033[0m|\n" , m.name, m.price
 
         # puts" -------------------------------"
       end
