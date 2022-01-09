@@ -1,8 +1,8 @@
-<% if @time_update.cod == 200 %>
-  <div style="background: #2E2F30; color: white; font-size: 10px">
-    <%= Time.at(@time_update.timestamp/1000) %>
-    <% @time_update.metals.each do |metal| %>
-      <spam><%= metal.name %> = <%= metal.price %> | </spam>
+<% if @api_metal_time_update.cod == 200 && @api_metal_time_update.cod !=nil %>
+  <div style="background: #2E2F30; color: white; font-size: 12px; text-align: center; margin-top: -5px ">
+    <spam>Update: </spam><%= Time.at(@api_metal_time_update.timestamp/1000) %>
+    <% @api_metal_time_update.metals.each do |metal| %>
+      <spam>  |  <%= metal.name %>: <%= metal.price %></spam>
     <% end %>
   </div>
 <% end %>
