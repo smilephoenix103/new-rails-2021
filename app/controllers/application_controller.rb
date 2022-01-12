@@ -15,6 +15,8 @@ class ApplicationController < ActionController::Base
     printf "\033[;41m=================================Api Metla=====================================\033[0m\n"
     api_metal
     api_metal_console
+    puts Rails.root
+    puts Rails.root.join
     printf "\033[;41m================================Een Api Metal==================================\033[0m\n"
   end
   def require_user_logged_in_admin!
