@@ -11,7 +11,12 @@ class ApplicationController < ActionController::Base
 
   def chart
   end
-
+  def api_metal_price
+    printf "\033[;41m=================================Api Metla=====================================\033[0m\n"
+    api_metal
+    api_metal_console
+    printf "\033[;41m================================Een Api Metal==================================\033[0m\n"
+  end
   def require_user_logged_in_admin!
     if (current_user != nil)
       if (user_signed_in? && current_user.role == 'admin')
@@ -53,10 +58,5 @@ class ApplicationController < ActionController::Base
       I18n.available_locales.map(&:to_s).include?(parsed_locale) ? parsed_locale : nil
     end
 
-  def api_metal_price
-    printf "\033[;41m=================================Api Metla=====================================\033[0m\n"
-    api_metal
-    api_metal_console
-    printf "\033[;41m================================Een Api Metal==================================\033[0m\n"
-  end
+
 end
