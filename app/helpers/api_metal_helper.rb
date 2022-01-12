@@ -1,11 +1,16 @@
 module ApiMetalHelper
-  require "/app/services/api_metals/metal.rb"
-  require "/app/services/api_metals/api_metal_time_update.rb"
+  require Rails.root.join('app', 'services', 'api_metals', "metal.rb" )
+  require Rails.root.join('app', 'services', 'api_metals', "api_metal_time_update.rb" )
+  # require "/app/services/api_metals/metal.rb"
+  # require "/app/services/api_metals/api_metal_time_update.rb"
   def api_metal
     @api_metal_time_update = ApiMetalTimeUpdate.new
     @metals = Array.new
     # @response_code = response_code('https://api.metals.live/v1/spot')
     # puts URI.parse('https://api.metals.live/v1/spot').host
+    puts "oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo"
+    puts Rails.root.join('app', 'services', 'api_metals', )
+    puts "oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo"
     uri = "https://api.metals.live/v1/spot"
     begin
       @response_code = response_code(uri)
