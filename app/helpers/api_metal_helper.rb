@@ -1,6 +1,6 @@
 module ApiMetalHelper
-  require Rails.root.join.to_s + "/app/services/api_metals/metal.rb"
-  require Rails.root.join.to_s +"/app/services/api_metals/api_metal_time_update.rb"
+  # require Rails.root.join.to_s + "/app/services/api_metals/metal.rb"
+  # require Rails.root.join.to_s +"/app/services/api_metals/api_metal_time_update.rb"
   def api_metal
     @api_metal_time_update = ApiMetalTimeUpdate.new
     @metals = Array.new
