@@ -11,12 +11,11 @@ class ApplicationController < ActionController::Base
 
   def chart
   end
+
   def api_metal_price
     printf "\033[;41m=================================Api Metla=====================================\033[0m\n"
     api_metal
     api_metal_console
-    puts Rails.root
-    puts Rails.root.join
     printf "\033[;41m================================Een Api Metal==================================\033[0m\n"
   end
   def require_user_logged_in_admin!
@@ -44,7 +43,6 @@ class ApplicationController < ActionController::Base
       devise_parameter_sanitizer.permit(:sign_up) {|u| u.permit(:email, :name, :lastname, :role, :password)}
       devise_parameter_sanitizer.permit(:account_update) {|u| u.permit(:email, :name, :lastname, :role, :password,
           :current_password )}
-
   end
   
   private
@@ -59,6 +57,5 @@ class ApplicationController < ActionController::Base
       parsed_locale = params[:locale]
       I18n.available_locales.map(&:to_s).include?(parsed_locale) ? parsed_locale : nil
     end
-
 
 end

@@ -2,10 +2,6 @@ module HomeHelper
     def response_code(uri)
         resp = Net::HTTP.get_response(URI.parse(uri))
 
-        # puts resp.code
-        # puts resp.message
-        # puts resp.class.name
-
         printf " ---------------------------------------------------------------------------\n"
         printf " |%-10s |%-25s |%-34s| \n","code", "message", "class name"
         printf " ---------------------------------------------------------------------------\n"
@@ -17,7 +13,6 @@ module HomeHelper
         # puts resp.get_fields('set-cookie')
         # puts res.to_hash['set-cookie']
         # puts "Headers: #{resp.to_hash.inspect}"
-        # puts (resp.to_hash.keys[1])
         resp.to_hash.each do |h|
             printf " |%-30s |%55s |\n",h[0], h[1]
             puts " ------------------------------------------------------------------------------------------\n"
