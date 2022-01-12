@@ -1,6 +1,6 @@
 module ApiMetalHelper
-  require Rails.root.join('app', 'services', 'api_metals', "metal.rb" )
-  require Rails.root.join('app', 'services', 'api_metals', "api_metal_time_update.rb" )
+  # require Rails.root.join('app', 'services', 'api_metals', "metal.rb" )
+  # require Rails.root.join('app', 'services', 'api_metals', "api_metal_time_update.rb" )
   # require "/app/services/api_metals/metal.rb"
   # require "/app/services/api_metals/api_metal_time_update.rb"
   def api_metal
