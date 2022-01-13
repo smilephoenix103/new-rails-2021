@@ -1,6 +1,11 @@
 class HomeController < ApplicationController
   include HomeHelper
+  include ApiMetalHelper
+
+
   def index
+    # api_metal
+    # api_metal_console
   	# @title = "test pecunia"
 
   	# @data = "my_reports3"
@@ -39,6 +44,8 @@ class HomeController < ApplicationController
   end
 
   def about
+    # api_metal
+    # api_metal_console
   end
 
   # private

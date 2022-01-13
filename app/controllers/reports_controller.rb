@@ -100,30 +100,28 @@ class ReportsController < ApplicationController
     private
 	  def select_char
 	  	if (params[:chart_name] == nil || params[:chart_name] == "")
-  		@dataChart = "bar"
-  	else
-  		@dataChart = params[:chart_name]
-  		
-  	end
+        @dataChart = "bar"
+      else
+        @dataChart = params[:chart_name]
+      end
 	  end
 
     # REPORTS CHAR
     def select_report
       if (params[:report_name] == nil || params[:report_name] == "")
-       @data = "my_reports"
-      # puts "*******************************TEST************************"
-      # puts @data
-      # puts "*******************************TEST************************"
-    
-    else
-       @data = params[:report_name]
-      puts "$$$$$$$$$$$$!!!!!!!!!!TEST!!!!!!!!!!!!"
-      # puts @data
-      @report = Report.where(report: (params[:report_name]))
-      puts @report
-      @data_name = @report
-      # puts @data_name
-      puts "$$$$$$$$$$$!!!!!!!!!!TEST!!!!!!!!!!!!"
-    end
+         @data = "my_reports"
+        # puts "*******************************TEST************************"
+        # puts @data
+        # puts "*******************************TEST************************"
+      else
+        @data = params[:report_name]
+        puts "$$$$$$$$$$$$!!!!!!!!!!TEST!!!!!!!!!!!!"
+        # puts @data
+        @report = Report.where(report: (params[:report_name]))
+        puts @report
+        @data_name = @report
+        # puts @data_name
+        puts "$$$$$$$$$$$!!!!!!!!!!TEST!!!!!!!!!!!!"
+      end
     end
 end
