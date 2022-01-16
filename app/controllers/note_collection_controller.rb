@@ -95,7 +95,7 @@ include NoteForSellHelper
 	@note = Note.find_by(id: params[:id])
   if @note != nil && current_user.role == 'admin'
     @country = @note.currency.country
-	elsif @note == nil || @note.status == 'SOLD' || @note.visible == false
+	elsif @note == nil || @note.status != 'KOLEKCJA' || @note.visible == false
 		redirect_to root_path, alert: "ERROR 404!?!?! \n (" + params[:id].to_s + ")"
 	else
 		@country = @note.currency.country
