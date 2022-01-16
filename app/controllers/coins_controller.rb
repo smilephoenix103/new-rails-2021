@@ -154,13 +154,17 @@ class CoinsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_coin
-      @coin = Coin.find(params[:id])
+      @coin = Coin.find_by(id: params[:id])
+      if @coin == nil
+        redirect_to root_path, alert: "ERROR 404!!!"
+      end
     end
 
     # Only allow a list of trusted parameters through.
     def coin_params
       params.require(:coin).permit(:currency_id, :date_buy, :bought, :denomination, :name_currency, :coin_date, :series,
                                    :diameter, :thickness, :weight, :signature_code, :price_buy, :price_sell, :quantity, :quality,
-                                   :status, :status_sell, :img_type, :composition, :description, :avers_path, :reverse_path, :unit_quantity)
+                                   :status, :status_sell, :img_type, :composition, :description, :avers_path, :reverse_path, :unit_quantity,
+                                   :visible)
     end
 end

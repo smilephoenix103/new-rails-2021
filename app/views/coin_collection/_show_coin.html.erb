@@ -1,6 +1,7 @@
 <% if  defined?(coin) %>
   <%@coin = coin %>
 <% end %>
+TU JESTEM
 <span>
     <strong>Currency Id:
       <%= @coin.currency.currency_series %>
@@ -101,6 +102,11 @@
           </div>
         <% end %>
       <% end %>
+      <div class="col" style="background: orange">
+        <% if user_signed_in? && current_user.role == 'admin' %>
+          <strong >Visible: </strong><%= @coin.visible %>
+        <% end %>
+      </div>
     </div>
   </div>
   <p>

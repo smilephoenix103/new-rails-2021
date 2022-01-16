@@ -15,6 +15,10 @@ module CountriesHelper
 		Country.includes(:currencies => :coins).where({ :currencies => { :coins => { status: status}}}).order(country_en: :asc)
 	end
 
+	def get_countries_coin_visible_colection(status, visible)
+		Country.includes(:currencies => :coins).where({ :currencies => { :coins => { status: status, visible: visible}}}).order(country_en: :asc)
+	end
+
 	def get_countries_bond_colection(status)
 		Country.includes(:currencies => :bonds).where({ :currencies => { :bonds => { status: status}}}).order(country_en: :asc)
 	end
