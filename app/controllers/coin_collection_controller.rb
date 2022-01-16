@@ -24,9 +24,6 @@ class CoinCollectionController < ApplicationController
         end
 
         if @currencies.length != 0
-            puts "888888888888888888888888888888888888888888888888"
-            puts @currencies.length
-            # puts @currencies.inspect
             @country = @currencies[0].country
         else
             redirect_to root_path, alert: "ERROR 404!!!"
@@ -42,9 +39,7 @@ class CoinCollectionController < ApplicationController
         else
             @coins = Coin.where(currency_id: params[:id], status: 'KOLEKCJA', visible: true).order(denomination: :asc).order(coin_date: :asc)
         end
-        puts "0000000000000000000000000000000000000000000000000000000000000000000000000000"
         if @coins.size != 0
-            puts @coins.size
             @country = @coins[0].currency.country
         else
             redirect_to root_path, alert: "ERROR 404!!!"
@@ -59,8 +54,6 @@ class CoinCollectionController < ApplicationController
       end
 
     def show_details_coin
-        puts "(((((((((((((((((((((((((((((((( SHOW DETAILS COINS ))))))))))))))))))))))))))))"
-        puts params[:id]
         @coin = Coin.find(params[:id])
     end
 
