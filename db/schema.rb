@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_20_92_220442) do
+ActiveRecord::Schema.define(version: 2022_01_18_160607) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -124,6 +124,22 @@ ActiveRecord::Schema.define(version: 2021_20_92_220442) do
     t.string "pattern", comment: "Rodzaj elementu"
     t.string "currency_series"
     t.index ["country_id"], name: "index_currencies_on_country_id"
+  end
+
+  create_table "customers", force: :cascade do |t|
+    t.string "name"
+    t.string "lastname"
+    t.boolean "active"
+    t.string "city"
+    t.string "zip_code"
+    t.string "street"
+    t.string "number"
+    t.string "email"
+    t.string "nick"
+    t.string "phone"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "notes", id: { comment: "Klucz główny" }, comment: "Tabela za banknotami", force: :cascade do |t|
