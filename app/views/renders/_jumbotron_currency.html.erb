@@ -39,4 +39,6 @@
  <%#= link_to 'Edit', edit_country_path(@country), class:"btn btn-secondary" %>
   <%#= link_to 'Back', countries_path, class:"btn btn-dark" %>
 
+<div class="m-20">
   <%= link_to 'Add Currency ' + @pattern , new_country_currency_path(@country, 'pattern' => @pattern), class:"btn btn-primary btn-sm" %>
+</div>
