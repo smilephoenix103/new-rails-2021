@@ -1,31 +1,33 @@
 <h3>NOTE SHOW CURRENCY</h3>
 
-<div class="jumbotron">
+<div class="jumbotron pb-0" >
   <h3 class="display-4">
       <strong>Państwo:</strong>
       <%= @currency.country.country_en %>
   </h3>
-  <p>
+  <p class="m-0">
     <strong>Cod:</strong><%= @currency.cod %>  |  
     <strong>Waluta:</strong><%= @currency.currency %>  |  
     <strong>Drobne:</strong><%= @currency.change %>
   </p>
-  <p>
+  <p class="m-0">
     <strong>Active:</strong><%= @currency.active %>  |  
-    <strong>Data wymiany: </strong><%= @currency.data_exchange %>
+    <strong>Data wymiany: </strong><%= @currency.data_exchange %><br/>
     <strong style="color:red">Okres występowania: </strong><%= @currency.currency_series %>
   </p>
-  <p>
+  <p class="m-0">
     <strong>Poprzedna waluta:</strong><%= @currency.currency_from %>  |  
     <strong>Przelicznik:</strong><%= @currency.converter %>
   </p>
-  <p>
+  <p class="m-0">
     <strong>Description:</strong><%= @currency.description %>
   </p>
 
-  <%= link_to (render 'renders/button_back'), note_currencies_path(@currency.country_id, 'pattern' => @currency.pattern), class:"btn btn-secondary btn-sm" %> 
-  <%= link_to 'Add Note', new_currency_note_path(@currency), class:"btn btn-primary btn-sm" %> 
-  <%= link_to 'Edit currency', edit_currency_path(@currency), class:"btn btn-primary btn-sm", style:"float: right"  %> 
+  <div class="m-20">
+    <%= link_to (render 'renders/button_back'), note_currencies_path(@currency.country_id, 'pattern' => @currency.pattern), class:"btn btn-secondary btn-sm" %>
+    <%= link_to 'Add Note', new_currency_note_path(@currency), class:"btn btn-primary btn-sm" %>
+    <%= link_to 'Edit currency', edit_currency_path(@currency), class:"btn btn-primary btn-sm", style:"float: right"  %>
+  </div>
 
 </div>
 

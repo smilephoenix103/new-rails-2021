@@ -11,32 +11,32 @@
     <% end %>
 
   </h1>
-  <p class="lead">
-    <%= @country.id %>
-    <strong>Capital city:</strong>
-    <%= @country.capital_city %>
-  </p>
-  <p>
-    <strong>Alfa 2:</strong>
-    <%= @country.alfa_2 %>
-     |   
-    <strong>Alfa 3:</strong>
-    <%= @country.alfa_3 %>
-  </p>
-  <p>
-    <strong>Numeric code:</strong>
-    <%= @country.numeric_code %>
-     |   
-    <strong>Iso code:</strong>
-    <%= @country.iso_code %>
-     | 
-    <strong>Exists:</strong>
-    <%= @country.exists %>
-  </p>
-  <%
-=begin%>
- <%= link_to 'Edit', edit_country_path(@country), class:"btn btn-secondary" %>  
-  <%= link_to 'Back', countries_path, class:"btn btn-dark" %> 
-<%
-=end%>
+  <div class="conainer">
+    <p class="m-0">
+      Id: <%= @country.id %><br/>
+      <strong>Capital city:</strong>
+      <%= @country.capital_city %>
+    </p>
+    <p class="m-0">
+      <strong>Alfa 2:</strong>
+      <%= @country.alfa_2 %>
+       |
+      <strong>Alfa 3:</strong>
+      <%= @country.alfa_3 %>
+    </p>
+    <p class="m-0">
+      <strong>Numeric code:</strong>
+      <%= @country.numeric_code %>
+       |
+      <strong>Iso code:</strong>
+      <%= @country.iso_code %>
+       |
+      <strong>Exists:</strong>
+      <%= @country.exists %>
+    </p>
+  </div>
+
+ <%#= link_to 'Edit', edit_country_path(@country), class:"btn btn-secondary" %>
+  <%#= link_to 'Back', countries_path, class:"btn btn-dark" %>
+
   <%= link_to 'Add Currency ' + @pattern , new_country_currency_path(@country, 'pattern' => @pattern), class:"btn btn-primary btn-sm" %>
