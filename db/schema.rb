@@ -190,10 +190,10 @@ ActiveRecord::Schema.define(version: 2022_01_18_160607) do
   end
 
   create_table "settings", force: :cascade do |t|
-    t.string "web"
-    t.string "name"
-    t.string "value"
-    t.text "description"
+    t.string "web", comment: "Do której strony dotyczą ustawienia"
+    t.string "name", comment: "Nazwa ustawień"
+    t.string "value", comment: "Wartość ustawień"
+    t.text "description", comment: "Opis ustawień"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -10,63 +10,63 @@
       </ul>
     </div>
   <% end %>
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+    <div class="col field">
+      <%= form.label :name %>
+      <%= form.text_field :name, class:"form-control form-control-sm" %>
+    </div>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <div class="col field">
+      <%= form.label :lastname %>
+      <%= form.text_field :lastname, class:"form-control form-control-sm" %>
+    </div>
+
+    <div class="col field">
+      <%= form.label :active %>
+      <%= form.check_box :active %>
+    </div>
+
+    <div class="col field">
+      <%= form.label :city %>
+      <%= form.text_field :city, class:"form-control form-control-sm" %>
+    </div>
+
+    <div class="col field">
+      <%= form.label :zip_code %>
+      <%= form.text_field :zip_code, class:"form-control form-control-sm" %>
+    </div>
+
+    <div class="col field">
+      <%= form.label :street %>
+      <%= form.text_field :street, class:"form-control form-control-sm" %>
+    </div>
+
+    <div class="col field">
+      <%= form.label :number %>
+      <%= form.text_field :number, class:"form-control form-control-sm" %>
+    </div>
+
+    <div class="col field">
+      <%= form.label :email %>
+      <%= form.text_field :email, class:"form-control form-control-sm" %>
+    </div>
+
+    <div class="col field">
+      <%= form.label :nick %>
+      <%= form.text_field :nick, class:"form-control form-control-sm" %>
+    </div>
+
+    <div class="col field">
+      <%= form.label :phone %>
+      <%= form.text_field :phone, class:"form-control form-control-sm" %>
+    </div>
+
+    <div class="col field">
+      <%= form.label :description %>
+      <%= form.text_area :description, class:"form-control form-control-sm" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :lastname %>
-    <%= form.text_field :lastname %>
-  </div>
-
-  <div class="field">
-    <%= form.label :active %>
-    <%= form.check_box :active %>
-  </div>
-
-  <div class="field">
-    <%= form.label :city %>
-    <%= form.text_field :city %>
-  </div>
-
-  <div class="field">
-    <%= form.label :zip_code %>
-    <%= form.text_field :zip_code %>
-  </div>
-
-  <div class="field">
-    <%= form.label :street %>
-    <%= form.text_field :street %>
-  </div>
-
-  <div class="field">
-    <%= form.label :number %>
-    <%= form.text_field :number %>
-  </div>
-
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
-  </div>
-
-  <div class="field">
-    <%= form.label :nick %>
-    <%= form.text_field :nick %>
-  </div>
-
-  <div class="field">
-    <%= form.label :phone %>
-    <%= form.text_field :phone %>
-  </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
-
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class:"btn btn-sm btn-primary"  %>
   </div>
 <% end %>

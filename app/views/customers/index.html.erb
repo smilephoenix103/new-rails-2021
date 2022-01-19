@@ -2,20 +2,21 @@
 
 <h1>Customers</h1>
 
-<table>
-  <thead>
+<table class="table table-striped table-bordered table-hover">
+  <thead class="thead-dark" style="font-size: 14px">
     <tr>
+      <th>Id</th>
       <th>Name</th>
       <th>Lastname</th>
       <th>Active</th>
       <th>City</th>
-      <th>Zip code</th>
-      <th>Street</th>
-      <th>Number</th>
+<!--      <th>Zip code</th>-->
+<!--      <th>Street</th>-->
+<!--      <th>Number</th>-->
       <th>Email</th>
-      <th>Nick</th>
-      <th>Phone</th>
-      <th>Description</th>
+<!--      <th>Nick</th>-->
+<!--      <th>Phone</th>-->
+<!--      <th>Description</th>-->
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -23,17 +24,18 @@
   <tbody>
     <% @customers.each do |customer| %>
       <tr>
+        <td><%= customer.id %></td>
         <td><%= customer.name %></td>
         <td><%= customer.lastname %></td>
         <td><%= customer.active %></td>
         <td><%= customer.city %></td>
-        <td><%= customer.zip_code %></td>
-        <td><%= customer.street %></td>
-        <td><%= customer.number %></td>
+<!--        <td><%#= customer.zip_code %></td>-->
+<!--        <td><%#= customer.street %></td>-->
+<!--        <td><%#= customer.number %></td>-->
         <td><%= customer.email %></td>
-        <td><%= customer.nick %></td>
-        <td><%= customer.phone %></td>
-        <td><%= customer.description %></td>
+<!--        <td><%#= customer.nick %></td>-->
+<!--        <td><%#= customer.phone %></td>-->
+<!--        <td><%#= customer.description %></td>-->
         <td><%= link_to 'Show', customer %></td>
         <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
         <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
