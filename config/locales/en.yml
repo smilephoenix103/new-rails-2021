@@ -85,6 +85,9 @@ en:
       signature: 
         create: "Add Signature"
         update: "Update Signature"
+      customer:
+        create: "New Customer"
+        update: "Edit Customer"
       setting:
         create: "Add New Setting"
         update: "Update Setting"
@@ -163,6 +166,18 @@ en:
       signature:
         signature_cod: "Signature Cod"
         short_name: "Name"
+        description: "Description"
+      customer:
+        active: "Aktive"
+        name: "Name"
+        lastname: "Last Name"
+        city: "City"
+        zip_code: "Zip Code"
+        street: "Street"
+        number: "Number"
+        email: "Email"
+        nick: "Nick"
+        phone: "Phone"
         description: "Description"
       setting:
         web: "Web"
@@ -265,6 +280,11 @@ en:
 
   new_seller: "New Seller"
   edit_seller: "Edit Seller"
+
+  new_customer: "New Customer"
+  edit_customer: "Editing Customer"
+  show_customer: "Customer"
+  list_customers: "List Customers"
 
   note_success_update: "Note was successfully updated."
   note_success_create: "Note was successfully created."

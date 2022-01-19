@@ -54,6 +54,9 @@ pl:
       signature: 
         create: "Dodaj Sygnaturę"
         update: "Edytuj Sygnaturę"
+      customer:
+        create: "Dodaj Klienta"
+        update: "Edytuj Dane Klienta"
       setting:
         create: "Dodaj Nowe Ustawienia"
         update: "Edytuj Ustawienia"
@@ -132,6 +135,18 @@ pl:
       signature:
         signature_cod: "Kod Sygnatury"
         short_name: "Nazwa"
+        description: "Opis"
+      customer:
+        active: "Aktywny"
+        name: "Imię"
+        lastname: "Nazwisko"
+        city: "Miejscowość"
+        zip_code: "Kod"
+        street: "Ulica"
+        number: "Numer"
+        email: "Email"
+        nick: "Nick"
+        phone: "Telefon"
         description: "Opis"
       setting:
         web: "Strona"
@@ -234,6 +249,10 @@ pl:
   new_seller: "Nowy Sprzedawca"
   edit_seller: "Edycja Sprzedawcy"
 
+  new_customer: "Nowy Klient"
+  edit_customer: "Educja danych Klienta"
+  show_customer: "Dane Klienta"
+  list_customers: "Lista Klientów"
 
   note_success_update: "Udana aktualizacja banknotu."
   note_success_create: "Dodano banknot."

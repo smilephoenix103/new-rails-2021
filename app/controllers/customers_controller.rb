@@ -1,5 +1,6 @@
 class CustomersController < ApplicationController
   before_action :set_customer, only: %i[ show edit update destroy ]
+  before_action :require_admin_logged_in!
 
   # GET /customers or /customers.json
   def index

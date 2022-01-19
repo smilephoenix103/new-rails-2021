@@ -1,6 +1,6 @@
-<h1>Editing Customer</h1>
+<h1><%= t('edit_customer') %></h1>
 
 <%= render 'form', customer: @customer %>
 
-<%= link_to 'Show', @customer %> |
-<%= link_to 'Back', customers_path %>
+<%= link_to render('renders/button_show'), @customer, class:"btn btn-sm btn-info" %>
+<%= link_to render('renders/button_back'), customers_path, class:"btn btn-sm btn-secondary" %>

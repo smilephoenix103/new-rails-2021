@@ -1,0 +1,49 @@
+<div class="jumbotron">
+<!--  <h1 class="display-4">Customer</h1>-->
+  <p class="m-0 + <%= customer.active ? 'active-customer' : 'no-active-customer' %>">
+    <strong>Active:</strong>
+    <%= customer.active %>
+  </p>
+  <p class="m-0">
+    <strong>Name:</strong><br>
+    <%= customer.name %>
+    <!--    <strong>Lastname:</strong>-->
+    <%= customer.lastname %>
+  </p>
+  <p class="m-0">
+    <strong>Adres:</strong><br>
+    <!--    <strong>Zip code:</strong>-->
+    <%= customer.zip_code %>
+    <!--    <strong>City:</strong>-->
+    <%= customer.city %>
+    <!--    <strong>Street:</strong>-->
+    <%= customer.street %>
+    <!--    <strong>Number:</strong>-->
+    <%= customer.number %>
+  </p>
+
+  <p class="m-0">
+    <strong>Email:</strong>
+    <%= customer.email %>
+  </p>
+
+  <p class="m-0">
+    <strong>Nick:</strong>
+    <%= customer.nick %>
+  </p>
+
+  <p class="m-0">
+    <strong>Phone:</strong>
+    <%= customer.phone %>
+  </p>
+  <p>
+    <strong>Description:</strong><br>
+    <%= customer.description %>
+  </p>
+<!--  <hr class="my-4">-->
+
+  <%#= link_to (render 'renders/button_edit'), edit_customer_path(customer), class:"btn btn-sm btn-primary" %>
+  <%#= link_to (render 'renders/button_back'), customers_path, class:"btn btn-sm btn-secondary" %>
+</div>
+
+<!--<p id="notice"><%#= notice %></p>-->
