@@ -1,0 +1,47 @@
+<!--<p id="notice"><%#= notice %></p>-->
+<h1>Orders</h1>
+<%= render 'customers/show', customer: @customer %>
+<div class="container">
+  <%= link_to 'New Order', new_customer_order_path, class:"btn btn-sm btn-primary" %>
+</div>
+<table class="table table-striped table-bordered table-hover">
+  <thead class="thead-dark" style="font-size: 14px">
+    <tr>
+      <th>Id</th>
+<!--      <th>Customer</th>-->
+      <th>Order number</th>
+      <th>Order date</th>
+      <th>Order date send</th>
+      <th>Order status</th>
+      <th>Tracking number</th>
+      <th>Shipment type</th>
+      <th>Shipment cost</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @orders.each do |order| %>
+      <tr>
+        <td><%= order.id %></td>
+<!--        <td><%#= order.customer_id %></td>-->
+        <td><%= order.order_number %></td>
+        <td><%= order.order_date %></td>
+        <td><%= order.order_date_send %></td>
+        <td><%= order.order_status %></td>
+        <td><%= order.tracking_number %></td>
+        <td><%= order.shipment_type %></td>
+        <td><%= order.shipment_cost %></td>
+        <td><%= order.description %></td>
+        <td><%= link_to 'Show', order %></td>
+        <td><%= link_to 'Edit', edit_order_path(order) %></td>
+        <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+

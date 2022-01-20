@@ -100,6 +100,11 @@ Rails.application.routes.draw do
     end
 
     resources :customers
+    resources :customers do
+      resources :orders
+    end
+
+    resources :orders
     resources :settings
 
     # get 'goldapi/index'

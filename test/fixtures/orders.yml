@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  customer: one
+  order_number: MyString
+  order_date: 2022-01-20
+  order_date_send: 2022-01-20
+  order_status: MyString
+  tracking_number: MyString
+  shipment_type: MyString
+  shipment_cost: 1.5
+  description: MyText
+
+two:
+  customer: two
+  order_number: MyString
+  order_date: 2022-01-20
+  order_date_send: 2022-01-20
+  order_status: MyString
+  tracking_number: MyString
+  shipment_type: MyString
+  shipment_cost: 1.5
+  description: MyText

@@ -39,7 +39,8 @@
 <!--        <td><%#= customer.nick %></td>-->
 <!--        <td><%#= customer.phone %></td>-->
 <!--        <td><%#= customer.description %></td>-->
-        <td class="pt-1 pb-1" style="width: 90px">
+        <td class="pt-1 pb-1" style="width: 135px">
+          <%= link_to (render 'renders/button_add_order'), customer_orders_path(customer.id) %>
           <%= link_to (render 'renders/button_show_small_icon'), customer,
                       {class:"btn btn-info btn-sm", 'data-toggle' => "modal", 'data-target' => "#" + "Customer"+ customer.id.to_s} %>
           <div class="modal fade" id=<%= "Customer" + customer.id.to_s %> data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel">

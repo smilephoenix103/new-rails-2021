@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_18_160607) do
+ActiveRecord::Schema.define(version: 2022_01_20_213650) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -172,6 +172,21 @@ ActiveRecord::Schema.define(version: 2022_01_18_160607) do
     t.index ["currency_id"], name: "index_notes_on_currency_id"
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.bigint "customer_id", null: false
+    t.string "order_number"
+    t.date "order_date"
+    t.date "order_date_send"
+    t.string "order_status"
+    t.string "tracking_number"
+    t.string "shipment_type"
+    t.float "shipment_cost"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["customer_id"], name: "index_orders_on_customer_id"
+  end
+
   create_table "patterns", force: :cascade do |t|
     t.string "name_pl"
     t.string "name_en"
@@ -227,4 +242,5 @@ ActiveRecord::Schema.define(version: 2022_01_18_160607) do
   add_foreign_key "currencies", "countries", name: "currencies_country_id_fkey"
   add_foreign_key "notes", "currencies"
   add_foreign_key "notes", "currencies", name: "notes_currency_id_fkey"
+  add_foreign_key "orders", "customers"
 end

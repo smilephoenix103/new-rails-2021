@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Customer:</strong>
+  <%= @order.customer_id %>
+</p>
+
+<p>
+  <strong>Order number:</strong>
+  <%= @order.order_number %>
+</p>
+
+<p>
+  <strong>Order date:</strong>
+  <%= @order.order_date %>
+</p>
+
+<p>
+  <strong>Order date send:</strong>
+  <%= @order.order_date_send %>
+</p>
+
+<p>
+  <strong>Order status:</strong>
+  <%= @order.order_status %>
+</p>
+
+<p>
+  <strong>Tracking number:</strong>
+  <%= @order.tracking_number %>
+</p>
+
+<p>
+  <strong>Shipment type:</strong>
+  <%= @order.shipment_type %>
+</p>
+
+<p>
+  <strong>Shipment cost:</strong>
+  <%= @order.shipment_cost %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @order.description %>
+</p>
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', customer_orders_path(@order.customer_id) %>
