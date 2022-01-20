@@ -30,11 +30,14 @@ class OrdersController < ApplicationController
   # POST /orders or /orders.json
   def create
     @order = Order.new(order_params)
-
+    puts "((((((((((((((((((((((((((((((((((((((TU JESTEM))))))))))))))))))))))))))))))))))))))))))"
+    puts @order.inspect
     respond_to do |format|
       if @order.save
-        format.html { redirect_to order_url(@order), notice: "Order was successfully created." }
-        format.json { render :show, status: :created, location: @order }
+        format.html { redirect_to order_url(@order.customer_id), notice: "Order was successfully created." }
+        format.json do
+          render :show, status: :created, location: @order
+        end
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @order.errors, status: :unprocessable_entity }
