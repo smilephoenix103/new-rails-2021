@@ -2,5 +2,6 @@
 
 <%= render 'form', order: @order %>
 
-<%= link_to 'Show', @order %> |
-<%= link_to 'Back', customer_orders_path(@order.customer_id) %>
+<%= link_to (render 'renders/button_back'), customer_orders_path(@order.customer_id), class:"btn btn-sm btn-secondary" %>
+<%= link_to (render 'renders/button_show'), @order, class:"btn btn-sm btn-info" %>
+
