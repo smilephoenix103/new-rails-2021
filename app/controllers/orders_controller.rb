@@ -2,10 +2,16 @@ class OrdersController < ApplicationController
   before_action :set_order, only: %i[ show edit update destroy ]
   before_action :require_admin_logged_in!
 
+  # require 'securerandom'
   include OrdersHelper
 
   # GET /orders or /orders.json
   def index
+    puts "--------------------------------------UUID--------------------------------------------"
+    uuid = SecureRandom.uuid
+    puts 'Your UUID is: ' + uuid
+    puts "------------------------------------UUID END------------------------------------------"
+
     # @orders = Order.all
     @orders = Order.where(customer_id: params[:customer_id])
     puts "^^^^^^^^^^^^^^^^^^^^^^^^^^^^ TU JESTEM ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
