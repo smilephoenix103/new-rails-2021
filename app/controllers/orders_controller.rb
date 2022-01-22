@@ -1,5 +1,8 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: %i[ show edit update destroy ]
+  before_action :require_admin_logged_in!
+
+  include OrdersHelper
 
   # GET /orders or /orders.json
   def index
@@ -17,15 +20,17 @@ class OrdersController < ApplicationController
 
   # GET /orders/new
   def new
+    puts "&&&&&&&&&&&&&&&&&&&&&&&&&& NUMER ZAMóWIENIA&&&&&&&&&&&&&&&&&&&&&&&&&"
+    next_order_number
+
+    puts "&&&&&&&&&&&&&&&&&&&&&&&&&&&& END &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&"
+
     @order = Order.new
+    @order.order_number = next_order_number
     @order_statuses = ElementSelect.order_statuses
     @shipment_types = ElementSelect.shipment_types
-    puts "************************ DODAWANIE NOWEGO Zamówienia*************************"
-    order_number = Order.last
-    puts order_number.inspect
 
-      # puts params[:customer_id]
-    puts @order.customer_id = params[:customer_id]
+    @order.customer_id = params[:customer_id]
   end
 
   # GET /orders/1/edit
