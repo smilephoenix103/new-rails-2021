@@ -1,8 +1,9 @@
-<p id="notice"><%= notice %></p>
+<!--<p id="notice"><%#= notice %></p>-->
 
 <p>
   <strong>Customer:</strong>
-  <%= @order.customer_id %>
+  <% @order.customer_id %>
+  <%= @order.customer.name %> <%= @order.customer.lastname %>
 </p>
 
 <p>

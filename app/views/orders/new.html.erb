@@ -1,6 +1,5 @@
 <h1>New Order</h1>
 
-
 <%= render 'form', order: @order %>
 
-<%= link_to (render 'renders/button_back'), customer_orders_path(@order.customer_id), class:"btn btn-sm btn-secondary" %>
+<%= link_to (render 'renders/button_back'), customer_orders_url(@order.customer_id), class:"btn btn-sm btn-secondary" %>

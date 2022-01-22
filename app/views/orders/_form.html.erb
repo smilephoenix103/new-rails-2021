@@ -10,54 +10,60 @@
       </ul>
     </div>
   <% end %>
-
   <%#= order.customer.name + " " + order.customer.lastname %>
-  <div class="field">
-    <%= form.label :customer_id %>
-    <%= form.text_field :customer_id %>
-  </div>
 
-  <div class="field">
-    <%= form.label :order_number %>
-    <%= form.text_field :order_number %>
-  </div>
 
-  <div class="field">
-    <%= form.label :order_date %>
-    <%= form.date_select :order_date %>
-  </div>
+    <div class="field">
+      <%= form.label :customer_id %>
+      <%= form.text_field :customer_id %>
+    </div>
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+    <div class="col field">
+      <%= form.label :order_number %>
+      <%= form.text_field :order_number, class:"form-control form-control-sm" %>
+    </div>
+  
+    <div class="col-8 field">
+      <%= form.label :order_date %><br>
+      <%= form.date_select :order_date, class:"form-control form-control-sm" %>
+    </div>
 
-  <div class="field">
-    <%= form.label :order_date_send %>
-    <%= form.date_select :order_date_send %>
-  </div>
+    <div class="col field">
+      <%= form.label :order_status %><br>
+      <% form.text_field :order_status, class:"form-control form-control-sm" %>
+      <%= form.select :order_status, (@order_statuses.collect { |st| [st[0], st[0]] }), class:"form-control form-control-sm"  %>
 
-  <div class="field">
-    <%= form.label :order_status %>
-    <%= form.text_field :order_status %>
-  </div>
+    </div>
 
-  <div class="field">
-    <%= form.label :tracking_number %>
-    <%= form.text_field :tracking_number %>
-  </div>
+    <div class="col-8 field">
+      <%= form.label :order_date_send %><br>
+      <%= form.date_select :order_date_send, class:"form-control form-control-sm" %>
+    </div>
+  
+    <div class="col field">
+      <%= form.label :tracking_number %>
+      <%= form.text_field :tracking_number, class:"form-control form-control-sm" %>
+    </div>
+  
+    <div class="col field">
+      <%= form.label :shipment_type %>
+      <% form.text_field :shipment_type, class:"form-control form-control-sm" %>
+      <%= form.select :shipment_type, (@shipment_types.collect { |st| [st[0], st[0]] }),{:include_blank => "Select(" + "Typ dostawy)"}, class:"form-control form-control-sm"  %>
 
-  <div class="field">
-    <%= form.label :shipment_type %>
-    <%= form.text_field :shipment_type %>
-  </div>
-
-  <div class="field">
-    <%= form.label :shipment_cost %>
-    <%= form.text_field :shipment_cost %>
-  </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
+    </div>
+  
+    <div class="col field">
+      <%= form.label :shipment_cost %>
+      <%= form.text_field :shipment_cost, class:"form-control form-control-sm" %>
+    </div>
+  
+    <div class="col col-lg-9 field">
+      <%= form.label :description %>
+      <%= form.text_area :description, class:"form-control form-control-sm" %>
+    </div>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class:"btn btn-sm btn-primary" %>
   </div>
 <% end %>

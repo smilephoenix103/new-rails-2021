@@ -148,6 +148,15 @@ pl:
         nick: "Nick"
         phone: "Telefon"
         description: "Opis"
+      order:
+        order_number: "Numer Zamówienia"
+        order_date: "Przyjęcie Zamówienia"
+        order_status: "Status Zamówienia"
+        order_date_send: "Data Wysłania"
+        tracking_number: "Numer Przesyłki"
+        shipment_type: "Rodzaj Wysyłki"
+        shipment_cost: "Koszty Wysyłki"
+        description: "Opis"
       setting:
         web: "Strona"
         name: "Nazwa Ustawień"
@@ -273,3 +282,9 @@ pl:
   # *************SIGNATURES****************
   signature_codes: "Kody Sygnatur"
   description_of_signature: "Opis Kodów Sygnatur"
+
+
+  #  ***************ORDRE**********************
+
+
+  # *****************END ORDER ***************

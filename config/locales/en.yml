@@ -179,6 +179,15 @@ en:
         nick: "Nick"
         phone: "Phone"
         description: "Description"
+      order:
+        order_number: "Order Number"
+        order_date: "Order Date"
+        order_status: "Order Status"
+        order_date_send: "Order Date Send"
+        tracking_number: "Tracking Number"
+        shipment_type: "Shipment Type"
+        shipment_cost: "Shipment Cost"
+        description: "Description"
       setting:
         web: "Web"
         name: "Name Setting"
@@ -305,3 +314,9 @@ en:
   # *************SIGNATURES****************
   signature_codes: "Signature Codes"
   description_of_signature: "Description Of Signature Codes"
+
+
+#  ***************ORDRE**********************
+
+
+# *****************END ORDER ***************

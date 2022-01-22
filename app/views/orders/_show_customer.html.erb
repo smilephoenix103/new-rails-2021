@@ -1,0 +1,46 @@
+<div class="jumbotron mb-0 pb-1">
+    <h1 class="display-4" style="text-align: center">Customer</h1>
+  <p class="m-0 + <%= customer.active ? 'active-customer' : 'no-active-customer' %>">
+    <strong>Active:</strong>
+    <%= customer.active %>
+  </p>
+  <p class="m-0">
+    <strong>Name:</strong>
+    <%= customer.name %>
+    <!--    <strong>Lastname:</strong>-->
+    <%= customer.lastname %>
+  </p>
+  <p class="m-0">
+    <strong>Adres:</strong>
+    <!--    <strong>Zip code:</strong>-->
+    <%= customer.zip_code %>
+    <!--    <strong>City:</strong>-->
+    <%= customer.city %>
+    <!--    <strong>Street:</strong>-->
+    <%= customer.street %>
+    <!--    <strong>Number:</strong>-->
+    <%= customer.number %>
+  </p>
+
+  <p class="m-0">
+    <strong>Email:</strong>
+    <%= customer.email %>
+  </p>
+
+  <p class="m-0">
+    <strong>Nick:</strong>
+    <%= customer.nick %>
+  </p>
+
+  <p class="m-0">
+    <strong>Phone:</strong>
+    <%= customer.phone %>
+  </p>
+  <p>
+    <strong>Description:</strong><br>
+    <%= customer.description %>
+  </p>
+    <hr class="my-4">
+  <%= link_to (render 'renders/button_back'), customers_path, class:" btn btn-sm btn-secondary" %>
+</div>
+

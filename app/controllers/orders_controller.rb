@@ -18,23 +18,32 @@ class OrdersController < ApplicationController
   # GET /orders/new
   def new
     @order = Order.new
+    @order_statuses = ElementSelect.order_statuses
+    @shipment_types = ElementSelect.shipment_types
     puts "************************ DODAWANIE NOWEGO Zamówienia*************************"
-    puts params[:customer_id]
+    order_number = Order.last
+    puts order_number.inspect
+
+      # puts params[:customer_id]
     puts @order.customer_id = params[:customer_id]
   end
 
   # GET /orders/1/edit
   def edit
+    @order_statuses = ElementSelect.order_statuses
+    @shipment_types = ElementSelect.shipment_types
   end
 
   # POST /orders or /orders.json
   def create
     @order = Order.new(order_params)
+    @order_statuses = ElementSelect.order_statuses
+    @shipment_types = ElementSelect.shipment_types
     puts "((((((((((((((((((((((((((((((((((((((TU JESTEM))))))))))))))))))))))))))))))))))))))))))"
     puts @order.inspect
     respond_to do |format|
       if @order.save
-        format.html { redirect_to order_url(@order.customer_id), notice: "Order was successfully created." }
+        format.html { redirect_to customer_orders_path(@order.customer_id), notice: "Order was successfully created." }
         format.json do
           render :show, status: :created, location: @order
         end
@@ -60,10 +69,11 @@ class OrdersController < ApplicationController
 
   # DELETE /orders/1 or /orders/1.json
   def destroy
+    customer_id = @order.customer_id
     @order.destroy
 
     respond_to do |format|
-      format.html { redirect_to orders_url, notice: "Order was successfully destroyed." }
+      format.html { redirect_to customer_orders_url(customer_id), notice: "Order was successfully destroyed." }
       format.json { head :no_content }
     end
   end

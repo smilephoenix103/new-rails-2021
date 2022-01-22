@@ -8,4 +8,8 @@ class ElementSelect < ActiveRecord::Base
 
     enum unit_quantity: ["szt", "set"]
 
+    enum order_status: %w(Open Close Reservatoin)
+
+    enum shipment_type: ["Register Priority", "Economic Registered", "InPost Parcel Locker", "Pickup In person"]
+
 end
