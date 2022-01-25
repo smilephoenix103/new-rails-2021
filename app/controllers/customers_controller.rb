@@ -4,7 +4,7 @@ class CustomersController < ApplicationController
 
   # GET /customers or /customers.json
   def index
-    @customers = Customer.all
+    @customers = Customer.all.order(id: :asc)
   end
 
   # GET /customers/1 or /customers/1.json
@@ -14,6 +14,9 @@ class CustomersController < ApplicationController
   # GET /customers/new
   def new
     @customer = Customer.new
+    uuid = SecureRandom.uuid
+    @customer.uuid = uuid
+    puts 'Your UUID is: ' + uuid
   end
 
   # GET /customers/1/edit
@@ -66,6 +69,6 @@ class CustomersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def customer_params
-      params.require(:customer).permit(:name, :lastname, :active, :city, :zip_code, :street, :number, :email, :nick, :phone, :description)
+      params.require(:customer).permit(:name, :lastname, :active, :city, :zip_code, :street, :number, :email, :nick, :phone, :description, :uuid)
     end
 end

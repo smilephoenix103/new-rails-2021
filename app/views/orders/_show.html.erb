@@ -1,0 +1,47 @@
+<!--<p id="notice"><%#= notice %></p>-->
+
+<!--<p class="m-0">-->
+  <strong>Customer:</strong>
+  <% order.customer_id %>
+  <%= order.customer.name %> <%= order.customer.lastname %>
+</p>
+
+<p class="m-0">
+  <strong>Order number:</strong>
+  <%= order.order_number %>
+</p>
+
+<p class="m-0">
+  <strong>Order date:</strong>
+  <%= order.order_date %>
+</p>
+
+<p class="m-0">
+  <strong>Order date send:</strong>
+  <%= order.order_date_send %>
+</p>
+
+<p class="m-0">
+  <strong>Order status:</strong>
+  <%= order.order_status %>
+</p>
+
+<p class="m-0">
+  <strong>Tracking number:</strong>
+  <%= order.tracking_number %>
+</p>
+
+<p class="m-0">
+  <strong>Shipment type:</strong>
+  <%= order.shipment_type %>
+</p>
+
+<p class="m-0">
+  <strong>Shipment cost:</strong>
+  <%= order.shipment_cost %>
+</p>
+
+<p class="m-0">
+  <strong>Description:</strong>
+  <%= order.description %>
+</p>

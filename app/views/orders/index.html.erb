@@ -36,7 +36,12 @@
         <td><%= order.shipment_cost %></td>
 <!--        <td><%#= order.description %></td>-->
         <td>
-          <%= link_to (render 'renders/button_show_small_icon'), order, class:"btn btn-sm btn-info" %>
+          <%= link_to (render 'renders/button_show_small_icon'), order,
+                      {class:"btn btn-info btn-sm", 'data-toggle' => "modal", 'data-target' => "#" + "Order"+ order.id.to_s} %>
+
+          <div class="modal fade" id=<%= "Order" + order.id.to_s %> data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel">
+            <%= render 'show_modal', order: order %>
+          </div>
           <%= link_to (render 'renders/button_edit_small_icon'), edit_order_path(order), class:"btn btn-sm btn-primary" %>
         </td>
         <td><%= link_to (render 'renders/button_delete_small_icon'), order, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger btn-sm" %></td>

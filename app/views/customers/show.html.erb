@@ -1,6 +1,10 @@
 <div class="jumbotron">
 <!--  <h1 class="display-4">Customer</h1>-->
-  <p class="m-0">
+  <p class="m-0" style="font-size: 12px">
+    <strong>uuid:</strong>
+    <%= @customer.uuid %>
+  </p>
+  <p class="m-0 + <%= @customer.active ? 'active-customer' : 'no-active-customer' %>">
     <strong>Active:</strong>
     <%= @customer.active %>
   </p>

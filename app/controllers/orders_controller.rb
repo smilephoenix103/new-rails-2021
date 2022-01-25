@@ -7,13 +7,13 @@ class OrdersController < ApplicationController
 
   # GET /orders or /orders.json
   def index
-    puts "--------------------------------------UUID--------------------------------------------"
-    uuid = SecureRandom.uuid
-    puts 'Your UUID is: ' + uuid
-    puts "------------------------------------UUID END------------------------------------------"
+    # puts "--------------------------------------UUID--------------------------------------------"
+    # uuid = SecureRandom.uuid
+    # puts 'Your UUID is: ' + uuid
+    # puts "------------------------------------UUID END------------------------------------------"
 
     # @orders = Order.all
-    @orders = Order.where(customer_id: params[:customer_id])
+    @orders = Order.where(customer_id: params[:customer_id]).order(id: :asc)
     puts "^^^^^^^^^^^^^^^^^^^^^^^^^^^^ TU JESTEM ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
     puts params[:customer_id]
     @customer = Customer.find_by(id: params[:customer_id])
