@@ -1,6 +1,7 @@
 <% if @api_metal_time_update.cod == 200 && @api_metal_time_update.cod !=nil %>
   <div style="background: #2E2F30; color: white; font-size: 12px; text-align: center; margin-top: -5px ">
-      <spam>Update: </spam><%= Time.at(@api_metal_time_update.timestamp/1000).strftime("%Y-%m-%d  %H:%M:%S") %>
+<!--      <spam>Update: </spam>-->
+    <%= Time.at(@api_metal_time_update.timestamp/1000).strftime("%Y-%m-%d  %H:%M:%S") %>
     <% @api_metal_time_update.metals.each do |metal| %>
       <% if metal.name != "palladium" %>
         <spam>  |  <%= metal.name %> :</spam> <span style="color:orange"><%= metal.price %></span>$
