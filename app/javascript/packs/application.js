@@ -7,6 +7,8 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+import * as Chart from "chart.js"
+
 
 Rails.start()
 Turbolinks.start()
@@ -21,7 +23,7 @@ ActiveStorage.start()
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
-const Chart = require('chart.js')
+// const Chart = require('chart.js')
 
 document.addEventListener('turbolinks:load', () => {
 
@@ -61,7 +63,7 @@ document.addEventListener('turbolinks:load', () => {
                 }
 
                 const ctx = document.getElementById('myChart').getContext('2d');
-                const chart = new Chart(ctx, {
+                const mychart = new Chart(ctx, {
                     // type: 'bar',
                     type: typeChart,
                     data: chartData,
