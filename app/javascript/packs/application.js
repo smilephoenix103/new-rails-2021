@@ -59,8 +59,9 @@ document.addEventListener('turbolinks:load', () => {
                         }]
                     }
                 }
+
                 var ctx = document.getElementById('myChart').getContext('2d');
-                var charte = new Chart(ctx, {
+                new Chart(ctx, {
                     // type: 'bar',
                     type: typeChart,
                     data: chartData,
