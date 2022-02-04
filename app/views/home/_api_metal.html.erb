@@ -1,5 +1,5 @@
 <% if @api_metal_time_update.cod == 200 && @api_metal_time_update.cod !=nil %>
-  <div style="background: #2E2F30; color: white; font-size: 12px; text-align: center; margin-top: -5px ">
+  <div style="background: #2E2F30; color: white; font-size: 12px; text-align: center">
 <!--      <spam>Update: </spam>-->
     <%= Time.at(@api_metal_time_update.timestamp/1000).strftime("%Y-%m-%d  %H:%M:%S") %>
     <% @api_metal_time_update.metals.each do |metal| %>
