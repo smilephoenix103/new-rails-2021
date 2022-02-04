@@ -36,5 +36,6 @@
 yarn-debug.log*
 .yarn-integrity
 
-/app/javascript/packs/application.js
+#/app/javascript/packs/application.js
 /.idea
+#!/app/javascript/packs/application.js
