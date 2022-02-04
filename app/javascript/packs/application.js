@@ -61,7 +61,7 @@ document.addEventListener('turbolinks:load', () => {
                 }
 
                 var ctx = document.getElementById('myChart').getContext('2d');
-                new Chart(ctx, {
+                const chart = new Chart(ctx, {
                     // type: 'bar',
                     type: typeChart,
                     data: chartData,
