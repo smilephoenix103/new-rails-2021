@@ -62,15 +62,17 @@ document.addEventListener('turbolinks:load', () => {
                 }
 
                 const ctx = document.getElementById('myChart').getContext('2d');
-                 this.mychart = new Chart(ctx, {
+                const mychart = new Chart(ctx, {
                     // type: 'bar',
                     type: typeChart,
                     data: chartData,
                     // labels: labels,
                     options: options
                 });
+
             });
         })
+
         .catch(function() {
             // This is where you run code if the server returns any errors
             });
