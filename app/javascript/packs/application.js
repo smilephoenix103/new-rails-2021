@@ -7,6 +7,7 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+import {BubbleController} from 'chart.js';
 
 
 Rails.start()
@@ -62,7 +63,7 @@ document.addEventListener('turbolinks:load', () => {
                 }
 
                 const ctx = document.getElementById('myChart').getContext('2d');
-                const mychart = new Chart(ctx, {
+                new Chart(ctx, {
                     // type: 'bar',
                     type: typeChart,
                     data: chartData,
