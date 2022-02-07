@@ -40,3 +40,4 @@ yarn-debug.log*
 /.idea
 #!/app/javascript/packs/application.js
 /config/database.yml
+/config/local_env.yml
