@@ -9,6 +9,7 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import Chart from 'chart.js/auto';
+// global.Chart = Chart;
 
 
 Rails.start()

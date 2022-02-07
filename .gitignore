@@ -39,3 +39,4 @@ yarn-debug.log*
 #/app/javascript/packs/application.js
 /.idea
 #!/app/javascript/packs/application.js
+/config/database.yml
