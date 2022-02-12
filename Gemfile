@@ -20,7 +20,8 @@ gem 'json', '~> 2.5', '>= 2.5.1'
 # gem 'jquery-rails'
 gem 'jquery-rails', '~> 4.4'
 
-gem 'i18n', '~> 1.8', '>= 1.8.10'
+# gem 'i18n', '~> 1.8', '>= 1.8.10'
+gem 'i18n', '~> 1.9', '>= 1.9.1'
 gem 'kaminari', '~> 1.2', '>= 1.2.1'
 
 gem 'rest-client', '~> 2.1'

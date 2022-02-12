@@ -261,7 +261,7 @@ DEPENDENCIES
   capybara (>= 3.26)
   devise (~> 4.7, >= 4.7.3)
   faker (~> 2.16)
-  i18n (~> 1.8, >= 1.8.10)
+  i18n (~> 1.9, >= 1.9.1)
   jbuilder (~> 2.7)
   jquery-rails (~> 4.4)
   json (~> 2.5, >= 2.5.1)
