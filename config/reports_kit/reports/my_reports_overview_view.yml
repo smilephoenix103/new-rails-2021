@@ -1,0 +1,14 @@
+data_method: MyDataMethodsView.view_test
+chart:
+  options:
+    legend:
+      display: true
+    scales:
+      xAxes:
+        - scaleLabel:
+            display: true
+            labelString: Quality
+      yAxes:
+        - scaleLabel:
+            display: true
+            labelString: Pattern

@@ -40,6 +40,18 @@ class HomeController < ApplicationController
 
     # ------------------ TEST CURRENCY COD pobieranei z bazy -----------------------------
 
+    # _________________________TEST VIEW___________________________________________
+
+    puts "+++++++++++++++++++++++++TEST VIEWS +++++++++++++++++++++++++++++++++++"
+
+    # @view = VItemInfo.all
+    #
+    # @view.each do |v|
+    #   puts v.inspect
+    # end
+
+
+    puts "+++++++++++++++++++++++++++++++END TEST++++++++++++++++++++++++++++++++++"
 
   end
 

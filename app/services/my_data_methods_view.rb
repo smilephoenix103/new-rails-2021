@@ -1,14 +1,5 @@
-class MyDataMethods
+class MyDataMethodsView
   # { 'Bernice' => 191, 'Carlee' => 160, 'Edison' => 60, ... }
-  def self.country_by_continent(properties)
-    # Currency.joins(:country).group('countries.continent').order('countries.continent').count
-    # Country.group('countries.continent').order('countries.continent').count
-    # Note.joins(:currency).group('currencies.cod').order('currencies.cod').count
-    Note.group('notes.status').order('notes.status').count
-
-
-  end
-
   def self.view_test(properties)
     # Currency.joins(:country).group('countries.continent').order('countries.continent').count
     # Country.group('countries.continent').order('countries.continent').count
