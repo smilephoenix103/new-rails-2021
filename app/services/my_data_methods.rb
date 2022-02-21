@@ -9,16 +9,6 @@ class MyDataMethods
 
   end
 
-  def self.view_test(properties)
-    # Currency.joins(:country).group('countries.continent').order('countries.continent').count
-    # Country.group('countries.continent').order('countries.continent').count
-    # Note.joins(:currency).group('currencies.cod').order('currencies.cod').count
-    VItemInfo.where(country_en: 'Poland').group('v_item_infos.pattern').order('v_item_infos.pattern').count
-    # Note.group('notes.status','notes.quality').order('notes.quality').count
-
-
-  end
-
   # [
   #   [["Jul 3, 2016", "Hilton"], 2],
   #   [["Jul 10, 2016", "Hilton"], 2],
