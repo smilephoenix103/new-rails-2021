@@ -4,10 +4,21 @@ class MyDataMethodsView
     # Currency.joins(:country).group('countries.continent').order('countries.continent').count
     # Country.group('countries.continent').order('countries.continent').count
     # Note.joins(:currency).group('currencies.cod').order('currencies.cod').count
-    VItemInfo.where(country_en: 'Poland').group('v_item_infos.pattern').order('v_item_infos.pattern').count
+    # VItemInfo.where(country_en: 'Poland').group('v_item_infos.pattern').order('v_item_infos.pattern').count
+    VItemInfo.where(country_en: 'Poland', pattern: 'NOTE').group('v_item_infos.currency_series').order('v_item_infos.currency_series').count
     # Note.group('notes.status','notes.quality').order('notes.quality').count
+    # Currency.joins(:notes).group('notes.status','notes.making').order('notes.making','notes.status').count
+    # Currency.joins(:notes).group('notes.making').group('notes.status').count.map do |(making, status), count|[[making, status], count]
 
+    # Currency.joins(:notes).group('notes.created_at').group('notes.status').count.map do |(date, status), count|[[date.strftime('%b %-d, %Y'), status], count]
+    # end
+    # Currency.joins(:notes).group('notes.status').group('currencies.currency_series').count
+  end
 
+  def self.posts_by_created_at_week_and_author(properties)
+    # The `group_by_week` method is provided by the `groupdate` gem.
+    Currency.joins(:author).group_by_week('posts.created_at').group('authors.name').count.map do |(date, author_name), count|[[date.strftime('%b %-d, %Y'), author_name], count]
+    end
   end
 
   # [

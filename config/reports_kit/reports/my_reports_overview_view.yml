@@ -7,8 +7,8 @@ chart:
       xAxes:
         - scaleLabel:
             display: true
-            labelString: Quality
+            labelString: Currency Series
       yAxes:
         - scaleLabel:
             display: true
-            labelString: Pattern
+            labelString: Ilość banknotów

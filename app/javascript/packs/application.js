@@ -81,7 +81,7 @@ document.addEventListener('turbolinks:load', () => {
                     // type: 'bar',
                     type: typeChart,
                     data: chartData,
-                    // labels: labels,
+                    labels: 'NAPIS TESTOWY',
                     options: options
                 });
 
