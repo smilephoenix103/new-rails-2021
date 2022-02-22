@@ -5,6 +5,8 @@ filters:
 - key: country_en
   criteria:
     operator: contains
-    value: Po
+    value: P
 dimensions:
 - country_en
+- continent
+#- exists

@@ -61,18 +61,26 @@ document.addEventListener('turbolinks:load', () => {
                                 beginAtZero:true
                             }
                         }]
+                        ,
+                        x: {
+                            stacked: true,
+                        },
+                        y: {
+                            stacked: true
+                        }
                     },
+
                     plugins: {
                         title: {
                             display: true,
                             text: 'PECUNIA CHART'
                         },
-                        legend: {
-                            display: true,
-                            labels: {
-                                color: 'rgb(255, 99, 132)'
-                            }
-                        }
+                        // legend: {
+                        //     display: true,
+                        //     labels: {
+                        //         color: 'rgb(255, 99, 132)'
+                        //     }
+                        // }
                     }
                 }
 
@@ -84,7 +92,8 @@ document.addEventListener('turbolinks:load', () => {
                     labels: 'NAPIS TESTOWY',
                     options: options
                 });
-
+                 console.log("TEST");
+                 console.log(options);
             });
         })
 

@@ -11,7 +11,11 @@ class Note < ApplicationRecord
 
   validates :note_width ,numericality: {only_integer: true}, allow_blank: true
   validates :note_height ,numericality: {only_integer: true}, allow_blank: true
-    
+
+  def self.default_timezone
+    :utc
+  end
+
   def to_s
   	note
   end

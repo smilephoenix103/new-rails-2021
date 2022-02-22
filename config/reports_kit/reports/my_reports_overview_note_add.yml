@@ -1,4 +1,11 @@
-data_method: MyDataMethodsView.view_test
+data_method: MyDataMethodsView.Note_data_add_note_group_status
+#chart:
+#  options:
+#    scales:
+#      xAxes:
+#        - stacked: true
+#      yAxes:
+#        - stacked: true
 chart:
   options:
     scales:
@@ -10,5 +17,5 @@ chart:
       yAxes:
         - scaleLabel:
             display: true
-            labelString: Posts
+            labelString: Note
           stacked: true
