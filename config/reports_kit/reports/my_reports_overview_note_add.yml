@@ -1,21 +1,43 @@
 data_method: MyDataMethodsView.Note_data_add_note_group_status
-#chart:
-#  options:
-#    scales:
-#      xAxes:
-#        - stacked: true
-#      yAxes:
-#        - stacked: true
 chart:
   options:
+    plugins:
+      subtitle:
+        display: true,
+        text: 'WYKRES TESTOWY'
+        font:
+          family: 'Comic Sans MS'
+          size: 20
+          weight: 'bold'
+          lineHeight: 1.2
+      legend:
+        position: left
     scales:
-      xAxes:
-        - scaleLabel:
-            display: true
-            labelString: Creation date
-          stacked: true
-      yAxes:
-        - scaleLabel:
-            display: true
-            labelString: Note
-          stacked: true
+      x:
+        title:
+          display: true
+          text: 'Lata'
+          color: '#911'
+          ticks:
+            color: 'red'
+        scaleLabel:
+          display: true
+          labelString: Creation date
+#        stacked: true
+      y:
+        beginAtZero: true
+        ticks:
+          color: 'green'
+        title:
+          display: true
+          text: 'Ilość Banknotów'
+          color: '#200'
+          font:
+            family: 'Comic Sans MS'
+            size: 20
+            weight: 'bold'
+            lineHeight: 1.2
+        scaleLabel:
+          display: true
+          labelString: Note
+#        stacked: true

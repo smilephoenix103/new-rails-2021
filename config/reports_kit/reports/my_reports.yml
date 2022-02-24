@@ -1,8 +1,54 @@
-measure: country  
+measure: country
 dimensions:
   - continent
-  # - exists
+#  - exists
   # - signature_code
-  # - key: updated_at
-    # granularity: day
+#  - key: updated_at
+#    granularity: day
 # order: dimension1.label asc
+chart:
+  options:
+    responsive: true
+    elements:
+      bar:
+        backgroundColor: colorize(false)
+        borderColor: colorize(true)
+        borderWidth: 5
+    indexAxis: 'y'
+    animations:
+      tension:
+        duration: 1000
+        easing: 'linear'
+        from: 1
+        to: 0
+        loop: true
+    scales:
+      y:
+        min: 0
+        max: 80
+        beginAtZero: true
+        ticks:
+          color: 'green'
+        title:
+          display: true
+          text: 'Kontynenty'
+          color: '#200'
+          font:
+            family: 'Comic Sans MS'
+            size: 20
+            weight: 'bold'
+            lineHeight: 1.2
+      x:
+        title:
+          display: true
+          text: 'Liczba Państw'
+          color: '#911'
+        ticks:
+          color: 'red'
+        grid:
+          offset: true
+    plugins:
+      legend:
+        display: true
+        labels:
+          color: 'rgb(160, 160,160)'

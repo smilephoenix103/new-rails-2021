@@ -53,47 +53,55 @@ document.addEventListener('turbolinks:load', () => {
                 //var datasets = chartData.datasets;
                 // var labels = chartData.labels;
                 // var options = chartData.options;
-                var options = {
-                    // All of my other bar chart option here
-                    scales: {
-                        yAxes: [{
-                            ticks: {
-                                beginAtZero:true
-                            }
-                        }]
-                        ,
-                        x: {
-                            stacked: true,
-                        },
-                        y: {
-                            stacked: true
-                        }
-                    },
-
-                    plugins: {
-                        title: {
-                            display: true,
-                            text: 'PECUNIA CHART'
-                        },
-                        // legend: {
-                        //     display: true,
-                        //     labels: {
-                        //         color: 'rgb(255, 99, 132)'
-                        //     }
-                        // }
-                    }
-                }
+                 console.log("-----------------------------------------------");
+                 console.log(data);
+                 console.log("===============================================");
+                 console.log(chartData);
+                 console.log("===============================================");
+                 console.log(chartData.options.legend);
+                 console.log("-----------------------------------------------");
+                 var options = chartData.options;
+                 var labels = chartData.options.legend
+                // var options = {
+                //     // All of my other bar chart option here
+                //     scales: {
+                //         yAxes: [{
+                //             ticks: {
+                //                 beginAtZero:true
+                //             }
+                //         }]
+                //         ,
+                //         x: {
+                //             stacked: true,
+                //         },
+                //         y: {
+                //             stacked: true
+                //         }
+                //     },
+                //
+                //     plugins: {
+                //         title: {
+                //             display: true,
+                //             text: 'PECUNIA CHART'
+                //         },
+                //         // legend: {
+                //         //     display: true,
+                //         //     labels: {
+                //         //         color: 'rgb(255, 99, 132)'
+                //         //     }
+                //         // }
+                //     }
+                // }
 
                 const ctx = document.getElementById('myChart').getContext('2d');
                 const myChart = new Chart(ctx, {
                     // type: 'bar',
                     type: typeChart,
                     data: chartData,
-                    labels: 'NAPIS TESTOWY',
+                    labels: labels,
                     options: options
                 });
-                 console.log("TEST");
-                 console.log(options);
+
             });
         })
 
