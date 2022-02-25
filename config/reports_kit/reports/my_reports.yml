@@ -14,7 +14,7 @@ chart:
         backgroundColor: colorize(false)
         borderColor: colorize(true)
         borderWidth: 5
-    indexAxis: 'y'
+#    indexAxis: 'y'
     animations:
       tension:
         duration: 1000
@@ -25,24 +25,31 @@ chart:
     scales:
       y:
         min: 0
-        max: 80
+#        max: 70
         beginAtZero: true
         ticks:
           color: 'green'
         title:
           display: true
-          text: 'Kontynenty'
-          color: '#200'
+          text: 'Liczba Państw'
+#          color: '#200'
+          color: 'black'
           font:
-            family: 'Comic Sans MS'
+#            family: 'Comic Sans MS'
             size: 20
             weight: 'bold'
             lineHeight: 1.2
       x:
         title:
           display: true
-          text: 'Liczba Państw'
-          color: '#911'
+          text: 'Kontynenty'
+          color: 'black'
+#          color: '#911'
+          font:
+#            family: 'Comic Sans MS'
+            size: 20
+            weight: 'bold'
+            lineHeight: 1.2
         ticks:
           color: 'red'
         grid:
@@ -51,4 +58,5 @@ chart:
       legend:
         display: true
         labels:
-          color: 'rgb(160, 160,160)'
+#          color: 'rgb(160, 160,160)'
+          color: 'black'
