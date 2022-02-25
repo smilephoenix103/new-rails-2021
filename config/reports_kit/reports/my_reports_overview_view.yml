@@ -2,13 +2,13 @@ data_method: MyDataMethodsView.view_test
 chart:
   options:
     scales:
-      xAxes:
-        - scaleLabel:
-            display: true
-            labelString: Creation date
-          stacked: true
-      yAxes:
-        - scaleLabel:
-            display: true
-            labelString: Posts
-          stacked: true
+      x:
+        scaleLabel:
+          display: true
+          labelString: Creation date
+#        stacked: true
+      y:
+        scaleLabel:
+          display: true
+          labelString: Posts
+#        stacked: true
