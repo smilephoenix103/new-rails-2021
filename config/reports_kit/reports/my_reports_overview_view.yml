@@ -1,4 +1,4 @@
-data_method: MyDataMethodsView.view_test
+data_method: MyDataMethodsViewTest.view_test
 chart:
   options:
     scales:

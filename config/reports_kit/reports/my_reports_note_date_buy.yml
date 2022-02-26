@@ -1,29 +1,35 @@
-data_method: MyDataMethodsViewTest.Note_data_add_note_group_status
+data_method: MyDataMethodsView.note_date_buy
 chart:
   options:
     plugins:
       subtitle:
         display: true,
-        text: 'WYKRES TESTOWY'
+        text: 'Zakup banknotów w czsie'
         font:
           family: 'Comic Sans MS'
           size: 20
           weight: 'bold'
           lineHeight: 1.2
       legend:
-        position: left
+#        position: left
     scales:
       x:
+        ticks:
+          color: 'red'
         title:
           display: true
           text: 'Lata'
-          color: '#911'
-          ticks:
-            color: 'red'
+#          color: '#911'
+          color: 'black'
+          font:
+#            family: 'Comic Sans MS'
+            size: 15
+            weight: 'bold'
+            lineHeight: 1.2
         scaleLabel:
           display: true
-          labelString: Creation date
-#        stacked: true
+#          labelString: Creation date
+      #        stacked: true
       y:
         beginAtZero: true
         ticks:
@@ -33,11 +39,11 @@ chart:
           text: 'Ilość Banknotów'
           color: '#200'
           font:
-            family: 'Comic Sans MS'
+#            family: 'Comic Sans MS'
             size: 20
             weight: 'bold'
             lineHeight: 1.2
         scaleLabel:
           display: true
           labelString: Note
-#        stacked: true
+    #        stacked: true

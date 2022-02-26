@@ -4,4 +4,8 @@ class VItemInfo < ActiveRecord::Base
   def readonly?
     true
   end
+
+  def self.default_timezone
+    :utc
+  end
 end
