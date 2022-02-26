@@ -17,12 +17,7 @@ class MyDataMethodsViewTest
 
   end
 
-  def self.Note_data_add_note_group_status(properties)
-    # The `group_by_year` method is provided by the `groupdate` gem.
-    Note.group_by_year('notes.created_at').group('notes.status').count.map do |(date, status), count|
-      [[date.strftime('%Y'), status], count]
-    end
-  end
+
 
   # [
   #   [["Jul 3, 2016", "Hilton"], 2],

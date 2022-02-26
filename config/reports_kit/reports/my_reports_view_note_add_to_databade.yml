@@ -1,4 +1,4 @@
-data_method: MyDataMethodsViewTest.Note_data_add_note_group_status
+data_method: MyDataMethodsView.Note_data_add_to_database
 chart:
   options:
     plugins:
