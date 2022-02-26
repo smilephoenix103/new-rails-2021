@@ -2,21 +2,21 @@
  <!-- <div >
 	<%= select_tag 'chart_id', options_for_select(@chart.collect{ |c| [c.name, c.id] }),id:"typeChart" %>
 
- </div> --> 
+ </div> -->
   <div id="lang" data-chart="<%= @extract_locale %>">
     <%= form_with url: "/" + @extract_locale + "/reports/chart", method: :get do |form| %>
         <div class="field" id="typeChart" data-chart="<%= @dataChart %>">
           <%= form.label :chart_name %>
-          <%= form.select :chart_name, Chart.all.map { |p| [p, p.name]}, {:include => "Select"}, class:"form-control" %>
+          <%= form.select :chart_name, Chart.all.map { |p| [p, p.name]}, {:include => "Select"}, class:"form-control_sm" %>
         </div>
         <div class="field" id="typeReport" data-chart="<%= @dataReport %>">
           <%= form.label :report_name %>
-          <%= form.select :report_name, Report.all.map { |p| [p.name, p.report]}, {:include_blank => "Select"}, class:"form-control" %>
+          <%= form.select :report_name, Report.all.map { |p| [p.name, p.report]}, {:include_blank => "Select"}, class:"form-control-sm" %>
         </div>
         <div>
           <% form.select :extract_locale, {:value => @extract_locale} %>
-        </div>      
+        </div>
         <%= form.submit "Select" %>
     <% end %>
-  </div> 
+  </div>
 
