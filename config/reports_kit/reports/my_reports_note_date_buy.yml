@@ -10,7 +10,7 @@ chart:
           size: 20
           weight: 'bold'
           lineHeight: 1.2
-      legend:
+#      legend:
 #        position: left
     scales:
       x:
