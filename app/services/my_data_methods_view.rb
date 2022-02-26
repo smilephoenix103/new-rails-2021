@@ -10,15 +10,15 @@ class MyDataMethodsView
 
   def self.Note_data_add_to_database(properties)
     # The `group_by_year` method is provided by the `groupdate` gem.
-    Note.group_by_year('notes.created_at').group('notes.status').count.map do |(date, status), count|
-      [[date.strftime('%Y'), status], count]
+    Note.group_by_month('notes.created_at').group('notes.status').count.map do |(date, status), count|
+      [[date.strftime('%b %Y'), status], count]
     end
   end
 
-  def self.Note_data_add_note_group_status(properties)
+  def self.Coin_data_add_to_database(properties)
     # The `group_by_year` method is provided by the `groupdate` gem.
-    Note.group_by_year('notes.created_at').group('notes.status').count.map do |(date, status), count|
-      [[date.strftime('%Y'), status], count]
+    Coin.group_by_month('coins.created_at').group('coins.status').count.map do |(date, status), count|
+      [[date.strftime('%b %Y'), status], count]
     end
   end
 

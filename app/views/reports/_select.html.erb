@@ -5,18 +5,22 @@
  </div> -->
   <div id="lang" data-chart="<%= @extract_locale %>">
     <%= form_with url: "/" + @extract_locale + "/reports/chart", method: :get do |form| %>
-        <div class="field" id="typeChart" data-chart="<%= @dataChart %>">
+      <div class="row align-items-start" >
+        <div class="field col" id="typeChart" style="float: left" data-chart="<%= @dataChart %>">
           <%= form.label :chart_name %>
           <%= form.select :chart_name, Chart.all.map { |p| [p, p.name]}, {:include => "Select"}, class:"form-control_sm" %>
         </div>
-        <div class="field" id="typeReport" data-chart="<%= @dataReport %>">
+
+        <div class="field col" id="typeReport" style="float: left" data-chart="<%= @dataReport %>">
           <%= form.label :report_name %>
           <%= form.select :report_name, Report.all.map { |p| [p.name, p.report]}, {:include_blank => "Select"}, class:"form-control-sm" %>
         </div>
+
         <div>
           <% form.select :extract_locale, {:value => @extract_locale} %>
         </div>
-        <%= form.submit "Select" %>
+        <%= form.submit "Select", class:'btn btn-primary btn-sm' %>
+      </div>
     <% end %>
   </div>
 

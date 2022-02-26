@@ -1,10 +1,10 @@
-data_method: MyDataMethodsView.note_date_buy
+data_method: MyDataMethodsView.Coin_data_add_to_database
 chart:
   options:
     plugins:
       subtitle:
         display: true,
-        text: 'Zakup banknotów w czsie'
+        text: 'Data Dodania monet do bazy'
         font:
           family: 'Comic Sans MS'
           size: 20
@@ -22,28 +22,28 @@ chart:
 #          color: '#911'
           color: 'black'
           font:
-#            family: 'Comic Sans MS'
+  #            family: 'Comic Sans MS'
             size: 15
             weight: 'bold'
             lineHeight: 1.2
         scaleLabel:
           display: true
-#          labelString: Creation date
-      #        stacked: true
+          labelString: Creation date
+#        stacked: true
       y:
         beginAtZero: true
         ticks:
           color: 'green'
         title:
           display: true
-          text: 'Ilość Banknotów'
+          text: 'Ilość Monet'
           color: '#200'
           font:
-#            family: 'Comic Sans MS'
+            family: 'Comic Sans MS'
             size: 20
             weight: 'bold'
             lineHeight: 1.2
         scaleLabel:
           display: true
           labelString: Note
-    #        stacked: true
+#        stacked: true
