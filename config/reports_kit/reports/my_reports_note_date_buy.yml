@@ -1,4 +1,4 @@
-data_method: MyDataMethodsView.note_date_buy
+data_method: MyDataMethodsView.Note_date_buy
 chart:
   options:
     plugins:

@@ -44,11 +44,11 @@ class HomeController < ApplicationController
 
     puts "+++++++++++++++++++++++++TEST VIEWS +++++++++++++++++++++++++++++++++++"
 
-    # @view = VItemInfo.all
-    #
-    # @view.each do |v|
-    #   puts v.inspect
-    # end
+    @view = VItemInfo.all
+
+    @view.each do |v|
+      puts v.inspect
+    end
 
 
     puts "+++++++++++++++++++++++++++++++END TEST++++++++++++++++++++++++++++++++++"
