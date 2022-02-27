@@ -1,7 +1,7 @@
 class MyDataMethodsView
 
-  def self.note_date_buy(properties)
-   VItemInfo.where.not(note_id: nil).group_by_year('v_item_infos.date_buy')
+  def self.Note_date_buy(properties)
+   VItemInfo.where.not(note_id: nil).group_by_year('v_item_infos.date_buy_note')
        .group('v_item_infos.status_note').order('v_item_infos.status_note')
        .count.map do |(date, status), count|[[date.strftime('%Y'), status], count]
    end
