@@ -1,4 +1,4 @@
-data_method: MyDataMethodsView.note_date_buy
+data_method: MyDataMethodsView.Note_date_buy
 chart:
   options:
     plugins:
@@ -10,8 +10,8 @@ chart:
           size: 20
           weight: 'bold'
           lineHeight: 1.2
-      legend:
-        position: left
+#      legend:
+#        position: left
     scales:
       x:
         ticks:

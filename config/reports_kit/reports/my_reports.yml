@@ -7,6 +7,13 @@ dimensions:
 #    granularity: day
 # order: dimension1.label asc
 chart:
+  labels: false
+  datasets:
+    backgroundColor: ['rgb(39, 122, 205)', 'rgb(0, 0, 0)', 'rgb(243, 248, 98)', 'rgb(221, 12, 23)', 'rgb(229, 184, 70)', 'rgb(30, 201, 27)']
+    borderWidth: 1
+    borderColor: 'black'
+    hoverBackgroundColor: ['rgb(39, 122, 205, 0.5)', 'rgb(0, 0, 0, 0.5)', 'rgb(243, 248, 98, 0.5)', 'rgb(221, 12, 23, 0.5)', 'rgb(229, 184, 70, 0.5)', 'rgb(30, 201, 27, 0.5)']
+#    borderWidth: 0
   options:
     responsive: true
     elements:
