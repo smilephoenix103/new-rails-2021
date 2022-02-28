@@ -24,10 +24,14 @@ class ReportsController < ApplicationController
   end
 
   def chart
-    @data = "my_reports3"
+    # @data = "my_reports3"
   	# @dataChart = "bar"
 
-  	@chart = Chart.all
+    puts "&&&&&&&&&&&&&&&&&&&&&&STATR&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&"
+  	@chart = Chart.all.order(id: :asc)
+    puts @chart
+    puts "&&&&&&&&&&&&&&&&&&&&&&END&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&"
+
     @report = Report.all
   	select_char
     select_report
