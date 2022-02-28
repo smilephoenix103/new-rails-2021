@@ -1,9 +1,12 @@
-<p id="notice"><%= notice %></p>
+<!--<p id="notice"><%#= notice %></p>-->
 
 <p>
   <strong>Name:</strong>
   <%= @chart.name %>
+<br>
+  <strong>Description:</strong>
+  <%= @chart.description %>
 </p>
 
-<%= link_to 'Edit', edit_chart_path(@chart) %> |
-<%= link_to 'Back', charts_path %>
+<%= link_to (render 'renders/button_edit'), edit_chart_path(@chart), class: "btn btn-primary btn-sm" %>
+<%= link_to (render 'renders/button_back'), charts_path, class: "btn btn-secondary btn-sm" %>

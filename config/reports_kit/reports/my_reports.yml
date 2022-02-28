@@ -61,6 +61,13 @@ chart:
           color: 'red'
         grid:
           offset: true
+
+#      r:
+#        pointLabels:
+#          display: true,
+#          centerPointLabels: true,
+#          font:
+#            size: 10
     plugins:
       legend:
         display: true

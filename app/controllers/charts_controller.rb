@@ -3,7 +3,7 @@ class ChartsController < ApplicationController
 
   # GET /charts or /charts.json
   def index
-    @charts = Chart.all
+    @charts = Chart.all.order(id: :asc)
   end
 
   # GET /charts/1 or /charts/1.json
@@ -65,6 +65,6 @@ class ChartsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def chart_params
-      params.require(:chart).permit(:name)
+      params.require(:chart).permit(:name, :description)
     end
 end

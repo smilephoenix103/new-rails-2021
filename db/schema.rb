@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_25_160040) do
+ActiveRecord::Schema.define(version: 2022_02_28_192151) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "btree_gin"
@@ -74,11 +74,12 @@ ActiveRecord::Schema.define(version: 2022_01_25_160040) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "description"
   end
 
   create_table "coins", force: :cascade do |t|
     t.bigint "currency_id", null: false
-    t.date "date_buy", comment: "Data zakupu"
+    t.date "date_buy"
     t.string "bought"
     t.float "denomination"
     t.string "name_currency"
