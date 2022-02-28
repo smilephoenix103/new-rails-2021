@@ -28,10 +28,10 @@ development:
   port: 5432
 #  username: postgres
 #  password: postgres
-  database: <%= ENV['SAMPLE_APP_DATABASE'] %>
-  host: <%= ENV['SAMPLE_APP_HOST'] %>
-  username: <%= ENV['SAMPLE_APP_DATABASE_USER'] %>
-  password: <%= ENV['SAMPLE_APP_DATABASE_PASSWORD'] %>
+  database: <%= ENV['PECUNIA_APP_DATABASE'] %>
+  host: <%= ENV['PECUNIA_APP_HOST'] %>
+  username: <%= ENV['PECUNIA_APP_DATABASE_USER'] %>
+  password: <%= ENV['PECUNIA_APP_DATABASE_PASSWORD'] %>
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
