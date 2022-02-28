@@ -99,6 +99,8 @@ Rails.application.routes.draw do
       resources :bonds
     end
 
+    resources :charts
+
     resources :customers
     resources :customers do
       resources :orders
