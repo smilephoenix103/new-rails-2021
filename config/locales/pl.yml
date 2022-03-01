@@ -31,6 +31,7 @@ pl:
       set: "Ustawienia"
       reports: "Raporty"
       chart: "Wykres"
+      set_chart: "Wykres Ustawienia"
       pattern: "Rodzaj Waluty"
       bought: "Miejsce Zakupu"
       signature_cod: "Kody Sygnatur"
@@ -60,6 +61,9 @@ pl:
       setting:
         create: "Dodaj Nowe Ustawienia"
         update: "Edytuj Ustawienia"
+      chart:
+        create: "Dodaj nowy rodzaj wykresu"
+        update: "Edytuj Rodzaj wykresu"
   activerecord:
     attributes:
       country:
@@ -162,6 +166,9 @@ pl:
         name: "Nazwa Ustawień"
         value: "Wartość"
         description: "Opis"
+      chart:
+        name: "Nazwa Wykresu"
+        description: "Opis"
     errors:
       models:
         note:
@@ -207,6 +214,10 @@ pl:
           attributes:
             signature_cod:
               not_a_number: " - Podana wartość nie jest liczbą"
+        chart:
+          attributes:
+            name:
+              blank: " - Pole nie może być puste!"
   tables:
     country:
       headers:
@@ -283,6 +294,10 @@ pl:
   signature_codes: "Kody Sygnatur"
   description_of_signature: "Opis Kodów Sygnatur"
 
+  #*****************CHART***********************
+  new_type_chart: "Nowy Rodzaj Wykresu"
+  edit_type_chart: "Edytuj Rodzaj Wykresu"
+  type_charts: "Rodzaje wykresów"
 
   #  ***************ORDRE**********************
 
