@@ -44,7 +44,7 @@ chart:
           color: 'green'
         title:
           display: true
-          text: 'Liczba Państw'
+          text: 'Ilość Banknotów'
 #          color: '#200'
           color: 'black'
           font:
@@ -56,7 +56,7 @@ chart:
         beginAtZero: true
         title:
           display: true
-          text: 'Kontynenty'
+          text: 'Rodzaje Walut'
           color: 'black'
 #          color: '#911'
           font:
@@ -65,7 +65,9 @@ chart:
             weight: 'bold'
             lineHeight: 1.2
         ticks:
-          color: 'red'
+          color: 'black'
+          font:
+            size: 10
         grid:
           offset: true
 
