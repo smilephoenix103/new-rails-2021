@@ -22,4 +22,8 @@ class MyDataMethodsView
     end
   end
 
+  def self.Currency_pattern(properties)
+    VItemInfo.where.not(note_id: nil, coin_id: nil, bond_id: nil).group('v_item_infos.pattern').order('v_item_infos.pattern').count
+  end
+
 end

@@ -1,0 +1,76 @@
+data_method: MyDataMethodsView.Currency_pattern
+chart:
+  labels: true
+  datasets:
+    label: 'Ilość elementów w currency'
+#    backgroundColor: ['rgb(39, 122, 205)', 'rgb(0, 0, 0)', 'rgb(243, 248, 98)', 'rgb(221, 12, 23)', 'rgb(229, 184, 70)', 'rgb(30, 201, 27)']
+    backgroundColor: ['rgb(39, 122, 205, 0.5)', 'rgb(0, 0, 0, 0.5)', 'rgb(243, 248, 98, 0.5)', 'rgb(221, 12, 23, 0.5)', 'rgb(229, 184, 70, 0.5)', 'rgb(30, 201, 27, 0.5)']
+    borderWidth: 1
+    borderColor: 'black'
+#    hoverBackgroundColor: ['rgb(39, 122, 205, 0.5)', 'rgb(0, 0, 0, 0.5)', 'rgb(243, 248, 98, 0.5)', 'rgb(221, 12, 23, 0.5)', 'rgb(229, 184, 70, 0.5)', 'rgb(30, 201, 27, 0.5)']
+    hoverBackgroundColor: ['rgb(39, 122, 205)', 'rgb(0, 0, 0)', 'rgb(243, 248, 98)', 'rgb(221, 12, 23)', 'rgb(229, 184, 70)', 'rgb(30, 201, 27)']
+#    borderWidth: 0
+  options:
+#    maintainAspectRatio: false
+    responsive: true
+    elements:
+      bar:
+        backgroundColor: colorize(false)
+        borderColor: colorize(true)
+        borderWidth: 5
+#        minBarLength: 2
+#        barPercentage: 0.5
+#    indexAxis: 'y'
+    animations:
+      tension:
+        duration: 1000
+        easing: 'linear'
+        from: 1
+        to: 0
+        loop: true
+    scales:
+      y:
+        min: 0
+#        max: 70
+        beginAtZero: true
+        ticks:
+          color: 'green'
+        title:
+          display: true
+          text: 'Liczba Państw'
+#          color: '#200'
+          color: 'black'
+          font:
+#            family: 'Comic Sans MS'
+            size: 20
+            weight: 'bold'
+            lineHeight: 1.2
+      x:
+        beginAtZero: true
+        title:
+          display: true
+          text: 'Kontynenty'
+          color: 'black'
+#          color: '#911'
+          font:
+#            family: 'Comic Sans MS'
+            size: 20
+            weight: 'bold'
+            lineHeight: 1.2
+        ticks:
+          color: 'red'
+        grid:
+          offset: true
+
+#      r:
+#        pointLabels:
+#          display: true,
+#          centerPointLabels: true,
+#          font:
+#            size: 10
+    plugins:
+      legend:
+        display: true
+        labels:
+#          color: 'rgb(160, 160,160)'
+          color: 'black'
