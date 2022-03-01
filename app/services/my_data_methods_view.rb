@@ -26,4 +26,8 @@ class MyDataMethodsView
     VItemInfo.where.not(note_id: nil, coin_id: nil, bond_id: nil).group('v_item_infos.pattern').order('v_item_infos.pattern').count
   end
 
+  def self.Currency_series_country(properties)
+    VItemInfo.where.not(note_id: nil).where(country_en: 'Poland', pattern: 'NOTE').group('v_item_infos.currency_series').order('v_item_infos.currency_series').count
+  end
+
 end

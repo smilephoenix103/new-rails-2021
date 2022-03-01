@@ -4,6 +4,7 @@ chart:
     barPercentage: 10
     nimBarThickness: 8
     maxBarThickness: 20
+    minBarLength: 2
   options:
     plugins:
       subtitle:

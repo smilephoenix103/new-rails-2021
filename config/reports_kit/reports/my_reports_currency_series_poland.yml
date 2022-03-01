@@ -1,4 +1,4 @@
-data_method: MyDataMethodsView.Currency_pattern
+data_method: MyDataMethodsView.Currency_series_country
 chart:
   labels: true
   datasets:
