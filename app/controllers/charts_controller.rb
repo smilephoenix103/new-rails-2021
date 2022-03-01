@@ -1,5 +1,6 @@
 class ChartsController < ApplicationController
   before_action :set_chart, only: %i[ show edit update destroy ]
+  before_action :require_admin_logged_in!
 
   # GET /charts or /charts.json
   def index
