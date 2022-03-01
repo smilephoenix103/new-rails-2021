@@ -1,14 +1,15 @@
-measure: country
-dimensions:
-  - continent
-#  - exists
-  # - signature_code
-#  - key: updated_at
-#    granularity: day
-# order: dimension1.label asc
+data_method: MyDataMethodsView.Currency_pattern
 chart:
   labels: true
   datasets:
+#    barPercentage: 2
+#    nimBarThickness: 8
+#    maxBarThickness: 20
+#    hoverBorderRadius: 1
+#    categoryPercentage: 1
+#    barThickness: 100
+    minBarLength: 5
+#    label: 'Ilość elementów w currency'
 #    backgroundColor: ['rgb(39, 122, 205)', 'rgb(0, 0, 0)', 'rgb(243, 248, 98)', 'rgb(221, 12, 23)', 'rgb(229, 184, 70)', 'rgb(30, 201, 27)']
     backgroundColor: ['rgb(39, 122, 205, 0.5)', 'rgb(0, 0, 0, 0.5)', 'rgb(243, 248, 98, 0.5)', 'rgb(221, 12, 23, 0.5)', 'rgb(229, 184, 70, 0.5)', 'rgb(30, 201, 27, 0.5)']
     borderWidth: 1
@@ -17,12 +18,15 @@ chart:
     hoverBackgroundColor: ['rgb(39, 122, 205)', 'rgb(0, 0, 0)', 'rgb(243, 248, 98)', 'rgb(221, 12, 23)', 'rgb(229, 184, 70)', 'rgb(30, 201, 27)']
 #    borderWidth: 0
   options:
+#    maintainAspectRatio: false
     responsive: true
     elements:
       bar:
         backgroundColor: colorize(false)
         borderColor: colorize(true)
         borderWidth: 5
+#        minBarLength: 2
+#        barPercentage: 0.5
 #    indexAxis: 'y'
     animations:
       tension:
@@ -49,6 +53,7 @@ chart:
             weight: 'bold'
             lineHeight: 1.2
       x:
+        beginAtZero: true
         title:
           display: true
           text: 'Kontynenty'

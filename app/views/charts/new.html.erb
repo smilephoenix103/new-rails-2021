@@ -1,0 +1,6 @@
+<!--<h1>New Chart</h1>-->
+<h1><%= t('new_type_chart') %></h1>
+
+<%= render 'form', chart: @chart %>
+
+<%= link_to render('renders/button_back'), charts_path, class: "btn btn-secondary btn-sm" %>

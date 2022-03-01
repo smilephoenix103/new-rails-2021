@@ -4,6 +4,7 @@ chart:
     barPercentage: 10
     nimBarThickness: 8
     maxBarThickness: 20
+    minBarLength: 2
   options:
     plugins:
       subtitle:
@@ -23,10 +24,10 @@ chart:
         title:
           display: true
           text: 'Lata'
-#          color: '#911'
+          #          color: '#911'
           color: 'black'
           font:
-#            family: 'Comic Sans MS'
+            #            family: 'Comic Sans MS'
             size: 15
             weight: 'bold'
             lineHeight: 1.2

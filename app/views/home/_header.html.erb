@@ -101,7 +101,8 @@
               <button class="dropbtn dropdown-toggle"><%= t 'menu.set.set' %></button>
                 <div class="dropdown-content">
                   <%= link_to t('menu.set.reports'), reports_path, class:"nav-link" %>  
-                  <%= link_to (render 'renders/icon_chart') + t('menu.set.chart'), reports_chart_path, class:"nav-link" %>              
+                  <%= link_to (render 'renders/icon_chart') + t('menu.set.chart'), reports_chart_path, class:"nav-link" %>
+                  <%= link_to (render 'renders/icon_chart') + t('menu.set.set_chart'), charts_path, class:"nav-link" %>
                   <hr class="my-1">
                   <%= link_to t('menu.set.pattern'), patterns_path, class:"nav-link" %>
                   <%= link_to t('menu.set.bought'), boughts_path, class:"nav-link" %>

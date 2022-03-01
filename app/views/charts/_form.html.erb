@@ -1,0 +1,27 @@
+<%= form_with(model: chart) do |form| %>
+  <% if chart.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(chart.errors.count, "error") %> prohibited this chart from being saved:</h2>
+
+      <ul>
+        <% chart.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+    <div class="col-4 field">
+      <%= form.label :name %>
+      <%= form.text_field :name, class:"form-control form-control-sm"  %>
+      <% chart.errors.full_messages_for(:name).each do |message| %>
+        <div  class="alert alert-danger" role="alert"><%= message %></div>
+      <% end %>
+    </div>
+    <div class="col-4 field">
+      <%= form.label :description %>
+      <%= form.text_area :description, class:"form-control form-control-sm"  %>
+    </div>
+  <div class="actions">
+    <%= form.submit class:"btn btn-primary btn-sm" %>
+  </div>
+<% end %>

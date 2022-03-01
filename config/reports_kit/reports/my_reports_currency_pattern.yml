@@ -5,3 +5,57 @@ dimensions:
   # - key: updated_at
   #   granularity: day
 # order: dimension1.label asc
+chart:
+  datasets:
+    backgroundColor: ['rgb(39, 122, 205)', 'rgb(243, 248, 98)', 'rgb(0, 0, 0)']
+    borderWidth: 0
+#    barPercentage: 10
+#    nimBarThickness: 8
+#    maxBarThickness: 20
+  options:
+    plugins:
+      subtitle:
+        display: true,
+        text: 'Ilość walut'
+        font:
+          family: 'Comic Sans MS'
+          size: 20
+          weight: 'bold'
+          lineHeight: 1.2
+#      legend:
+#        position: left
+    scales:
+      x:
+        ticks:
+          color: 'red'
+        title:
+          display: true
+          text: 'Rodzaje Kolekcji'
+          #          color: '#911'
+          color: 'black'
+          font:
+            #            family: 'Comic Sans MS'
+            size: 15
+            weight: 'bold'
+            lineHeight: 1.2
+        scaleLabel:
+          display: true
+          labelString: Creation date
+        stacked: true
+      y:
+        beginAtZero: true
+        ticks:
+          color: 'green'
+        title:
+          display: true
+          text: 'Ilość Walut'
+          color: '#200'
+          font:
+#            family: 'Comic Sans MS'
+            size: 20
+            weight: 'bold'
+            lineHeight: 1.2
+        scaleLabel:
+          display: true
+          labelString: Note
+        stacked: true

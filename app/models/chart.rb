@@ -1,5 +1,8 @@
 class Chart < ApplicationRecord
-	def to_s
-		name.to_s
-	end
+
+  validates :name, presence: true
+
+  def to_s
+    name.to_s
+  end
 end

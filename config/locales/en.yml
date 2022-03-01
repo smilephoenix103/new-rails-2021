@@ -62,6 +62,7 @@ en:
       set: "Sets"
       reports: "Reports"
       chart: "Chart"
+      set_chart: "Set Chart"
       pattern: "Pattern"
       bought: "Bought"
       signature_cod: "Signature Cod"
@@ -91,6 +92,9 @@ en:
       setting:
         create: "Add New Setting"
         update: "Update Setting"
+      chart:
+        create: "Add new Type Chart"
+        update: "Update type chart"
   activerecord:
     attributes:
       country:
@@ -193,6 +197,9 @@ en:
         name: "Name Setting"
         value: "Value"
         description: "Description"
+      chart:
+        name: "Name Chart"
+        description: "Description"
     errors:
       models:
         note:
@@ -238,6 +245,10 @@ en:
           attributes:
             signature_cod:
               not_a_number: " - Is not a number"
+        chart:
+          attributes:
+            name:
+              blank: " Can't be blanck!"
   tables:
     country:
       headers:
@@ -315,6 +326,10 @@ en:
   signature_codes: "Signature Codes"
   description_of_signature: "Description Of Signature Codes"
 
+#*****************CHART***********************
+  new_type_chart: "New Type Chart"
+  edit_type_chart: "Edit Type Chart"
+  type_charts: "Type Charts"
 
 #  ***************ORDRE**********************
 
