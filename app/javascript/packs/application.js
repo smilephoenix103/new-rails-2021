@@ -55,6 +55,8 @@ document.addEventListener('turbolinks:load', () => {
                 // var options = chartData.options;
                  console.log("-----------------------------------------------");
                  console.log(data);
+                 console.log(data.data.chart_data.labels.length);
+                 console.log(data.data.chart_data.datasets[0].backgroundColor);
                  console.log("===============================================");
                  console.log(chartData);
                  console.log("===============================================");
