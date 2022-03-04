@@ -1,5 +1,13 @@
 data_method: MyDataMethodsView.Note_date_buy
 chart:
+  datasets:
+    #    barPercentage: 2
+    #    nimBarThickness: 8
+    #    maxBarThickness: 20
+    #    hoverBorderRadius: 1
+    #    categoryPercentage: 1
+    #    barThickness: 100
+    minBarLength: 5
   options:
     plugins:
       subtitle:
