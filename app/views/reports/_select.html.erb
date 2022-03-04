@@ -6,20 +6,25 @@
   <div id="lang" data-chart="<%= @extract_locale %>">
     <%= form_with url: "/" + @extract_locale + "/reports/chart", method: :get do |form| %>
       <div class="row align-items-start" >
-        <div class="field col" id="typeChart" style="float: left" data-chart="<%= @dataChart %>">
-          <%= form.label :chart_name %>
-          <%= form.select :chart_name, Chart.all.map { |p| [p, p.name]}, {:include => "Select"}, class:"form-control_sm" %>
+        <div id="typeChart" style="float: left; font-size: 12px; min-width: 140px" data-chart="<%= @dataChart %>">
+          <%= form.label :chart_name %><br>
+          <%= form.select :chart_name, Chart.all.map { |p| [p, p.name]}, {:include => "Select"}, class:"form-control-sm", style:"font-size: 12px" %>
         </div>
 
-        <div class="field col" id="typeReport" style="float: left" data-chart="<%= @dataReport %>">
-          <%= form.label :report_name %>
-          <%= form.select :report_name, Report.all.map { |p| [p.name, p.report]}, {:include_blank => "Select"}, class:"form-control-sm" %>
+        <div id="typeReport" style="float: left; font-size: 12px; min-width: 280px" data-chart="<%= @dataReport %>">
+          <%= form.label :report_name %><br>
+          <%= form.select :report_name, Report.all.map { |p| [p.name, p.report]}, {:include_blank => "Select"}, class:"form-control-sm", style:"font-size: 12px"  %>
         </div>
 
         <div>
+          <%= form.submit "Select", class:'btn btn-primary btn-sm' %>
+        </div>
+        <div>
           <% form.select :extract_locale, {:value => @extract_locale} %>
         </div>
-        <%= form.submit "Select", class:'btn btn-primary btn-sm' %>
+
+
+
       </div>
     <% end %>
   </div>
