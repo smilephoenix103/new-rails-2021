@@ -1,9 +1,9 @@
 data_method: MyDataMethodsView.Note_data_add_to_database
 chart:
   datasets:
-    barPercentage: 10
-    nimBarThickness: 8
-    maxBarThickness: 20
+#    barPercentage: 10
+    nimBarThickness: 4
+#    maxBarThickness: 8
     minBarLength: 2
   options:
     plugins:
@@ -15,8 +15,8 @@ chart:
           size: 20
           weight: 'bold'
           lineHeight: 1.2
-      legend:
-        position: left
+#      legend:
+#        position: left
     scales:
       x:
         ticks:
