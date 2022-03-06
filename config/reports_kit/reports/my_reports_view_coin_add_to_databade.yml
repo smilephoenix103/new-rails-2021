@@ -4,7 +4,7 @@ chart:
     plugins:
       subtitle:
         display: true,
-        text: 'Data Dodania monet do bazy'
+        text: 'Data Dodania Monet Do Bazy'
         font:
           family: 'Comic Sans MS'
           size: 20
