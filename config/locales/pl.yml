@@ -61,6 +61,9 @@ pl:
       setting:
         create: "Dodaj Nowe Ustawienia"
         update: "Edytuj Ustawienia"
+      report:
+        create: "Dodaj Raport"
+        update: "Aktualizuj Raport"
       chart:
         create: "Dodaj nowy rodzaj wykresu"
         update: "Edytuj Rodzaj wykresu"
@@ -165,6 +168,11 @@ pl:
         web: "Strona"
         name: "Nazwa Ustawień"
         value: "Wartość"
+        description: "Opis"
+      report:
+        report: "Raport"
+        string: "String"
+        name: "Nazwa Raportu"
         description: "Opis"
       chart:
         name: "Nazwa Wykresu"

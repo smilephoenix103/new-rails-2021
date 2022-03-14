@@ -1,24 +1,32 @@
-<p id="notice"><%= notice %></p>
+<!--<p id="notice"><%#= notice %></p>-->
 
-<p>
-  <strong>Report:</strong>
-  <%= @report.report %>
-</p>
+<div class="jumbotron jumbotron-fluid pb-1">
+  <div class="container">
+    <p>
+      <strong>Report:</strong><br/>
+      <%= @report.report %>
+    </p>
 
-<p>
-  <strong>String:</strong>
-  <%= @report.string %>
-</p>
+    <!--<p>-->
+    <!--  <strong>String:</strong>-->
+    <%#= @report.string %>
+    <!--</p>-->
 
-<p>
-  <strong>Name:</strong>
-  <%= @report.name %>
-</p>
+    <p>
+      <strong>Name:</strong><br/>
+      <%= @report.name %>
+    </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @report.description %>
-</p>
+    <p>
+      <strong>Description:</strong><br/>
+      <%= @report.description %>
+  </div>
+  <div>
+    <%= link_to render('renders/button_edit'), edit_report_path(@report), class: "btn btn-primary btn-sm" %>
+    <%= link_to render('renders/button_back'), reports_path, class: "btn btn-secondary btn-sm" %>
+  </div>
+</div>
 
-<%= link_to 'Edit', edit_report_path(@report) %> |
-<%= link_to 'Back', reports_path %>
+
+
+

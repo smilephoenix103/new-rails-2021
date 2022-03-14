@@ -11,27 +11,27 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :report %>
-    <%= form.text_field :report %>
-  </div>
+    <div class="col-4 field">
+      <%= form.label :report %>
+      <%= form.text_field :report, class:"form-control form-control-sm"  %>
+    </div>
 
-  <div class="field">
-    <%= form.label :string %>
-    <%= form.text_field :string %>
-  </div>
+    <div class="col-4 field">
+      <%= form.label :string %>
+      <%= form.text_field :string, class:"form-control form-control-sm"  %>
+    </div>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+    <div class="col-4 field">
+      <%= form.label :name %>
+      <%= form.text_field :name, class:"form-control form-control-sm"  %>
+    </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
+    <div class="col-4 field">
+      <%= form.label :description %>
+      <%= form.text_area :description, class:"form-control form-control-sm" %>
+    </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class:"btn btn-primary btn-sm" %>
   </div>
 <% end %>

@@ -92,6 +92,9 @@ en:
       setting:
         create: "Add New Setting"
         update: "Update Setting"
+      report:
+        create: "Add New Report"
+        update: "Update Report"
       chart:
         create: "Add new Type Chart"
         update: "Update type chart"
@@ -196,6 +199,11 @@ en:
         web: "Web"
         name: "Name Setting"
         value: "Value"
+        description: "Description"
+      report:
+        report: "Report"
+        string: "String"
+        name: "Name Report"
         description: "Description"
       chart:
         name: "Name Chart"
