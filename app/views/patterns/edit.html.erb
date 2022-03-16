@@ -2,5 +2,8 @@
 
 <%= render 'form', pattern: @pattern %>
 
-<%= link_to 'Show', @pattern, class:"btn btn-info" %> 
-<%= link_to 'Back', patterns_path, class:"btn btn-dark" %>
+<%= link_to render('renders/button_show'), @pattern, {class:"btn btn-info btn-sm", 'data-toggle' => "modal", 'data-target' => "#" + "P"+ @pattern.id.to_s} %>
+  <div class="modal fade" id=<%= "P" + @pattern.id.to_s %> data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <%= render 'show_modal', pattern: @pattern %>
+  </div>
+<%= link_to render('renders/button_back'), patterns_path, class:"btn btn-secondary btn-sm" %>

@@ -67,6 +67,9 @@ pl:
       chart:
         create: "Dodaj nowy rodzaj wykresu"
         update: "Edytuj Rodzaj wykresu"
+      pattern:
+        create: "Dodaj Nowy Rodzaj"
+        update: "Aktualizuj Rodzaj"
   activerecord:
     attributes:
       country:
@@ -176,6 +179,10 @@ pl:
         description: "Opis"
       chart:
         name: "Nazwa Wykresu"
+        description: "Opis"
+      pattern:
+        name_en: "Nazwa Angielska"
+        name_pl: "Nazwa Polska"
         description: "Opis"
     errors:
       models:

@@ -1,12 +1,19 @@
 <!--<p id="notice"><%#= notice %></p>-->
+<div class="jumbotron jumbotron-fluid pb-1">
+  <div class="container">
+    <p>
+      <strong>Name:</strong><br/>
+      <%= @chart.name %>
+      <br><br>
+      <strong>Description:</strong><br/>
+      <%= @chart.description %>
+    </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @chart.name %>
-<br>
-  <strong>Description:</strong>
-  <%= @chart.description %>
-</p>
+  </div>
+  <div>
+    <%= link_to (render 'renders/button_edit'), edit_chart_path(@chart), class: "btn btn-primary btn-sm" %>
+    <%= link_to (render 'renders/button_back'), charts_path, class: "btn btn-secondary btn-sm" %>
+  </div>
+</div>
 
-<%= link_to (render 'renders/button_edit'), edit_chart_path(@chart), class: "btn btn-primary btn-sm" %>
-<%= link_to (render 'renders/button_back'), charts_path, class: "btn btn-secondary btn-sm" %>
+

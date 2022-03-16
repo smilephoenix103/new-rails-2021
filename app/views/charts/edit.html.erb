@@ -2,5 +2,8 @@
 <h1><%= t('edit_type_chart') %></h1>
 <%= render 'form', chart: @chart %>
 
-<%= link_to render('renders/button_show'), @chart, class: "btn btn-info btn-sm" %>
+<%= link_to render('renders/button_show'), @chart, {class:"btn btn-info btn-sm", 'data-toggle' => "modal", 'data-target' => "#" + "Ch"+ @chart.id.to_s} %>
+  <div class="modal fade" id=<%= "Ch" + @chart.id.to_s %> data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <%= render 'show_modal', chart: @chart %>
+  </div>
 <%= link_to render('renders/button_back'), charts_path, class: "btn btn-secondary btn-sm" %>

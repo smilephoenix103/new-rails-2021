@@ -98,6 +98,9 @@ en:
       chart:
         create: "Add new Type Chart"
         update: "Update type chart"
+      pattern:
+        create: "Add New Pattern"
+        update: "Update Pattern"
   activerecord:
     attributes:
       country:
@@ -207,6 +210,10 @@ en:
         description: "Description"
       chart:
         name: "Name Chart"
+        description: "Description"
+      pattern:
+        name_en: "Name English"
+        name_pl: "Name Polish"
         description: "Description"
     errors:
       models:

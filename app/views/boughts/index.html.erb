@@ -19,11 +19,14 @@
       <tbody>
         <% @boughts.each do |bought| %>
           <tr style="font-size: 12px;">
-            <td style="font-weight: bold; font-size: 12px;"><%= bought.name %></td>
-            <td><%= bought.full_name %></td>
-            <td><%= bought.description %></td>
-            <td style="width: 70px;">
-              <%= link_to (render 'renders/button_show_small_icon'), bought, class:"btn btn-info btn-sm" %>
+            <td class="pt-1 pb-1" style="font-weight: bold; font-size: 12px;"><%= bought.name %></td>
+            <td class="pt-1 pb-1"><%= bought.full_name %></td>
+            <td class="pt-1 pb-1"><%= bought.description %></td>
+            <td class="pt-1 pb-1" style="width: 70px;">
+              <%= link_to (render 'renders/button_show_small_icon'), bought, {class:"btn btn-info btn-sm", 'data-toggle' => "modal", 'data-target' => "#" + "B"+ bought.id.to_s} %>
+              <div class="modal fade" id=<%= "B" + bought.id.to_s %> data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <%= render 'show_modal', bought: bought %>
+              </div>
               <%= link_to (render 'renders/button_edit_small_icon'), edit_bought_path(bought), {class:"btn btn-primary btn-sm", 'data-toggle' => "modal", 'data-target' => "#" + 'Bought' + bought.id.to_s} %>
               <div class="modal fade" id=<%= 'Bought' + bought.id.to_s %> data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true")>
                 <div class="modal-dialog">
@@ -40,13 +43,13 @@
                 
                     </div>
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal"><%= render ('renders/button_close') %></button>
                     </div>
                   </div>
                 </div>
               </div>
             </td>
-            <td>
+            <td class="pt-1 pb-1">
               <%= link_to (render 'renders/button_delete_small_icon'), bought, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger btn-sm", style:"float: right" %>
             </td>
           </tr>

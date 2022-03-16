@@ -1,33 +1,36 @@
 <div>
   <h1>Patterns</h1>
-  <%= link_to 'New Pattern', new_pattern_path, class:"btn btn-primary" %>
+  <%= link_to 'New Pattern', new_pattern_path, class:"btn btn-primary btn-sm" %>
 </div>
 <div>
   <table class="table table-striped table-bordered table-hover">
     <thead class="thead-dark">
       <tr>
-        <th>Id</th>
-        <th>Name en</th>
-        <th>Name pl</th>      
-        <th>Description</th>
-        <th ></th>
-        <th></th>
+        <th class="pt-1 pb-1">Id</th>
+        <th class="pt-1 pb-1"><%= t('activerecord.attributes.pattern.name_en') %></th>
+        <th class="pt-1 pb-1"><%= t('activerecord.attributes.pattern.name_pl') %></th>
+        <th class="pt-1 pb-1"><%= t('activerecord.attributes.pattern.description') %></th>
+        <th class="pt-1 pb-1" ></th>
+        <th class="pt-1 pb-1"></th>
       </tr>
     </thead>
 
     <tbody>
       <% @patterns.each do |pattern| %>
         <tr>
-          <th><%= pattern.id %></td>
-          <td><%= pattern.name_en %></td>
-          <td><%= pattern.name_pl %></td>        
-          <td><%= pattern.description %></td>
-          <td>
-            <%= link_to 'Show', pattern, class:"btn btn-info btn-sm"%>
-            <%= link_to 'Edit', edit_pattern_path(pattern), class:"btn btn-primary btn-sm" %>
+          <th class="pt-1 pb-1"><%= pattern.id %></td>
+          <td class="pt-1 pb-1"><%= pattern.name_en %></td>
+          <td class="pt-1 pb-1"><%= pattern.name_pl %></td>
+          <td class="pt-1 pb-1"><%= pattern.description %></td>
+          <td class="pt-1 pb-1">
+            <%= link_to render('renders/button_show_small_icon'), pattern, {class:"btn btn-info btn-sm", 'data-toggle' => "modal", 'data-target' => "#" + "P"+ pattern.id.to_s} %>
+            <div class="modal fade" id=<%= "P" + pattern.id.to_s %> data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+              <%= render 'show_modal', pattern: pattern %>
+            </div>
+            <%= link_to render('renders/button_edit_small_icon'), edit_pattern_path(pattern), class:"btn btn-primary btn-sm" %>
           </td>
-          <td>
-            <%= link_to 'Destroy', pattern, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger btn-sm", style:"float: right"  %>
+          <td class="pt-1 pb-1">
+            <%= link_to render('renders/button_delete_small_icon'), pattern, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger btn-sm", style:"float: right"  %>
           </td>
         </tr>
       <% end %>
