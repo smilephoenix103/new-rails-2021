@@ -10,11 +10,11 @@
   <table class="table table-sm table-striped table-bordered table-hover">
     <thead class="thead-dark">
       <tr>
-        <th><%= t('activerecord.attributes.signature.signature_cod') %></th>
-        <th><%= t('activerecord.attributes.signature.short_name') %></th>
-        <th><%= t('activerecord.attributes.signature.description') %></th>
+        <th class="pt-1 pb-1"><%= t('activerecord.attributes.signature.signature_cod') %></th>
+        <th class="pt-1 pb-1"><%= t('activerecord.attributes.signature.short_name') %></th>
+        <th class="pt-1 pb-1"><%= t('activerecord.attributes.signature.description') %></th>
         <% if user_signed_in? && current_user.role == 'admin' %>
-          <th colspan="3"></th>
+          <th class="pt-1 pb-1" colspan="3"></th>
         <% end %>
       </tr>
     </thead>
@@ -22,19 +22,22 @@
     <tbody>
       <% @signatures.each do |signature| %>
         <tr>
-          <td style="font-weight: bold; font-size: 14px;"><%= signature.signature_cod %></td>
-          <td><%= signature.short_name %></td>
-          <td><%= signature.description %></td>
+          <td class="pt-1 pb-1" style="font-weight: bold; font-size: 14px;"><%= signature.signature_cod %></td>
+          <td class="pt-1 pb-1"><%= signature.short_name %></td>
+          <td class="pt-1 pb-1"><%= signature.description %></td>
           <% if user_signed_in? && current_user.role == 'admin' %>
-            <td  style="width: 75px;">
-              <%= link_to (render 'renders/button_show_small_icon'), signature, class:"btn btn-info btn-sm" %>
+            <td class="pt-1 pb-1" style="width: 75px;">
+              <%= link_to (render 'renders/button_show_small_icon'), signature, {class:"btn btn-info btn-sm", 'data-toggle' => "modal", 'data-target' => "#" + "S"+ signature.id.to_s} %>
+              <div class="modal fade" id=<%= "S" + signature.id.to_s %> data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <%= render 'show_modal', signature: signature %>
+              </div>
               <%= link_to (render 'renders/button_edit_small_icon'), edit_signature_path(signature),  {class:"btn btn-primary btn-sm", 'data-toggle' => "modal", 'data-target' => "#" + 'signature' + signature.id.to_s} %>
               <div class="modal fade" id=<%= 'signature' + signature.id.to_s %> data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true")>
                 <% @header_edit = t('helpers.submit.signature.update') %>
                 <%= render 'modal_signature', signature: signature%>
               </div>
             </td>
-            <td><%= link_to (render 'renders/button_delete_small_icon'), signature, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger btn-sm" %></td>
+            <td class="pt-1 pb-1"><%= link_to (render 'renders/button_delete_small_icon'), signature, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger btn-sm" %></td>
           <% end %>
         </tr>
       <% end %>
