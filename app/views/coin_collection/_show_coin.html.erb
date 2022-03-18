@@ -1,107 +1,111 @@
 <% if  defined?(coin) %>
   <%@coin = coin %>
 <% end %>
-<span>
-    <strong>Currency Id:
-      <%= @coin.currency.currency_series %>
-    </strong>
-  </span>
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+    <div class="col">
+      <strong>Currency Series: </strong> <%= @coin.currency.currency_series %><br/>
+      <strong>Coin Id: </strong><%= @coin.id %>
+    </div>
+    <div class="col">
+      <%= render 'renders/data_ad', dateAdMod: @coin %>
+    </div>
+  </div>
   <h1 class="display-4" id="notice"></h1>
   <div class="container">
-  <%= render 'renders/data_ad', dateAdMod: @coin %>
+
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4", style="font-size: small;">
     <% if user_signed_in? && current_user.role == 'admin' %>
-      <div class="col">
+      <div class="col p-0">
         <strong>Data zakupu:</strong>
         <%= @coin.date_buy %>
       </div>  
-      <div class="col">
+      <div class="col p-0">
         <strong>Miejsce zakupu:</strong>
         <%= @coin.bought %>
       </div>
-      <div class="col">
+      <div class="col p-0">
         <strong>cena zakupu:</strong>
         <%= @coin.price_buy.to_s + "zł" %>
       </div>
       
-      <div class="col">
+      <div class="col p-0">
         <strong>Cena:</strong>
         <%= @coin.price_sell.to_s + "zł" %>
       </div>         
     <% end %>
-      <div class="col">
+      <div class="col p-0">
         <strong>Nominał:</strong>
         <%= number_with_delimiter(@coin.denomination, delimiter: " ") %>
       </div>
-      <div class="col">
+      <div class="col p-0">
         <strong>Nazwa waluty:</strong>
         <%= @coin.name_currency %>
       </div>
-      <div class="col">
+      <div class="col p-0">
         <strong>Data:</strong>
         <%= @coin.coin_date %>
       </div>
-      <div class="col">
+      <div class="col p-0">
         <strong>SERIA:</strong>
         <%= @coin.series %>
       </div>
-      <div class="col">
+      <div class="col p-0">
         <strong>Signature code:</strong>
         <%= @coin.signature_code %>
       </div>
     
       
-      <div class="col">
+      <div class="col p-0">
         <strong>Ilość:</strong>
         <%= @coin.quantity %> <%= @coin.unit_quantity %>
       </div>
-      <div class="col">
+      <div class="col p-0">
         <strong>Stan banknotu:</strong>
         <%= @coin.quality %>
       </div>
-      <div class="col">
+      <div class="col p-0">
         <strong>Materiał:</strong>
         <%= @coin.composition %>
       </div>
 
       <% if (@coin.diameter != nil) %>
-        <div class="col">
+        <div class="col p-0">
           <strong>Diameter:</strong>
           <%= @coin.diameter.to_s + " mm" %>
         </div>
       <% end %>
       
       <% if (@coin.thickness != nil) %>
-        <div class="col">
+        <div class="col p-0">
           <strong>Thickness:</strong>
           <%= @coin.thickness.to_s + " mm" %>
         </div>
       <% end %>
 
       <% if (@coin.weight != nil) %>
-        <div class="col">
+        <div class="col p-0">
           <strong>Weight:</strong>
           <%= @coin.weight.to_s + " gr" %>
         </div>
       <% end %>
 
-      <div class="col">
+      <div class="col p-0">
         <strong>typ obrazka:</strong>
         <%= @coin.img_type %> 
       </div>
-      <div class="col">
+      <div class="col p-0">
         <strong>Status:</strong>
         <%= @coin.status %>
       </div>
       <% if (@coin.status_sell != "") %>
         <% if user_signed_in? && current_user.role == 'admin' %>
-          <div class="col">
+          <div class="col p-0">
               <strong>Status sprzedaży:</strong>
               <%= @coin.status_sell %>
           </div>
         <% end %>
       <% end %>
-      <div class="col" style="background: orange">
+      <div class="col p-0" style="background: orange">
         <% if user_signed_in? && current_user.role == 'admin' %>
           <strong >Visible: </strong><%= @coin.visible %>
         <% end %>
