@@ -109,6 +109,13 @@ Rails.application.routes.draw do
     resources :orders
     resources :settings
 
+    resources :order_items
+    resources :orders do
+      resources :order_items
+    end
+
+    get 'order_items/:id_item/item_pattern/:pattern', to: 'order_items#new', as: 'order_item_pattern'
+
     # get 'goldapi/index'
     resources :goldapi, only: [:index]
 

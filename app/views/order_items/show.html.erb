@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Order:</strong>
+  <%= @order_item.order_id %>
+</p>
+
+<p>
+  <strong>Pattern:</strong>
+  <%= @order_item.pattern %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @order_item.quantity %>
+</p>
+
+<p>
+  <strong>Unit quantity:</strong>
+  <%= @order_item.unit_quantity %>
+</p>
+
+<p>
+  <strong>Final price:</strong>
+  <%= @order_item.final_price %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @order_item.description %>
+</p>
+
+<p>
+  <strong>Note:</strong>
+  <%= @order_item.note_id %>
+</p>
+
+<p>
+  <strong>Coin:</strong>
+  <%= @order_item.coin_id %>
+</p>
+
+<p>
+  <strong>Bond:</strong>
+  <%= @order_item.bond_id %>
+</p>
+
+<%= link_to 'Edit', edit_order_item_path(@order_item) %> |
+<%= link_to 'Back', order_items_path %>
