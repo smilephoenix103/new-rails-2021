@@ -36,10 +36,18 @@ class OrderItemsController < ApplicationController
     @order_item.order_id = $order[0].id.inspect
     if (params[:pattern] == "NOTE")
       @order_item.note_id = params[:id_item]
+      @note = Note.find(params[:id_item])
+      @order_item.quantity = 1
+      @order_item.unit_quantity = @note.unit_quantity
+      @order_item.final_price = @note.price_sell
       # @order_item.coin_id = 0
       # @order_item.bond_id = 0
     elsif (params[:pattern] == "COIN")
       @order_item.coin_id = params[:id_item]
+      @coin = Coin.find(params[:id_item])
+      @order_item.quantity = 1
+      @order_item.unit_quantity = @coin.unit_quantity
+      @order_item.final_price = @coin.price_sell
       # @order_item.bond_id = 0
       # @order_item.note_id = 0
     elsif (params[:pattern] == "BOND")
@@ -51,6 +59,17 @@ class OrderItemsController < ApplicationController
 
   # GET /order_items/1/edit
   def edit
+  end
+
+  def for_sell
+    puts "--------------------------FOR SELL--------------------------------------"
+    puts "Test FOR SELL"
+    puts "__________________________END__________________________________________"
+    @notes = Note.where(:status => "FOR SELL")
+    @note_for_sell_list = @notes.sort_by {|note| [note.currency.country.country_en, note.denomination ] }
+
+    @coins = Coin.where(:status => "FOR SELL")
+    @coin_for_sell_list = @coins.sort_by {|coin| [coin.currency.country.country_en, coin.denomination]}
   end
 
   # POST /order_items or /order_items.json
@@ -86,7 +105,8 @@ class OrderItemsController < ApplicationController
     @order_item.destroy
 
     respond_to do |format|
-      format.html { redirect_to order_items_url, notice: "Order item was successfully destroyed." }
+      # format.html { redirect_to order_items_url, notice: "Order item was successfully destroyed." }
+      format.html { redirect_to order_order_items_path(@order_item.order_id), notice: "Order item was successfully destroyed." }
       format.json { head :no_content }
     end
   end

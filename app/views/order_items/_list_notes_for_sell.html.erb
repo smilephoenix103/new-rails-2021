@@ -1,0 +1,56 @@
+<div style="text-align:center">
+  <h1><%= t('list_banknotes_for_sale') %></h1>
+</div>
+<table class="table table-striped table-bordered table-hover table-sm table-fs">
+  <thead class="thead-dark">
+  <tr>
+    <th>Lp.</th>
+    <th><%= t('country') %></th>
+    <th><%= t('note') %></th>
+    <th><%= t('year') %></th>
+    <th><%= t('activerecord.attributes.note.making') %></th>
+    <th><%= t('activerecord.attributes.note.quality') %></th>
+    <th style="text-align: right"><%= t('activerecord.attributes.note.quantity') %></th>
+    <th style="text-align: right"><%= t('activerecord.attributes.note.price_buy') %></th>
+    <th style="text-align: right"><%= t('price') %></th>
+    <% if user_signed_in? && current_user.role == 'admin' %>
+      <th></th>
+    <% end %>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @note_for_sell_list.each_with_index do |note, count| %>
+    <tr>
+      <td style="text-align: right"><%= count+1 %></td>
+      <td><%= note.currency.country.country_en %> </td>
+      <td><%= number_to_currency(note.denomination.to_s, unit: "", separator: ".", delimiter: " ", strip_insignificant_zeros: true) + " " + note.name_currency %></td>
+      <td><%= note.note_date %></td>
+      <td><%= note.making %></td>
+      <td><%= note.quality %></td>
+      <td style="text-align:right"><%= note.quantity %> szt</td>
+      <td class="price buy">
+        <% if( note.quantity > 1) %>
+          <%= number_to_currency(note.price_buy, unit:"zł/szt", precision: 2, format: "%n %u") %>
+        <% else %>
+          <%= number_to_currency(note.price_buy, unit:"zł", precision: 2, format: "%n %u") %>
+        <% end %>
+      </td>
+      <td class="price sell">
+        <% if( note.quantity > 1) %>
+          <%= number_to_currency(note.price_sell, unit:"zł/szt", precision: 2, format: "%n %u") %>
+        <% else %>
+          <%= number_to_currency(note.price_sell, unit:"zł", precision: 2, format: "%n %u") %>
+        <% end %>
+      </td>
+      <% if user_signed_in? && current_user.role == 'admin' %>
+        <td>
+          <%= link_to (render 'renders/button_edit_small_icon'), edit_note_path(note), class:"btn btn-primary btn-sm btn-vsm" %>
+          <%= link_to (render 'renders/button_show_small_icon'), note_path(note), class:"btn btn-info btn-sm btn-vsm" %>
+          <%= link_to (render 'renders/plus-square-fill'), order_item_pattern_path(note ,note.currency.pattern) %>
+        </td>
+      <% end %>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

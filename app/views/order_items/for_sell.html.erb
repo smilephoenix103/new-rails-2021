@@ -1,0 +1,26 @@
+<ul class="nav nav-tabs" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" data-toggle="tab" href="#note" role="tab">Notes</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#coin" role="tab">Coins</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#messages" role="tab">Messages</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#settings" role="tab">Settings</a>
+  </li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+  <div class="tab-pane active shadow" id="note" role="tabpanel">
+    <%= render('list_notes_for_sell') %>
+  </div>
+  <div class="tab-pane shadow" id="coin" role="tabpanel">
+    <%= render('list_coins_for_sell') %>
+  </div>
+  <div class="tab-pane" id="messages" role="tabpanel">pane 3</div>
+  <div class="tab-pane" id="settings" role="tabpanel">pane 4</div>
+</div>

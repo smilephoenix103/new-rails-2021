@@ -1,11 +1,14 @@
-<p id="notice"><%= notice %></p>
+<!--<p id="notice"><%#= notice %></p>-->
 
 <h1>Order Items</h1>
+<%= link_to 'New Order Item', order_items_for_sell_path, class: "btn btn-primary btn-sm" %>
+
 
 <table class="table table-striped table-bordered table-hover">
   <thead class="thead-dark" style="font-size: 14px">
     <tr>
       <th>Order</th>
+      <th>Country</th>
       <th>Pattern</th>
       <th>Quantity</th>
       <th>Unit quantity</th>
@@ -21,7 +24,15 @@
   <tbody>
     <% @order_items.each do |order_item| %>
       <tr>
-        <td><%= order_item.order_id %></td>
+<!--        <td><%#= order_item.order_id %></td>-->
+        <td><%= order_item.order.order_number %></td>
+        <td>
+          <% if order_item.pattern == "NOTE" %>
+            <%= order_item.note.currency.country.country_en %>
+          <% elsif order_item.pattern == "COIN" %>
+            <%= order_item.coin.currency.country.country_en %>
+        <% end %>
+        </td>
         <td><%= order_item.pattern %></td>
         <td><%= order_item.quantity %></td>
         <td><%= order_item.unit_quantity %></td>
@@ -40,4 +51,4 @@
 
 <br>
 
-<%= link_to 'New Order Item', new_order_item_path %>
+<%#= link_to 'New Order Item', new_order_item_path %>

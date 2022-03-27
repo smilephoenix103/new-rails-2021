@@ -115,6 +115,7 @@ Rails.application.routes.draw do
     end
 
     get 'order_items/:id_item/item_pattern/:pattern', to: 'order_items#new', as: 'order_item_pattern'
+    get 'order_items_for_sell', to: 'order_items#for_sell'
 
     # get 'goldapi/index'
     resources :goldapi, only: [:index]
