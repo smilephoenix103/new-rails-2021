@@ -6,44 +6,59 @@
 
 <table class="table table-striped table-bordered table-hover">
   <thead class="thead-dark" style="font-size: 14px">
-    <tr>
-      <th>Order</th>
-      <th>Country</th>
-      <th>Pattern</th>
-      <th>Quantity</th>
-      <th>Unit quantity</th>
-      <th>Final price</th>
-      <th>Description</th>
-      <th>Note</th>
-      <th>Coin</th>
-      <th>Bond</th>
-      <th colspan="3"></th>
+    <tr style="font-size: 12px">
+      <th class="p-1 m-1">Order</th>
+      <th class="p-1 m-1">Country</th>
+      <th class="p-1 m-1">Currency</th>
+      <th class="p-1 m-1">Pattern</th>
+      <th class="p-1 m-1">Quantity</th>
+      <th class="p-1 m-1">Unit quantity</th>
+      <th class="p-1 m-1">Final price</th>
+      <th class="p-1 m-1">Total</th>
+      <th class="p-1 m-1">Description</th>
+      <th class="p-1 m-1">Note</th>
+      <th class="p-1 m-1">Coin</th>
+      <th class="p-1 m-1" >Bond</th>
+      <th class="p-1 m-1" colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @order_items.each do |order_item| %>
-      <tr>
-<!--        <td><%#= order_item.order_id %></td>-->
-        <td><%= order_item.order.order_number %></td>
-        <td>
+      <tr style="font-size: 12px">
+<!--        <td class = "p-1 m-1"><%#= order_item.order_id %></td>-->
+        <td class = "p-1 m-1" ><%= order_item.order.order_number %></td>
+
           <% if order_item.pattern == "NOTE" %>
-            <%= order_item.note.currency.country.country_en %>
-          <% elsif order_item.pattern == "COIN" %>
-            <%= order_item.coin.currency.country.country_en %>
-        <% end %>
-        </td>
-        <td><%= order_item.pattern %></td>
-        <td><%= order_item.quantity %></td>
-        <td><%= order_item.unit_quantity %></td>
-        <td><%= order_item.final_price %></td>
-        <td><%= order_item.description %></td>
-        <td><%= order_item.note_id %></td>
-        <td><%= order_item.coin_id %></td>
-        <td><%= order_item.bond_id %></td>
-        <td><%= link_to 'Show', order_item %></td>
-        <td><%= link_to 'Edit', edit_order_item_path(order_item) %></td>
-        <td><%= link_to 'Destroy', order_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td class = "p-1 m-1">
+              <%= order_item.note.currency.country.country_en %>
+            </td>
+            <td class = "p-1 m-1">
+              <%= order_item.note.denomination %>
+              <%= order_item.note.name_currency %>
+            </td>
+            <% elsif order_item.pattern == "COIN" %>
+            <td class = "p-1 m-1">
+              <%= order_item.coin.currency.country.country_en %>
+            </td>
+            <td class = "p-1 m-1">
+              <%= order_item.coin.denomination %>
+              <%= order_item.coin.name_currency %>
+            </td>
+          <% end %>
+
+        <td class = "p-1 m-1"><%= order_item.pattern %></td>
+        <td class = "p-1 m-1"><%= order_item.quantity %></td>
+        <td class = "p-1 m-1"><%= order_item.unit_quantity %></td>
+        <td class = "p-1 m-1"><%= order_item.final_price %></td>
+        <td class = "p-1 m-1" style="text-align: right"><%= order_item.quantity  * order_item.final_price  %></td>
+        <td class = "p-1 m-1"><%= order_item.description %></td>
+        <td class = "p-1 m-1"><%= order_item.note_id %></td>
+        <td class = "p-1 m-1"><%= order_item.coin_id %></td>
+        <td class = "p-1 m-1"><%= order_item.bond_id %></td>
+        <td class = "p-1 m-1"><%= link_to 'Show', order_item %></td>
+        <td class = "p-1 m-1"><%= link_to 'Edit', edit_order_item_path(order_item) %></td>
+        <td class = "p-1 m-1"><%= link_to 'Destroy', order_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
