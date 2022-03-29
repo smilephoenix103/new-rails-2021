@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_28_192151) do
+ActiveRecord::Schema.define(version: 2022_03_29_105542) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "btree_gin"
@@ -59,6 +59,8 @@ ActiveRecord::Schema.define(version: 2022_02_28_192151) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "visible"
+    t.string "unit_quantity"
+    t.string "unit_currency"
     t.index ["currency_id"], name: "index_bonds_on_currency_id"
   end
 
@@ -195,6 +197,24 @@ ActiveRecord::Schema.define(version: 2022_02_28_192151) do
     t.index ["currency_id"], name: "index_notes_on_currency_id"
   end
 
+  create_table "order_items", force: :cascade do |t|
+    t.bigint "order_id", null: false
+    t.string "pattern"
+    t.integer "quantity"
+    t.string "unit_quantity"
+    t.float "final_price"
+    t.text "description"
+    t.bigint "note_id"
+    t.bigint "coin_id"
+    t.bigint "bond_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["bond_id"], name: "index_order_items_on_bond_id"
+    t.index ["coin_id"], name: "index_order_items_on_coin_id"
+    t.index ["note_id"], name: "index_order_items_on_note_id"
+    t.index ["order_id"], name: "index_order_items_on_order_id"
+  end
+
   create_table "orders", force: :cascade do |t|
     t.bigint "customer_id", null: false
     t.string "order_number"
@@ -265,5 +285,9 @@ ActiveRecord::Schema.define(version: 2022_02_28_192151) do
   add_foreign_key "currencies", "countries", name: "currencies_country_id_fkey"
   add_foreign_key "notes", "currencies"
   add_foreign_key "notes", "currencies", name: "notes_currency_id_fkey"
+  add_foreign_key "order_items", "bonds"
+  add_foreign_key "order_items", "coins"
+  add_foreign_key "order_items", "notes"
+  add_foreign_key "order_items", "orders"
   add_foreign_key "orders", "customers"
 end

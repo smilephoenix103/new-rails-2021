@@ -4,11 +4,11 @@
     </div>
     <div class="col-md-8">
       <%= render 'renders/show_flag_country' %>
-    </div>			
+    </div>
     <div class="col-md-2">
     </div>
   </div>
-  <p> 
+  <p>
     <strong>Id:</strong>
     <%= @bond.currency_id %>
   </p>
@@ -16,67 +16,68 @@
   <div class="container">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4" style="font-size: small;">
     <% if user_signed_in? && current_user.role == 'admin' %>
-      <div class="col">
+      <div class="col p-0">
         <strong>Data zakupu:</strong>
         <%= @bond.date_buy %>
-      </div>  
-      <div class="col">
+      </div>
+      <div class="col p-0">
         <strong>Miejsce zakupu:</strong>
         <%= @bond.bought %>
       </div>
-      <div class="col">
+      <div class="col p-0">
         <strong>cena zakupu:</strong>
         <%= number_to_currency(@bond.price_buy, unit:"zł", precision: 2, format: "%n %u") %>
       </div>
-      
+
       <% if @bond.price_sell.to_s != "" %>
-        <div class="col">
+        <div class="col p-0">
           <strong>Cena:</strong>
           <%= number_to_currency(@bond.price_sell, unit:"zł", precision: 2, format: "%n %u") %>
-        </div> 
-      <% end %>        
+        </div>
+      <% end %>
     <% end %>
-      <div class="col">
+      <div class="col p-0">
         <strong>Nominał:</strong>
         <%= number_to_currency(@bond.denomination , delimiter: " ", unit:"", precision: 2, format: "%n %u") %>
       </div>
-      <div class="col">
+      <div class="col p-0">
         <strong>Nazwa waluty:</strong>
         <%= @bond.name_currency %>
       </div>
-      <div class="col">
+      <div class="col p-0">
         <strong>Data:</strong>
         <%= @bond.bond_date %>
       </div>
-      <div class="col">
+      <div class="col p-0">
         <strong>SERIA:</strong>
         <%= @bond.series %>
       </div>
-      <div class="col">
+      <div class="col p-0">
         <strong>Signature code:</strong>
         <%= @bond.signature_code %>
       </div>
-    
-      
-      <div class="col">
+
+
+      <div class="col p-0">
         <strong>Ilość:</strong>
         <%= @bond.quantity %>
+        <%= @bond.unit_quantity %>
       </div>
-      <div class="col">
+      <div class="col p-0">
         <strong>Stan monety:</strong>
         <%= @bond.quality %>
       </div>
-  
-      <div class="col">
+
+      <div class="col p-0">
         <strong>typ obrazka:</strong>
-        <%= @bond.img_type %> 
+        <%= @bond.img_type %>
       </div>
-      <div class="col">
+      <div class="col p-0">
         <strong>Status:</strong>
         <%= @bond.status %>
       </div>
       <% if @bond.status_sell != "" %>
-        <div class="col">
+        <div class="col p-0">
           <strong>Status sprzedaży:</strong>
           <%= @bond.status_sell %>
         </div>

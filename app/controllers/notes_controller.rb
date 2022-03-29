@@ -238,7 +238,7 @@ class NotesController < ApplicationController
     def note_params
       params.require(:note).permit(:currency_id, :denomination, :name_currency, :note_date, :signature_code, :price_buy, :price_sell, 
                                    :quantity, :quality, :status, :description, :img_type, :avers_path, :reverse_path, :series, :making, 
-                                   :date_buy_note, :bought, :status_sell, :note_width, :note_height, :unit_quantity, :visible)
+                                   :date_buy_note, :bought, :status_sell, :note_width, :note_height, :unit_quantity, :unit_currency, :visible)
     end
 
     def set_role

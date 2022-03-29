@@ -12,12 +12,10 @@
   <% end %>
 
 <div class="col field">
-  <%
-=begin%>
- <%= form.label :currency_id %>
-  <%= form.text_field :currency_id, value:@bond.currency_id %> 
-<%
-=end%>
+
+ <%#= form.label :currency_id %>
+  <%#= form.text_field :currency_id, value:@bond.currency_id %>
+
     <%= form.label "Okres Wystepowania" %>
     <% form.text_field :currency_id, class:"form-control form-control-sm" %>
     <%= form.select :currency_id, @currencies.all.map { |b| [b.currency_series, b.id]}, {:include => ""}, class:"form-control  form-control-sm" %>
@@ -25,17 +23,19 @@
 
 <div class="container">
   <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
-    <div class="col field">
+    <div class="col-4 field">
       <%= form.label :Data_zakupu %><br/>
        <%= form.date_select :date_buy, class:"form-control form-control-sm" %>
     </div>
-    <div class="col col-lg-5 field">
+    <div class="col field">
       <div style="float:left">
         <%= form.label :Miejsce_zakupu %>
         <% form.text_field :bought, class:"form-control form-control-sm" %>
         <%= form.select :bought, Bought.all.map { |b| [b.name, b.name]}, {:include_blank => "Select (Miejsce zakupu)"}, class:"form-control  form-control-sm" %>
       </div>
-      <div style="float:right; margin-top:7%">
+    </div>
+    <div class="col field">
+      <div style="float:left; margin-top:7%">
         <%= link_to 'Nowe miejsce zakupu', new_bought_path, class:"btn btn-sm btn-primary", style:"float:left" %>
       </div>
     </div>
@@ -59,8 +59,15 @@
     </div>
 
     <div class="col field">
-      <%= form.label :Ilość %>
-      <%= form.number_field :quantity, class:"form-control form-control-sm" %>
+      <div style="max-width: 60%; float: left;">
+        <%= form.label :Ilość %>
+        <%= form.number_field :quantity, class:"form-control form-control-sm" %>
+      </div>
+      <div style="max-width: 40%; float: right;">
+        <%= form.label :unit %> <br/>
+        <% form.text_field :unit_quantity, class:"form-control form-control-sm" %>
+        <%= form.select :unit_quantity, (@unit_quantities.collect { |m| [m[0], m[0]] }), class:"form-control form-control-sm" %>
+      </div>
     </div>
     <div class="col field">
       <%= form.label :Sygnatura %>
@@ -112,13 +119,17 @@
         <div class="alert alert-danger" role="alert"><%= message %></div>
       <% end %> 
     </div>
-    <div class="col col-lg-9 field">
+    <div class="col col-lg-6 field">
       <%= form.label :description %>
       <%= form.text_area :description, class:"form-control form-control-sm", placeholder:"opis" %>
     </div>
     <div class="col field">
       <%= form.label :Status_sprzedaży %>
       <%= form.text_field :status_sell, class:"form-control form-control-sm", placeholder:"Status Sprzedaży" %>
+    </div>
+    <div class="col field" style="background: orange">
+      <%= form.label :visible %><br/>
+      <%= form.select :visible, [true, false], class:"form-control form-control-sm" %>
     </div>
   </div>
   <div class="field">
