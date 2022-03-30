@@ -53,6 +53,10 @@ class OrderItemsController < ApplicationController
       # @order_item.note_id = 0
     elsif (params[:pattern] == "BOND")
       @order_item.bond_id = params[:id_item]
+      @bond = Bond.find(params[:id_item])
+      @order_item.quantity = 1
+      @order_item.unit_quantity = @bond.unit_quantity
+      @order_item.final_price = @bond.price_sell
       # @order_item.coin_id = 0
       # @order_item.note_id = 0
     end
@@ -71,6 +75,9 @@ class OrderItemsController < ApplicationController
 
     @coins = Coin.where(:status => "FOR SELL")
     @coin_for_sell_list = @coins.sort_by {|coin| [coin.currency.country.country_en, coin.denomination]}
+
+    @bonds = Bond.where(:status => "FOR SELL")
+    @bond_for_sell_list = @bonds.sort_by {|bond| [bond.currency.country.country_en, bond.denomination]}
   end
 
   # POST /order_items or /order_items.json

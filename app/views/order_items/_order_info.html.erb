@@ -1,0 +1,9 @@
+<div class="jumbotron jumbotron-fluid mb-1 pb-1">
+  <div class="container">
+    <%#= $order.inspect %>
+    <b>Order Number: </b><%= $order[0].order_number %><br/>
+    <b>Customer: </b><%= $order[0].customer.name %> <%= $order[0].customer.lastname %><br/>
+    <b>Date Order: </b><%= $order[0].order_date %>
+<!--    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>-->
+  </div>
+</div>
