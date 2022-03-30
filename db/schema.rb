@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_26_221600) do
+ActiveRecord::Schema.define(version: 2022_03_29_105542) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "btree_gin"
@@ -59,6 +59,8 @@ ActiveRecord::Schema.define(version: 2022_03_26_221600) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "visible"
+    t.string "unit_quantity"
+    t.string "unit_currency"
     t.index ["currency_id"], name: "index_bonds_on_currency_id"
   end
 

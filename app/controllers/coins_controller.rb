@@ -164,7 +164,7 @@ class CoinsController < ApplicationController
     def coin_params
       params.require(:coin).permit(:currency_id, :date_buy, :bought, :denomination, :name_currency, :coin_date, :series,
                                    :diameter, :thickness, :weight, :signature_code, :price_buy, :price_sell, :quantity, :quality,
-                                   :status, :status_sell, :img_type, :composition, :description, :avers_path, :reverse_path, :unit_quantity,
+                                   :status, :status_sell, :img_type, :composition, :description, :avers_path, :reverse_path, :unit_quantity, :unit_currency,
                                    :visible)
     end
 end

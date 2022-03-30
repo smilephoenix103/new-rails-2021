@@ -66,6 +66,7 @@ class BondsController < ApplicationController
     @statuses = ElementSelect.statuses
     @makings = ElementSelect.makings
     @img_types = ElementSelect.img_types
+    @unit_quantities = ElementSelect.unit_quantities
 
     @country = @bond.currency.country
   end
@@ -94,6 +95,7 @@ class BondsController < ApplicationController
     @statuses = ElementSelect.statuses
     @img_types = ElementSelect.img_types
     @makings = ElementSelect.makings
+    @unit_quantities = ElementSelect.unit_quantities
     @country = @bond.currency.country
   end
 
@@ -111,6 +113,7 @@ class BondsController < ApplicationController
         @statuses = ElementSelect.statuses
         @makings = ElementSelect.makings
         @img_types = ElementSelect.img_types
+        @unit_quantities = ElementSelect.unit_quantities
         @country = @bond.currency.country
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @bond.errors, status: :unprocessable_entity }
@@ -130,6 +133,7 @@ class BondsController < ApplicationController
         @statuses = ElementSelect.statuses
         @makings = ElementSelect.makings
         @img_types = ElementSelect.img_types
+        @unit_quantities = ElementSelect.unit_quantities
         @country = @bond.currency.country
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @bond.errors, status: :unprocessable_entity }
@@ -154,6 +158,8 @@ class BondsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def bond_params
-      params.require(:bond).permit(:currency_id, :date_buy, :series, :bought, :denomination, :name_currency, :bond_date, :signature_code, :price_buy, :price_sell, :quantity, :quality, :making, :status, :status_sell, :description, :img_type, :avers_path, :reverse_path)
+      params.require(:bond).permit(:currency_id, :date_buy, :series, :bought, :denomination, :name_currency, :bond_date, :signature_code, :price_buy,
+                                   :price_sell, :quantity, :quality, :making, :status, :status_sell, :description, :img_type, :avers_path, :reverse_path,
+                                   :unit_quantity, :unit_currency, :visible)
     end
 end
