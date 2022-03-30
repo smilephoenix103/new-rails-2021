@@ -11,52 +11,78 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :order_id %>
-    <%= form.text_field :order_id, :readonly => true  %>
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+    <div class="col-2 field">
+      <%= form.label :order_id %>
+      <%= form.text_field :order_id, :readonly => true, class:"form-control form-control-sm" %>
+    </div>
+
+      <div class="col field">
+        <div style="max-width: 50%; float: left;">
+          <%= form.label :pattern %>
+          <%= form.text_field :pattern, :readonly => true, class:"form-control form-control-sm" %>
+        </div>
+        <div style="max-width: 50%; float: left;">
+          <% if @order_item.pattern == "NOTE" %>
+            <%= form.label :note_id %>
+            <%= form.text_field :note_id, :readonly => true, class:"form-control form-control-sm" %>
+          <% elsif @order_item.pattern == "COIN" %>
+            <%= form.label :coin_id %>
+            <%= form.text_field :coin_id, :readonly => true, class:"form-control form-control-sm" %>
+          <% elsif @order_item.pattern == "BOND" %>
+            <%= form.label :bond_id %>
+            <%= form.text_field :bond_id, :readonly => true, class:"form-control form-control-sm" %>
+          <% end %>
+        </div>
+      </div>
+  </div>
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+
+    <div class="col field">
+      <b>Quantity available</b>
+      <% if @order_item.pattern == "NOTE" %>
+        <input type="text"  value = <%= @order_item.note.quantity.to_s  + @order_item.note.unit_quantity %> readonly class="form-control form-control-sm" style="background: lightgray;">
+      <% elsif @order_item.pattern == "COIN" %>
+        <input type="text"  value = <%= @order_item.coin.quantity.to_s  + @order_item.coin.unit_quantity %> readonly class="form-control form-control-sm" style="background: lightgray;">
+      <% elsif @order_item.pattern == "BOND" %>
+        <input type="text"  value = <%= @order_item.bond.quantity.to_s  + @order_item.bond.unit_quantity %> readonly class="form-control form-control-sm" style="background: lightgray;">
+      <% end %>
+    </div>
+
+    <div class = "col field">
+      <div style="max-width: 60%; float: left;">
+        <%= form.label :quantity %>
+        <%= form.number_field :quantity, class:"form-control form-control-sm" %>
+      </div>
+
+      <div style="max-width: 40%; float: left;">
+        <%= form.label :unit %>
+        <%= form.text_field :unit_quantity, :readonly => true, class:"form-control form-control-sm" %>
+      </div>
+    </div>
+    <div class="col field">
+      <b>Price</b>
+      <%#= @order_item.inspect %>
+      <% if @order_item.pattern == "NOTE" %>
+        <input type="text"  value = <%= @order_item.note.price_sell %> readonly class="form-control form-control-sm" style="background: lightgray;">
+      <% elsif @order_item.pattern == "COIN" %>
+        <input type="text"  value = <%= @order_item.coin.price_sell %> readonly class="form-control form-control-sm" style="background: lightgray;">
+      <% elsif @order_item.pattern == "BOND" %>
+        <input type="text"  value = <%= @order_item.bond.price_sell %> readonly class="form-control form-control-sm" style="background: lightgray;">
+      <% end %>
+    </div>
+    <div class="col field">
+      <%= form.label :final_price %>
+      <%= form.text_field :final_price, class:"form-control form-control-sm" %>
+    </div>
+    <div class="col field">
+      <%= form.label :description %>
+      <%= form.text_area :description, class:"form-control form-control-sm" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :pattern %>
-    <%= form.text_field :pattern, :readonly => true  %>
-  </div>
-
-  <div class="field">
-    <%= form.label :quantity %>
-    <%= form.number_field :quantity %>
-  </div>
-
-  <div class="field">
-    <%= form.label :unit_quantity %>
-    <%= form.text_field :unit_quantity, :readonly => true  %>
-  </div>
-
-  <div class="field">
-    <%= form.label :final_price %>
-    <%= form.text_field :final_price %>
-  </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
-
-  <div class="field">
-    <%= form.label :note_id %>
-    <%= form.text_field :note_id, :readonly => true  %>
-  </div>
-
-  <div class="field">
-    <%= form.label :coin_id %>
-    <%= form.text_field :coin_id, :readonly => true  %>
-  </div>
-
-  <div class="field">
-    <%= form.label :bond_id %>
-    <%= form.text_field :bond_id, :readonly => true  %>
-  </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class:"btn btn-primary btn-sm"%>
   </div>
 <% end %>
