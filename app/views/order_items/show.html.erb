@@ -45,6 +45,8 @@
   <%= @order_item.bond_id %>
 </p>
 
-<%= link_to render('renders/button_edit'), edit_order_item_path(@order_item), class: "btn btn-primary btn-sm" %>
+<% if @order_item.order.order_status != "Close" %>
+  <%= link_to render('renders/button_edit'), edit_order_item_path(@order_item), class: "btn btn-primary btn-sm" %>
+<% end %>
 <%#= link_to 'Back', order_items_path %>
 <%= link_to render('renders/button_back'), order_order_items_path(@order_item.order_id), class: "btn btn-secondary  btn-sm" %>

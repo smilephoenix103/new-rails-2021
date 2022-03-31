@@ -25,27 +25,29 @@
   <tbody>
     <% @orders.each do |order| %>
       <tr>
-        <td><%= order.id %></td>
+        <td class="p-1 m-1"><%= order.id %></td>
 <!--        <td><%#= order.customer_id %></td>-->
-        <td style="font-size: 12px"><%= order.order_number %></td>
-        <td><%= order.order_date %></td>
-        <td><%= order.order_date_send %></td>
-        <td><%= order.order_status %></td>
-        <td><%= order.tracking_number %></td>
-        <td><%= order.shipment_type %></td>
-        <td><%= order.shipment_cost %></td>
+        <td class="p-1 m-1" style="font-size: 12px"><%= order.order_number %></td>
+        <td class="p-1 m-1"><%= order.order_date %></td>
+        <td class="p-1 m-1"><%= order.order_date_send %></td>
+        <td class="p-1 m-1"><%= order.order_status %></td>
+        <td class="p-1 m-1"><%= order.tracking_number %></td>
+        <td class="p-1 m-1"><%= order.shipment_type %></td>
+        <td class="p-1 m-1"><%= order.shipment_cost %></td>
 <!--        <td><%#= order.description %></td>-->
-        <td>
-          <%= link_to 'ITEMS', order_order_items_path(order) %>
+        <td class="p-1 m-1">
+          <%= link_to (render 'renders/button_add_order_small_icon'), order_order_items_path(order), class: "btn btn-primary btn-vsm" %>
           <%= link_to (render 'renders/button_show_small_icon'), order,
-                      {class:"btn btn-info btn-sm", 'data-toggle' => "modal", 'data-target' => "#" + "Order"+ order.id.to_s} %>
+                      {class:"btn btn-info btn-vsm", 'data-toggle' => "modal", 'data-target' => "#" + "Order"+ order.id.to_s} %>
 
           <div class="modal fade" id=<%= "Order" + order.id.to_s %> data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel">
             <%= render 'show_modal', order: order %>
           </div>
-          <%= link_to (render 'renders/button_edit_small_icon'), edit_order_path(order), class:"btn btn-sm btn-primary" %>
+          <%= link_to (render 'renders/button_edit_small_icon'), edit_order_path(order), class:"btn btn-vsm btn-primary" %>
         </td>
-        <td><%= link_to (render 'renders/button_delete_small_icon'), order, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger btn-sm" %></td>
+        <td class="p-1 m-1">
+          <%= link_to (render 'renders/button_delete_small_icon'), order, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger btn-vsm" %>
+        </td>
       </tr>
     <% end %>
   </tbody>

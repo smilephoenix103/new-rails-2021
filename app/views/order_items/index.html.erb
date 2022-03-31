@@ -3,7 +3,12 @@
 <%= render 'order_info' %>
 <div>
   <h1>Order Items</h1>
-  <%= link_to 'New Order Item', order_items_for_sell_path, class: "btn btn-primary btn-sm" %>
+  <%= link_to (render 'renders/button_back'), customer_orders_path($order[0].customer_id.inspect ), class: "btn btn-secondary btn-sm" %>
+  <% if @order_items.length == 0 %>
+    <%= link_to 'New Order Item', order_items_for_sell_path, class: "btn btn-primary btn-sm" %>
+  <% elsif @order_items[0].order.order_status != "Close" %>
+    <%= link_to 'New Order Item', order_items_for_sell_path, class: "btn btn-primary btn-sm" %>
+  <% end %>
 </div>
 
 
@@ -73,10 +78,14 @@
         <td class = "p-1 m-1"><%= order_item.bond_id %></td>
         <td class = "p-1 m-1" style = "width: 52px">
           <%= link_to render('renders/button_show_small_icon'), order_item, class: "btn btn-info btn-vsm" %>
-          <%= link_to render('renders/button_edit_small_icon'), edit_order_item_path(order_item), class: "btn btn-primary btn-vsm" %>
+          <% if order_item.order.order_status != "Close" %>
+            <%= link_to render('renders/button_edit_small_icon'), edit_order_item_path(order_item), class: "btn btn-primary btn-vsm" %>
+          <% end %>
         </td>
         <td class = "p-1 m-1">
-          <%= link_to render('renders/button_delete_small_icon'), order_item, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-vsm" %>
+          <% if order_item.order.order_status != "Close" %>
+            <%= link_to render('renders/button_delete_small_icon'), order_item, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-vsm" %>
+          <% end %>
         </td>
       </tr>
     <% end %>
