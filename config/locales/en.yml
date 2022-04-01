@@ -256,6 +256,12 @@ en:
             price_sell:
               blank: " - Can't be blank!"
               not_a_number: " - Is not a number"
+        bond:
+          atributes:
+            width:
+              not_a_number: " - Is not a number"
+            height:
+              not_a_number: " - Is not a number"
         signature:
           attributes:
             signature_cod:

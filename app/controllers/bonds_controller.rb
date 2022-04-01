@@ -160,6 +160,6 @@ class BondsController < ApplicationController
     def bond_params
       params.require(:bond).permit(:currency_id, :date_buy, :series, :bought, :denomination, :name_currency, :bond_date, :signature_code, :price_buy,
                                    :price_sell, :quantity, :quality, :making, :status, :status_sell, :description, :img_type, :avers_path, :reverse_path,
-                                   :unit_quantity, :unit_currency, :visible)
+                                   :unit_quantity, :unit_currency, :visible, :width, :height)
     end
 end

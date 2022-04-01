@@ -1,0 +1,70 @@
+<%#= render 'renders/data_ad', dateAdMod: @order_item.note %>
+<div class="jumbotron jumbotron-fluid mb-1 pb-1">
+  <div class="container row">
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-8">
+      <%= render 'renders/show_flag_country' %>
+    </div>
+    <div class="col-md-2">
+    </div>
+  </div>
+  <div class="container">
+    <div class="shadow" style="background: #dee2e6">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 pb-0 pt-0", style="font-size: small;">
+        <div class="col pb-0 pt-0">
+          <b>Denomination: </b><%= @order_item.note.denomination %> <%= @order_item.note.name_currency %>
+        </div>
+        <div class="col pb-0 pt-0">
+          <b>Year: </b><%= @order_item.note.note_date %>
+        </div>
+        <div class="col pb-0 pt-0">
+          <b>Currency Series: </b><%= @order_item.note.currency.currency_series %>
+        </div>
+
+      </div>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 pb-0 pt-0", style="font-size: small;">
+        <div class="col pb-0 pt-0">
+          <b>Quality: </b><%= @order_item.note.quality %>
+        </div>
+        <div class="col pb-0 pt-0">
+          <b>Making: </b><%= @order_item.note.making %>
+        </div>
+      </div>
+      <% if (@order_item.note.note_width != nil && @order_item.note.note_height != nil) %>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 pb-0 pt-0", style="font-size: small;">
+          <div class="col pb-0 pt-0">
+            <div class="pl-0" style="float: left">
+              <b>Width: </b><%= @order_item.note.note_width %><span>mm</span>
+            </div>
+            <div style="float: left;">
+              <b>Height: </b><%= @order_item.note.note_height %><span>mm</span>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 pb-0 pt-0", style="font-size: small;">
+        <div class="col pb-0 pt-0">
+          <b>Price Buy: </b><%= @order_item.note.price_buy %>
+        </div>
+        <div class="col pb-0 pt-0">
+          <b>Price Sell: </b><%= @order_item.note.price_sell %>
+        </div>
+        <div class="col pb-0 pt-0">
+          <b>Sell Quantity: </b><%= @order_item.quantity %><%= @order_item.unit_quantity %>
+        </div>
+        <div class="col pb-0 pt-0">
+          <b>Final Price: </b><%= @order_item.final_price %>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <% @avers = @order_item.note.avers_path %>
+      <% @reverse = @order_item.note.reverse_path %>
+      <hr class="my-1">
+      <%= render 'renders/show_image_lightbox' %>
+    </div>
+  </div>
+</div>
+<%#= @order_item.note.inspect %>

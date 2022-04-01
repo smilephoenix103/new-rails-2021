@@ -225,6 +225,12 @@ pl:
             price_sell:
               blank: " - Pole nie może być puste!"
               not_a_number: " - Podana wartość nie jest liczbą"
+        bond:
+          atributes:
+            width:
+              not_a_number: " - Podana wartość nie jest liczbą"
+            height:
+              not_a_number: " - Podana wartość nie jest liczbą"
         signature:
           attributes:
             signature_cod:

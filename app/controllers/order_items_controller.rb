@@ -19,6 +19,17 @@ class OrderItemsController < ApplicationController
 
   # GET /order_items/1 or /order_items/1.json
   def show
+    # @country = @note.currency.country
+    puts "===============================COUNTRY======================================="
+    if @order_item.pattern == "NOTE"
+      @country = @order_item.note.currency.country
+    elsif @order_item.pattern == "COIN"
+      @country = @order_item.coin.currency.country
+    elsif @order_item.pattern == "BOND"
+      @country = @order_item.bond.currency.country
+    end
+
+    puts "============================================================================="
   end
 
   # GET /order_items/new
@@ -41,6 +52,8 @@ class OrderItemsController < ApplicationController
       @order_item.quantity = 1
       @order_item.unit_quantity = @note.unit_quantity
       @order_item.final_price = @note.price_sell
+
+
       # @order_item.coin_id = 0
       # @order_item.bond_id = 0
     elsif (params[:pattern] == "COIN")
@@ -49,6 +62,7 @@ class OrderItemsController < ApplicationController
       @order_item.quantity = 1
       @order_item.unit_quantity = @coin.unit_quantity
       @order_item.final_price = @coin.price_sell
+
       # @order_item.bond_id = 0
       # @order_item.note_id = 0
     elsif (params[:pattern] == "BOND")
