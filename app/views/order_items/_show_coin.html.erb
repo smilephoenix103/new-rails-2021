@@ -1,0 +1,77 @@
+<%#= render 'renders/data_ad', dateAdMod: @order_item.coin %>
+<div class="jumbotron jumbotron-fluid mb-1 pb-1">
+  <div class="container row">
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-8">
+      <%= render 'renders/show_flag_country' %>
+    </div>
+    <div class="col-md-2">
+    </div>
+  </div>
+  <div class="container">
+    <div class="shadow" style="background: #dee2e6">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 pb-0 pt-0", style="font-size: small;">
+        <div class="col pb-0 pt-0">
+          <b>Denomination: </b><%= @order_item.coin.denomination %> <%= @order_item.coin.name_currency %>
+        </div>
+        <div class="col pb-0 pt-0">
+          <b>Year: </b><%= @order_item.coin.coin_date %>
+        </div>
+        <div class="col pb-0 pt-0">
+          <b>Currency Series: </b><%= @order_item.coin.currency.currency_series %>
+        </div>
+
+      </div>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 pb-0 pt-0", style="font-size: small;">
+        <div class="col pb-0 pt-0">
+          <b>Quality: </b><%= @order_item.coin.quality %>
+        </div>
+        <div class="col pb-0 pt-0">
+          <div class="pl-0 pt-0" style="float:left">
+            <b>Diameter: </b><%= @order_item.coin.diameter %><b>mm</b>
+          </div>
+          <div class="pl-0 pt-0" style="float:left">
+            <b>Thickness: </b><%= @order_item.coin.thickness %><b>mm</b>
+          </div>
+          <div class="pl-0 pt-0" style="float:left">
+            <b>Weight: </b><%= @order_item.coin.weight %><b>g</b>
+          </div>
+        </div>
+      </div>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 pb-0 pt-0", style="font-size: small;">
+        <div class="col pb-0 pt-0 pr-2 mr-5">
+          <label><b>Composition</b></label>
+          <textarea readonly style="resize: none;" rows="3" cols="24"><%= @order_item.coin.composition %></textarea>
+        </div>
+        <div class="col pb-0 pt-0 pr-2 mr-5">
+          <label><b>Description</b></label>
+          <textarea readonly style="resize: none;" rows="3" cols="24"><%= @order_item.coin.description %></textarea>
+        </div>
+      </div>
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 pb-0 pt-0", style="font-size: small;">
+        <div class="col pb-0 pt-0">
+          <b>Price Buy: </b><%= @order_item.coin.price_buy %>
+        </div>
+        <div class="col pb-0 pt-0">
+          <b>Price Sell: </b><%= @order_item.coin.price_sell %>
+        </div>
+        <div class="col pb-0 pt-0">
+          <b>Sell Quantity: </b><%= @order_item.quantity %><%= @order_item.unit_quantity %>
+        </div>
+        <div class="col pb-0 pt-0">
+          <b>Final Price: </b><%= @order_item.final_price %>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <% @avers = @order_item.coin.avers_path %>
+      <% @reverse = @order_item.coin.reverse_path %>
+      <hr class="my-1">
+      <%= render 'renders/show_image_lightbox' %>
+    </div>
+  </div>
+</div>
+<%#= @order_item.coin.inspect %>

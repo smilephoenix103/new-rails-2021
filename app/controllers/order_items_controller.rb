@@ -12,7 +12,13 @@ class OrderItemsController < ApplicationController
 
     puts $order[0].id
     @order_items = OrderItem.where(order_id: $order[0].id )
-    puts @order_items.inspect
+    @order_total_price = 0
+    @order_items.each do |o|
+      puts o.final_price * o.quantity
+      @order_total_price += o.final_price * o.quantity
+    end
+    puts @order_total_price
+    # puts @order_items.inspect
     # puts $order.inspect
     puts "***********&&&&&&&&&&&&&&&&&&&& END &&&&&&&&&&&&&&&&&&&&&**************"
   end
